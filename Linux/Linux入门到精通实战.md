@@ -93,7 +93,7 @@ Linux是一套免费使用和自由传播的[类UNIX](http://baike.baidu.com/ite
 
 人生最可怕的是在自以为舒适的地方待得太久，等到外界改变来的时候，已经晚了，我们不能像温水煮青蛙一样，待在温水里，没有觉察到周围事物的变化，最终被社会所淘汰,如图1-1所示。
 
-![图1-1 温水煮青蛙](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855188.jpg)
+![图1-1 温水煮青蛙](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053861940.jpg)
 
 ## Linux操作系统简介
 
@@ -186,7 +186,7 @@ Linux内核版本命名在不同的时期有其不同的命名规范，其中在
 
 从Linux内核1994年发布1.0发布到目前主流2.6、3.X版本，4.X属于开发调试阶段，查看Linux操作系统内核如图1-2所示：
 
-![图1-2操作系统内核](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855191.png)
+![图1-2操作系统内核](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053861937.png)
 
 Linux内核命名格式为 “R.X.Y-Z”，其中R、X、Y、Z命名意义如下：
 
@@ -197,7 +197,7 @@ Linux内核命名格式为 “R.X.Y-Z”，其中R、X、Y、Z命名意义如下
 
 官网内核版本如图1-3所示，Mainline表示主线开发版本，Stable表示稳定版本，稳定版本主要由mainline测试通过而发布。Longterm表示长期支持版，会持续更新及Bug修复，如果长期版本被标记为EOL（End of Life），则表示不再提供更新。
 
-![ 图1-3官网内核版本](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855172.png)
+![ 图1-3官网内核版本](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053861947.png)
 
 # 第二章 Linux发展及系统安装
 
@@ -209,7 +209,7 @@ Linux内核命名格式为 “R.X.Y-Z”，其中R、X、Y、Z命名意义如下
 
 权威部门统计，未来几年内我国软件行业的从业机会十分庞大，中国每年对IT软件人才的需求将达到200万人左右。而对于Linux专业人才的就业前景，更是广阔；据悉在未来5-10年内Linux专业人才的需求将达到150万，尤其是有Linux行业经验的，资深的Linux工程师非常缺乏，薪资也非常诱人，平均月薪15000-25000，甚至更高，Linux行业薪资如图2-1所示：
 
-![图2-1 Linux行业薪资](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855216.png)
+![图2-1 Linux行业薪资](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053861942.png)
 
 ## Windows操作系统简介
 
@@ -278,43 +278,43 @@ Linux 系统安装中规定，同样每块硬盘设备最多只能分 4个主分
 -   [VMware workstation 10.0](http://www.xp510.com/xiazai/ossoft/desktools/22610.html)
 -   CentOS7 x86_64
 
-![图2-2 VMware Workstation图标](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855190.png)
+![图2-2 VMware Workstation图标](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053861945.png)
 
 2.  双击桌面VMware Workstation图标打开虚拟机软件，单击“创建新的虚拟机”，如图2-3所示：
 
-![图2-3 VMware Workstation创建虚拟机](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855198.png)
+![图2-3 VMware Workstation创建虚拟机](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053861951.png)
 
 3.  新建虚拟机向导，选择自定义（高级）（C）选项，如图2-4所示：
 
-![图2-4 创建虚拟机向导](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855174.png)
+![图2-4 创建虚拟机向导](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053861956.png)
 
 4.  安装客户机操作系统，选择“稍后安装操作系统（S）”，如图2-5所示:
 
-![图2-5 安装客户机操作系统](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855176.png)
+![图2-5 安装客户机操作系统](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053861953.png)
 
 5.  选择客户机操作系统，由于我们即将安装CentOS7操作系统，所以需要勾选“Linux（L）”，同时版本（V）选择“CentOS64位”，如图2-6所示：
 
-![图2-6 操作系统版本](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855179.png)
+![图2-6 操作系统版本](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053861962.png)
 
 6.  虚拟机内存设置，默认为1024MB，如图2-7所示：
 
-![图2-7 虚拟机内存分配](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855207.png)
+![图2-7 虚拟机内存分配](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053861968.png)
 
 7.  选择虚拟机网络类型，此处选择-网络连接为-“使用桥接模式”，如图2-8所示：
 
-![图2-8 虚拟机网络类型](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855194.png)
+![图2-8 虚拟机网络类型](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053861958.png)
 
 8.  指定磁盘容量，设置虚拟机硬盘大小为40GB，将虚拟磁盘拆分成多个文件，如下图2-9所示：
 
-![图2-9设置虚拟机磁盘容量](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855200.png)
+![图2-9设置虚拟机磁盘容量](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053861966.png)
 
 9.  虚拟机硬件资源创建完成，设备详情里面包括计算机常用设备，例如内存、处理器、硬盘、CD/DVD、网络适配器等，如图2-10所示：
 
-![图2-10虚拟机裸机设备](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855205.png)
+![图2-10虚拟机裸机设备](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053861971.png)
 
 10.  将CentOS7 ISO系统镜像文件添加至虚拟机CD/DVD中，双击虚拟机“CD/DVD（IDE）自动检测”选项，选择CentOS-7-x86_64-DVD-1511.iso镜像文件，如图2-11所示：
 
-![图2-11选择系统安装镜像](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855473.png)
+![图2-11选择系统安装镜像](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053861974.png)
 
 ## Linux系统安装图解
 
@@ -322,31 +322,31 @@ Linux 系统安装中规定，同样每块硬盘设备最多只能分 4个主分
 
 1.  如图2-12所示，光标选择Install CentOS 7，直接按Enter键进行系统安装。
 
-![图2-12选择安装菜单](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855219.png)
+![图2-12选择安装菜单](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053861980.png)
 
 2.  继续按Enter键启动安装进程，进入光盘检测，按Esc键跳过检测，如图2-13所示：
 
-![图2-13跳过ISO镜像检测](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855203.png)
+![图2-13跳过ISO镜像检测](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053861976.png)
 
 3.  CentOS7欢迎界面，选择安装过程中界面显示的语言，初学者可以选择“简体中文”或者默认English，如图2-14所示：
 
-![图2-14选择安装过程语言](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855209.png)
+![图2-14选择安装过程语言](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053861984.png)
 
 4.  CentOS7 Installation Summary安装总览界面，如图2-15所示：
 
-![图2-15 Installation Summary界面](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855469.png)
+![图2-15 Installation Summary界面](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053861990.png)
 
 5.  选择“I will configure partioning.”，单击Done，如图2-16所示：
 
-![图2-16 磁盘分区方式选择](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855212.png)
+![图2-16 磁盘分区方式选择](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053861987.png)
 
 6.  下拉框选择“Standard Partition”，选择+号，创建分区，如图2-17所示：
 
-![图2-17 磁盘分区类型选择](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855275.png)
+![图2-17 磁盘分区类型选择](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053861993.png)
 
 7.  Linux操作系统分区与Windows操作系统分区C盘、D盘有很大区别，Liunx操作系统是采用树形的文件系统管理方式，所有的文件存储以/（根）开始，如图2-18所示。
 
-![图2-18 Linux文件系统目录结构](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855740.png)
+![图2-18 Linux文件系统目录结构](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862210.png)
 
 Linux是以文件的方式存储，例如/dev/sda代表整块硬盘，/dev/sda1表示硬盘第一分区，/dev/sda2表示硬盘第二分区，为了能将目录和硬盘分区关联，所以Linux采用挂载点的方式来关联磁盘分区，/boot目录、/根目录、/data目录跟磁盘管理后，称之为分区，每个分区功能如下：
 
@@ -357,31 +357,31 @@ Linux是以文件的方式存储，例如/dev/sda代表整块硬盘，/dev/sda1�
 
 如图2-19所示，创建/boot分区并挂载，分区大小为200MB：
 
-![图2-19 创建/boot分区](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855227.png)
+![图2-19 创建/boot分区](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862216.png)
 
 单击“Add mount point”即可，磁盘分区默认文件系统类型为XFS，根据如上方法，依次创建swap分区，大小为2048MB，创建/分区，大小为剩余所有空间，最终如图2-20所示：
 
-![图2-20 磁盘完整分区](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855222.png)
+![图2-20 磁盘完整分区](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862217.png)
 
 8.  选择SOFTWARE SELECTION，设置为Minimal Install最小化安装，如果后期需要开发包、开发库等软件，可以在系统安装完后，根据需求安装即可，如图2-21所示:
 
-![图2-21 选择安装的软件](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855457.png)
+![图2-21 选择安装的软件](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862224.png)
 
 9.  操作系统时区选择，选择Asia-Shanghai，关闭Network Time，如图2-22所示：
 
-![图2-22 操作系统时区选择](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855459.png)
+![图2-22 操作系统时区选择](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862222.png)
 
 10.  以上配置完毕后，单击“Begin Installation”，单击“Root PASSWORD”设置Root用户密码，如图2-23所示，如果需要新增普通用户，可以单击“USER CREATEION”进行创建即可。
 
-![图2-23 设置ROOT用户密码](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855463.png)
+![图2-23 设置ROOT用户密码](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862219.png)
 
 11.  安装进程完毕，单击“Reboot”重启系统，如图2-24所示：
 
-![图2-24 系统安装完毕](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855466.png)
+![图2-24 系统安装完毕](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862227.png)
 
 12.  重启CentOS 7 Linux操作系统，进入Login登录界面，“localhost login:”处输入root，按Enter键，然后“Password：”处输入系统安装时设定的密码，输入密码时不会提示，密码输入完按Enter键，即可登录CentOS 7 Linux操作系统，默认登录的终端称为Shell终端，所有的后续操作指令均在Shell终端上执行，默认显示字符提示[root\@localhost\~]\#，其中\#代表当前是root用户登录，如果是\$表示当前为普通用户。如图2-25所示：
 
-![图2-25 Login登录系统界面](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855461.png)
+![图2-25 Login登录系统界面](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862230.png)
 
 ## 菜鸟学好Linux大绝招
 
@@ -443,7 +443,7 @@ Linux系统安装完毕，需要对Linux系统进行管理和维护，让Linux�
 
 在MBR硬盘中，硬盘分区信息直接存储于[主引导记录](http://baike.baidu.com/item/%E4%B8%BB%E5%BC%95%E5%AF%BC%E8%AE%B0%E5%BD%95)（MBR）中，同时主引导记录还存储着系统的[引导程序](http://baike.baidu.com/item/%E5%BC%95%E5%AF%BC%E7%A8%8B%E5%BA%8F)，如图3-1所示：
 
-![图3-1 MBR分区表内容](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855607.png)
+![图3-1 MBR分区表内容](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862233.png)
 
 MBR是计算机启动最先执行的硬盘上的程序，只有512字节大小，所以不能载入[操作系统](https://www.baidu.com/s?wd=%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F&tn=44039180_cpr&fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1YznWf3m1nzP1fYm16vnhwh0ZwV5Hcvrjm3rH6sPfKWUMw85HfYnjn4nH6sgvPsT6KdThsqpZwYTjCEQLGCpyw9Uz4Bmy-bIi4WUvYETgN-TLwGUv3En1RYP1cvn10L)的核心，只能先载入一个可以载入计算机核心的程序，我们称之为引导程序。
 
@@ -461,7 +461,7 @@ PMBR的作用是当使用不支持GPT的分区工具时，整个硬盘将显示�
 
 GPT优点支持2T以上磁盘，如果使用Fdisk分区，最大只能建立2TB大小的分区，创建大于2TB的分区，需使用parted，同时必须使用64位操作系统，Mac、Linux系统都能支持GPT分区格式，Windows 7/8 64bit、Windows Server 2008 64bit支持GPT。图3-2所示，为GPT硬盘分区表内容：
 
-![图3-2 GPT分区表内容](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855568.png)
+![图3-2 GPT分区表内容](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862235.png)
 
 ### GRUB
 
@@ -469,7 +469,7 @@ GNU项目的多操作系统启动程序（GRand Unified Bootloader，GRUB），�
 
 GRUB可用于选择[操作系统](http://baike.baidu.com/view/880.htm)分区上的不同[内核](http://baike.baidu.com/view/1366.htm)，也可用于向这些[内核](http://baike.baidu.com/view/1366.htm)传递启动参数。它是一个多重[操作系统](http://baike.baidu.com/view/880.htm)启动管理器。用来引导不同系统，如Windows，Linux。Linux常见的引导程序包括：LILO、GRUB、GRUB2，CentOS 7 Linux默认使用GRUB2引导程序，引导系统启动。如图3-3所示为GRUB加载引导流程：
 
-![图3-3 GRUB引导流程](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855476.png)
+![图3-3 GRUB引导流程](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862237.png)
 
 GRUB2是基于GRUB开发成更加安全强大的多系统引导程序，最新[Linux](http://lib.csdn.net/base/linux)发行版都是使用GRUB2作为引导程序。同时GRUB2采用了模块化设计，使得GRUB2核心更加精炼，使用更加灵活，同时也就不需要像GRUB分为stage1,stage1.5,stage2三个阶段。
 
@@ -477,7 +477,7 @@ GRUB2是基于GRUB开发成更加安全强大的多系统引导程序，最新[L
 
 初学者对Linux操作系统启动流程的理解，能有助于后期在企业中更好的维护Linux服务器，能快速定位系统问题，进而解决问题。Linux操作系统启动流程如图3-4所示：
 
-![图3-4 系统启动流程](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855471.png)
+![图3-4 系统启动流程](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862240.png)
 
 1.  加载BIOS
 计算机电源加电质检，首先加载基本输入输出系统（Basic Input Output System，BIOS），BIOS中包含硬件CPU、内存、硬盘等相关信息，包含设备启动顺序信息、硬盘信息、内存信息、时钟信息、即插即用（Plug-and-Play，PNP）特性等。加载完BIOS信息，计算机将根据顺序进行启动。
@@ -511,17 +511,17 @@ GRUB启动引导器是计算机启动过程中运行的第一个软件程序，�
 8.  启动运行级别程序
 根据之前读取的运行级别，操作系统会运行rc0.d到rc6.d中的相应的脚本程序，来完成相应的初始化工作和启动相应的服务。其中以S开头表示系统即将启动的程序，如果以K开头，则代表停止该服务。S和K后紧跟的数字为启动顺序编号。如图3-5所示：
 
-![图3-5 运行级别服务](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855479.png)
+![图3-5 运行级别服务](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862255.png)
 
 9.  读取rc.local文件
 操作系统启动完相应服务之后，会读取执行/etc/rc.d/rc.local文件，可以将需要开机启动的任务加入到该文件末尾，系统会逐行去执行并启动相应命令，如图3-6所示：
 
-![图3-6 开机运行加载文件](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855750.png)
+![图3-6 开机运行加载文件](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862242.png)
 
 10.  执行/bin/login程序
 执行/bin/login程序，启动到系统登录界面，操作系统等待用户输入用户名和密码，即可登录到Shell终端，如图3-7所示，输入用户名、密码即可登录Linux操作系统，至此Linux操作系统完整流程启动完毕。
 
-![图3-7 系统登录界面](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855482.png)
+![图3-7 系统登录界面](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862257.png)
 
 ## TCP/IP协议概述
 
@@ -534,11 +534,11 @@ TCP负责发现[传输](http://baike.baidu.com/view/389471.htm)的问题，一�
 
 基于TCP/IP的参考模型将协议分成四个层次，它们分别是网络接口层、网际互连层（IP层）、[传输层](http://baike.baidu.com/view/239605.htm)（TCP层）和应用层。如图3-9为TCP/IP跟OSI参考模型层次的对比：
 
-![图3-9 ISO7层模型与TCP/IP四层对比](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855492.png)
+![图3-9 ISO7层模型与TCP/IP四层对比](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862259.png)
 
 OSI模型与TCP/IP模型协议功能实现对照表，如图3-10所示：
 
-![图3-10 ISO7层模型与TCP/IP层次功能对比](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855495.png)
+![图3-10 ISO7层模型与TCP/IP层次功能对比](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862306.png)
 
 ## IP地址及网络常识
 
@@ -552,7 +552,7 @@ IPV4有4段数字，每一段最大不超过255。由于互联网的蓬勃发展
 
 地址空间的不足必将妨碍互联网的进一步发展。为了扩大[地址空间](http://baike.baidu.com/view/1507129.htm)，拟通过IPv6重新定义地址空间。IPv6采用128位地址长度。在IPv6的设计过程中除了一劳永逸地解决了地址短缺问题以外，IPV6的诞生可以给全球每一粒沙子配置一个IP地址，还考虑了在IPv4中解决不好的其它问题，如图3-11所示：
 
-![图3-11 IPV4与IPV6地址](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855497.png)
+![图3-11 IPV4与IPV6地址](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862261.png)
 
 ### **IP地址分类**
 
@@ -655,7 +655,7 @@ GATEWAY=192.168.1.1 \#网关地址
 CentOS 7 Linux中，如果没有ifconfig命令，可以用`ip addr list/show`查看，也可以安装ifconfig命令，需安装软件包net-tools，命令如图3-12所示：
 `yum install net-tools -y`
 
-![图3-12 YUM安装net-tools工具](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855550.png)
+![图3-12 YUM安装net-tools工具](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862317.png)
 
 ## Linux系统配置DNS
 
@@ -673,7 +673,7 @@ nameserver 8.8.8.8
 可以 `ping -c 6 www.baidu.com`
 查看返回结果，如果有IP返回，则表示服务器DNS配置正确，如图3-13所示：
 
-![图3-13 ping命令返回值](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855560.png)
+![图3-13 ping命令返回值](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862318.png)
 
 ## Linux网卡名称命名
 
@@ -682,20 +682,20 @@ CentOS7服务器，默认网卡名为ifcfg-eno16777736，如果我们想改成if
 1.  编辑/etc/sysconfig/grub文件，命令为`vi /etc/sysconfig/grub`，在倒数第二行quiet后加入如下代码，并如图3-14所示：
 `net.ifnames=0 biosdevname=0`
 
-![图3-14 网卡配置ifnames设置](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855564.png)
+![图3-14 网卡配置ifnames设置](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862518.png)
 
 2.  执行命令`grub2-mkconfig -o /boot/grub2/grub.cfg`，生成新的grub.cfg文件，如图3-15所示：
 `grub2-mkconfig -o /boot/grub2/grub.cfg`
 
-![图3-15 生成新的grub.cnf文件](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855566.png)
+![图3-15 生成新的grub.cnf文件](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862520.png)
 
 3.  重命名网卡名称，执行命令`mv ifcfg-eno16777736 ifcfg-eth0`，修改ifcfg-eth0文件中DEVICE= eno16777736为DEVICE=eth0，如图3-16所示：
 
-![图3-16 重命名网卡名称](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855949.png)
+![图3-16 重命名网卡名称](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862522.png)
 
 4.  重启服务器，并验证网卡名称是否为eth0，Reboot完后，如图3-17所示：
 
-![图3-17 验证网卡设备名称](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856343.png)
+![图3-17 验证网卡设备名称](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862525.png)
 
 ## CentOS7密码重置
 
@@ -703,27 +703,27 @@ CentOS7服务器，默认网卡名为ifcfg-eno16777736，如果我们想改成if
 
 1.  Reboot重启系统，系统启动进入欢迎界面，加载内核步骤时，按e，然后选中“CentOS Linux （3.10.0-327.e17.x86_64）7 （Core）”，如图3-18所示：
 
-![图3-18 内核菜单选择界面](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855739.png)
+![图3-18 内核菜单选择界面](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862529.png)
 
 2.  继续按e进入编辑模式，找到ro crashkernel=auto xxx项，将ro改成rw init=/sysroot/bin/sh，如图3-19所示：
 
-![图3-19 内核编辑界面](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855742.png)
+![图3-19 内核编辑界面](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862527.png)
 
 3.  修改为后如图3-20所示：
 
-![图3-20 内核编辑界面](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855746.png)
+![图3-20 内核编辑界面](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862532.png)
 
 4.  按ctrl+x按钮进入单用户模式，如图3-21所示：
 
-![图3-21 进入系统单用户模式](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855744.png)
+![图3-21 进入系统单用户模式](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862535.png)
 
 5.  执行命令chroot /sysroot访问系统，并使用passwd修改root密码，如图3-22所示：
 
-![图3-22 修改ROOT用户密码](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855748.png)
+![图3-22 修改ROOT用户密码](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862537.png)
 
 6.  更新系统信息，`touch /.autorelabel`，执行命令`touch /.autorelabel`，在/目录下创建一个.autorelabel文件，如果该文件存在，系统在重启时就会对整个文件系统进行relabeling重新标记，可以理解为对文件进行底层权限的控制和标记，如果seLinux属于disabled关闭状态则不需要执行这条命令，如图3-23所示：
 
-![图3-23 创建autorelabel文件](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855752.png)
+![图3-23 创建autorelabel文件](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862539.png)
 
 ## 远程管理Linux服务器
 
@@ -744,11 +744,11 @@ CentOS7服务器，默认网卡名为ifcfg-eno16777736，如果我们想改成if
 
 单击下方的“连接”，会提示输入密码，输入root用户对应密码即可。
 
-![图3-24 SecureCRT远程Linux服务器](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855754.png)
+![图3-24 SecureCRT远程Linux服务器](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862544.png)
 
 通过SecureCRT远程连接Linux服务器之后，会发现如图3-25所示界面，与服务器本地操作界面一样，在命令行可以执行命令，操作结果与在服务器现场操作是一样。
 
-![图3-25 SecureCRT远程Linux服务器](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856024.png)
+![图3-25 SecureCRT远程Linux服务器](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862542.png)
 
 ## Linux系统目录功能
 
@@ -756,7 +756,7 @@ CentOS7服务器，默认网卡名为ifcfg-eno16777736，如果我们想改成if
 
 Linux主要树结构目录包括：/、/root、/home、/usr、/bin、/tmp、/sbin、/proc、/boot等，如图3-26所示，为典型的Linux目录结构如下：
 
-![图3-26 Linux目录树形结构](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855886.png)
+![图3-26 Linux目录树形结构](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862579.png)
 
 Linux系统中常见目录功能如下：
 
@@ -822,7 +822,7 @@ cd ./test表示以当前目录为参考，表示相对于当前
 而cd /home/test表示完整的路径，理解为绝对路径
 
 如图4-1所示：
-![图4-1 Linux cd命令操作](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855757.png)
+![图4-1 Linux cd命令操作](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862580.png)
 
 ## ls命令详解
 
@@ -860,7 +860,7 @@ ls命令主要用于浏览目录下的文件或者文件夹，使用方法参考
 
 pwd命令主要用于显示或者查看当前所在的目录路径，如图4-2所示：
 
-![图4-2 pwd命令查看当前目录](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855759.png)
+![图4-2 pwd命令查看当前目录](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862582.png)
 
 ## mkdir命令详解
 
@@ -1034,7 +1034,7 @@ echo -e "\\033\[31mUsage: { /bin/sh \$0 1\|2\|3\|4\|help}\\033\[0m"
 
 执行结果如图4-3所示：
 
-![图4-3 echo –e颜色打印](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855760.png)
+![图4-3 echo –e颜色打印](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862626.png)
 
 ## df命令详解
 
@@ -1079,7 +1079,7 @@ Vim强大的编辑能力中很大部分是来自于其普通模式命令。vim�
 
 如图4-4为vim与键盘键位功能对应关系：
 
-![图4-4 vim与键盘位置对应关系](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052855883.png)
+![图4-4 vim与键盘位置对应关系](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862628.png)
 
 ## VIM编辑器模式
 
@@ -1319,7 +1319,7 @@ Linux权限授权，默认是授权给三种角色，分别是user、group、oth
 在Linux系统中，可以通过ls –l查看jfedu.net目录的详细属性，如图5-1所示：
 `drwxrwxr-x 2 jfedu1 jfedu1 4096 Dec 10 01:36 jfedu.net`
 
-![图5-1 Linux jfedu.net目录详细属性](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856348.png)
+![图5-1 Linux jfedu.net目录详细属性](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862630.png)
 
 jfedu.net目录属性参数详解如下：
 
@@ -1425,7 +1425,7 @@ r--=100=4+0+0=4
 
 4.  小王公司服务器，使用Root用户通过SecureCRT远程登陆后，如图5-3所示，发现登录终端变成bash-4.1\#，是什么原因导致？以及如何修复为正常的登录SHELL环境，请写出答案。
 
-![图5-3 SecureCRT登录Linux系统界面](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856017.png)
+![图5-3 SecureCRT登录Linux系统界面](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862633.png)
 
 # 第六章 Linux软件包企业实战
 
@@ -1559,14 +1559,14 @@ Tar命令工具除了用于日常打包、解压源码包或者压缩包之外�
 
 1.  /root目录创建jingfeng文件夹，同时在jingfeng文件夹中，新建jf1.txt，jf2.txt文件，如图6-1所示：
 
-![图6-1 创建jingfeng目录及文件](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856008.png)
+![图6-1 创建jingfeng目录及文件](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862685.png)
 
 2.  使用tar命令第一次完整备份jingfeng文件夹中的内容，-g指定快照snapshot文件，第一次没有该文件则会自动创建，如图6-2所示：
 
 `cd /root/jingfeng/`
 `tar -g /data/backup/snapshot -czvf /data/backup/2019jingfeng.tar.gz`
 
-![图6-2 tar备份jingfeng目录中文件](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856012.png)
+![图6-2 tar备份jingfeng目录中文件](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862775.png)
 
 3.  使用tar命令第一次完整备份jingfeng文件夹中之后，会生成快照文件：/data/backup/snapshot，后期增量备份会以snapshot文件为参考，在jingfeng文件夹中再创建jf3.txt ,jf4.txt文件，然后通过tar命令增量备份jingfeng目录所有内容，如图6-3所示：
 ```
@@ -1575,7 +1575,7 @@ touch jf3.txt jf4.txt
 tar -g /data/backup/snapshot -czvf /data/backup/2019jingfeng_add1.tar.gz *
 ```
 
-![图6-3 tar增量备份jingfeng目录中文件](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856116.png)
+![图6-3 tar增量备份jingfeng目录中文件](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862782.png)
 
 如上图6-3所示，增量备份时，需-g指定第一次完整备份的快照snapshot文件，同时增量打包的文件名不能跟第一次备份后的文件名重复，通过 tar –tf 可以查看打包后的文件内容。
 
@@ -1678,12 +1678,12 @@ ZIP企业案例演示：
 1.  通过zip工具打包jingfeng文件夹中所有内容，如图6-4所示：
 `zip -rv jingfeng.zip /root/jingfeng/`
 
-![图6-4 zip对jingfeng目录打包备份](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856236.png)
+![图6-4 zip对jingfeng目录打包备份](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862777.png)
 
 2.  通过zip工具打包jingfeng文件夹中所有内容，排除部分文件，如图6-5所示：
 `zip -rv jingfeng.zip \* -x jf1.txt zip -rv jingfeng.zip \* -x jf2.txt -x jf3.txt`
 
-![图6-5 zip对jingfeng目录打包备份，排除部分文件](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856238.png)
+![图6-5 zip对jingfeng目录打包备份，排除部分文件](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862779.png)
 
 3.  通过zip工具删除jingfeng.zip中jf3.txt文件，如图6-6所示
 `zip jingfeng.zip -d jf3.txt`
@@ -1691,7 +1691,7 @@ ZIP企业案例演示：
 4.  通过unzip工具解压jingfeng.zip文件夹中所有内容，如图6-6所示：
 `unzip jingfeng.zip unzip jingfeng.zip -d /data/backup/ 可以-d指定解压后的目录`
 
-![图6-6 unzip对jingfeng目录解压](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856239.png)
+![图6-6 unzip对jingfeng目录解压](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862784.png)
 
 ## 源码包软件安装
 
@@ -1771,31 +1771,31 @@ YUM \[command] \[package] -y\|-q 其中的\[options]是可选。
 
 1.  基于CentOS 7 Linux，执行命令yum install httpd -y，安装httpd服务，如图6-7所示：
 
-![图6-7 YUM 安装httpd软件](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856245.png)
+![图6-7 YUM 安装httpd软件](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862787.png)
 
 2.  执行命令yum grouplist，检查groupinstall的软件组名，如图6-8所示：
 
-![图6-8 YUM Grouplist显示组安装名称](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856241.png)
+![图6-8 YUM Grouplist显示组安装名称](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862789.png)
 
 3.  执行命令yum groupinstall "GNOME Desktop" -y，安装Linux图像界面，如图6-9所示:
 
-![图6-9 GNOME Desktop图像界面安装](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856243.png)
+![图6-9 GNOME Desktop图像界面安装](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862791.png)
 
 4.  执行命令yum install httpd php php-devel php-mysql mariadb mariadb-server -y，安装中小企业LAMP架构环境，如图6-10所示:
 
-![图6-10 LAMP中小企业架构安装](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856251.png)
+![图6-10 LAMP中小企业架构安装](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862794.png)
 
 5.  执行命令yum remove ntpdate -y，卸载ntpdate软件包，如图6-11所示:
 
-![图6-11 卸载NTPDATE软件](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856249.png)
+![图6-11 卸载NTPDATE软件](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862796.png)
 
 6.  执行命令yum provides rz或者yum provides "\*/rz"，查找rz命令的提供者，如图6-12所示：
 
-![图6-12 查找RZ命令的提供者](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856247.png)
+![图6-12 查找RZ命令的提供者](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862807.png)
 
 7.  执行命令yum update -y，升级Linux所有可更新的软件包或Linux内核升级，如图6-13所示：
 
-![图6-13 软件包升级或内核升级](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856660.png)
+![图6-13 软件包升级或内核升级](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862809.png)
 
 ## YUM优先级配置实战
 
@@ -1806,24 +1806,24 @@ YUM \[command] \[package] -y\|-q 其中的\[options]是可选。
 可以使用YUM优先级插件解决该问题，YUM提供的插件yum-plugin-priorities，直接YUM安装即可，命令如下：
 `yum install -y yum-plugin-priorities`
 
-![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856253.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862810.png)
 
 修改YUM源优先级配置文件，设置为Enabled，开启优先级插件，1为开启，0为禁止；
 
 vim /etc/yum/pluginconf.d/priorities.conf
 enabled = 1
 
-![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856256.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862852.png)
 
 vim 修改/etc/yum.repos./xx.repo文件，在base段中加入如下指令：（优先级为1表示优先被查找，越大其反而被后续查找）
 
 priority=1
 
-![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856258.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862859.png)
 
 基于YUM安装ntpdate软件，测试已经优先从163源中查找；
 
-![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856438.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862861.png)
 
 ## 基于ISO镜像构建YUM本地源
 
@@ -1834,7 +1834,7 @@ priority=1
 1.  将CentOS-7-x86_64-DVD-1511.iso镜像加载至虚拟机CD/DVD或者放入服务器CD/DVD光驱中，并将镜像文件挂载至服务器/mnt目录，如图6-14所示，挂载命令：
 `mount /dev/cdrom /mnt/`
 
-![图6-14 CentOS ISO镜像文件挂载](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856260.png)
+![图6-14 CentOS ISO镜像文件挂载](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862866.png)
 
 2.  备份/etc/yum.repos.d/CentOS-Base.repo文件为CentOS-Base.repo.bak，同时在/etc/yum.repos.d目录下创建media.repo文件，并写入如下内容：
 ```
@@ -1856,7 +1856,7 @@ gpgkey=file:///mnt/RPM-GPG-KEY-CentOS-7 指定载目录下的GPG-KEY文件验证
 
 1.  运行命令yum clean all清空YUM Cache，执行yum install screen –y安装screen软件如图6-15所示：
 
-![图6-15 YUM 安装Screen软件](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856332.png)
+![图6-15 YUM 安装Screen软件](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862863.png)
 
 2.  至此YUM光盘源构建完毕，在使用YUM源时，会遇到部分软件无法安装，原因是因为光盘中软件包不完整导致，同时光盘源只能本机使用，其他局域网服务器无法使用。
 
@@ -1874,7 +1874,7 @@ YUM光盘源默认只能本机使用，局域网其他服务器无法使用YUM�
 3.  使用Createrepo创建本地源，执行如下命令会在Centos目录生成repodata目录，目录内容如图6-16所示：
 `yum install createrepo\* -y cd /var/www/html createrepo centos/`
 
-![图6-16 Createrepo生成repodata目录](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856790.png)
+![图6-16 Createrepo生成repodata目录](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862874.png)
 
 4.  利用HTTP发布YUM本地源
 
@@ -1908,7 +1908,7 @@ enabled=1
 `yum clean all` 清空YUM Cache； 
 `yum install ntpdate -y` 安装NTPDATE软件。
 
-![图6-17 HTTP YUM源客户端验证](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856785.png)
+![图6-17 HTTP YUM源客户端验证](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053862919.png)
 
 ## YUM源端软件包扩展
 
@@ -1922,11 +1922,11 @@ enabled=1
 2.  Createrepo命令更新软件包，同理，如需新增其他软件包，同样把软件下载至本地，然后通过createrepo更新即可，如图6-18所示：
 `createrepo --update centos/`
 
-![图6-18 CreateRepo update更新软件包](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856433.png)
+![图6-18 CreateRepo update更新软件包](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053863009.png)
 
 3.  客户端YUM验证，安装NTFS-3G软件包，如图6-19所示：
 
-![图6-19 YUM INSTALL NTFS-3G软件包](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856541.png)
+![图6-19 YUM INSTALL NTFS-3G软件包](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053863011.png)
 
 ## 同步外网YUM源
 
@@ -1946,9 +1946,9 @@ yum repolist
 2.  通过reposync命令工具获取外网YUM源所有软件包，-r指定repolist id，默认不加-r表示获取外网所有YUM软件包，-p参数表示指定下载软件的路径，如图6-20（a）、图6-20（b）所示：
 `reposync -r base -p /var/www/html/centos/ reposync -r updates -p /var/www/html/centos/`
 
-![图6-20（a） Reposync获取外网YUM源软件包](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856436.png)
+![图6-20（a） Reposync获取外网YUM源软件包](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053863013.png)
 
-![图6-20（b） Reposync获取外网YUM源软件包](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856652.png)
+![图6-20（b） Reposync获取外网YUM源软件包](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053863017.png)
 
 3.  通过reposync工具下载完所有的软件包之后，需要执行createrepo更新本地YUM仓库：
 `createrepo /var/www/html/centos/`
@@ -1990,9 +1990,9 @@ FTP基于C/S模式，FTP客户端与服务器端有两种传输模式，分别�
 
 在企业实际环境中，如果FTP客户端与FTP服务端均开放防火墙，FTP需以主动模式工作，这样只需要在FTP服务器端防火墙规则中，开放20、21端口即可。关于防火墙配置后面章节会讲解。
 
-![图8-2（a） FTP主动模式](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856440.jpg)
+![图8-2（a） FTP主动模式](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053863015.jpg)
 
-![图8-2（b） FTP被动模式](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856537.jpg)
+![图8-2（b） FTP被动模式](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053863019.jpg)
 
 ### Vsftpd服务器简介
 
@@ -2009,7 +2009,7 @@ Vsftpd服务器端安装有两种方法，一是基于YUM方式安装，而是�
 1.  在命令行执行如下命令，如图8-3所示：
 `yum install vsftpd\* -y`
 
-![图8-3 YUM安装Vsftpd服务端](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856539.png)
+![图8-3 YUM安装Vsftpd服务端](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053863021.png)
 
 2.  打印vsftpd安装后的配置文件路径、启动Vsftpd服务及查看进程是否启动，如图8-4所示：
 ```
@@ -2018,7 +2018,7 @@ systemctl restart vsftpd.service
 ps -ef |grep vsftpd
 ```
 
-![图8-4 打印Vsftpd软件安装后路径](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856543.png)
+![图8-4 打印Vsftpd软件安装后路径](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053863023.png)
 
 3.  Vsftpd.conf默认配置文件详解如下：
 
@@ -2041,7 +2041,7 @@ tcp_wrappers=YES			    设置vsftpd与tcp wrapper结合进行主机的访问控�
 4.  启动Vsftpd服务后，通过Windows客户端资源管理器访问Vsftp服务器端，如图8-5所示：
 `ftp://192.168.111.131/`
 
-![图8-5 匿名用户访问FTP默认目录](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856650.png)
+![图8-5 匿名用户访问FTP默认目录](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053863025.png)
 
 FTP主被动模式，默认为主动模式，设置为被动模式使用端口方法如下：
 ```
@@ -2089,7 +2089,7 @@ tcp_wrappers=YES
 
 如上Vsftpd.conf配置文件配置完毕，同时权限设置完，重启vsftpd服务即可，通过Windows客户端访问，能够上传文件、删除文件、创建目录等操作，如图8-6所示：
 
-![图8-6 匿名用户访问上传文件](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856545.png)
+![图8-6 匿名用户访问上传文件](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053863040.png)
 
 ### Vsftpd系统用户配置
 
@@ -2126,9 +2126,9 @@ tcp_wrappers=YES
 
 3.  通过Windows资源客户端验证，使用jfedu1、jfedu2用户登录FTP服务器，即可上传文件、删除文件、下载文件，jfedu1、jfedu2系统用户上传文件的家目录在/home/jfedu1、/home/jfedu2下，如图8-7（a）、8-7（b）所示：
 
-![图8-7（a） jfedu1用户登录FTP服务器](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856547.png)
+![图8-7（a） jfedu1用户登录FTP服务器](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053863028.png)
 
-![图8-7（b） jfedu1登录FTP服务器上传文件](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856549.png)
+![图8-7（b） jfedu1登录FTP服务器上传文件](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053863042.png)
 
 ### Vsftpd虚拟用户配置
 
@@ -2241,9 +2241,9 @@ chown -R ftpuser:ftpuser /home/ftpuser
 
 重启Vsftpd服务，通过Windows客户端资源管理器登录Vsftpd服务端，测试结果如图8-8（a）、8-8（b）所示：
 
-![图8-8（a） jfedu001虚拟用户登录FTP服务器](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856552.png)
+![图8-8（a） jfedu001虚拟用户登录FTP服务器](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053863119.png)
 
-![图8-8（b） jfedu001虚拟用户上传下载文件](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856554.png)
+![图8-8（b） jfedu001虚拟用户上传下载文件](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053863129.png)
 
 # 第八章 Apache WEB服务器企业实战
 
@@ -2309,7 +2309,7 @@ make install
 
 Apache2.2.32安装完毕，如图10-1所示：
 
-![图10-1 Apache2.2.32安装图解](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856557.png)
+![图10-1 Apache2.2.32安装图解](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053863133.png)
 
 启动Apache服务，临时关闭selinux、firewalld防火墙：
 ```
@@ -2320,9 +2320,9 @@ systemctl stop firewalld.service
 
 查看Apache服务进程，通过客户端浏览器访问 `http://192.168.111.131/`，如图10-2（a）、10-2（b）所示：
 
-![图10-2（a） Apache启动及查看进程](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856559.png)
+![图10-2（a） Apache启动及查看进程](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053863552.png)
 
-![图10-2（b） 浏览器访问Apache WEB服务器](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856561.png)
+![图10-2（b） 浏览器访问Apache WEB服务器](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053863176.png)
 
 ## Apache虚拟主机企业应用
 
@@ -2337,7 +2337,7 @@ systemctl stop firewalld.service
 
 1.  创建虚拟主机配置文件httpd-vhosts.conf，该文件默认已存在，只需去掉httpd.conf配置文件中#号即可，如图10-3所示：
 
-![图10-3 httpd.conf配置文件开启虚拟主机](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856564.png)
+![图10-3 httpd.conf配置文件开启虚拟主机](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053863636.png)
 
 2.  配置文件/usr/local/apache2/conf/extra/httpd-vhosts.conf中代码设置为如下：
 ```
@@ -2386,13 +2386,13 @@ echo  "<h1> www.jf2.com  Pages</h1>" >/usr/local/apache2/htdocs/jf2/index.html
 193.192.168.111.131 www.jf2.com
 ```
 
-![图10-4 Windows主机Hosts配置](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856649.png)
+![图10-4 Windows主机Hosts配置](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053863727.png)
 
 5.  浏览器访问 `www.jf1.com`、`www.jf2.com`如图10-5（a）、10-5（b）所示，至此Apache基于多域名虚拟主机配置完毕，如果还需添加虚拟主机，直接拷贝其中一个虚拟主机配置、修改WEB发布目录即可：
 
-![图10-5（a）](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856657.png)
+![图10-5（a）](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053863769.png)
 
-![图10-5（b）](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856654.png)
+![图10-5（b）](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053864016.png)
  
 ## Apache常用目录学习
 
@@ -2485,13 +2485,13 @@ LAMP企业主流架构最重要的三个环节，一是Apache WEB服务器，二
 
 Apache WEB服务器主要是基于多模块工作，依赖PHP SAPI处理方式中的PHP_MODULE去解析PHP结尾的文件，如图12-1所示：
 
-![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856783.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053864201.png)
 
-![图12-1 Apache+PHP mod工作原理](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856787.png)
+![图12-1 Apache+PHP mod工作原理](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053864054.png)
 
 PHP是一种适用于web开发的动态语言，PHP语言内核基于C语言实现包含大量组件的软件框架，是一种功能强大的解释型脚本语言。PHP底层运行机制如图12-2所示：
 
-![图12-2 PHP底层处理机制](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856781.png)
+![图12-2 PHP底层处理机制](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053864738.png)
 
 PHP底层工作原理包括4个部分：
 
@@ -2588,7 +2588,7 @@ make
 make  install
 ```
 
-![图12-3 LAMP源码编译整合](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856662.png)
+![图12-3 LAMP源码编译整合](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053864777.png)
 
 4.  Apache+PHP源码整合
 
@@ -2614,7 +2614,7 @@ EOF
 
 重新启动Apache服务，浏览器输入 Apache WEB的IP访问，如图12-4所示，即代表LAMP源码环境整合成功。
 
-![图12-4 Apache+PHP测试页面](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856792.png)
+![图12-4 Apache+PHP测试页面](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053864810.png)
 
 6.  Discuz PHP论坛安装
 
@@ -2629,11 +2629,11 @@ chmod 757  -R  data/ uc_server/ config/ uc_client/
 
 通过浏览器访问Apache WEB IP，如图12-5所示，选择“我同意”
 
-![图12-5 Discuz安装界面一](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856794.png)
+![图12-5 Discuz安装界面一](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053864887.png)
 
 进入如图12-6界面，数据库安装，如果不存在则需要新建数据库并授权。
 
-![图12-6 Discuz安装界面二](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856796.png)
+![图12-6 Discuz安装界面二](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053864936.png)
 
 MYSQL数据库命令行中创建PHP连接MYSQL的用户及密码，命令如下：
 ```
@@ -2643,7 +2643,7 @@ grant all on discuz.* to root@'localhost' identified by "123456";
 
 单击下一步，直至安装完成，浏览器自动跳转至如图12-7所示界面：
 
-![图12-7 Discuz安装界面三](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856798.png)
+![图12-7 Discuz安装界面三](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053864892.png)
 
 ## LAMP企业架构拓展实战
 
@@ -2680,7 +2680,7 @@ LAMP+Redis工作机制：用户通过浏览器访问LAMP网站，并以用户名
 
 Redis除了可以缓存用户名、密码，还可以换成PHP论坛各种数据，例如用户帖子、用户动态等等，如图12-8所示：
 
-![图12-8 LAMP+Redis架构流程图](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052856807.jpg)
+![图12-8 LAMP+Redis架构流程图](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053865092.jpg)
 
 要实现将LAMP PHP网站相关数据存入Redis，需要一台Redis服务器、PHP-redis连接驱动、PHP代码连接修改等。
 
@@ -2730,35 +2730,35 @@ extension=redis.so
 
 重启Apache服务，写入phpinfo测试页面，通过浏览器访问，如图12-9所示，检查到存在Redis模块即可：
 
-![图12-9 PHP Redis模块添加](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通企业实战/2020810/1597052857052.png)
+![图12-9 PHP Redis模块添加](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053865112.png)
 
 4.  LAMP+Redis缓存测试
 
 登录192.168.149.128 WEB服务器，修改Discuz PHP网站发布/usr/local/apache2/htdcos目录全局配置文件config_global.php，查找CONFIG MEMORY段，将redis server后改为Redis主服务器的IP 192.168.149.129即可，如图12-10所示：
 
-![图12-10 PHP Redis配置文件修改](http://qiniu.imolili.com/小书匠/1594260794666.png)
+![图12-10 PHP Redis配置文件修改](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053863043.png)
 
 通过浏览器访问Apache PHP论坛网站，同时登陆Redis服务器，执行命令redis-cli进入Redis命令行，运行命令KEYS \*，如图12-11所示，存在以IOKLAN开头的key，则证明Redis成功缓存LAMP+Discuz网站信息数据。
 
-![图12-11 Redis缓存LAMP KEYS数据](http://qiniu.imolili.com/小书匠/1594260794669.png)
+![图12-11 Redis缓存LAMP KEYS数据](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053863117.png)
 
 5.  测试Redis缓存是否生效
 
 访问LAMP+Discuz网站，创建论坛测试用户jfedu666，密码jfedu666，此时用户数据第一次注册，用户名和密码会写入到MySQL数据库表中，同时会写入该数据也会写入到Redis缓存，如图12-12（a）、12-12（b）、12-12（c）所示：
 
-![图12-12（a） 创建论坛用户和密码](http://qiniu.imolili.com/小书匠/1594260794672.png)
+![图12-12（a） 创建论坛用户和密码](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053863121.png)
 
-![图12-12（b） MySQL数据库用户查询](http://qiniu.imolili.com/小书匠/1594260794679.png)
+![图12-12（b） MySQL数据库用户查询](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053863131.png)
 
-![图12-12（c） Redis缓存测试案例](http://qiniu.imolili.com/小书匠/1594260794683.png)
+![图12-12（c） Redis缓存测试案例](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053863518.png)
 
 将jfedu666从MySQL Discuz库pre_common_member中删除，通过该用户依然可以正常登录WEB网站，则证明此时数据读取的是Redis缓存服务器，如图12-13（a）、12-13（b）、12-13（c）所示：
 
-![图12-13（a） 删除数据库用户和密码](http://qiniu.imolili.com/小书匠/1594260794686.png)
+![图12-13（a） 删除数据库用户和密码](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053863554.png)
 
-![图12-13（b） 用户名和密码登录discuz论坛](http://qiniu.imolili.com/小书匠/1594260794690.png)
+![图12-13（b） 用户名和密码登录discuz论坛](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053863596.png)
 
-![图12-13（c） 用户名和密码登录discuz论坛](http://qiniu.imolili.com/小书匠/1594260794693.png)
+![图12-13（c） 用户名和密码登录discuz论坛](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053863598.png)
 
 ## LAMP企业架构读写分离
 
@@ -2785,11 +2785,11 @@ Mysql-Proxy允许用户指定Lua脚本对SQL请求进行拦截，对请求进行
 
 如图12-16所示，为MYSQL-PROXY读写分离架构图，通过架构图可以清晰看到SQL请求整个流向的过程。
 
-![图12-16 MYSQL-Proxy读写分离流程](http://qiniu.imolili.com/小书匠/1594199450287.jpg)
+![图12-16 MYSQL-Proxy读写分离流程](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053863638.jpg)
 
 Mysql-Proxy读写分离架构实战配置，如图12-17所示，两台WEB通过MYSQL-Proxy连接后端1.14和1.15 的MYSQL服务器。
 
-![图12-17 MYSQL-Proxy实施架构图](http://qiniu.imolili.com/小书匠/1594260794704.png)
+![图12-17 MYSQL-Proxy实施架构图](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053863683.png)
 
 构建Mysql读写分离架构首先需要将两台MYSQL服务器配置为主从复制（前文已存在，此处省略配置），配置完毕后，在192.168.1.16服务器上安装Mysql-Proxy服务即可，配置步骤如下：
 
@@ -2831,7 +2831,7 @@ mysql-proxy --daemon --log-level=debug --user=mysql-proxy --keepalive --log-file
 
 5.  MYSQL-Proxy启动后，在服务器端查看端口，其中4040为proxy代理端口用于WEB应用连接，4041位管理端口用于SA或者DBA管理，如图12-48所示：
 
-![图12-48 MYSQL-Proxy启动端口](http://qiniu.imolili.com/小书匠/1594260794741.png)
+![图12-48 MYSQL-Proxy启动端口](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053863685.png)
 
 6.  基于4041端口MySQL-Proxy查看读写分离状态，登录4041管理端口，命令如下：
 `mysql -h192.168.1.16 -uadmin -p -P 4041`
@@ -2839,18 +2839,18 @@ mysql-proxy --daemon --log-level=debug --user=mysql-proxy --keepalive --log-file
 7.  以4041管理口登录，然后执行select命令，如图12-18所示state均为up状态，type类型为rw、ro，则证明读写分离状态成功。如果状态为unknown未知状态，可以4040端口登录执行：show databases；命令，直到state变成up状态为止。
 `select * from backends;`
 
-![图12-18 MYSQL-Proxy读写分离状态](http://qiniu.imolili.com/小书匠/1594260794752.png)
+![图12-18 MYSQL-Proxy读写分离状态](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053863726.png)
 
 8.  读写分离数据测试，以3306端口登录到从库，进行数据写入和测试，在丛库上创建jfedu_test测试库，并写入内容，如图12-19所示：
 
-![图12-19 MYSQL-Proxy读写分离测试](http://qiniu.imolili.com/小书匠/1594260794754.png)
+![图12-19 MYSQL-Proxy读写分离测试](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053863813.png)
 
 9.  读写分离数据测试，以4040代理端口登录，执行如下命令，可以查看到数据即证明读写分离成功。
 `mysql -h 192.168.1.16 -uroot -p 123456 -P 4040 -e "select * from jfedu_test.t1；"`
 
 10.  登录Apache WEB服务器，修改Discuz     PHP网站发布/usr/local/apache2/htdcos目录全局配置文件config_global.php，查找dbhost段，将192.168.1.16     改成192.168.1.16:40404，如图12-20所示：
 
-![图12-20 MYSQL-Proxy读写分离测试](http://qiniu.imolili.com/小书匠/1594260794794.png)
+![图12-20 MYSQL-Proxy读写分离测试](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053863976.png)
 
 # 第十章 CentOS7实战Kickstart批量系统部署
 
@@ -3012,23 +3012,23 @@ service dhcpd restart
 service xinetd restart
 ```
 
-![](http://qiniu.imolili.com/小书匠/1594260794797.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053864013.png)
 
 ## 开启新虚拟机，BIOS以网卡启动
 
-![](http://qiniu.imolili.com/小书匠/1594260794800.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053864203.png)
 
-![](http://qiniu.imolili.com/小书匠/1594260794881.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053864237.png)
 
-![](http://qiniu.imolili.com/小书匠/1594260794885.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053864649.png)
 
 如果安装时报错如下：
 
-![](http://qiniu.imolili.com/小书匠/1594260794888.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053864692.png)
 
 需要调整客户端虚拟机的内存设置为2G+；
 
-![](http://qiniu.imolili.com/小书匠/1594260794892.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053864694.png)
 
 ## Kickstart企业生产环境扩展
 
@@ -3117,7 +3117,7 @@ ln -s /usr/local/zabbix/sbin/zabbix_*  /usr/local/sbin/
 
 Zabbix server安装完毕，cd /usr/local/zabbix/etc/目录，如图13-3所示：
 
-![图13-3 Zabbix监控流程图](http://qiniu.imolili.com/小书匠/1594260794895.png)
+![图13-3 Zabbix监控流程图](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053864780.png)
 
 备份Zabbix server配置文件，代码如下：
 `cp zabbix_server.conf zabbix_server.conf.bak`
@@ -3161,11 +3161,11 @@ sed    -i   '/date.timezone/i date.timezone = PRC'   /etc/php.ini
 
 通过浏览器Zabbix_WEB验证，通过浏览器访问 `http://192.168.149.128/` ，如图13-4所示：
 
-![图13-4 Zabbix WEB安装界面](http://qiniu.imolili.com/小书匠/1594260794900.png)
+![图13-4 Zabbix WEB安装界面](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053864784.png)
 
 单击下一步，出现如图13-5所示，如果有错误提示，需要把错误依赖解决完，方可进行下一步操作。
 
-![图13-5 Zabbix WEB安装错误提示](http://qiniu.imolili.com/小书匠/1594260794903.png)
+![图13-5 Zabbix WEB安装错误提示](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053864792.png)
 
 如上异常错误解决方法代码如下，安装缺失的软包，并修改php.ini对应参数的值即可，如图13-6所示：
 ```
@@ -3175,15 +3175,15 @@ sed   -i '/post_max_size/s/8/16/g;/max_execution_time/s/30/300/g;/max_input_time
 service  httpd  restart
 ```
 
-![图13-6 Zabbix WEB测试安装环境](http://qiniu.imolili.com/小书匠/1594260794907.png)
+![图13-6 Zabbix WEB测试安装环境](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053864794.png)
 
 单击下一步，如图13-7所示，配置数据库连接，输入数据库名、用户、密码，单击Test connection，显示OK，单击下一步即可。
 
-![图13-7 Zabbix WEB数据库配置](http://qiniu.imolili.com/小书匠/1594260794911.png)
+![图13-7 Zabbix WEB数据库配置](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053864797.png)
 
 继续单击下一步出现如图13-8所示，填写Zabbix Title显示，可以为空，可以输入自定义的名称。
 
-![图13-8 Zabbix WEB详细信息](http://qiniu.imolili.com/小书匠/1594260794915.png)
+![图13-8 Zabbix WEB详细信息](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053864803.png)
 
 单击下一步，如图13-9所示，需修创建zabbix.conf.php文件，执行如下命令，或者单击“[Download the configuration file](http://192.168.149.128/setup.php?save_config=1)”下载zabbix.conf.php文件，并将该文件上传至/var/www/html/conf/，并设置可写权限，刷新WEB页面，zabbix.conf.php内容代码如下，最后单击Finish即可：
 ```
@@ -3204,13 +3204,13 @@ $ZBX_SERVER_NAME = '京峰教育-分布式监控系统'；
 $IMAGE_FORMAT_DEFAULT = IMAGE_FORMAT_PNG；
 ```
 
-![图13-9 Zabbix WEB配置文件测试](http://qiniu.imolili.com/小书匠/1594260794918.png)
+![图13-9 Zabbix WEB配置文件测试](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053864807.png)
 
 登录Zabbix WEB界面，默认用户名和密码为：admin/zabbix，如图13-10（a）、13-10（b）所示：
 
-![图13-10（a） Zabbix WEB登录界面](http://qiniu.imolili.com/小书匠/1594260794922.png)
+![图13-10（a） Zabbix WEB登录界面](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053864874.png)
 
-![图13-10（b） Zabbix WEB后台界面](http://qiniu.imolili.com/小书匠/1594260794996.png)
+![图13-10（b） Zabbix WEB后台界面](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053864889.png)
 
 5.  Agent客户端安装配置
 
@@ -3248,17 +3248,17 @@ Create host ->  Host name和Agent interfaces，
 
 > 注\*此处Host name名称与Agentd.conf配置文件中Hostname保持一致，否则会报错。
 
-![图13-11 Zabbix 添加客户端监控](http://qiniu.imolili.com/小书匠/1594260794998.png)
+![图13-11 Zabbix 添加客户端监控](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053864938.png)
 
 将客户端主机链接至“Template OS Linux”，启用模板完成主机默认监控，单击Add，继续单击Update即可，如图13-12所示：
 
-![图13-12 Zabbix 为客户端监控添加模板](http://qiniu.imolili.com/小书匠/1594260795002.png)
+![图13-12 Zabbix 为客户端监控添加模板](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053864942.png)
 
 单击Zabbix WEBMonitoringGraphsGroupHostGraph，监控图像如图13-13（a）、13-13（b）所示：
 
-![图13-13（a） Zabbix客户端监控图像](http://qiniu.imolili.com/小书匠/1594260795005.png)
+![图13-13（a） Zabbix客户端监控图像](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053865075.png)
 
-![图13-13（b） Zabbix客户端监控图像](http://qiniu.imolili.com/小书匠/1594260795009.png)
+![图13-13（b） Zabbix客户端监控图像](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053865077.png)
 
 如果无法监控到客户端，可以在Zabbix Server端，执行命令获取Agent的items KEY值是否有返回，例如system.uname为返回客户端的uname信息，监测命令如下：
 `/usr/local/zabbix/bin/zabbix_get -s 192.168.149.130 -k system.uname`
@@ -3275,7 +3275,7 @@ Zabbix最大的特点之一就是可以批量自动主机并监控，利用发�
 
 1.  Configuration -> discovery ->  Create discovery rule，如图13-14所示：
 
-![图13-14 创建客户端发现规则](http://qiniu.imolili.com/小书匠/1594260795013.png)
+![图13-14 创建客户端发现规则](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053865079.png)
 
 ```
 Name： 		   规则名称；
@@ -3332,31 +3332,31 @@ Configuration -> Actions -> Event source(选择Discovery) -> Create action
 
 添加规则时，系统默认存在一条发现规则，可以新建规则，也可以编辑默认规则，如图13-15（a）、13-15（b）、13-15（c）所示，编辑默认发现规则，单击Operations设置发现操作，分别设置Add host、Add to host groups、Link to templates，最后启用规则即可：
 
-![图13-15（a） 创建客户端发现动作](http://qiniu.imolili.com/小书匠/1594260795095.png)
+![图13-15（a） 创建客户端发现动作](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053865094.png)
 
-![图13-15（b） 客户端发现自动添加至Zabbix](http://qiniu.imolili.com/小书匠/1594260795098.png)
+![图13-15（b） 客户端发现自动添加至Zabbix](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053865096.png)
 
-![图13-15（c） 客户端发现自动添加至Zabbix](http://qiniu.imolili.com/小书匠/1594260795101.png)
+![图13-15（c） 客户端发现自动添加至Zabbix](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053865099.png)
 
 MontoringDiscovery，查看通过发现规则找到的服务器IP列表，如图13-16所示：
 
-![图13-16 被发现的客户端列表](http://qiniu.imolili.com/小书匠/1594260795104.png)
+![图13-16 被发现的客户端列表](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053865102.png)
 
 ConfigurationHosts，查看4台主机是否被自动监控至Zabbix监控平台，如图13-17所示：
 
-![图13-17 自动发现的主机被添加至Hosts列表](http://qiniu.imolili.com/小书匠/1594260795108.png)
+![图13-17 自动发现的主机被添加至Hosts列表](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053865104.png)
 
 MonitoringGraphs，监控图像查看，如图13-18（a）、13-18（b）所示，可以选择Host、Graph分别查看各种的监控图像：
 
-![图13-18（a） 客户端监控图像](http://qiniu.imolili.com/小书匠/1594260795111.png)
+![图13-18（a） 客户端监控图像](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053865107.png)
 
-![图13-18（b） 客户端监控图像](http://qiniu.imolili.com/小书匠/1594260795115.png)
+![图13-18（b） 客户端监控图像](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053865109.png)
 
 ## Zabbix日常问题汇总
 
 Zabbix 可以设置中文汉化，如果出现乱码解决办法，如果访问zabbix出现如下历史记录乱码， WEB界面乱码，原因是因为数据库导入前不是UTF-8字符集，需要修改为UTF-8模式，如图13-28所示：
 
-![图13-28 数据库原字符集latin1](http://qiniu.imolili.com/小书匠/1594260795118.png)
+![图13-28 数据库原字符集latin1](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053865115.png)
 
 MYSQL数据库修改字符集方法，vim /etc/my.cnf在配置段加入如下代码：
 ```
@@ -3373,17 +3373,17 @@ default-character-set = utf8
 
 如果在查看graphs监控图像界面的时候时候出现乱码，如图13-29所示：
 
-![图13-29 Graphs图像乱码](http://qiniu.imolili.com/小书匠/1594260795121.png)
+![图13-29 Graphs图像乱码](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053865195.png)
 
 从windows下控制面板 -> 字体 -> 选择一种中文字库，例如“楷体”，如图13-30所示：
 
-![图13-30 上传Windows简体中文字体](http://qiniu.imolili.com/小书匠/1594260795125.png)
+![图13-30 上传Windows简体中文字体](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053865197.png)
 
 将字体文件cp至zabbix服务dauntfonts目录下，/var/www/html/zabbix/fonts，并且将STKAITI.TTF重命名为DejaVuSans.ttf，最好刷新Graph图像，乱码问题解决，如图13-31（a）、13-31（b）所示：
 
-![图13-31（a） 上传Windows简体中文字体](http://qiniu.imolili.com/小书匠/1594260795128.png)
+![图13-31（a） 上传Windows简体中文字体](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053865203.png)
 
-![图13-31（b） Graph图像乱码问题解决](http://qiniu.imolili.com/小书匠/1594260795198.png)
+![图13-31（b） Graph图像乱码问题解决](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053865205.png)
 
 ## Zabbix触发命令及脚本
 
@@ -3400,13 +3400,13 @@ Zabbix监控在对服务或者设备进行监控的时候，如果被监控客�
 使用Zabbix远程执行命令，首先需在zabbix客户端配置文件开启对远程命令的支持，在zabbix_agentd.conf行尾加入如下代码，并重启服务，如图13-32所示：
 `EnableRemoteCommands = 1`
 
-![图13-32 客户端配置远程命令支持](http://qiniu.imolili.com/小书匠/1594260795201.png)
+![图13-32 客户端配置远程命令支持](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053865207.png)
 
 创建Action，ConfigurationActionsTriggers，如图13-33（a）、13-33（b）所示，类型选择“Remote Command”，steps表示执行命令1-3次， step duration设置每次命令间隔时间的5秒执行一次，执行命令方式选择Zabbix agent，基于sudo执行命令即可：
 
-![图13-33（a） 客户端触发器满足条件](http://qiniu.imolili.com/小书匠/1594260795204.png)
+![图13-33（a） 客户端触发器满足条件](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053865209.png)
 
-![图13-33（b） Operations类型选择Remote Command](http://qiniu.imolili.com/小书匠/1594260795207.png)
+![图13-33（b） Operations类型选择Remote Command](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053865241.png)
 
 Zabbix客户端Sudoer配置文件中添加zabbix用户拥有执行权限且无需密码登录:
 ```
@@ -3427,20 +3427,20 @@ find /boot/ -name "*.log" -size +100M -exec rm -rf {} \；
 
 将192.168.149.129服务器/boot目录，临时写满，然后满足触发器，实现远程命令执行，查看问题事件命令执行结果，如图13-34（a）、13-34（b）所示：
 
-![图13-34（a） Remote Command执行成功](http://qiniu.imolili.com/小书匠/1594260795211.png)
+![图13-34（a） Remote Command执行成功](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053865322.png)
 
-![图13-34（b） Remote Command执行磁盘清理成功](http://qiniu.imolili.com/小书匠/1594260795214.png)
+![图13-34（b） Remote Command执行磁盘清理成功](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053865355.png)
 
 如果Zabbix客户端脚本或者命令没有执行成功，http服务没有停止,可以在Zabbix server端执行如下命令，如图13-35所示：
 `/usr/local/zabbix/bin/zabbix_get -s 192.168.149.129 -k "system.run[sudo /etc/init.d/httpd restart]"`
 
-![图13-35 测试Remote Command命令](http://qiniu.imolili.com/小书匠/1594260795285.png)
+![图13-35 测试Remote Command命令](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053865381.png)
 
 ## Zabbix分布式监控实战
 
 Zabbix是一个分布式监控系统，它可以以一个中心点、多个分节点的模式运行，使用Proxy能大大的降低Zabbix Server的压力，Zabbix Proxy可以运行在独立的服务器上，如图13-36所示：
 
-![图13-36 Zabbix Proxy网络拓扑图](https://markdown.xiaoshujiang.com/img/spinner.gif "[[[1594261554057]]]" )
+![图13-36 Zabbix Proxy网络拓扑图](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053865761.gif "[[[1594261554057]]]" )
 
 安装Zabbix Proxy，基于Zabbix-3.2.6.tar.gz软件包，同时需要导入zabbix基本框架库，具体实现方法如下：
 
@@ -3480,7 +3480,7 @@ ln -s /usr/local/zabbix/sbin/zabbix_*  /usr/local/sbin/
 
 Zabbix Proxy安装完毕，cd /usr/local/zabbix/etc/目录，如图13-37所示：
 
-![图13-37 Zabbix Proxy安装目录](http://qiniu.imolili.com/小书匠/1594260795288.png)
+![图13-37 Zabbix Proxy安装目录](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053865409.png)
 
 4.  备份Zabbix Proxy配置文件，代码如下：
 `cp zabbix_proxy.conf zabbix_proxy.conf.bak`
@@ -3510,11 +3510,11 @@ Hostname = 192.168.149.131
 
 7.  Zabbix Server WEB端添加Proxy，实现集中管理和分布式添加监控，如图13-38（a）、13-38（b）、13-38（c）所示：
 
-![图13-38（a） Zabbix Proxy WEB添加](http://qiniu.imolili.com/小书匠/1594260795292.png)
+![图13-38（a） Zabbix Proxy WEB添加](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053865440.png)
 
-![图13-38（b） Zabbix Proxy监控客户端](http://qiniu.imolili.com/小书匠/1594260795295.png)
+![图13-38（b） Zabbix Proxy监控客户端](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053865470.png)
 
-![图13-38（c） Zabbix Proxy监控客户端图像](http://qiniu.imolili.com/小书匠/1594260795299.png)
+![图13-38（c） Zabbix Proxy监控客户端图像](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053865503.png)
 
 ## Zabbix监控网站关键词
 
@@ -3531,51 +3531,51 @@ NUM=`curl  -s  $WEBSITE|grep -c "ATM"`
 echo $NUM
 ```
 
-![图13-49 Zabbix 客户端脚本内容](http://qiniu.imolili.com/小书匠/1594260795302.png)
+![图13-49 Zabbix 客户端脚本内容](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053865559.png)
 
 2.  客户端Zabbix_agentd.conf内容中加入如下代码，并重启Agentd服务即可，如图13-50所示：
 `UserParameter=check_http_word,sh /data/sh/check_http_word.sh`
 
-![图13-50 Zabbix 客户端脚本执行结果](http://qiniu.imolili.com/小书匠/1594260795306.png)
+![图13-50 Zabbix 客户端脚本执行结果](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053865586.png)
 
 3.  服务器端获取客户端的关键词KEY，输入1，则表示ATM关键词存在，如果不为1则表示ATM关键词被串改。
 `/usr/local/zabbix/bin/zabbix_get -s 192.168.149.131 -k check_http_word`
 
 4.  Zabbix WEB端添加客户端的items监控项，如图13-51所示：
 
-![图13-51 Zabbix 客户端KEY添加](http://qiniu.imolili.com/小书匠/1594260795309.png)
+![图13-51 Zabbix 客户端KEY添加](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053865588.png)
 
 5.  创建check_http_word监控Graphs图像，如图13-52（a）、13-52（b）所示：
 
-![图13-52（a） Zabbix 客户端添加Graphs](http://qiniu.imolili.com/小书匠/1594260795313.png)
+![图13-52（a） Zabbix 客户端添加Graphs](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053865706.png)
 
-![图13-52（b） Zabbix 客户端添加Graphs](http://qiniu.imolili.com/小书匠/1594260795317.png)
+![图13-52（b） Zabbix 客户端添加Graphs](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053865735.png)
 
 6.  创建check_http_word触发器，如图13-53（a）、13-53（b）所示：
 
-![图13-53（a） Zabbix 客户端创建触发器](http://qiniu.imolili.com/小书匠/1594260795320.png)
+![图13-53（a） Zabbix 客户端创建触发器](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053865948.png)
 
-![图13-53（b） Zabbix 客户端创建触发器](http://qiniu.imolili.com/小书匠/1594260795392.png)
+![图13-53（b） Zabbix 客户端创建触发器](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053865976.png)
 
 7.  查看Zabbix客户端监控图像，如图13-54（a）、13-54（b）所示：
 
-![图13-54（a） Zabbix Http word monitor监控图](http://qiniu.imolili.com/小书匠/1594260795400.png)
+![图13-54（a） Zabbix Http word monitor监控图](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866004.png)
 
-![图13-55（b） Zabbix Http word monitor触发器微信报警](http://qiniu.imolili.com/小书匠/1594260795403.png)
+![图13-55（b） Zabbix Http word monitor触发器微信报警](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866030.png)
 
 除了使用如上Shell脚本方法，还可以通过Zabbix WEB界面配置Http URL监控，方法如下：
 
 1.  Configuration -> Hosts -> WEB，创建WEB监控场景，基于Chrome38.0访问HTTP WEB页面，如图13-55（a）、13-55（b）、13-55（c）、13-55（d）、13-55（e）所示：
 
-![图13-55（a）Zabbix WEB场景配置](http://qiniu.imolili.com/小书匠/1594260795406.png)
+![图13-55（a）Zabbix WEB场景配置](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866032.png)
 
-![图13-55（b）Zabbix WEB场景配置](http://qiniu.imolili.com/小书匠/1594260795409.png)
+![图13-55（b）Zabbix WEB场景配置](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866060.png)
 
-![图13-55（c）Zabbix WEB场景配置](http://qiniu.imolili.com/小书匠/1594260795413.png)
+![图13-55（c）Zabbix WEB场景配置](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866156.png)
 
-![图13-55（d）Zabbix WEB监控图](http://qiniu.imolili.com/小书匠/1594260795523.png)
+![图13-55（d）Zabbix WEB监控图](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866379.png)
 
-![图13-55（e）Zabbix WEB监控图](http://qiniu.imolili.com/小书匠/1594260795526.png)
+![图13-55（e）Zabbix WEB监控图](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866381.png)
 
 # 第十二章 Shell企业编程企业实战
 
@@ -3591,9 +3591,9 @@ Shell 通过提示您输入，向[操作系统](http://baike.baidu.com/view/880.
 
 Shell是用户与Linux操作系统之间沟通的桥梁，用户可以输入命令执行，又可以利用 Shell脚本编程去运行，如图17-1所示：
 
-![图17-1 Shell、用户及Kernel位置关系](http://qiniu.imolili.com/小书匠/1594260795529.png)
+![图17-1 Shell、用户及Kernel位置关系](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866409.png)
 
-![](http://qiniu.imolili.com/小书匠/1594260795532.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866435.png)
 
 Linux Shell种类非常多，常见的SHELL如下：
 
@@ -3706,7 +3706,7 @@ sleep 20
 
 运行脚本，执行结果如图17-2所示：
 
-![图17-2 Echo打印菜单脚本](http://qiniu.imolili.com/小书匠/1594260795536.png)
+![图17-2 Echo打印菜单脚本](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866463.png)
 
 ## If条件语句实战
 
@@ -3920,9 +3920,9 @@ Puppet是开源的基于Ruby的系统配置管理工具，Puppet工作流程为�
 
 要熟练掌握Puppet在企业生产环境中的应用，需要深入理解Puppet服务端与客户端详细的工作流程及原理，如图20-1（a）、20-1（b）所示，为Puppet Master与Agent完整工作流程图：
 
-![图20-1（a） Puppet工作原理图](http://qiniu.imolili.com/小书匠/1594260795539.png)
+![图20-1（a） Puppet工作原理图](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866465.png)
 
-![图20-1（b） Puppet工作原理图](http://qiniu.imolili.com/小书匠/1594260795544.jpg)
+![图20-1（b） Puppet工作原理图](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866492.jpg)
 
 Puppet工作原理详解如下：
 -   客户端puppetd调用本地facter，facter会探测出该主机的常用变量，例如主机名、内存大小、IP地址等。然后puppetd把这些信息发送到Puppet服务端。
@@ -3961,7 +3961,7 @@ sed -i  '/SELINUX/S/enforce/disabled/' /etc/selinux/config
 setenforce  0
 ```
 
-![图20-2 Puppet-server服务端安装](http://qiniu.imolili.com/小书匠/1594260795548.png)
+![图20-2 Puppet-server服务端安装](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866516.png)
 
 2.  Puppet客户端安装
 
@@ -3984,14 +3984,14 @@ sed -i  '/SELINUX/S/enforce/disabled/' /etc/selinux/config
 setenforce  0
 ```
 
-![图20-3 Puppet客户端服务安装](http://qiniu.imolili.com/小书匠/1594260795551.png)
+![图20-3 Puppet客户端服务安装](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866540.png)
 
 3.  Puppet客户端申请证书
 
 由于Puppet客户端与Puppet服务端是通过SSL隧道通信的，客户端安装完成后，首次使用需向服务器端申请Puppet通信证书，Puppet客户端第一次连接服务器端会发起证书申请，在Puppet客户端执行命令如下，返回结果如图20-4所示：
 `puppet agent --server 192-168-149-128-jfedu.net --test`
 
-![图20-4 Puppet客户端发起证书申请](http://qiniu.imolili.com/小书匠/1594260795555.png)
+![图20-4 Puppet客户端发起证书申请](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866563.png)
 
 4.  Puppet服务端颁发证书
 
@@ -4005,7 +4005,7 @@ puppet  cert  -s  and  -a      给所有的主机颁发证书；
 puppet  cert  --list   --all      查看已经颁发的所有证书。
 ```
 
-![图20-5 Puppet服务端颁发证书](http://qiniu.imolili.com/小书匠/1594260795559.png)
+![图20-5 Puppet服务端颁发证书](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866608.png)
 
 ## Puppet企业案例演示
 
@@ -4035,12 +4035,12 @@ content          客户端服务器文件内容。
 2.  客户端执行同步命令，获取Puppet服务端node配置，代码如下，如图20-6所示，执行报错：
 `puppet agent --server=192-168-149-128-jfedu.net --test`
 
-![图20-6 Puppet客户端同步服务端配置](http://qiniu.imolili.com/小书匠/1594260795730.png)
+![图20-6 Puppet客户端同步服务端配置](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866610.png)
 
 报错原因是因为服务器端与客户端时间不同步导致，需要同步时间，然后再次执行puppet agent命令，如图20-7所示：
 `ntpdate pool.ntp.org puppet agent --server=192-168-149-128-jfedu.net --test`
 
-![图20-7 Puppet客户端获取服务端node配置](http://qiniu.imolili.com/小书匠/1594260795758.png)
+![图20-7 Puppet客户端获取服务端node配置](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866654.png)
 
 Puppet客户端执行同步效果，执行日志如下，会在/tmp/目录创建test.txt文件，内容为：“Hello World，jfedu.net”，即证明Puppet客户端成功获取服务端node配置。
 
@@ -4071,15 +4071,15 @@ exec						远程执行运行命令。
 
 通过命令puppet describe -l可以查看puppet支持的所有资源和模块，如图20-8（a）、20-8（b）所示：
 
-![图20-8（a） Puppet支持的资源及模块](http://qiniu.imolili.com/小书匠/1594260795782.png)
+![图20-8（a） Puppet支持的资源及模块](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866661.png)
 
-![图20-8（b） Puppet支持的资源及模块](http://qiniu.imolili.com/小书匠/1594260795809.png)
+![图20-8（b） Puppet支持的资源及模块](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866662.png)
 
 通过命令puppet describe -s file可以查看puppet file资源所有的帮助信息，如图20-9（a）、20-9（b）所示：
 
-![图20-9（a） Puppet file资源模块详情](http://qiniu.imolili.com/小书匠/1594260795833.png)
+![图20-9（a） Puppet file资源模块详情](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866683.png)
 
-![图20-9（b） Puppet file资源模块详情](http://qiniu.imolili.com/小书匠/1594260795857.png)
+![图20-9（b） Puppet file资源模块详情](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866685.png)
 
 ## Puppet file资源案例
 
@@ -4131,7 +4131,7 @@ file  {
 
 客户端同步配置，如图20-10所示：
 
-![图20-10 Puppet file资源远程下载文件](http://qiniu.imolili.com/小书匠/1594260795904.png)
+![图20-10 Puppet file资源远程下载文件](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866692.png)
 
 2.  从Puppet服务器下载sysctl.conf，如果客户端该文件存在则备份为sysctl.conf.bak，然后再覆盖原文件，site.pp代码如下，如图20-11所示：
 ```
@@ -4144,7 +4144,7 @@ file {
 }
 ```
 
-![图20-11 Puppet file资源备份文件](http://qiniu.imolili.com/小书匠/1594260796030.png)
+![图20-11 Puppet file资源备份文件](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866711.png)
 
 3.  在Agent上创建/export/docker的软连接为/var/lib/docker/，site.pp代码如下，如图20-12所示：
 ```
@@ -4156,7 +4156,7 @@ file {
   }
 ```
 
-![图20-12 Puppet file资源备份文件](http://qiniu.imolili.com/小书匠/1594260796032.png)
+![图20-12 Puppet file资源备份文件](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866767.png)
 
 4.  在Agent上创建目录/tmp/20501212，site.pp代码如下，如图20-13所示：
 ```
@@ -4168,7 +4168,7 @@ file {
 }
 ```
 
-![图20-13 Puppet file创建目录](http://qiniu.imolili.com/小书匠/1594260796055.png)
+![图20-13 Puppet file创建目录](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866776.png)
 
 ## Puppet package资源案例
 
@@ -4204,7 +4204,7 @@ package {
 }
 ```
 
-![图20-14 Puppet package安装软件](http://qiniu.imolili.com/小书匠/1594260796075.png)
+![图20-14 Puppet package安装软件](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866777.png)
 
 2.  客户端卸载ntpdate及screen软件，代码如下，执行结果如图20-15所示：
 ```
@@ -4215,7 +4215,7 @@ package {
 }
 ```
 
-![图20-15 Puppet package卸载软件](http://qiniu.imolili.com/小书匠/1594260796096.png)
+![图20-15 Puppet package卸载软件](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866779.png)
 
 ## Puppet service资源案例
 
@@ -4250,9 +4250,9 @@ service {
   }
 ```
 
-![图20-16（a） Puppet service重启服务](http://qiniu.imolili.com/小书匠/1594260796116.png)
+![图20-16（a） Puppet service重启服务](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866780.png)
 
-![图20-16（b） Puppet service重启服务](http://qiniu.imolili.com/小书匠/1594260796119.png)
+![图20-16（b） Puppet service重启服务](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866782.png)
 
 2.  启动Agent httpd服务并且开启启动，停止nfs服务，开启不启动，代码如下，结果如图20-17（a）、20-17（b）所示：
 ```
@@ -4267,9 +4267,9 @@ service {
 }
 ```
 
-![图20-17（a） Puppet service开启启动](http://qiniu.imolili.com/小书匠/1594260796121.png)
+![图20-17（a） Puppet service开启启动](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866784.png)
 
-![图20-17（b） Puppet service开启启动](http://qiniu.imolili.com/小书匠/1594260796123.png)
+![图20-17（b） Puppet service开启启动](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866785.png)
 
 ## Puppet exec资源案例
 
@@ -4313,7 +4313,7 @@ exec {
 }
 ```
 
-![图20-18 Puppet exec远程执行命令](http://qiniu.imolili.com/小书匠/1594260796130.png)
+![图20-18 Puppet exec远程执行命令](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866786.png)
 
 2.  Agent服务器远程执行auto_install_nginx.sh脚本，代码如下，结果如图20-19所示：
 ```
@@ -4333,7 +4333,7 @@ exec {
 }
 ```
 
-![图20-19 Puppet exec执行Nginx安装脚本](http://qiniu.imolili.com/小书匠/1594260796169.png)
+![图20-19 Puppet exec执行Nginx安装脚本](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866787.png)
 
 3.  Agent服务器更新sysctl.conf，如果该文件发生改变，则执行命令sysctl -p，代码如下，结果如图20-20（a）、20-20（b）所示：
 ```
@@ -4355,9 +4355,9 @@ exec {
 }
 ```
 
-![图20-20（a） Puppet exec更新执行触发命令](http://qiniu.imolili.com/小书匠/1594260796171.png)
+![图20-20（a） Puppet exec更新执行触发命令](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866812.png)
 
-![图20-20（b） Puppet exec更新执行触发命令](http://qiniu.imolili.com/小书匠/1594202798480.png)
+![图20-20（b） Puppet exec更新执行触发命令](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866849.png)
 
 ## Puppet cron资源案例
 
@@ -4397,7 +4397,7 @@ cron{
 }
 ```
 
-![图20-21 Puppet cron创建任务计划](http://qiniu.imolili.com/小书匠/1594260796194.png)
+![图20-21 Puppet cron创建任务计划](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866851.png)
 
 2.  Agent服务器删除ntpdate时间同步任务，代码如下，结果如图20-22所示：
 ```
@@ -4413,7 +4413,7 @@ cron{
 }
 ```
 
-![图20-22 Puppet cron删除任务计划](http://qiniu.imolili.com/小书匠/1594260796196.png)
+![图20-22 Puppet cron删除任务计划](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866869.png)
 
 ## Puppet日常管理与配置
 
@@ -4429,7 +4429,7 @@ Puppet平台构建完毕，能够简单实用Puppet去管理客户端，对文�
 autosign = true
 ```
 
-![图20-23 Puppet 服务端添加自动颁发证书](http://qiniu.imolili.com/小书匠/1594260796198.png)
+![图20-23 Puppet 服务端添加自动颁发证书](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866871.png)
 
 重启puppetmaster服务，并且删除192.168.149.130证书：
 ```
@@ -4445,7 +4445,7 @@ puppet agent --server=192-168-149-128-jfedu.net --test
 
 Puppet服务端会自动认证，即服务器端不必手动颁发证书，减轻人工的干预和操作，如图20-24所示：
 
-![图20-24 Puppet客户端自动获取证书](http://qiniu.imolili.com/小书匠/1594260796200.png)
+![图20-24 Puppet客户端自动获取证书](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866872.png)
 
 ### Puppet客户端自动同步
 
@@ -4480,7 +4480,7 @@ PUPPET_EXTRA_OPTS=--waitforcert=500	获取Puppet master证书返回等待时间�
 runinterval = 60
 ```
 
-![图20-25 Puppet客户端自动同步服务端配置](http://qiniu.imolili.com/小书匠/1594260796202.png)
+![图20-25 Puppet客户端自动同步服务端配置](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866873.png)
 
 ### Puppet服务端主动推送
 
@@ -4518,7 +4518,7 @@ puppet kick -d 192-168-149-130-jfedu.net
 #puppet kick -d 'cat host.txt'
 ```
 
-![图20-26 Puppet主动通知客户端同步配置](http://qiniu.imolili.com/小书匠/1594260796206.png)
+![图20-26 Puppet主动通知客户端同步配置](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866874.png)
 
 ## Puppet批量部署案例
 
@@ -4572,9 +4572,9 @@ exec {
 }
 ```
 
-![图20-27（a） Puppet主动通知客户端同步配置](http://qiniu.imolili.com/小书匠/1594203184663.png)
+![图20-27（a） Puppet主动通知客户端同步配置](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866877.png)
 
-![图20-26 Puppet客户端IP自动配置为Static方式](http://qiniu.imolili.com/小书匠/1594260796234.png)
+![图20-26 Puppet客户端IP自动配置为Static方式](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866908.png)
 
 ### Puppet批量配置NTP同步服务器
 
@@ -4609,9 +4609,9 @@ import "nodes.pp"
 
 4.  Puppet master 执行kick推送配置至Agent服务器远程，Puppet 客户端最终结果如图20-28（a）、20-28（b）所示：
 
-![图20-28（a） Puppet服务端class模块配置](http://qiniu.imolili.com/小书匠/1594260796255.png)
+![图20-28（a） Puppet服务端class模块配置](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866910.png)
 
-![图20-28（b） Puppet主动通知客户端修改NTP同步配置](http://qiniu.imolili.com/小书匠/1594260796258.png)
+![图20-28（b） Puppet主动通知客户端修改NTP同步配置](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux入门到精通实战/2020810/1597053866941.png)
 
 当服务器分组之后，为了更好的管理和配置，可以使用正则表达式来进行定义node，在定义一个node节点时，要指定节点的名字，并使用单引号将名字引起来，然后在大括号中指定需要应用的配置。
 
