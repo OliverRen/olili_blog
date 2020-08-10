@@ -45,9 +45,9 @@ linux有四种基本文件系统类型：
 
 #### Linux系统的路径
 
-![](http://qiniu.imolili.com/小书匠/1592381649729.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux常用文件目录说明/2020810/1597053524746.png)
 
-![](http://qiniu.imolili.com/小书匠/1592383301261.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux常用文件目录说明/2020810/1597053524752.png)
 
 > linux系统中，所有的文件与目录都是由根目录/开始，不是以/开头的就是相对路径；
 .：表示当前目录，也可以用./表示；
