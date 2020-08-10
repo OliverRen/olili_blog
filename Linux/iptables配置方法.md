@@ -55,7 +55,7 @@ iptables 工作在第三层，即网络层 但是iptables的规则却在kernel�
 其中nat  和filter 是配置和使用iptables中最常用的两个，务必要熟悉。
 其表格优先级为 ==raw-->mangle-->nat-->filter==，通过下面的图片可以很清楚的明白iptables表格的匹配流程
 
-![](http://qiniu.imolili.com/小书匠/1592450388188.jpg)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/iptables配置方法/2020810/1597053573375.jpg)
 
 ------------
 
