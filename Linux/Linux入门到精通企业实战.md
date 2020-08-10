@@ -1,5 +1,5 @@
 ---
-title: Linux入门到精通企业实战
+title: Linux入门到精通实战
 tags: 小书匠语法,技术
 renderNumberedHeading: true
 grammar_abbr: true
