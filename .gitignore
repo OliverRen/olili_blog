@@ -1,0 +1,83 @@
+# gitignore template for InforCRM (formerly SalesLogix)
+# website: https://www.infor.com/product-summary/cx/infor-crm/
+#
+# Recommended: VisualStudio.gitignore
+
+# Ignore model files that are auto-generated
+ModelIndex.xml
+ExportedFiles.xml
+
+# Ignore deployment files
+[Mm]odel/[Dd]eployment
+
+# Force include portal SupportFiles
+!Model/Portal/*/SupportFiles/[Bb]in/
+!Model/Portal/PortalTemplates/*/SupportFiles/[Bb]in
+
+# ----------------------------------
+
+# Windows thumbnail cache files
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+
+# Dump file
+*.stackdump
+
+# Folder config file
+[Dd]esktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# ----------------------------------
+
+# Ignore NuGet Packages
+*.nupkg
+
+# The packages folder can be ignored because of Package Restore
+**/[Pp]ackages/*
+
+# except build/, which is used as an MSBuild target.
+!**/[Pp]ackages/build/
+
+# Uncomment if necessary however generally it will be regenerated when needed
+#!**/[Pp]ackages/repositories.config
+
+# NuGet v3's project.json files produces more ignorable files
+*.nuget.props
+*.nuget.targets
+
+# Ignore other intermediate files that NuGet might create. project.lock.json is used in conjunction
+# with project.json (NuGet v3); project.assets.json is used in conjunction with the PackageReference
+# format (NuGet v4 and .NET Core).
+project.lock.json
+project.assets.json
+
+# ----------------------------------
+
+# dev
+
+bin
+obj
+.vs
+
+# Ignore resharp user profile
+*.user
+*.bak
+
+# Ignore publish profile
+[Pp]ublishProfiles/
+
+.DS_Store
