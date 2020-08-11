@@ -177,7 +177,7 @@ end=>end: 结束
 st(right)->op1(right)->op2(right)->op3(right)->op4(right)->op5(right)->op6(right)->op7(right)->end
 ```
 
-![](http://qiniu.imolili.com/小书匠/1593679354064.jpg)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/BIOS_MBR-UEFI_GPT-wim镜像/2020811/1597124339797.jpg)
 
 ##### SEC 安全验证
 
@@ -242,7 +242,7 @@ UEFI是BIOS的一种升级替代方案。关于BIOS和UEFI二者的比较，网�
 
 ##### MBR分区结构
 
-![](http://qiniu.imolili.com/小书匠/1593679928276.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/BIOS_MBR-UEFI_GPT-wim镜像/2020811/1597124339759.png)
 
 为了方便计算机访问硬盘，把硬盘上的空间划分成许许多多的区块（英文叫sectors，即扇区），然后给每个区块分配一个地址，称为逻辑块地址（即LBA）。
 
@@ -282,7 +282,7 @@ Windows正是根据分区表中设定的分区类型决定分区的用途（OEM�
 
 注意：如果还想更改回去，请在select part之后运行detail part记下分区默认的分区类型，方便事后还原。
 
-![](http://qiniu.imolili.com/小书匠/1593680592309.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/BIOS_MBR-UEFI_GPT-wim镜像/2020811/1597124339760.png)
 
 完成图中的操作后，如果没有自动分配盘符，可以尝试重启或在磁盘管理中手动添加“驱动器号”或紧接着图中最后一步执行以下命令添加盘符（e为盘符）。
 
@@ -296,7 +296,7 @@ assign letter=e
 
 然后，配置恢复映像，将分区类型设置为“恢复分区”。如下图所示。
 
-![](http://qiniu.imolili.com/小书匠/1593680641442.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/BIOS_MBR-UEFI_GPT-wim镜像/2020811/1597124339796.png)
 
 完成图中的步骤，用于恢复系统的系统备份分区就被隐藏掉了。如果计算机中还能够看到该分区（有盘符），紧接着图中最后一步运行下面的命令删除盘符：
 
@@ -304,7 +304,7 @@ remove
 
 ##### GPT分区结构
 
-![](http://qiniu.imolili.com/小书匠/1593679958463.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/BIOS_MBR-UEFI_GPT-wim镜像/2020811/1597124339800.png)
 
 可以看到，在GTP磁盘的第一个数据块中同样有一个与MBR（主引导记录）类似的标记，叫做PMBR。PMBR的作用是，当使用不支持GPT的分区工具时，整个硬盘将显示为一个受保护的分区，以防止分区表及硬盘数据遭到破坏。UEFI并不从PMBR中获取GPT磁盘的分区信息，它有自己的分区表，即GPT分区表。
 
@@ -360,13 +360,13 @@ GPT分区类型用于区别分区的用途，GPT分区表中的分区信息中�
 
 ###### 改变隐藏的OEM分区类型，从而能够查看OEM分区中的内容。
 
-![](http://qiniu.imolili.com/小书匠/1593681193818.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/BIOS_MBR-UEFI_GPT-wim镜像/2020811/1597124339798.png)
 
 同理，如果要将某一个分区设置为OEM分区，只需将其分区类型设置为出厂默认或{EBD0A0A2-B9E5-4433-87C0-68B6B72699C7}或其他非特殊（即上文列表中之外）的GUID，再将其属性设置为0x8000000000000001（隐藏）或0x0000000000000001即可。
 
 ###### 我们将系统备份映像存放到单独的隐藏分区中，以保护备份映像不受到损坏。
 
-![](http://qiniu.imolili.com/小书匠/1593681219435.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/BIOS_MBR-UEFI_GPT-wim镜像/2020811/1597124339799.png)
 
 -----------
 
@@ -402,14 +402,14 @@ wim是微软自Vista开始采用的一种全新的Windows映像格式（Windows 
 2. 以管理员身份运行命令提示符，直接输入下面的命令，回车运行：
 `Dism /Capture-Image /ImageFile:D:\songs.wim /ScratchDir:D:\Temp /CaptureDir:D:\songs /Name:NO.1`
 
-![](http://qiniu.imolili.com/小书匠/1593681864280.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/BIOS_MBR-UEFI_GPT-wim镜像/2020811/1597124339761.png)
 
 命令中各路径的含义我想就不需要介绍了吧，结合前面我们要达到的目的相信你能明白。这里的Capture-Image就表示捕获映像的意思。操作完成后在D:\中查找一下，看看是不是生成了一个名为songs.wim的文件呢？顺便再观察一下它的大小吧。
 
 3. 现在我们再往D:\songs文件夹中任意添加几个文件，然后再把D:\songs中的所有文件放到songs.wim中的另一个格子中，对应的格子名叫做NO.2，为达到这一目的，此时我们只需要在命令提示符中输入下面的命令，回车即可
 `Dism /Append-Image /ImageFile:D:\songs.wim /ScratchDir:D:\Temp /CaptureDir:D:\songs /Name:NO.2`
 
-![](http://qiniu.imolili.com/小书匠/1593681941786.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/BIOS_MBR-UEFI_GPT-wim镜像/2020811/1597124339762.png)
 
 请比较一下上面两条命令的不同之处，因为我们第二次捕获文件是在运行第一条命令后生成的songs.wim文件的基础上操作的，所以用了/Append-Image 命令，即在原有的基础上增加格子（映像）。另外我们使用了不同的格子名，而实际上DISM是允许不同映像同名的。我们用不同的名字是为了容易区分它们。
 
@@ -417,7 +417,7 @@ wim是微软自Vista开始采用的一种全新的Windows映像格式（Windows 
 
 `Dism /get-wiminfo /wimfile:D:\songs.wim`
 
-![](http://qiniu.imolili.com/小书匠/1593682003925.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/BIOS_MBR-UEFI_GPT-wim镜像/2020811/1597124339763.png)
 
 上图详细显示了songs.wim文件中包含的格子数量（即映像数量），可以看到第二个映像比第一个映像稍微大一点。但是我们再查看一下songs.wim文件的大小，发现和第一次刚生成时相比大小变化并不大。这是因为这两个格子中的文件大部分都是相同的，而wim中存储文件的机制可以很好的处理这些相同的文件，不让重复文件占用多余的空间。这也是为什么那些包含多个版本系统的镜像其体积并没有相应成倍增长的原因。
 
