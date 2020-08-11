@@ -61,14 +61,14 @@ BIP44 是在 BIP43 和 BIP32 的基础上增加多币种，通过 HD 钱包派�
 
 钱包也是一个私钥的容器，按照上面的方法，我们可以生成一堆私钥（一个人也有很多账号的需求，可以更好保护隐私），而每个私钥都需要备份就特别麻烦的。最早期的比特币钱包就是就是这样，还有一个昵称：“Just a Bunch Of Keys(一堆私钥)“为了解决这种麻烦，就有了BIP32 提议： 根据一个随机数种子通过分层确定性推导的方式得到n个私钥，这样保存的时候，只需要保存一个种子就可以，私钥可以推导出来，如图：
 
-![](http://qiniu.imolili.com/小书匠/1593770103065.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/分层确定性钱包HDWallet介绍/2020811/1597114872616.png)
 
 来分析下这个分层推导的过程，第一步推导主秘钥的过程：
 
-![](http://qiniu.imolili.com/小书匠/1593770133054.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/分层确定性钱包HDWallet介绍/2020811/1597114872656.png)
 
 根种子输入到HMAC-SHA512算法中就可以得到一个可用来创造主私钥(m) 和 一个主链编码（ a master chain code)这一步生成的秘钥（由私钥或公钥）及主链编码再加上一个索引号，将作为HMAC-SHA512算法的输入继续衍生出下一层的私钥及链编码，如下图：
-![](http://qiniu.imolili.com/小书匠/1593770136050.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/分层确定性钱包HDWallet介绍/2020811/1597114872657.png)
 
 衍生推导的方案其实有两个：一个用父私钥推导（称为强化衍生方程），一个用父公钥推导。同时为了区分这两种不同的衍生，在索引号也进行了区分，索引号小于2^31用于常规衍生，而2^31到2^32-1之间用于强化衍生，为了方便表示索引号i’，表示2^31+i。因此增加索引（水平扩展）及 通过子秘钥向下一层（深度扩展）可以无限生成私钥。注意， 这个推导过程是确定（相同的输入，总是有相同的输出）也是单向的，子密钥不能推导出同层级的兄弟密钥，也不能推出父密钥。如果没有子链码也不能推导出孙密钥。现在我们已经对分层推导有了认识。一句话概括下BIP32就是：为了避免管理一堆私钥的麻烦提出的分层推导方案。
 
@@ -132,7 +132,7 @@ candy maple cake sugar pudding cream honey rich smooth crumble sweet treat
 **生成助记词**
 助记词生成的过程是这样的：先生成一个128位随机数，再加上对随机数做的校验4位，得到132位的一个数，然后按每11位做切分，这样就有了12个二进制数，然后用每个数去查BIP39定义的单词表，这样就得到12个助记词，这个过程图示如下：
 
-![](http://qiniu.imolili.com/小书匠/1593770328232.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/分层确定性钱包HDWallet介绍/2020811/1597114872617.png)
 
 **助记词推导出种子**
 
@@ -141,7 +141,7 @@ PBKDF2基本原理是通过一个为随机函数(例如 HMAC 函数)，把助记
 
 密钥拉伸函数需要两个参数：助记词和盐。盐可以提高暴力破解的难度。 盐由常量字符串 “mnemonic” 及一个可选的密码组成，注意使用不同密码，则拉伸函数在使用同一个助记词的情况下会产生一个不同的种子，这个过程图示图下:
 
-![](http://qiniu.imolili.com/小书匠/1593770353715.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/分层确定性钱包HDWallet介绍/2020811/1597114872618.png)
 
 校验和地址是EIP-55中定义的对大小写有要求的一种地址形式。
 
