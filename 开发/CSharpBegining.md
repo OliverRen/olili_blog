@@ -57,7 +57,7 @@ grammar_tableExtra: true
 
 需要注意的是，也许你会听说一些 ASP.NET,ADO.NET,他们也带有.Net和我们说的有关么，有关，但层次不一样，ASP.NET和ADO.NET都只是在.net框架类库中提供的一些技术。
 
-![](http://qiniu.imolili.com/小书匠/1594798016733.jpg)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/CSharpBegining/2020811/1597125090614.jpg)
 我们可以从上图中很明白的看出FCL包含了上述的ASP.NET，ADO.NET等等。其中:
 1. ASP.NET 用于构建浏览器访问的应用程序
 2. Windows Forms 用户构建桌面的窗体应用
