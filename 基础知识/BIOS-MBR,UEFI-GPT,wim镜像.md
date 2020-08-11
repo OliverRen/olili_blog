@@ -1,5 +1,5 @@
 ---
-title: BIOS_MBR,UEFI_GPT,wim镜像
+title: BIOS_MBR-UEFI_GPT-wim镜像
 tags: 小书匠语法,技术
 renderNumberedHeading: true
 grammar_abbr: true
