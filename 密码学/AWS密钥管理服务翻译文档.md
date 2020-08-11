@@ -82,7 +82,7 @@ AWS KMS提供与AWS服务集成，可以为通过集中管理和传统的审计�
 
 AWS KMS通过AWS管理控制台提供一个web交互界面,命令行接口, 和RESTful API操作 ,来对一个分布式通过FIPS 140-2认证的硬件安全模块 (HSM) 请求加密数据 .AWS KMS HSM是一个独立的多芯片的硬件加密设备,旨在提供专用的加密功能，以满足AWS KMS的安全性和可扩展性的要求。你可以使用客户主密匙(CMKs)来建立基于HSM完成自己的加密层.这些密匙只会在硬件安全模块中根据所需来处理你的加密请求.你可以创建多个CMKs,,每个都由密匙ID来标识.您可以定义谁可以管理和/或通过创建相应的密匙策略去使用CMKs以达成访问控制。这允许您为您的钥匙,每个API操作,定义指定的客户端调用使用。
 
-![](http://qiniu.imolili.com/小书匠/1592301125155.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/AWS密钥管理服务翻译文档/2020811/1597124975436.png)
 图片 1: AWS KMS 架构
 
 AWS KMS是分层服务，包括面向网络的KMS主机和一个有多个HSM组成的服务层。这些分层主机的组合形成的AWS
@@ -143,14 +143,14 @@ AWS KMS使用两种不同的密钥建立方法。
 密匙令牌被导出到一个高可用低延迟的存储中.你通过ARN连接到一个物理逻辑的CMK上,这可以表现成一个密匙层的最上层和一个加密服务的上下文.你可以在账户中创建多个CMK,并可以像其他的AWS命名资源一样设置策略.
 在一个指定的CMK层中,HBK可以被视为一个CMK版本管理,当你想通过AWS KMS循环替换使用CMK的时候,一个新的HBK被创建并被分配和关联到CMK上作为活动的HBK.那个老的HBK们依然可以被用来解密和校验之前受保护的数据,但是只有活动的加密密匙才可以被用来保护新的数据信息.
 
-![](http://qiniu.imolili.com/小书匠/1592301115704.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/AWS密钥管理服务翻译文档/2020811/1597124975430.png)
 图片2 CMK密匙层
 
 你可以通过AWS KMS,使用你自己的CMKs来直接保护你的信息,或者请求一个由HSM在你CMK下生成的密匙来进行.这些密匙被称为用户数据密匙,CDKs. CDK是可以返回成加密密文,明文,或两者同时返回.所有通过CMK加密过的数据(无论是用户自己定义的还是HSM生成的密匙)都必须通过调用AWS KMS HSM来进行解密.
 返回的密文,或者已经解密的数据是永远不会在AWS KMS上被存储的.结果通过你调用AWS KMS的TLS连接进行返回.
  
 我们总结了密钥层次和下表中的特定关键属性。
-![](http://qiniu.imolili.com/小书匠/1592301119924.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/AWS密钥管理服务翻译文档/2020811/1597124975422.png)
 
 1.域密钥
 256位AES-GCM密匙,仅存在于 HSM 的内存中, 用来加密 CMKs的历史版本版本密匙 (HSM backing keys), 
@@ -248,7 +248,7 @@ KeyId:密匙材料导入到的CMK标识,CMK的Origin必定是 EXTERNAL.
 启用和禁用CMK是与密匙的生命周期分开的.这不会改变密匙的真实状态,而是停止使用这个 CMK 层中所有 HBKs的能力.
 这些都是简单的命令,执行需要一个 CMK keyId
 
-![](http://qiniu.imolili.com/小书匠/1592301224138.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/AWS密钥管理服务翻译文档/2020811/1597124975421.png)
 
 
 ##### 密钥删除
@@ -370,7 +370,7 @@ DestinationKeyId:用来重新加密数据的密匙Id
 #### 域和域的状态
 在AWS一个地区中,企业内部的AWS KMS实体相互协作的集合称为域.域包括一组可信的实体，一组规则，以及一组密钥，称为域密钥。域密钥属于域的成员的HSM之间共享。域状态包括以下字段。
 
-![](http://qiniu.imolili.com/小书匠/1592301133340.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/AWS密钥管理服务翻译文档/2020811/1597124975431.png)
 
 名称:一个域名来标识这个域
 成员:HSM的是域的成员，包括他们的公共签名密钥和公共列表和公共协议密匙
@@ -388,7 +388,7 @@ DestinationKeyId:用来重新加密数据的密匙Id
 ##### 导出域的令牌
 域参与制之间的同步时一个经常性的需求.这是通过在域变更的时候导出 域状态来实现的.域状态导出成一个域令牌
 
-![](http://qiniu.imolili.com/小书匠/1592301129568.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/AWS密钥管理服务翻译文档/2020811/1597124975417.png)
 
 名称:一个域名来标识这个域
 成员:HSM的是域的成员，包括他们的公共签名密钥和公共列表和公共协议密匙
