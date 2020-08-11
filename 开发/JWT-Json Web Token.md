@@ -1,5 +1,5 @@
 ---
-title: JWT-Json Web Token
+title: JWT-JsonWebToken
 tags: 小书匠语法,技术
 renderNumberedHeading: true
 grammar_abbr: true
