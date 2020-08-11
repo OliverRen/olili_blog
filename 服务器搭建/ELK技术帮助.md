@@ -48,7 +48,7 @@ grammar_tableExtra: true
 
 大部分软件都可以直接在以下目录进行 [下载](http://www.elasticsearch.org/downloads/)
 
-![ELK使用示例](http://qiniu.imolili.com/小书匠/无标题.jpg)
+![ELK使用示例](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/ELK技术帮助/2020811/1597125422013.jpg)
 
 ##### 软件安装
 
@@ -383,7 +383,7 @@ Type  => Table
 Document => Row
 Field  =>  Column
 
-![](http://qiniu.imolili.com/小书匠/无标题.jpg)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/ELK技术帮助/2020811/1597125422013.jpg)
 
 create
 ``` http
