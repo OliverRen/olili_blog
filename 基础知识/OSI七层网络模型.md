@@ -35,13 +35,13 @@ grammar_tableExtra: true
 
 [toc]
 
-![](http://qiniu.imolili.com/小书匠/1593338366852.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/OSI七层网络模型/2020811/1597124427049.png)
 
 --------------
 
 #### OSI 七层网络模型概述
 
-![OSI七层协议](http://qiniu.imolili.com/小书匠/OSI七层协议.gif)
+![OSI七层协议](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/OSI七层网络模型/2020811/1597124427019.gif)
 
 > OSI 七层模型通过七个层次化的结构模型使不同的系统不同的网络之间实现可靠的通讯，因此其最主要的功能就是帮助不同类型的主机实现数据传输 。
 完成中继功能的节点通常称为中继系统。在OSI七层模型中，处于不同层的中继系统具有不同的名称。   
@@ -285,7 +285,7 @@ UDP
 
 ==TCP数据报文==
 
-![TCP数据包格式](http://qiniu.imolili.com/小书匠/1593397122977.jpg)
+![TCP数据包格式](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/OSI七层网络模型/2020811/1597124427052.jpg)
 
 - Source Port是源端口，16位。
 - Destination Port是目的端口，16位。
@@ -304,9 +304,9 @@ UDP
 
 ==UDP数据包==
 
-![IP数据包](http://qiniu.imolili.com/小书匠/1593397001712.jpg)
+![IP数据包](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/OSI七层网络模型/2020811/1597124427048.jpg)
 
-![](http://qiniu.imolili.com/小书匠/1593397421908.jpg)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/OSI七层网络模型/2020811/1597124427047.jpg)
 
 UDP报头由4个域组成，其中每个域各占用2个字节，具体如下： 
 源端口号
