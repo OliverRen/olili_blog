@@ -65,7 +65,7 @@ $ cleos —-wallet-url 127.0.0.1:8887 ${command} ${subcommand} ${param}
 
 #### EOS账户的权限控制和多重签名账户
 
-![](http://qiniu.imolili.com/小书匠/1594264547221.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/EOS/2020811/1597124084095.png)
 
 上表中，除了权限（Permission）和秘钥（Keys）之外，还有两栏，一个是权重（Weight），另一个是域值（Threshold）.
 
