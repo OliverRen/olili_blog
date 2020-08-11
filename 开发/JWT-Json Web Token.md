@@ -52,7 +52,7 @@ JSON Web Token (JWT)是一个开放标准(RFC 7519)，它定义了一种紧凑�
 
 **JSON Web Token的结构**
 
-![](http://qiniu.imolili.com/小书匠/1594283137193.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/JWT-JsonWebToken/2020811/1597125172952.png)
 
 JWT通常由三部分组成: 头信息（header）, 消息体（payload）和签名（signature）。
 头信息指定了该JWT使用的签名算法：
@@ -101,7 +101,7 @@ signature = HMAC-SHA256(key, unsignedToken)
 *   Authorization (授权) : 这是使用JWT的最常见场景。一旦用户登录，后续每个请求都将包含JWT，允许用户访问该令牌允许的路由、服务和资源。单点登录是现在广泛使用的JWT的一个特性，因为它的开销很小，并且可以轻松地跨域使用。
 *   Information Exchange (信息交换) : 对于安全的在各方之间传输信息而言，JSON Web Tokens无疑是一种很好的方式。因为 JWT 可以被签名，例如，用公钥/私钥对，你可以确定发送人就是它们所说的那个人。另外，由于签名是使用头和有效负载计算的，您还可以验证内容没有被篡改。
 
-![](http://qiniu.imolili.com/小书匠/1594283627805.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/JWT-JsonWebToken/2020811/1597125172959.png)
 
 -------------------------
 
@@ -121,7 +121,7 @@ header应该看起来是这样的：注意 ==Bearer== 后面是有一个空格�
 
 下面这张图显示了如何获取JWT以及使用它来访问APIs或者资源：
 
-![](http://qiniu.imolili.com/小书匠/1594283868947.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/JWT-JsonWebToken/2020811/1597125172960.png)
 
 1.  应用（或者客户端）想授权服务器请求授权。例如，如果用授权码流程的话，就是/oauth/authorize
 2.  当授权被许可以后，授权服务器返回一个access token给应用
@@ -183,7 +183,7 @@ header应该看起来是这样的：注意 ==Bearer== 后面是有一个空格�
 - 移动设备上能更好工作
 - 适用于阻止Cookie的用户
 
-![](http://qiniu.imolili.com/小书匠/1594284077284.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/JWT-JsonWebToken/2020811/1597125172961.png)
 
 --------------------------------
 
@@ -220,22 +220,22 @@ var claims = new Claim[]
 
 如上我们在声明集合中初始化声明时，我们使用了两种方式，一个是使用 ==ClaimTypes== ，一个是 ==JwtRegisteredClaimNames== ，那么这二者有什么区别？以及我们到底应该使用哪种方式更好？或者说两种方式都使用是否有问题呢？针对ClaimTypes则来自命名空间 ==System.Security.Claims== ，而JwtRegisteredClaimNames则来自命名空间 ==System.IdentityModel.Tokens.Jwt==，二者在获取声明方式上是不同的，ClaimTypes是沿袭微软提供获取声明的方式，比如我们要在控制器Action方法上获取上述ClaimTypes.Name的值，此时我们需要F12查看Name的常量定义值是多少，如下：
 
-![](http://qiniu.imolili.com/小书匠/1594287199667.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/JWT-JsonWebToken/2020811/1597125172962.png)
 
 我们来尝试获取一下name的值
 `var sub = User.FindFirst(d => d.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name")?.Value;`
-![](http://qiniu.imolili.com/小书匠/1594287679862.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/JWT-JsonWebToken/2020811/1597125172965.png)
 没什么问题,那么再来试试 JwtRegisterClaimNames.Sub 的值
 `var sub = User.FindFirst(d => d.Type == JwtRegisteredClaimNames.Sub)?.Value;`
-![](http://qiniu.imolili.com/小书匠/1594287730861.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/JWT-JsonWebToken/2020811/1597125172966.png)
 
 > 此时我们发现为空没有获取到，这是为何呢？这是因为获取声明的方式默认是走微软定义的一套映射方式，如果我们想要走JWT映射声明，那么我们需要将默认映射方式给移除掉，在对应客户端Startup构造函数中，添加如下代码：
 `JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();`
 
-![](http://qiniu.imolili.com/小书匠/1594287759859.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/JWT-JsonWebToken/2020811/1597125172967.png)
 
 如果用过并熟悉IdentityServer4的童鞋关于这点早已明了，因为在IdentityServer4中映射声明比如用户Id即（sub）是使用的JWT，也就是说使用的JwtRegisteredClaimNames，此时我们再来获取Sub看看。
-![](http://qiniu.imolili.com/小书匠/1594287771110.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/JWT-JsonWebToken/2020811/1597125172968.png)
 
 所以以上对于初始化声明两种方式的探讨并没有用哪个更好，因为对于使用ClaimTypes是沿袭以往声明映射的方式，如果要出于兼容性考虑，可以结合两种声明映射方式来使用。.
 
@@ -243,7 +243,7 @@ var claims = new Claim[]
 `var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("1234567890123456"));`
 
 如上我们给出签名的Key是1234567890123456，是不是给定Key的任意长度皆可呢，显然不是，关于Key的长度至少是16，否则会抛出如下错误:
-![](http://qiniu.imolili.com/小书匠/1594287810553.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/JWT-JsonWebToken/2020811/1597125172969.png)
 
 接下来我们再来看实例化Token的参数，即如下代码：
 ``` csharp
@@ -307,7 +307,7 @@ services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 如上对于认证方案我们使用的是 `JwtBearerDefaults.AuthenticationScheme` 即Bearer，除此之外我们也可以自定义认证方案名称，如下：
 
-![](http://qiniu.imolili.com/小书匠/1594288195546.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/JWT-JsonWebToken/2020811/1597125172970.png)
 
 最后别忘记添加认证中间件在Configure方法中，认证中间件必须放在使用MVC中间件之前，如下：
 ``` csharp
