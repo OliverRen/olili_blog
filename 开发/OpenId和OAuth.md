@@ -47,7 +47,7 @@ grammar_tableExtra: true
 
 #### OpenId
 
-![](http://qiniu.imolili.com/小书匠/1.jpg)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/OpenId和OAuth/2020811/1597125371452.jpg)
 
 ##### OpenId的验证流程
 1. 终端用户访问RP网站，在需要登录的时候选择了以OpenID的方式进行登录
@@ -78,9 +78,9 @@ grammar_tableExtra: true
 
 #### OAuth
 
-![](http://qiniu.imolili.com/小书匠/2.jpg)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/OpenId和OAuth/2020811/1597125371453.jpg)
 
-![](http://qiniu.imolili.com/小书匠/3.jpg)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/OpenId和OAuth/2020811/1597125371448.jpg)
 
 ##### OAuth授权的流程
 
