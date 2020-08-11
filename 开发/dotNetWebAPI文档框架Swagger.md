@@ -40,20 +40,20 @@ rap2是挺好的，但是和swagger比起来有点轻量。
 
 #### swagger的生态使用图：
 
-![其中，红颜色的是swagger官网方推荐的](http://qiniu.imolili.com/小书匠/1594278400820.png)
+![其中，红颜色的是swagger官网方推荐的](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/dotNetWebAPI文档框架-Swagger/2020811/1597125106567.png)
 
 #### swagger的生态的具体内容：
 
 **swagger-ui**
 用来显示API文档的。和rap不同的是，它不可以编辑。
 
-![](http://qiniu.imolili.com/小书匠/1594278594395.jpg)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/dotNetWebAPI文档框架-Swagger/2020811/1597125106676.jpg)
 
 **swagger-editor**
 就是一个在线编辑文档说明文件（swagger.json或swagger.yaml文件）的工具，以方便生态中的其他小工具（swagger-ui）等使用。 
 左边编辑，右边立马就显示出编辑内容来。编辑swagger说明文件使用的是==yaml语法==.
 
-![](http://qiniu.imolili.com/小书匠/1594278619712.jpg)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/dotNetWebAPI文档框架-Swagger/2020811/1597125106774.jpg)
 
 目前最流行的做法，就是在代码注释中写上swagger相关的注释，然后，利用小工具生成swagger.json或者swagger.yaml文件。
 
@@ -62,7 +62,7 @@ rap2是挺好的，但是和swagger比起来有点轻量。
 
 2. 修改SwaggerConfig.cs,比如版本号 和 title
 
-![](http://qiniu.imolili.com/小书匠/1594279984008.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/dotNetWebAPI文档框架-Swagger/2020811/1597125106767.png)
 
 3. 创建项目XML注释文档
 在==项目== -> ==属性== -> ==生成== -> 选中 ==XML文档生成==
@@ -83,9 +83,9 @@ rap2是挺好的，但是和swagger比起来有点轻量。
 通过F12分析,是由于 Newtonsoft.json处理Null字段的问题
 `settings.NullValueHandling = NullValueHandling.Ignore;`
 
-![](http://qiniu.imolili.com/小书匠/1594280919934.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/dotNetWebAPI文档框架-Swagger/2020811/1597125106769.png)
 
-![](http://qiniu.imolili.com/小书匠/1594281001353.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/dotNetWebAPI文档框架-Swagger/2020811/1597125106671.png)
 
 #### 汉化及Controller说明
 
@@ -172,7 +172,7 @@ rap2是挺好的，但是和swagger比起来有点轻量。
 
 2. 定义一个JS文件,做成嵌入资源，这个js文件的功能主要有两个，一个是汉化，另一个就是在界面上显示控制器的描述文字
 
-![](http://qiniu.imolili.com/小书匠/1594281148789.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/dotNetWebAPI文档框架-Swagger/2020811/1597125106673.png)
 
 JS资源文件命名空间是：文件所在项目的命名空间.文件径路.文件名
 ``` javascript
@@ -304,7 +304,7 @@ c.InjectJavaScript(System.Reflection.Assembly.GetExecutingAssembly(), "BjxWebApi
 
 使用SwaggerResponse 指定返回类型，两个httpstatuscode 对应不同返回值
 
-![](http://qiniu.imolili.com/小书匠/1594281339072.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/dotNetWebAPI文档框架-Swagger/2020811/1597125106674.png)
 
 #### 自定义 HTTP Header
 验证参数请求头,我们需要创建一个 IOperationFilter接口的类
@@ -338,12 +338,12 @@ SwaggerConfig.cs 配置中加入  `c.OperationFilter<HttpAuthHeaderFilter>();`
     }
 ```
 
-![](http://qiniu.imolili.com/小书匠/1594281718741.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/dotNetWebAPI文档框架-Swagger/2020811/1597125106675.png)
 
 #### 请求示例
 
 效果如图:
-![](http://qiniu.imolili.com/小书匠/1594281821010.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/dotNetWebAPI文档框架-Swagger/2020811/1597125106768.png)
 
 要想实现这个效果 ，我们需要在注释中使用remarks标签.
 看写法，需要说明的是 \<remarks>前有个空格  请求地址 空格+tab 才能出来上面效果
