@@ -193,7 +193,7 @@ Consul也是CP的,特别时其在崩溃之后的恢复由于一致性协议的�
 
 使用Gossip协议 (Epidemic Protocol 流行病协议 流言算法) 作为最终一致性协议.
 
-![](http://qiniu.imolili.com/小书匠/1594717684327.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/配置中心ZooKeeper,Consul,Apollo,Nacos/2020811/1597125034587.png)
 
 **Gossip 的特点（优势）**
 1. 扩展性
