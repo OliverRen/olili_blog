@@ -88,7 +88,7 @@ grammar_tableExtra: true
 
 下面给出两个进程 A、B 各自的虚拟内存空间以及对应的物理内存之间的地址映射示意图：
 
-![](http://qiniu.imolili.com/小书匠/1595386884023.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/零拷贝(zero_copy)技术/2020811/1597124238338.png)
 
 当进程执行一个程序时，需要先从内存中读取该进程的指令，然后执行，获取指令时用到的就是虚拟地址。
 
@@ -140,7 +140,7 @@ grammar_tableExtra: true
 
 下图是一个进程的用户空间和内核空间的内存布局：
 
-![](http://qiniu.imolili.com/小书匠/1595387228137.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/零拷贝(zero_copy)技术/2020811/1597124238414.png)
 
 2. 内核空间
 
@@ -168,7 +168,7 @@ grammar_tableExtra: true
 
 内核态可以执行任意命令，调用系统的一切资源，而用户态只能执行简单的运算，不能直接调用系统资源。用户态必须通过系统接口（System Call），才能向内核发出指令。
 
-![](http://qiniu.imolili.com/小书匠/1595387870522.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/零拷贝(zero_copy)技术/2020811/1597124238289.png)
 
 > 比如，当用户进程启动一个 bash 时，它会通过 getpid() 对内核的 pid 服务发起系统调用，获取当前用户进程的 ID。
 当用户进程通过 cat 命令查看主机配置时，它会对内核的文件子系统发起系统调用：
@@ -183,7 +183,7 @@ grammar_tableExtra: true
 
 有了用户空间和内核空间的划分后，Linux 内部层级结构可以分为三部分，从最底层到最上层依次是硬件、内核空间和用户空间，如下图所示：
 
-![](http://qiniu.imolili.com/小书匠/1595388159274.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/零拷贝(zero_copy)技术/2020811/1597124238413.png)
 
 ------------------
 
@@ -198,7 +198,7 @@ Linux 提供了轮询、I/O 中断以及 DMA 传输这 3 种磁盘与主存之�
 
 在 DMA 技术出现之前，应用程序与磁盘之间的 I/O 操作都是通过 CPU 的中断完成的。
 
-![](http://qiniu.imolili.com/小书匠/1595388922797.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/零拷贝(zero_copy)技术/2020811/1597124238351.png)
 
 每次用户进程读取磁盘数据时，都需要 CPU 中断，然后发起 I/O 请求等待数据读取和拷贝完成，每次的 I/O 中断都导致 CPU 的上下文切换：
 *   用户进程向 CPU 发起 read 系统调用读取数据，由用户态切换为内核态，然后一直阻塞等待数据的返回。
@@ -216,7 +216,7 @@ DMA 的全称叫直接内存存取（Direct Memory Access），是一种允许�
 
 整个数据传输操作在一个 DMA 控制器的控制下进行的。CPU 除了在数据传输开始和结束时做一点处理外（开始和结束时候要做中断处理），在传输过程中 CPU 可以继续进行其他的工作。这样在大部分时间里，CPU 计算和 I/O 操作都处于并行操作，使整个计算机系统的效率大大提高。
 
-![](http://qiniu.imolili.com/小书匠/1595389033745.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/零拷贝(zero_copy)技术/2020811/1597124238370.png)
 
 有了 DMA 磁盘控制器接管数据读写请求以后，CPU 从繁重的 I/O 操作中解脱，数据读取操作的流程如下：
 *   用户进程向 CPU 发起 read 系统调用读取数据，由用户态切换为内核态，然后一直阻塞等待数据的返回。
@@ -245,7 +245,7 @@ while((n = read(file_fd, buf, BUF_SIZE)) > 0)
 
 下图分别对应传统 I/O 操作的数据读写流程，整个过程涉及 2 次 CPU 拷贝、2 次 DMA 拷贝，总共 4 次拷贝，以及 4 次上下文切换。
 
-![](http://qiniu.imolili.com/小书匠/1595389401017.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/零拷贝(zero_copy)技术/2020811/1597124238412.png)
 
 1. 传统读操作
 
@@ -291,7 +291,7 @@ while((n = read(file_fd, buf, BUF_SIZE)) > 0)
 
 数据直接跨过内核进行传输，内核在数据传输过程除了进行必要的虚拟存储配置工作之外，不参与任何其他工作，这种方式能够直接绕过内核，极大提高了性能。
 
-![](http://qiniu.imolili.com/小书匠/1595397266330.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/零拷贝(zero_copy)技术/2020811/1597124238371.png)
 
 用户态直接 I/O 只能适用于不需要内核缓冲区处理的应用程序，这些应用程序通常在进程地址空间有自己的数据缓存机制，称为自缓存应用程序，如数据库管理系统就是一个代表。
 
@@ -310,7 +310,7 @@ write(sockfd, buf, len);
 
 然而内核读缓冲区（read buffer）仍需将数据拷贝到内核写缓冲区（socket buffer），大致的流程如下图所示：
 
-![](http://qiniu.imolili.com/小书匠/1595397601196.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/零拷贝(zero_copy)技术/2020811/1597124238415.png)
 
 基于 mmap+write 系统调用的零拷贝方式，整个拷贝过程会发生 4 次上下文切换，1 次 CPU 拷贝和 2 次 DMA 拷贝。
 
@@ -359,7 +359,7 @@ file可以是文件句柄，也可以是socket句柄,把文件数据通过网络
 
 与 mmap 内存映射方式不同的是， Sendfile 调用中 I/O 数据对用户空间是完全不可见的。也就是说，这是一次完全意义上的数据传输过程。
 
-![](http://qiniu.imolili.com/小书匠/1595399159432.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/零拷贝(zero_copy)技术/2020811/1597124238418.png)
 
 基于 Sendfile 系统调用的零拷贝方式，整个拷贝过程会发生 2 次上下文切换，1 次 CPU 拷贝和 2 次 DMA 拷贝。用户程序读写数据的流程如下：
 *   用户进程通过 sendfile() 函数向内核（kernel）发起系统调用，上下文从用户态（user space）切换为内核态（kernel space）。
@@ -386,7 +386,7 @@ Linux 2.4 版本的内核对 Sendfile 系统调用进行修改，为 DMA 拷贝�
 在硬件的支持下，Sendfile 拷贝方式不再从内核缓冲区的数据拷贝到 socket 缓冲区，取而代之的仅仅是缓冲区文件描述符和数据长度的拷贝。
 这样 DMA 引擎直接利用 gather 操作将页缓存中数据打包发送到网络中即可，本质就是和虚拟内存映射的思路类似。
 
-![](http://qiniu.imolili.com/小书匠/1595400633574.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/零拷贝(zero_copy)技术/2020811/1597124238416.png)
 
 基于 Sendfile+DMA gather copy 系统调用的零拷贝方式，整个拷贝过程会发生 2 次上下文切换、0 次 CPU 拷贝以及 2 次 DMA 拷贝。用户程序读写数据的流程如下：
 *   用户进程通过 sendfile() 函数向内核（kernel）发起系统调用，上下文从用户态（user space）切换为内核态（kernel space）。
@@ -405,7 +405,7 @@ splice只适合将数据从文件拷贝到套接字,同时需要硬件的支持�
 
 splice用于在两个文件描述符之间传输数据,而不需要数据在内核空间和用户空间来回拷贝.但输入和输出文件描述符必须有一个是pipe。也就是说如果你需要从一个socket 传输数据到另外一个socket，是需要使用 pipe来做为中介的
 
-![](http://qiniu.imolili.com/小书匠/1595400717465.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/零拷贝(zero_copy)技术/2020811/1597124238420.png)
 
 基于 Splice 系统调用的零拷贝方式，整个拷贝过程会发生 2 次上下文切换，0 次 CPU 拷贝以及 2 次 DMA 拷贝。用户程序读写数据的流程如下：
 *   用户进程通过 splice() 函数向内核（kernel）发起系统调用，上下文从用户态（user space）切换为内核态（kernel space）。
@@ -430,7 +430,7 @@ Splice 拷贝方式也同样存在用户程序不能对数据进行修改的问�
 
 fbuf 的思想是每个进程都维护着一个缓冲区池，这个缓冲区池能被同时映射到用户空间（user space）和内核态（kernel space），内核和用户共享这个缓冲区池，这样就避免了一系列的拷贝操作。
 
-![](http://qiniu.imolili.com/小书匠/1595400830930.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/零拷贝(zero_copy)技术/2020811/1597124238419.png)
 
 > 缓冲区共享的难度在于管理共享缓冲区池需要应用程序、网络软件以及设备驱动程序之间的紧密合作，而且如何改写 API 目前还处于试验阶段并不成熟。
 
@@ -439,7 +439,7 @@ fbuf 的思想是每个进程都维护着一个缓冲区池，这个缓冲区池
 
 下面从 CPU 拷贝次数、DMA 拷贝次数以及系统调用几个方面总结一下上述几种 I/O 拷贝方式的差别：
 
-![](http://qiniu.imolili.com/小书匠/1595400901790.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/零拷贝(zero_copy)技术/2020811/1597124238417.png)
 
 ---------------------------
 
@@ -537,6 +537,6 @@ RocketMQ 选择了 mmap+write 这种零拷贝方式，适用于业务级消息�
 
 而 Kafka 采用的是 Sendfile 这种零拷贝方式，适用于系统日志消息这种高吞吐量的大块文件的数据持久化和传输。但是值得注意的一点是，Kafka 的索引文件使用的是 mmap+write 方式，数据文件使用的是 Sendfile 方式。
 
-![](http://qiniu.imolili.com/小书匠/1595401290559.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/零拷贝(zero_copy)技术/2020811/1597124238421.png)
 
 
