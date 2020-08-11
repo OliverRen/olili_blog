@@ -64,7 +64,7 @@ RSA算法基于一个十分简单的数论事实：将两个大质数相乘十�
 2. 安全性，RSA的安全性依赖于大数的因子分解，但并没有从理论上证明破译RSA的难度与大数分解难度等价，而且密码学界多数人士倾向于因子分解不是NP问题。
 3. 速度太慢，由于RSA 的分组长度太大，为保证安全性，n 至少也要 600 bits以上，使运算代价很高，尤其是速度较慢，较对称密码算法慢几个数量级；且随着大数分解技术的发展，这个长度还在增加，不利于数据格式的标准化。SET(Secure Electronic Transaction）协议中要求CA采用2048比特长的密钥，其他实体使用1024比特的密钥。为了速度问题，人们广泛使用单，公钥密码结合使用的方法，优缺点互补：单钥密码加密速度快，人们用它来加密较长的文件，然后用RSA来给文件密钥加密，极好的解决了单钥密码的密钥分发问题。
 
-![](http://qiniu.imolili.com/小书匠/1592818418231.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/密码学3-非对称加密算法(主要介绍ECC椭圆曲线加密)/2020811/1597124891786.png)
 
 ##### 非对称加密算法 ElGamal
 
@@ -90,7 +90,7 @@ ElGamal算法，是一种较为常见的加密算法，它是基于1985年提出
 4. 凡直角都彼此相等。
 5. 同平面内一条直线和另外两条直线相交，若在某一侧的两个内角和小于二直角的和，则这二直线经无限延长后在这一侧相交。
 
-![](http://qiniu.imolili.com/小书匠/1592882726758.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/密码学3-非对称加密算法(主要介绍ECC椭圆曲线加密)/2020811/1597124891790.png)
 
 《几何原本》只有在第29个命题
 一条直线与两条平行直线相交,则所成的内错角相等,同位角相等,且同旁内角之和等于两直角
@@ -102,7 +102,7 @@ ElGamal算法，是一种较为常见的加密算法，它是基于1985年提出
 2. “可以引最少两条平行线”为公设，罗氏几何（双曲几何）。
 3. “一条平行线也不能引”为公设，黎曼几何（椭圆几何）
 
-![左：双曲几何，即罗氏几何；中：欧几里德几何；右：椭圆几何，即黎曼几何](http://qiniu.imolili.com/小书匠/1592883587129.png)
+![左：双曲几何，即罗氏几何；中：欧几里德几何；右：椭圆几何，即黎曼几何](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/密码学3-非对称加密算法(主要介绍ECC椭圆曲线加密)/2020811/1597124891785.png)
 
 了解非欧式几何，就可以理解平行线的交点。
 定义平行线相交于无穷远点P∞，使平面上所有直线都统一为有唯一的交点
@@ -111,7 +111,7 @@ ElGamal算法，是一种较为常见的加密算法，它是基于1985年提出
 2. 任何两条不平行的直线有不同的无穷远点（否则会造成有两个交点）
 3. 平面上全体无穷远点构成一条无穷远直线
 
-![](http://qiniu.imolili.com/小书匠/1592883622903.jpg)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/密码学3-非对称加密算法(主要介绍ECC椭圆曲线加密)/2020811/1597124891788.jpg)
 
 射影平面：平面上全体无穷远点与全体平常点构成射影平面
 
@@ -172,15 +172,15 @@ y^2^=x^3^+ax+b
 
 如果我们想显式地将无穷远点纳入考虑，我们可以按如下的方式细化椭圆曲线的定义：
 
-![](http://qiniu.imolili.com/小书匠/1592892208840.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/密码学3-非对称加密算法(主要介绍ECC椭圆曲线加密)/2020811/1597124891714.png)
 
 ######  椭圆曲线示例
 
-![](http://qiniu.imolili.com/小书匠/1592890784058.jpg)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/密码学3-非对称加密算法(主要介绍ECC椭圆曲线加密)/2020811/1597124891793.jpg)
 
 ###### 非椭圆曲线示例
 
-![](http://qiniu.imolili.com/小书匠/1592890800824.jpg)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/密码学3-非对称加密算法(主要介绍ECC椭圆曲线加密)/2020811/1597124891795.jpg)
 这两个方程都不是椭圆曲线,因为他们在（0:0:1）点处（即原点）没有切线，不满足椭圆曲线每个点都必须是非奇异的（光滑的）
 
 ###### 椭圆曲线的群公理
@@ -192,7 +192,7 @@ y^2^=x^3^+ax+b
 - 点P的逆元是其关于x-轴的对称点;
 - 加法，满足以下规则: 对于3个处在同一直线上的非零点 P, Q 和 R, 它们的和 P + Q + R = 0.
 
-![](http://qiniu.imolili.com/小书匠/1592892331728.jpg)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/密码学3-非对称加密算法(主要介绍ECC椭圆曲线加密)/2020811/1597124891796.jpg)
 
 同一直线上的三个点之和等于0.
 注意一下最后一个规则，我们需要的只是三个点同线，与点的次序无关。这意味着，如果P、Q和R同线，那么P + (Q + R) = Q + (P + R) = R + (P + Q) = • • • = 0. 这样，我们直观地证明了我们的“+”运算既满足结合律也满足交换律：我们创建了一个阿贝尔群。
@@ -211,13 +211,13 @@ y^2^=x^3^+ax+b
 同样在椭圆曲线也可以定义阿贝尔群。
 任意取椭圆曲线上两点P、Q（若P、Q两点重合，则作P点的切线），作直线交于椭圆曲线的另一点R'，过R'做y轴的平行线交于R，定义P+Q=R。这样，加法的和也在椭圆曲线上，并同样具备加法的交换律、结合律
 
-![](http://qiniu.imolili.com/小书匠/1592890974894.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/密码学3-非对称加密算法(主要介绍ECC椭圆曲线加密)/2020811/1597124891803.png)
 
 ###### 椭圆曲线的几何行为
 
 得益于我们使用的是一个阿贝尔群，我们可以把 P + Q + R = 0 写成P + Q = –R。方程的这一形式，让我们可以推导出计算两点P和Q之和的几何方法：画一条过P和Q点的直线，这条直线与曲线相交得到第3个点R（这一事实意味着P、Q、R必然共线）。如果我们获取了该点的逆元-R，那么我们就得到了P + Q的结果。
 
-![P+G=-R](http://qiniu.imolili.com/小书匠/1592892462506.png)
+![P+G=-R](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/密码学3-非对称加密算法(主要介绍ECC椭圆曲线加密)/2020811/1597124891794.png)
 
 过P和Q画一条直线。该直线与曲线相交与第3点R。与之对称的点-R即为P+Q 的结果
 
@@ -228,14 +228,14 @@ y^2^=x^3^+ax+b
 
 • 当P= Q时怎么办? 这种情况下，经过该点的直线有无数条。事情开始有点复杂了。不过，先想像一个点 Q’ ≠ P。如果我们令Q’ 向P逼近，越来越靠近P会怎么样？
 
-![](http://qiniu.imolili.com/%E5%B0%8F%E4%B9%A6%E5%8C%A0/animation-point-doubling.gif)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/密码学3-非对称加密算法(主要介绍ECC椭圆曲线加密)/2020811/1597124891800.gif)
 
 随着两个点越来越接近，过这两点的直线最终变成了曲线的切线
 
 随着Q’ 趋向P, 过P和Q’ 的直线最终成为曲线的切线。看到这一点，我们可以定义 P + P = –R, 其中R是过P点的切线与曲线的交点。
 • 当P ≠ Q，但找不到第三个点R时怎么办? 这种情况和上面那个非常类似。实际上，这是因为过P和Q的直线与曲线相切。
 
-![](http://qiniu.imolili.com/%E5%B0%8F%E4%B9%A6%E5%8C%A0/animation-tangent-line.gif)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/密码学3-非对称加密算法(主要介绍ECC椭圆曲线加密)/2020811/1597124891805.gif)
 
 如果直线与曲线只有两个交点，那么该直线为曲线的切线。可以很容易地看出，两点相加的结果是其中一点的对称点
 
@@ -250,15 +250,15 @@ y^2^=x^3^+ax+b
 
 如果 P 和 Q 不相同， (xP ≠ xQ), 过这两点的直线斜率为:
 
-![](http://qiniu.imolili.com/小书匠/1592894729170.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/密码学3-非对称加密算法(主要介绍ECC椭圆曲线加密)/2020811/1597124891798.png)
 
 该直线与椭圆曲线交于第三点 R = (xR, yR):
 
-![](http://qiniu.imolili.com/小书匠/1592894732543.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/密码学3-非对称加密算法(主要介绍ECC椭圆曲线加密)/2020811/1597124891799.png)
 
 或是, 等价形式:
 
-![](http://qiniu.imolili.com/小书匠/1592894735169.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/密码学3-非对称加密算法(主要介绍ECC椭圆曲线加密)/2020811/1597124891802.png)
 
 因此，`(xP, yP) + (xQ, yQ) = (xR, –yR) ` (注意正负号，记住P + Q = –R).
 
@@ -266,25 +266,25 @@ y^2^=x^3^+ax+b
 
 不过，我们可以用一个例子来试一下：根据 可视化工具的计算， 当 P = (1, 2) 、Q = (3, 4) ，椭圆曲线 y2 = x3 – 7x + 10, 两点之和 P + Q = –R = (-3, 2). 让我们看一下与我们的公式是否一致:
 
-![](http://qiniu.imolili.com/小书匠/1592894770812.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/密码学3-非对称加密算法(主要介绍ECC椭圆曲线加密)/2020811/1597124891801.png)
 
 好的，正确!
 注意上面的公式即使在其中一个点P或Q是切点的情况下也成立。让我们试一下P = (-1, 4) 、 Q = (1, 2).
 
-![](http://qiniu.imolili.com/小书匠/1592894784231.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/密码学3-非对称加密算法(主要介绍ECC椭圆曲线加密)/2020811/1597124891804.png)
 
 我们计算出 P + Q = (1, -2), 与使用 可视化工具计算出的结果相同。
 P = Q 的情况需要做点不同的处理：方程中 xR 和 yR 相同, 由于 xP = xQ, 我们必须使用不同的公式来计算斜率：
 
-![](http://qiniu.imolili.com/小书匠/1592894800133.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/密码学3-非对称加密算法(主要介绍ECC椭圆曲线加密)/2020811/1597124891806.png)
 
 注意，我们可以料到，m的表达式实际是下面这个函数的一阶导数:
 
-![](http://qiniu.imolili.com/小书匠/1592894809670.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/密码学3-非对称加密算法(主要介绍ECC椭圆曲线加密)/2020811/1597124891807.png)
 
 为了证明结果的有效性，只要检查R是否在曲线上，以及P和R在曲线上只有两个交点就足够了。但同样，我们不去证明这一事实，而是试算一个例子: P = Q = (1, 2).
 
-![](http://qiniu.imolili.com/小书匠/1592894821347.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/密码学3-非对称加密算法(主要介绍ECC椭圆曲线加密)/2020811/1597124891911.png)
 
 公式计算出 P + P = –R = (-1, -4).正确!
 尽管推导过程真的是极其繁琐，不过最后的公式还是很简洁。这要感谢魏尔斯特拉斯范式：要是没有这一范式，最后的公式会真的又长又复杂。
@@ -293,7 +293,7 @@ P = Q 的情况需要做点不同的处理：方程中 xR 和 yR 相同, 由于 
 
 在加法之外，我们还可以定义另一种运算：标量乘法，即：
 
-![](http://qiniu.imolili.com/小书匠/1592895276125.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/密码学3-非对称加密算法(主要介绍ECC椭圆曲线加密)/2020811/1597124891830.png)
 
 nP，其中n为自然数。我为标量乘法也写了个 可视化工具 ，如果你想试算时可以使用。
 用这种形式表示时，计算nP似乎需要n次加法运算。如果n有k个二进制位，那么算法的时间复杂度将为O（2^k)，这真不是很好。不过存在一些更快的算法。
@@ -302,12 +302,12 @@ nP，其中n为自然数。我为标量乘法也写了个 可视化工具 ，如
 
 计算的原理可以用一个例子来更好地解释。取n = 151。它的二进制表示形式为100101112 。这一二进制表示形式可以转换为一系列2的幂之和。
 
-![](http://qiniu.imolili.com/小书匠/1592895295433.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/密码学3-非对称加密算法(主要介绍ECC椭圆曲线加密)/2020811/1597124891906.png)
 
 (取n的 每个二进制位上的数字，并用它乘以一个2的幂.)
 用这种方法，我们可以将n这样写:
 
-![](http://qiniu.imolili.com/小书匠/1592895310501.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/密码学3-非对称加密算法(主要介绍ECC椭圆曲线加密)/2020811/1597124891907.png)
 
 “加倍（double)与相加（add)”算法需要这样做:
 • 取 P. • 加倍，得到2P. • 2P与P相加(为了得到 21P + 20P). • 加倍 2P，得到22 P. • 与前一结果相加 (得到 22P + 21P + 20P). • 加倍 22P，得到23P. • 对23P不做任何操作. • 加倍23P，得到24P. • 与前一结果相加 (得到 24P + 22P + 21P + 20P). • … 最后，我们可以计算151 • P ，只需7次“加倍”运算和4次“相加”运算。
@@ -356,16 +356,16 @@ y3≡k(x1-x3)-y1(mod p)
 
 例题椭圆曲线已知E23(1,1)上两点P(3,10)，Q(9,7)，求(1)-P，(2)P+Q，(3) 2P
 
-![](http://qiniu.imolili.com/小书匠/1592896481314.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/密码学3-非对称加密算法(主要介绍ECC椭圆曲线加密)/2020811/1597124891909.png)
 
-![](http://qiniu.imolili.com/小书匠/1592896711391.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/密码学3-非对称加密算法(主要介绍ECC椭圆曲线加密)/2020811/1597124891908.png)
 
 ###### 有限域椭圆曲线点的阶
 
 如果椭圆曲线上一点P，存在最小的正整数n使得数乘nP=O∞ ,则将n称为P的阶
 若n不存在，则P是无限阶的
 
-![](http://qiniu.imolili.com/小书匠/1592896808621.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/密码学3-非对称加密算法(主要介绍ECC椭圆曲线加密)/2020811/1597124891910.png)
 
 计算可得27P=-P=(3,13)
 所以28P=O ∞ P的阶为28
