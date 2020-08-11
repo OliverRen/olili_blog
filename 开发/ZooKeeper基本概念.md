@@ -53,11 +53,11 @@ Zookeeper的目的就在于此。本文简单分析zookeeper的工作原理.
 
 zk重的角色主要有以下三类,如图:
 
-![](http://qiniu.imolili.com/小书匠/无标题.jpg)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/ZooKeeper基本概念/2020811/1597125439810.jpg)
 
 系统模型如图所示:
 
-![](http://qiniu.imolili.com/小书匠/1594626111976.jpg)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/ZooKeeper基本概念/2020811/1597125439849.jpg)
 
 ##### 设计目的
 
@@ -100,13 +100,13 @@ Zk的选举算法有两种：
 
 每个Server启动后都会重复以上流程。在恢复模式下，如果是刚从崩溃状态恢复的或者刚启动的server还会从磁盘快照中恢复数据和会话信息，zk会记录事务日志并定期进行快照，方便在恢复时进行状态恢复。选主的具体流程图如下所示：
 
-![](http://qiniu.imolili.com/小书匠/1594627338253.jpg)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/ZooKeeper基本概念/2020811/1597125439847.jpg)
 
 ###### fast paxos流程
 
 fast paxos流程是在选举过程中，某Server首先向所有Server提议自己要成为leader，当其它Server收到提议以后，解决epoch和zxid的冲突，并接受对方的提议，然后向对方发送接受提议完成的消息，重复这个流程，最后一定能选举出Leader。其流程图如下所示：
 
-![](http://qiniu.imolili.com/小书匠/1594627587955.jpg)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/ZooKeeper基本概念/2020811/1597125439853.jpg)
 
 ##### 同步流程
 
@@ -118,7 +118,7 @@ fast paxos流程是在选举过程中，某Server首先向所有Server提议自�
 4. 完成同步后通知follower 已经成为uptodate状态；
 5. Follower收到uptodate消息后，又可以重新接受client的请求进行服务了。
 
-![](http://qiniu.imolili.com/小书匠/1594627694157.jpg)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/ZooKeeper基本概念/2020811/1597125439852.jpg)
 
 ##### 工作流程
 
@@ -136,7 +136,7 @@ REVALIDATE消息是用来延长SESSION有效时间。
 
 Leader的工作流程简图如下所示，在实际实现中，流程要比下图复杂得多，启动了三个线程来实现功能
 
-![](http://qiniu.imolili.com/小书匠/1594627781261.jpg)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/ZooKeeper基本概念/2020811/1597125439851.jpg)
 
 ###### follower工作流程
 
@@ -156,7 +156,7 @@ Follower的消息循环处理如下几种来自Leader的消息：
 
 Follower的工作流程简图如下所示，在实际实现中，Follower是通过5个线程来实现功能的。
 
-![](http://qiniu.imolili.com/小书匠/1594627855276.jpg)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/ZooKeeper基本概念/2020811/1597125439850.jpg)
 
 > 对于observer的流程不再叙述，observer流程和Follower的唯一不同的地方就是observer不会参加leader发起的投票。
 
