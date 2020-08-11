@@ -78,7 +78,7 @@ grammar_tableExtra: true
 
 远程桌面服务是一项由若干角色服务组成的服务器角色。在 Windows Server 2012 中，远程桌面服务包含以下角色服务：
 
-![](http://qiniu.imolili.com/小书匠/1592992468537.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/windows远程连接帮助/2020811/1597113746516.png)
 
 Windows Server 2012默认情况下，只能提供两个用户远程桌面登陆，而通过安装远程桌面服务里的远程桌面会话主机和远程桌面授权，并对其进行配置，即可实现多用户远程登录。下面通过介绍如何配置远程桌面会话主机和远程桌面授权，以及如何通过微软获取许可证激活许可服务器。
 
@@ -86,37 +86,37 @@ Windows Server 2012默认情况下，只能提供两个用户远程桌面登陆�
 
 1. 在桌面右下角点击服务器管理器图标，打开“服务器管理器”，点击“添加角色和功能”，选择“基于角色或基于功能的安装”，出现以下的安装界面
 
-![](http://qiniu.imolili.com/小书匠/1592992537239.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/windows远程连接帮助/2020811/1597113746510.png)
 
-![](http://qiniu.imolili.com/小书匠/1592992542319.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/windows远程连接帮助/2020811/1597113746511.png)
 
 2. 在下边界面直接点击下一步 。
 
-![](http://qiniu.imolili.com/小书匠/1592992556386.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/windows远程连接帮助/2020811/1597113746502.png)
 
 3. 选择远程桌面服务，点击下一步。
 
-![](http://qiniu.imolili.com/小书匠/1592992565798.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/windows远程连接帮助/2020811/1597113746512.png)
 
 4. 在向导界面中点击下一步 。
 
-![](http://qiniu.imolili.com/小书匠/1592992575671.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/windows远程连接帮助/2020811/1597113746514.png)
 
 5. 在远程桌面服务角色安装向导中点击下一步 。
 
-![](http://qiniu.imolili.com/小书匠/1592992586342.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/windows远程连接帮助/2020811/1597113746517.png)
 
 6. 选择“桌面会话主机”和“远程桌面授权 ”，在弹出的窗口中点击“添加功能”，点击下一步。
 
-![](http://qiniu.imolili.com/小书匠/1592992598625.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/windows远程连接帮助/2020811/1597113746520.png)
 
-![](http://qiniu.imolili.com/小书匠/1592992604402.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/windows远程连接帮助/2020811/1597113746522.png)
 
 7. 在以下界面选择安装 ，安装完成后，出现以下界面提示需重启服务器，在下面界面上点击关闭然后重启计算机。
 
-![](http://qiniu.imolili.com/小书匠/1592992615642.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/windows远程连接帮助/2020811/1597113746689.png)
 
-![](http://qiniu.imolili.com/小书匠/1592992622593.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/windows远程连接帮助/2020811/1597113746525.png)
 
 ###### web申请激活码 
 
@@ -128,87 +128,87 @@ Windows Server 2012默认情况下，只能提供两个用户远程桌面登陆�
 1. 在服务器管理器上点击 工具 终端服务 远程桌面授权管理，打开远程桌面授权管理器,有些这里没有这个选项,直接在 远程桌面服务 这个角色下找到 本地的服务器,右键中的 ==RD 授权诊断程序== 就是检测RDS服务是否正常的程序, ==RD授权管理器== 即远程桌面授权管理
 2. 选择本地服务器,当前激活状态应该是 ==未激活==,右键选择属性
 
-![](http://qiniu.imolili.com/小书匠/1592993006270.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/windows远程连接帮助/2020811/1597113746592.png)
 
 3. 在属性对话框中，连接方法选择“Web浏览器”，记下对话框中出现的产品ID（00184-90000-00001-AT259），在获取服务器许可证时，需在网页上注册此ID。注意：如果终端服务器授权中没有服务器，请选择连接，然后输入本机服务器IP地址。
 
-![](http://qiniu.imolili.com/小书匠/1592993022929.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/windows远程连接帮助/2020811/1597113746656.png)
 
 4. 选择“必需信息”，按下图所示填写：
 
-![](http://qiniu.imolili.com/小书匠/1592993039134.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/windows远程连接帮助/2020811/1597113746654.png)
 
 5. 在Internet Explorer浏览器地址栏中输入 [activate.microsoft.com链接地址](https://activate.microsoft.com)，点击GO ，开始注册并获取服务器许可密码向导。确保已选中“启用许可证服务器”项后单击"下一步"按钮。
 
-![](http://qiniu.imolili.com/小书匠/1592993067060.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/windows远程连接帮助/2020811/1597113746608.png)
 
-![](http://qiniu.imolili.com/小书匠/1592993070774.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/windows远程连接帮助/2020811/1597113746722.png)
 
 6. 在下面界面中，输入“产品ID：00184-90000-00001-AT259”，按下图填写所需信息后，点击下一步。
 
-![](http://qiniu.imolili.com/小书匠/1592993084593.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/windows远程连接帮助/2020811/1597113746736.png)
 
 7. 在如下信息中，直接点击下一步。
 
-![](http://qiniu.imolili.com/小书匠/1592993095702.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/windows远程连接帮助/2020811/1597113746738.png)
 
 8. 可以得到“已成功处理您的许可证服务器启动申请。你的许可证ID是：GCYCQ-7TM97-CMFKD-67X26-XY92Q-6BB7V-3PRVX”，记录此服务器ID号。在“需要此时获取客户机许可证吗”中选择”是” 。
 
-![](http://qiniu.imolili.com/小书匠/1592993111128.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/windows远程连接帮助/2020811/1597113746706.png)
 
 9. 在下边界面中，如没有许可证，在许可证程序选择“企业协议”，确定信息无误后，继续”下一步”。
 
-![](http://qiniu.imolili.com/小书匠/1592993124978.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/windows远程连接帮助/2020811/1597113746721.png)
 
 10. 在如下界面，“产品类型”选择“Windwos Server 2008 R2远程桌面服务器每用户访问许可”；
 	最大用户数（比如为"600"）；
 	在“注册号码”中输入从微软获得的七位注册号码
 	（如果没有许可证，尝试输入~~5296992、6565792、4954438、6879321~~），再点击“下一步”。
 	
-![](http://qiniu.imolili.com/小书匠/1592993202262.png)	
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/windows远程连接帮助/2020811/1597113746928.png)	
 	
 11. 在下边界面直接点击下一步 。
 
-![](http://qiniu.imolili.com/小书匠/1592993210877.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/windows远程连接帮助/2020811/1597113746930.png)
 
 12. 在下边界面中，记录许可证服务器ID：GCYCQ-7TM97-CMFKD-67X26-XY92Q-6BB7V-3PRVX”和“许可证密钥ID：V8M42-2KDYD-JM6GV-DBXGG-C4XGB-F39F6-Y3PVX”，然后点击完成。
 
-![](http://qiniu.imolili.com/小书匠/1592993223431.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/windows远程连接帮助/2020811/1597113746931.png)
 
 ###### 激活服务器的RDS
 
 1. 在 ==RD 授权管理器== 中右键 属性,确保连接方式是 ==Web浏览器==
 2. 	选择服务器，点击右键选择“激活服务器”。
 
-![](http://qiniu.imolili.com/小书匠/1592993353707.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/windows远程连接帮助/2020811/1597113746929.png)
 
 3. 在激活服务器向导中点击下一步 。
 
-![](http://qiniu.imolili.com/小书匠/1592993367237.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/windows远程连接帮助/2020811/1597113746933.png)
 
 4. 在连接方法处选择WEB 浏览器，然后点击下一步。
 
-![](http://qiniu.imolili.com/小书匠/1592993376429.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/windows远程连接帮助/2020811/1597113746932.png)
 
 5. 输入==许可服务器ID==：GCYCQ-7TM97-CMFKD-67X26-XY92Q-6BB7V-3PRVX，然后点击下一步。
 
-![](http://qiniu.imolili.com/小书匠/1592993392728.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/windows远程连接帮助/2020811/1597113746934.png)
 
 6. 选择立即启动许可安装向导，下一步 。
 
-![](http://qiniu.imolili.com/小书匠/1592993404865.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/windows远程连接帮助/2020811/1597113746936.png)
 
 7. 直接下一步。
 
-![](http://qiniu.imolili.com/小书匠/1592993407961.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/windows远程连接帮助/2020811/1597113746935.png)
 
 8. 输入许可密钥ID：V8M42-2KDYD-JM6GV-DBXGG-C4XGB-F39F6-Y3PVX ，点击下一步。
 
-![](http://qiniu.imolili.com/小书匠/1592993416669.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/windows远程连接帮助/2020811/1597113747062.png)
 
 9. 服务器许可证激活向导完成，点击完成
 
-![](http://qiniu.imolili.com/小书匠/1592993428020.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/windows远程连接帮助/2020811/1597113747061.png)
 
 ###### 配置远程桌面会话主机的授权服务器
 
@@ -216,30 +216,30 @@ Windows Server 2012默认情况下，只能提供两个用户远程桌面登陆�
 
 1. 在 ==RD授权诊断程序== 中查看当前服务器授权状态,应该会有黄色的未配置远程桌面会话主机服务器的授权模式的提示
 
-![](http://qiniu.imolili.com/小书匠/1592993535960.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/windows远程连接帮助/2020811/1597113746937.png)
 
 2. 开始 运行 gpedit.msc 打开组策略
 3. 定位到 计算机配置 管理模板 windows组件 远程桌面服务 远程桌面会话主机 授权,找到 ==使用指定的远程桌面许可服务器== 和 ==设置远程桌面授权模式==
 
-![](http://qiniu.imolili.com/小书匠/1592993636172.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/windows远程连接帮助/2020811/1597113747063.png)
 
-![](http://qiniu.imolili.com/小书匠/1592993639189.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/windows远程连接帮助/2020811/1597113747065.png)
 
 4. 设置“使用指定的远程桌面许可证服务器”为启用，并在“要使用的许可证服务器”中，设置当前服务器的IP或者主机名。
 
-![](http://qiniu.imolili.com/小书匠/1592993652944.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/windows远程连接帮助/2020811/1597113747064.png)
 
 5. 启用“设置远程桌面授权模式”，设置授权模式为“按用户”，如下图所示。
 
-![](http://qiniu.imolili.com/小书匠/1592993662602.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/windows远程连接帮助/2020811/1597113747090.png)
 
 6. 在远程桌面会话主机下， 找到 “连接”，按如下图所示设置 ==限制限制连接数量== 和 ==将远程桌面服务用户限制到单独的远程桌面==
 
-![](http://qiniu.imolili.com/小书匠/1592993700605.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/windows远程连接帮助/2020811/1597113747067.png)
 
-![](http://qiniu.imolili.com/小书匠/1592993706294.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/windows远程连接帮助/2020811/1597113747068.png)
 
-![](http://qiniu.imolili.com/小书匠/1592993710020.png)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/windows远程连接帮助/2020811/1597113747066.png)
 
 将远程桌面服务用户限制到单独的远程桌面设置会指定一个用户账户能登录几个终端连接
 
