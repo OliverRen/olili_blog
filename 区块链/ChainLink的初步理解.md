@@ -171,13 +171,13 @@ Job Run的简称。有时也指Task Run。
 
 每个Job Run和Task Run都有一个状态字段由于表示当前的进度。运行状态可以是以下几种状态：
 
-*   Unstarted
-*   In Progress
-*   Pending Confrimations
-*   Pending Bridge
-*   Pending Sleep
-*   Errored
-*   Completed
+	*   Unstarted
+	*   In Progress
+	*   Pending Confrimations
+	*   Pending Bridge
+	*   Pending Sleep
+	*   Errored
+	*   Completed
 
 - SAID
 
