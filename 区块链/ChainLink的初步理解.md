@@ -205,20 +205,20 @@ Task规范的缩写。
 
 -- 我们来看一个 Aava的质押实例 --
 
-用户发起提现请求
+1. 用户发起提现请求
 0xef5bc2eb4180a320bd4d07980947f59f40d28804
-Aave: aETH Token
+2. Aave: aETH Token
 0x3a3A65aAb0dd2A17E3F1947bA16138cd37d08c04
-交易是
+3. 交易是
 0x241424791bc3a0970452c3ec57b4a1c8e07920dfb687f02a9887003383b4cc38
-Token开始对Pool执行调用
-Aave: Lending Pool Core
+4. Token开始对Pool执行调用 Aave: Lending Pool Core
 0x3dfd23A6c5E8BbcFc9581d2E864a68feb6a076d3
-通过多次合约调用后由 chainlink的用户合约
+5. 通过多次合约调用后由 chainlink的用户合约
 0x76B47460d7F7c5222cFb6b6A75615ab10895DDe4
-对chainlink的 Aggregator 发起获取汇率的请求
+6. 对chainlink的 Aggregator 发起获取汇率的请求
 
--- chainlink部分 --
+------------
+chainlink部分
 
 Aggregator执行触发的外部账户地址
 0xd8Aa8F3be2fB0C790D3579dcF68a04701C1e33DB
