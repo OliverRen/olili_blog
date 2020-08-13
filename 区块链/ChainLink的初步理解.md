@@ -65,19 +65,19 @@ grammar_tableExtra: true
 
 适配器是一个负责执行特定功能的软件。Chainlink节点内置了一些适配器，被称为核心适配器（Core Adapters），也可以通过桥接器（Bridges）与用户自定义的外部适配器（External Adapters）连接。Chainlink节点默认的核心适配器包括：
 
-*   Bridge
-*   Copy
-*   EthBytes32
-*   EthInt256
-*   EthTx
-*   EthUint256
-*   HTTPGet
-*   HTTPPost
-*   JSONParse
-*   Multiply
-*   NoOp
-*   NoOpPend
-*   Sleep
+	*   Bridge
+	*   Copy
+	*   EthBytes32
+	*   EthInt256
+	*   EthTx
+	*   EthUint256
+	*   HTTPGet
+	*   HTTPPost
+	*   JSONParse
+	*   Multiply
+	*   NoOp
+	*   NoOpPend
+	*   Sleep
 
 - 结果 Answer
 
