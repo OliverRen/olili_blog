@@ -37,10 +37,10 @@ grammar_tableExtra: true
 
 #### 我的理解
 
-chainlink的主要价值
+**chainlink的主要价值**
 即将区块链下的,单一的,中心化的,不可信的内容,使用类似零知识证明的方式,分配到多个独立的node节点来进行执行,回复后汇总,使之成为一个去中心化,可信的数据被智能合约来使用.
 
-chainlink实现的主要功能
+**chainlink实现的主要功能**
 以太坊上的 link代币合约 ==erc667 token== (transfer and call with data)
 以太坊上的 Oracle预言机,即用来部署node并与以太坊账户捆绑
 以太坊上智能合约的 ChainlinkClient和Aggregate框架,使客户合约能够方便集成,开箱即用
