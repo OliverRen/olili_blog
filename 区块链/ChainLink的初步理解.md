@@ -117,7 +117,7 @@ Chainlink节点与外部适配器通过发送携带有JSON数据的POST请求来
 	*   runat
 	*   web
 	*   execagreement
-	*   
+
     目前只有`runlog`和`execagrement`可以通过向节点运营商转账来使用。启动器使用节点配置的MINIMUM_CONTRACT_PAYMENT大小来决定请求所需要的支付金额，如果在JobID或SAID配置了指定支付额的桥接器，需要再加上额外的金额。
 
 - Job
