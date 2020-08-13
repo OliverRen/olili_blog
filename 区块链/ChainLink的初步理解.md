@@ -221,29 +221,28 @@ Task规范的缩写。
 ------------
 chainlink部分
 
-Aggregator执行触发的外部账户地址
+1. Aggregator执行触发的外部账户地址
 0xd8Aa8F3be2fB0C790D3579dcF68a04701C1e33DB
-对chainlink的 LEND / ETH feed Aggregator
+2. 对chainlink的 LEND / ETH feed Aggregator
 0x1EeaF25f2ECbcAf204ECADc8Db7B0db9DA845327
-发起交易
+3. 发起交易
 0x31285e3ab1929cbdab2edaf8e1a1568bdcf118246e3b284c24fb0a1154668f81
-Aggregator在chainlink合约上分发了请求到不同的node,这里先 internal call到chainlink
+4. Aggregator在chainlink合约上分发了请求到不同的node,这里先 internal call到chainlink
 0x514910771AF9Ca656af840dff83E8264EcF986CA
-**我们看一个node,这里会使用delegatecall切换到node合约的环境中执行**
-CALL修改的是被调用者的storage，而CALLCODE修改的是调用者的storage
-0x049bd8c3adc3fe7d3fc2a44541d955a537c2a484
+5. **我们看一个node,这里会使用delegatecall切换到node合约的环境中执行** (CALL修改的是被调用者的storage，而CALLCODE修改的是调用者的storage)
+6. 0x049bd8c3adc3fe7d3fc2a44541d955a537c2a484
 转发过来的请求会告诉node合约执行完成job后直接回调 Aggregator
 
 ------------
 node 执行链外操作
 
-node的操作账户 
+1. node的操作账户 
 0x2ad9b7b9386c2f45223ddfc4a4d81c2957bae19a
-对node合约
+2. 对node合约
 0x049bd8c3adc3fe7d3fc2a44541d955a537c2a484
-发起交易,该交易主要的请求方法是  fulfillOracleRequest
+3. 发起交易,该交易主要的请求方法是  fulfillOracleRequest
 0x02229e6438f23b70768a46bbfa9624236fc4fce748cedfa73eb5c59f599eb908
-node合约对 指定的回调合约执行请求,这里是 Aggregator
+4. node合约对 指定的回调合约执行请求,这里是 Aggregator
 0x1EeaF25f2ECbcAf204ECADc8Db7B0db9DA845327
 
 总结:
