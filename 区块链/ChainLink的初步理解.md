@@ -49,6 +49,7 @@ grammar_tableExtra: true
 - 适配器 统一化的可执行操作单元
 - 适配器中的Bridge适配器可以通过最低依赖接入外部的api,这使node具有了无限想象力的外部功能
 
+
 - [外部适配器的详细说明](https://medium.com/chainlink/chainlink-external-adapters-e9f99cd6cb62)
 - [以太坊主网上的外部适配器的节点](https://docs.chain.link/docs/chainlinks-ethereum-mainnet)
 - [官方的explorer](https://explorer.chain.link/)
