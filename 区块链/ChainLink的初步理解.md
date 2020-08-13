@@ -50,10 +50,15 @@ grammar_tableExtra: true
 - 适配器中的Bridge适配器可以通过最低依赖接入外部的api,这使node具有了无限想象力的外部功能
 
 [外部适配器的详细说明](https://medium.com/chainlink/chainlink-external-adapters-e9f99cd6cb62)
+
 [以太坊主网上的外部适配器的节点](https://docs.chain.link/docs/chainlinks-ethereum-mainnet)
+
 [官方的explorer](https://explorer.chain.link/)
+
 [社区第三方出品的market.link](https://market.link/)
+
 [社区第三方出品的reputation.link](https://www.reputation.link/)
+
 [Github](https://github.com/smartcontractkit/chainlink)
 
 #### 名词解释
