@@ -234,7 +234,9 @@ CALL修改的是被调用者的storage，而CALLCODE修改的是调用者的stor
 0x049bd8c3adc3fe7d3fc2a44541d955a537c2a484
 转发过来的请求会告诉node合约执行完成job后直接回调 Aggregator
 
--- node 执行链外操作 --
+------------
+node 执行链外操作
+
 node的操作账户 
 0x2ad9b7b9386c2f45223ddfc4a4d81c2957bae19a
 对node合约
