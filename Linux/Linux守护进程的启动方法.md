@@ -378,7 +378,7 @@ Systemd 就是为了解决这些问题而诞生的。它的设计目标是，为
 
 根据 Linux 惯例，字母`d`是守护进程（daemon）的缩写。 Systemd 这个名字的含义，就是它要守护整个系统。
 
-![](http://qiniu.imolili.com/小书匠/1597384058977.jpg)
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux守护进程的启动方法/2020814/1597386177597.jpg)
 
 （上图为 Systemd 作者 [Lennart Poettering](https://en.wikipedia.org/wiki/Lennart_Poettering)）
 
@@ -392,7 +392,7 @@ $ systemctl --version
 
 Systemd 的优点是功能强大，使用方便，缺点是体系庞大，非常复杂。事实上，现在还有很多人反对使用 Systemd，理由就是它过于复杂，与操作系统的其他部分强耦合，违反"keep simple, keep stupid"的[Unix 哲学](http://www.ruanyifeng.com/blog/2009/06/unix_philosophy.html)。
 
-![Systemd 架构图](http://qiniu.imolili.com/小书匠/1597384050072.png)
+![Systemd 架构图](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Linux守护进程的启动方法/2020814/1597386177603.png)
 
 #### 系统管理
 
