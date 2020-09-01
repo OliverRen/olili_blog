@@ -148,7 +148,7 @@ IPLD是内容寻址的数据模型,即 merkle dag的组装数据结构.
 
 类似于字符的编码,只是十六进制编码,但是存储格式并不确定
 
-比如一个区块可以用 cid,编码器和一个 hash-value 加上二进制数据来标识
+比如一个区块可以用 cid,编码器和一个 hash-value 加上二进制数据来表示.
 
 **data model layer (layer 1)**
 
@@ -180,6 +180,15 @@ IPLD是内容寻址的数据模型,即 merkle dag的组装数据结构.
 
 **schema layer**
 架构曾定义了从数据模型层到包含了复杂数据结构的映射.
+
+* Set
+* List
+* Queue
+* Stack
+* SortedSet
+* Map
+* ListMap
+* SortedMap
 
 ----------------
 
