@@ -194,15 +194,19 @@ IPLD是内容寻址的数据模型,即 merkle dag的组装数据结构.
 
 #### IPFS
 
-Bitswap:拉取数据区块和传输数据区块的协议
+- Bitswap:拉取数据区块和传输数据区块的协议
+- CID v0:使用Qm开头的cid
+- CID v1:包含了一只前缀来标识可以向后兼容的cid version.
+- DHT:A Distributed Hash Table (DHT) 分布式的key-value存储.
+- Gateway:ipfs网络在http上的代理接入点
 
+使用 go-ipfs 的cli或者是 ipfs-desktop 的 windows客户端都可以
 
+使用 ipfs-update进行更新,或者在更新了程序后使用 `ipfs daemon`进行数据升级迁移.
 
+IPNS是使用 `ipfs name pushlish CID`来创建一个对特定内容 ipfs-path 的指向.
 
-
-
-
-
+DNSLink是直接使用dns的txt记录来实现的.即将对一个域名的访问,改为 dnslink=/ipfs/Cid 的访问
 
 
 
