@@ -194,6 +194,7 @@ IPLD是内容寻址的数据模型,即 merkle dag的组装数据结构.
 
 #### IPFS
 
+- IPLD:将数据import到ipfs中的协议族
 - Bitswap:拉取和传输数据区块的协议
 - CID v0:使用Qm开头的cid
 - CID v1:包含了一只前缀来标识可以向后兼容的cid version.
