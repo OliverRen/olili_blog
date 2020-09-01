@@ -208,7 +208,7 @@ IPNS是使用 `ipfs name pushlish CID`来创建一个对特定内容 ipfs-path �
 
 DNSLink是直接使用dns的txt记录来实现的.即将对一个域名的访问,改为 dnslink=/ipfs/Cid 的访问
 
-my-dns-tool set --type=TXT --ttl=60 --domain=libp2p.io --name=_dnslink --value="dnslink=/ipfs/Qmc2o4ZNtbinEmRF9UGouBYTuiHbtCSShMFRbBY5ZiZDmU"
+`my-dns-tool set --type=TXT --ttl=60 --domain=libp2p.io --name=_dnslink --value="dnslink=/ipfs/Qmc2o4ZNtbinEmRF9UGouBYTuiHbtCSShMFRbBY5ZiZDmU"`
 
 
 
