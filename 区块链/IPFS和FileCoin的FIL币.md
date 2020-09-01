@@ -35,9 +35,19 @@ grammar_tableExtra: true
 
 [toc]
 
-#### IPFS下的libp2p协议
+Protocol Labs旗下的明星项目,每一个都有其独特的定位和功能。我们就来看一看围绕在IPFS和FileCoin周围的几个项目。在Protocol Labs的官网我们可以找到他们，即IPFS、Filecoin、Libp2p、IPLD.
 
+#### IPFS中的libp2p协议
 
+Libp2p是一个模块化的网络栈，通过将各种传输和P2P协议结合在一起，使得开发人员很容易构建大型、健壮的P2P网络。下面给出了Libp2p项目的官网和开源代码 [libp2p.io](https://libp2p.io/)
+
+Libp2p被用作IPFS的网络层，主要负责发现节点、连接节点、发现数据、传输数据。具体关系可以看下图：
+
+----------------
+
+#### IPFS
+
+Bitswap:拉取数据区块和传输数据区块的协议
 
 
 
