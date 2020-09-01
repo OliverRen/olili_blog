@@ -51,7 +51,7 @@ Libp2p 集成了各种传输协议和点对点协议，其主要作用是发现�
 - NAT Traversal: NAT穿透
 - Content Routing: 内容路由
 
-Libp2p 架构和流程
+**Libp2p 架构和流程**
 
 *   **Peer Routing - 节点路由**
     用来决定使用哪些节点来路由指定的消息。这种路由机制可以递归甚至在广播/组播模式下完成。
