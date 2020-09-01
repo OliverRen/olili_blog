@@ -73,7 +73,7 @@ Libp2p 集成了各种传输协议和点对点协议，其主要作用是发现�
 
 **地址解析**
 
-为了适应复杂的网络环境，libp2p 支持多种不同的底层协议，甚至 IPFS 社区专门立了一个项目来标准化节点的地址[multiaddr](https://link.zhihu.com/?target=https%3A//github.com/multiformats/multiaddr)。目前 libp2p 主要支持以下几种地址格式：
+为了适应复杂的网络环境，libp2p 支持多种不同的底层协议，甚至 IPFS 社区专门立了一个项目来标准化节点的地址[multiaddr](https://github.com/multiformats/multiaddr)。目前 libp2p 主要支持以下几种地址格式：
 
 *   `/ip4/127.0.0.1/tcp/4001/ipfs/QmNodeID`: 这种格式跟传统的 TCP 网络里是一样的，直接可以解析出对应的 IPv4 地址和端口号；
 *   `/ipfs/QmNodeID`: 这种格式的地址适用于 IPFS 网络，只有节点ID的地址，需要节点路由模块找到节点对应的IP地址，然后再进行连接；
