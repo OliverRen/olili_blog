@@ -44,15 +44,22 @@ Libp2p是一个模块化的网络栈，通过将各种传输和P2P协议结合�
 Libp2p被用作IPFS的网络层，主要负责发现节点、连接节点、发现数据、传输数据。
 
 Libp2p 集成了各种传输协议和点对点协议，其主要作用是发现节点和内容，并且让不同的网络协议能够互相之间顺利的传送数据。开发人员可以使用 Libp2p 轻松构建大型，稳定的 p2p 网络。Libp2p 主要包含了如下技术实现：
-Transports：传输
 
-Discovery：发现
+- Transports：传输
+- Discovery：发现
+- Peer Routing: 节点路由
+- NAT Traversal: NAT穿透
+- Content Routing: 内容路由
 
-Peer Routing: 节点路由
-
-NAT Traversal: NAT穿透
-
-Content Routing: 内容路由
+Libp2p 架构和流程
+*   **Peer Routing - 节点路由**
+    用来决定使用哪些节点来路由指定的消息。这种路由机制可以递归甚至在广播/组播模式下完成。
+*   **Swarm - 连接处理**
+    负责管理节点之间连接的创建、维护、销毁。包括协议多路复用、流多路复用、NAT穿透和连接中继，同时进行多路传输。
+*   **Distributed Record Store - 分布式记录存储**
+    存储和分发记录的系统，负责记录节点相关的各种信息，便于连接管理和内容寻址。
+*   **Discovery - 发现**
+    发现和识别网络中的其他节点。
 
 ----------------
 
