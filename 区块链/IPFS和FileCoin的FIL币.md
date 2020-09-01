@@ -51,15 +51,15 @@ Libp2p 集成了各种传输协议和点对点协议，其主要作用是发现�
 - NAT Traversal: NAT穿透
 - Content Routing: 内容路由
 
-**Libp2p 架构和流程**
+**Libp2p 架构**
 
-*   **Peer Routing - 节点路由**
+*   ==Peer Routing - 节点路由==
     用来决定使用哪些节点来路由指定的消息。这种路由机制可以递归甚至在广播/组播模式下完成。
-*   **Swarm - 连接处理**
+*   ==Swarm - 连接处理==
     负责管理节点之间连接的创建、维护、销毁。包括协议多路复用、流多路复用、NAT穿透和连接中继，同时进行多路传输。
-*   **Distributed Record Store - 分布式记录存储**
+*   ==Distributed Record Store - 分布式记录存储==
     存储和分发记录的系统，负责记录节点相关的各种信息，便于连接管理和内容寻址。
-*   **Discovery - 发现**
+*   ==Discovery - 发现==
     发现和识别网络中的其他节点。
 
 ----------------
