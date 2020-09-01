@@ -135,6 +135,54 @@ libp2p中一般是在初始配置中对这一模块进行启用的配置,然后�
 
 ----------------
 
+#### IPLD
+
+IPLD是内容寻址的数据模型,即 merkle dag的组装数据结构.
+
+- schema layer
+- data model layer
+- block layer
+
+**block layer (layer 0)**
+仅此一层就可以描述很多格式的的基本数据,但是并没有定义数据结构或者数据类型,可以使用不同的编码器编码到不同的类型.
+
+类似于字符的编码,只是十六进制编码,但是存储格式并不确定
+
+比如一个区块可以用 cid,编码器和一个 hash-value 加上二进制数据来标识
+
+**data model layer (layer 1)**
+
+这一层是由IPLD编码器来实现的基本必须要的数据类型.
+
+基本类型
+*   Null
+*   Boolean
+*   Integer
+*   Float
+*   String
+*   Bytes
+*   List
+*   Map
+*   Link
+
+循环类型
+*   List
+*   Map
+
+可以用在循环类型T中的类型
+*   Null
+*   Boolean
+*   Integer
+*   Float
+*   String
+*   Bytes
+*   Link
+
+**schema layer**
+架构曾定义了从数据模型层到包含了复杂数据结构的映射.
+
+----------------
+
 #### IPFS
 
 Bitswap:拉取数据区块和传输数据区块的协议
