@@ -84,7 +84,7 @@ Libp2p 集成了各种传输协议和点对点协议，其主要作用是发现�
 
 **传输协议分配**
 
-
+地址里面的`/tcp`、`/quic`、`/ws`、`/p2p`分别对应不同的传输协议实现。libp2p 定义了统一的[传输协议接口标准]https%3A//github.com/libp2p/go-libp2p-transport/blob/419f57b92e2d5c5b5d4181e8d037fea08b2e09d1/transport.go%23L38)，选择地址对应的传输协议，调用传输协议的连接函数尝试连接目的节点。
 
 
 
