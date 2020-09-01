@@ -35,7 +35,7 @@ grammar_tableExtra: true
 
 [toc]
 
-#### Olili Quick View
+#### FileCoin Quick View
 
 IPFS是一个协议
 现在的挖矿是指FileCoin上的挖FIL币
