@@ -219,7 +219,9 @@ multihash是一个自描述hash算法后的数据
 multihash中被hash的数据是通过multicodec组织的数据
 
 当使用cid v0的时候都是固定使用base58的
-当使用cid v1的时候如果第一个字符是 b表示base32,z表示base58,f表示base64
+当使用cid v1的时候如果第一个字符是 b表示base32,z表示base58,f表示base16
+这个base字符叫做 multibase table
+[multibase](https://github.com/multiformats/multibase)
 
 ```
 
