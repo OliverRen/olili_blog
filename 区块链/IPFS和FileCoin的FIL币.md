@@ -238,7 +238,8 @@ multihash中被hash的数据是通过multicodec组织的数据
 
 可以使用这个工具进行分析 [dag.ipfs.io](https://dag.ipfs.io/)
 
-目前ipfs的chunk size是256kb
+平均分割法和smart变长分割法(rabin方式);
+rabin方式会使用16byte的滑动窗口来计算,使得块大小分布在一个平均值形成正太分布
 
 **客户端**
 
