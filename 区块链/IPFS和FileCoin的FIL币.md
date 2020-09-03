@@ -203,14 +203,17 @@ IPLD是内容寻址的数据模型,即 merkle dag的组装数据结构.
 
 **CID字符串的组成**
 ```
+cid-version有两种
+
+cid v0是 Qm开头的 只有multihash
+看起来是这样的
+<0><dag-pb><multihash>
+
+cid v1是 一串00000001的version数据看起来像这样
 Binary:
 <cid-version><ipld-format><multihash>
 String:
 <base>base(<cid-version><ipld-format><multihash>)
-
-cid-version有两种 
-cid v0是 Qm开头的
-cid v1是 一串00000001的数据
 
 ipld-format是定义好的不是 magic-number 的常量
 
