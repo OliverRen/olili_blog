@@ -201,6 +201,10 @@ IPLD是内容寻址的数据模型,即 merkle dag的组装数据结构.
 - DHT:A Distributed Hash Table (DHT) 分布式的key-value存储.
 - Gateway:ipfs网络在http上的代理接入点
 
+**CID字符串的组成**
+
+
+
 使用 go-ipfs 的cli或者是 ipfs-desktop 的 windows客户端都可以
 
 使用 ipfs-update进行更新,或者在更新了程序后使用 `ipfs daemon`进行数据升级迁移.
