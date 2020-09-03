@@ -222,14 +222,13 @@ multihash是一个自描述hash算法后的数据
 
 multihash中被hash的数据是通过multicodec组织的数据
 
+```
 
 当使用cid v1的时候如果第一个字符是 b表示base32,z表示base58btc,f表示base16
-这个base字符叫做 multibase table
-[multibase](https://github.com/multiformats/multibase)
+
+这个base字符叫做 multibase table [multibase](https://github.com/multiformats/multibase)
 
 可以使用这个工具进行分析 [cid.ipfs.io](https://cid.ipfs.io)
-
-```
 
 **将文件加入到ipfs**
 
