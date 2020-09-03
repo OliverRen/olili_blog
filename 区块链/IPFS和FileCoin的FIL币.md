@@ -208,6 +208,7 @@ cid-version有两种
 cid v0是 Qm开头的 只有multihash
 看起来是这样的
 <0><dag-pb><multihash>
+当使用cid v0的时候都是固定使用base58的
 
 cid v1是 一串00000001的version数据看起来像这样
 Binary:
@@ -221,12 +222,22 @@ multihash是一个自描述hash算法后的数据
 
 multihash中被hash的数据是通过multicodec组织的数据
 
-当使用cid v0的时候都是固定使用base58的
-当使用cid v1的时候如果第一个字符是 b表示base32,z表示base58,f表示base16
+
+当使用cid v1的时候如果第一个字符是 b表示base32,z表示base58btc,f表示base16
 这个base字符叫做 multibase table
 [multibase](https://github.com/multiformats/multibase)
 
+可以使用这个工具进行分析 [cid.ipfs.io](https://cid.ipfs.io)
+
 ```
+
+**将文件加入到ipfs**
+
+首先会对要加入的文件内容进行 chunk 分块,并组成dag的形式
+
+然后从叶子节点开始一层一层往上计算cid直到最终的根节点
+
+可以使用这个工具进行分析 [dag.ipfs.io](https://dag.ipfs.io/)
 
 **客户端**
 
