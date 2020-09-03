@@ -242,6 +242,10 @@ multihash中被hash的数据是通过multicodec组织的数据
 rabin方式会使用16byte的滑动窗口来计算,使得块大小分布在一个平均值形成正太分布,
 这样可以使得内容的修改仅仅知会影响修改的块
 
+==UnixFS==
+
+Node+ \[UnixFS File] + C1
+
 **客户端**
 
 使用 go-ipfs 的cli或者是 ipfs-desktop 的 windows客户端都可以;
