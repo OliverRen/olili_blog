@@ -238,6 +238,8 @@ multihash中被hash的数据是通过multicodec组织的数据
 
 可以使用这个工具进行分析 [dag.ipfs.io](https://dag.ipfs.io/)
 
+目前ipfs的chunk size是256kb
+
 **客户端**
 
 使用 go-ipfs 的cli或者是 ipfs-desktop 的 windows客户端都可以;
