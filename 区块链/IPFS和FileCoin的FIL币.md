@@ -202,7 +202,24 @@ IPLD是内容寻址的数据模型,即 merkle dag的组装数据结构.
 - Gateway:ipfs网络在http上的代理接入点
 
 **CID字符串的组成**
+```
+Binary:
+<cid-version><ipld-format><multihash>
+String:
+<base>base(<cid-version><ipld-format><multihash>)
 
+cid-version有两种 
+cid v0是 Qm开头的
+cid v1是 一串00000001的数据
+
+ipld-format是定义好的不是 magic-number 的常量
+
+multihash是一个自描述hash算法后的数据
+
+当使用cid v0的时候都是固定使用base58的
+当使用cid v1的时候如果第一个字符是 b表示base32,z表示base58,f表示base64
+
+```
 
 **客户端**
 使用 go-ipfs 的cli或者是 ipfs-desktop 的 windows客户端都可以;
