@@ -55,10 +55,13 @@ Libp2p 集成了各种传输协议和点对点协议，其主要作用是发现�
 
 *   ==Peer Routing - 节点路由==
     用来决定使用哪些节点来路由指定的消息。这种路由机制可以递归甚至在广播/组播模式下完成。
+	
 *   ==Swarm - 连接处理==
     负责管理节点之间连接的创建、维护、销毁。包括协议多路复用、流多路复用、NAT穿透和连接中继，同时进行多路传输。
+	
 *   ==Distributed Record Store - 分布式记录存储==
     存储和分发记录的系统，负责记录节点相关的各种信息，便于连接管理和内容寻址。
+	
 *   ==Discovery - 发现==
     发现和识别网络中的其他节点。
 
@@ -131,7 +134,7 @@ Libp2p 可以通俗理解成适用于多种传输协议的P2P网络层。由于�
 
 libp2p中的多路复用和tcp/ip使用端口号来多路复用不同.他是在应用层实现的,这意味着它不是操作系统的网络堆栈来提供的功能.
 
-libp2p中一般是在初始配置中对这一模块进行启用的配置,然后在 switch (或者是 swarm取决于实现) 的组件中维护有关已知对等项和连接的状态的. switch提供了 dial和listen的接口可以用来处理流的多路复用.
+libp2p中一般是在初始配置中对这一模块进行启用的配置,然后在 switch (或者称为swarm取决于实现) 的组件中维护有关已知对等项和连接的状态的. switch提供了 dial和listen的接口可以用来处理流的多路复用.
 
 ----------------
 
@@ -146,7 +149,7 @@ IPLD是内容寻址的数据模型,即 merkle dag的组装数据结构.
 **block layer (layer 0)**
 仅此一层就可以描述很多格式的的基本数据,但是并没有定义数据结构或者数据类型,可以使用不同的编码器编码到不同的类型.
 
-类似于字符的编码,只是十六进制编码,但是存储格式并不确定
+类似于字符的编码,只是十六进制编码,但是存储格式并不确定,只是说明了某种类型的数据应该有的基本数据,但并没有规定如何组织数据结构和如何存储(类如json?binary?之类的定义).
 
 比如一个区块可以用 cid,编码器和一个 hash-value 加上二进制数据来表示.
 
@@ -200,6 +203,8 @@ IPLD是内容寻址的数据模型,即 merkle dag的组装数据结构.
 - CID v1:包含了一只前缀来标识可以向后兼容的cid version.
 - DHT:A Distributed Hash Table (DHT) 分布式的key-value存储.
 - Gateway:ipfs网络在http上的代理接入点
+- multihash中被hash的数据是通过multicodec组织的数据
+- multihash是一个自描述hash算法后的数据
 
 **CID字符串的组成**
 ```
@@ -215,12 +220,11 @@ Binary:
 <cid-version><ipld-format><multihash>
 String:
 <base>base(<cid-version><ipld-format><multihash>)
-
 ipld-format是定义好的不是 magic-number 的常量
 
-multihash是一个自描述hash算法后的数据
 
-multihash中被hash的数据是通过multicodec组织的数据
+
+
 
 ```
 
