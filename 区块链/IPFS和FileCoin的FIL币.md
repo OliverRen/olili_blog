@@ -352,7 +352,7 @@ IPFS的Filecoin挖矿技术成本很低,主要是官方提高了硬件成本
 
 	注意：这里的“证明”是非正式的用法-通常，这些证明采取概率论证的形式，而不是具体的证明；也就是说，从技术上讲，可以说服其他参与者，一个人没有做出贡献，但是这种可能性微乎其微，几乎不可能
 	
-	PS:存储证明是一个泛化的概念,挖矿软件的实际工作是下面的复制证明和时空证明
+	PS:存储证明是一个泛化的概念,挖矿软件的实际工作是下面的复制证明和时空证明.
 
 - **复制证明Proof-of-Replication(PoRep)**
 	一旦该扇区已被填充，PoRep看到存储矿工密封 扇区-密封是计算密集的过程的结果在所述数据的唯一表示（原始表示随后可以通过重构开封）。一旦数据被密封，存储矿工：生成证明；对证明运行SNARK进行压缩；最后，将压缩结果提交给区块链，作为存储承诺的证明。通过此过程为网络保留的存储称为抵押存储。
@@ -530,3 +530,8 @@ Filecoin 代币总量为 20 亿枚,
 6. IPFS的集群化管理软件 [Fleek的space-daemon](https://docs.fleek.co/), [源码](https://github.com/FleekHQ/space-daemon)
 
 7. 关于filecoin的存储证明教学 [proto_school](https://proto.school/tutorials) ,[proto school-verifying storage on filecoin](https://proto.school/verifying-storage-on-filecoin/)
+
+----------------------
+
+#### 使用Lotus接入测试网络
+
