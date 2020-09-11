@@ -221,11 +221,6 @@ Binary:
 String:
 <base>base(<cid-version><ipld-format><multihash>)
 ipld-format是定义好的不是 magic-number 的常量
-
-
-
-
-
 ```
 
 当使用cid v1的时候如果第一个字符是 b表示base32,z表示base58btc,f表示base16
