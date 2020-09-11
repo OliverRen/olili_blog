@@ -305,7 +305,7 @@ IPFS的Filecoin挖矿技术成本很低,主要是官方提高了硬件成本
 #### Fileoin的基础术语
 
 - **Block和Epoch**
-	FileCoin区块链中的epoch是离散为25秒的一个时期,每个epoch中,都会选择存储矿工的一个子集,这个子集会通过 Winning-of-Spacetime来向filecoin添加一个block区块.
+	FileCoin区块链中的epoch是离散为25秒的一个时期,每个epoch中,都会选择存储矿工的一个子集,这个子集会通过 Winning-of-Spacetime来向filecoin添加一个block区块.这个选择被称为选举,一个矿工当选的可能性大致与他们贡献的网络总存储容量占整个filecoin网络的份额成正比.
 
 - **客户**
 	客户付费存储和检索数据。他们可以从可用的存储服务商中进行选择。如果他们想存储私有数据，则需要在将其提交给存储服务商之前对其进行加密。
