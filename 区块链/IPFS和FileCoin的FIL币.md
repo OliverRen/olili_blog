@@ -344,7 +344,7 @@ IPFS的Filecoin挖矿技术成本很低,主要是官方提高了硬件成本
 
 	验证者和证明者之间不需要进行交互,而仅仅只需要持有相对应随机数不同的hash值即可判定证明者的确证明了对应的事物.这里就需要证明者自证即为 WindowsPost
 
-- **存储证明(PoSt)**
+- **存储证明Proof-of-Storage(PoSt)**
 
 	许多区块链网络都以参与者为区块链提供某种价值这一观念为基础-这种贡献很难伪造，但如果确实做出了，则可以进行微不足道的验证。通常认为基于这种方法的区块链需要“ X证明”，其中X是有价值的贡献。Filecoin区块链重视存储容量的贡献；它以新颖的存储证明（PoSt）构造为基础，将其与其他区块链区分开来，而其他区块链在大多数情况下需要贡献计算能力。
 
@@ -352,10 +352,10 @@ IPFS的Filecoin挖矿技术成本很低,主要是官方提高了硬件成本
 
 	注意：这里的“证明”是非正式的用法-通常，这些证明采取概率论证的形式，而不是具体的证明；也就是说，从技术上讲，可以说服其他参与者，一个人没有做出贡献，但是这种可能性微乎其微，几乎不可能
 
-- **复制证明(PoRep)**
+- **复制证明Proof-of-Replication(PoRep)**
 	一旦该扇区已被填充，PoRep看到存储矿工密封 扇区-密封是计算密集的过程的结果在所述数据的唯一表示（原始表示随后可以通过重构开封）。一旦数据被密封，存储矿工：生成证明；对证明运行SNARK进行压缩；最后，将压缩结果提交给区块链，作为存储承诺的证明。通过此过程为网络保留的存储称为抵押存储。
 
-- **时空证明(PoSt)**
+- **时空证明Proof-of-Spacetime(PoSt)**
 	PoRep完成后，存储矿工必须不断证明他们仍在存储他们承诺存储的数据。这是通过PoSt完成的，PoSt是向存储矿工发出加密挑战的过程，只有直接咨询密封部门才能正确回答。存储矿工必须在严格的时间限制内应对这一挑战；密封的计算难度确保了存储矿工必须保持对密封部门的随时访问和完整性。
 
 - **窗口时空证明(WindowPost)**
@@ -526,3 +526,5 @@ Filecoin 代币总量为 20 亿枚,
 5. FileCoin api驱动管理工具 [powergate](https://docs.textile.io/powergate/)
 
 6. IPFS的集群化管理软件 [Fleek的space-daemon](https://docs.fleek.co/), [源码](https://github.com/FleekHQ/space-daemon)
+
+7. 关于filecoin的存储证明教学 [proto school-verifying storage on filecoin](https://proto.school/verifying-storage-on-filecoin/)
