@@ -473,3 +473,7 @@ Filecoin 代币总量为 20 亿枚,
 
 当然从头开始看是最完整的,不过我们可以分主次,有一些是越早了解完全越好的
 
+1. FileCoin官方文档 [docs.filecoin.io](https://docs.filecoin.io/)
+	- [术语表](https://docs.filecoin.io/reference/glossary)
+
+2. 
