@@ -519,12 +519,10 @@ Filecoin 代币总量为 20 亿枚,
 
 2. FileCoin官方说明书 [spec.filecoin.io](https://spec.filecoin.io/)
 
-3. 推荐的客户端工具Lotus [lotus.sh](https://lotu.sh/)
+3. 推荐的客户端工具Lotus [lotus.sh](https://lotu.sh/) , [lotus.github源码](https://github.com/filecoin-project/lotus)
 
-4. Lotus的github源码 [lotus.github](https://github.com/filecoin-project/lotus)
+4. 石榴矿池 6block提供的开源挖矿软件 [6block.lotus-miner](https://github.com/shannon-6block/lotus-miner)
 
-5. 石榴矿池 6block提供的开源挖矿软件 [6block.lotus-miner](https://github.com/shannon-6block/lotus-miner)
+5. FileCoin api驱动管理工具 [powergate](https://docs.textile.io/powergate/)
 
-6. FileCoin api驱动管理工具 [powergate](https://docs.textile.io/powergate/)
-
-7. IPFS的集群化管理软件 [Fleek的space-daemon](https://docs.fleek.co/)
+6. IPFS的集群化管理软件 [Fleek的space-daemon](https://docs.fleek.co/), [源码](https://github.com/FleekHQ/space-daemon)
