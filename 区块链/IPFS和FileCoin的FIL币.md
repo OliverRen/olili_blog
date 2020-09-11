@@ -523,8 +523,8 @@ Filecoin 代币总量为 20 亿枚,
 
 4. 石榴矿池 6block提供的开源挖矿软件 [6block.lotus-miner](https://github.com/shannon-6block/lotus-miner)
 
-5. FileCoin api驱动管理工具 [powergate](https://docs.textile.io/powergate/)
+5. FileCoin api驱动的接入工具powergate [powergate](https://docs.textile.io/powergate/)
 
 6. IPFS的集群化管理软件 [Fleek的space-daemon](https://docs.fleek.co/), [源码](https://github.com/FleekHQ/space-daemon)
 
-7. 关于filecoin的存储证明教学 [proto school-verifying storage on filecoin](https://proto.school/verifying-storage-on-filecoin/)
+7. 关于filecoin的存储证明教学 [proto_school](https://proto.school/tutorials) ,[proto school-verifying storage on filecoin](https://proto.school/verifying-storage-on-filecoin/)
