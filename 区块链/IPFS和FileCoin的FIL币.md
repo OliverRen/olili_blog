@@ -535,3 +535,8 @@ Filecoin 代币总量为 20 亿枚,
 
 #### 使用Lotus接入测试网络
 
+- 测试机器地址 172.16.0.26 有vnc
+- 测试网络的水龙地址 [testnet filecoin faucet](https://spacerace.faucet.glif.io/)
+- 测试机上的filecoin地址 TODO
+- lotus的中国ipfs代理 `IPFS_GATEWAY="https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/"`
+
