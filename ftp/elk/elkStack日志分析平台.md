@@ -28,9 +28,7 @@ ELK Stack 是 Elasticsearch、Logstash、Kibana 三个开源软件的组合。�
 对于日志来说,收集,查询,显示是一个基本流程,正对应了logstash,elasticsearch,kibana的功能
 由于ELK的迭代很快,早期的很多内容已经不适应最新的版本,所以只写一些最基础的实际我使用过的一些介绍了
 
-![理论拓扑](http://qiniu.imolili.com/小书匠/1581146882250.png)
-
----
+-------
 
 #### ElasticSearch
 ElasticSearch是一个基于Lucene的开源分布式搜索服务器。它的特点有：分布式，零配置，自动发现，索引自动分片，索引副本机制，restful风格接口，多数据源，自动搜索负载等。它提供了一个分布式多用户能力的全文搜索引擎，基于RESTful web接口。Elasticsearch是用Java开发的，并作为Apache许可条款下的开放源码发布，是第二流行的企业搜索引擎。设计用于云计算中，能够达到实时搜索，稳定，可靠，快速，安装使用方便。
@@ -51,7 +49,6 @@ Kibana 是一个基于浏览器页面的Elasticsearch前端展示工具，也是
 
 #### Logstash工作原理：
 Logstash事件处理有三个阶段：inputs → filters → outputs。是一个接收，处理，转发日志的工具。支持系统日志，webserver日志，错误日志，应用日志，总之包括所有可以抛出来的日志类型。
-![enter description here](http://qiniu.imolili.com/小书匠/1581148875621.png)
 
 ==一些常用的输入 [input] 为： #3F51B5==
 file：从文件系统的文件中读取，类似于tial -f命令
@@ -85,8 +82,6 @@ multiline：将汇多个事件中数据汇总为一个单一的行。比如：ja
 4.部署Kibana服务，提供Web服务。
 
 采用这样的架构部署，有三点优势：==第一 #F44336==，降低对日志所在机器的影响，这些机器上一般都部署着反向代理或应用服务，本身负载就很重了，所以尽可能的在这些机器上少做事；==第二 #F44336==，如果有很多台机器需要做日志收集，那么让每台机器都向Elasticsearch持续写入数据，必然会对Elasticsearch造成压力，因此需要对数据进行缓冲，同时，这样的缓冲也可以一定程度的保护数据不丢失；==第三 #F44336==，将日志数据的格式化与处理放到Indexer中统一做，可以在一处修改代码、部署，避免需要到多台机器上去修改配置。 
-
-![enter description here](http://qiniu.imolili.com/小书匠/1581149253053.png)
 
 #### 收集nginx日志记录
 Logstash的配置文件使用Yaml
