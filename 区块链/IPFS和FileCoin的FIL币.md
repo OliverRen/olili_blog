@@ -600,8 +600,29 @@ _20200921 begin update_
 - 区块数据的快照 snapshot
 	`lotus chain export <file>` 导出区块链
 	`lotus daemon --import-snapshot <file>` 导入区块链
-	
-----------------------
+
+---------------------
+
+#### Lotus的配置文件和环境变量
+
+Lotus的配置文件在 ==$LOTUS_PATH/config.toml== ,主要是关于api和libp2p的网络配置,其中api设置的是lotus daemon本身监听的端口,而libp2p则是用在与网络中的其他节点进行交互的设置,其中ListenAddress和AnnounceAddresses可以显示的配置为自己的固定ip和port,当然需要使用multiaddress的格式.
+
+**环境变量的设置**
+
+*   `LOTUS_FD_MAX`: Sets the file descriptor limit for the process
+*   `LOTUS_JAEGER`: Sets the Jaeger URL to send traces. See TODO.
+*   `LOTUS_DEV`: Any non-empty value will enable more verbose logging, useful only for developers.
+
+Variables specific to the _Lotus daemon_:
+
+*   `LOTUS_PATH`: Location to store Lotus data (defaults to `~/.lotus`).
+*   `LOTUS_SKIP_GENESIS_CHECK=_yes_`: Set only if you wish to run a lotus network with a different genesis block.
+*   `LOTUS_CHAIN_TIPSET_CACHE`: Sets the size for the chainstore tipset cache. Defaults to `8192`. Increase if you perform frequent arbitrary tipset lookups.
+*   `LOTUS_CHAIN_INDEX_CACHE`: Sets the size for the epoch index cache. Defaults to `32768`. Increase if you perform frequent deep chain lookups for block heights far from the latest height.
+*   `LOTUS_BSYNC_MSG_WINDOW`: Sets the initial maximum window size for message fetching blocksync request. Set to 10-20 if you have an internet connection with low bandwidth.
+*   `FULLNODE_API_INFO="TOKEN:/ip4/<IP>/tcp/<PORT>/http"` 可以设置本地的lotus读取远程的 lotus daemon
+
+---------------------
 
 #### 钱包管理
 
@@ -615,4 +636,47 @@ _20200921 begin update_
 - 执行转账
 	`lotus wallet send --from=<sender_address> <target_address> <amount>`
 	`lotus wallet send <target_address> <amount>`
+	
+---------------------
+
+#### 使用 Lotus daemon 或 Lotus-miner监听的 json-rpc 接口
+
+目前json-rpc接口没有文档,只能看源码
+
+1. EndPoint
+
+*   `http://[api:port]/rpc/v0` http json-rpc接口
+*   `ws://[api:port]/rpc/v0` websocket json-rpc接口
+*   `http://[api:port]/rest/v0/import` 只允许put请求,需要一个写权限来添加文件
+
+2. 创建有权限控制的 JWT
+	```sh
+	# Lotus Node
+	lotus auth create-token --perm admin
+
+	# Lotus Miner
+	lotus-miner auth create-token --perm admin
+	```
+	其中有4种权限
+	- `read` - 只能读取
+	- `write` - 可以写入,包含 read
+	- `sign` - 可以使用私钥签名,包含 read,write
+	- `admin` - 管理节点的权限,包含 read,write,sign
+
+3. 请求方式,和标准 json-rpc 2.0 一致.
+	``` sh
+	# 不需要权限
+	curl -X POST \
+     -H "Content-Type: application/json" \
+     --data '{ "jsonrpc": "2.0", "method": "Filecoin.ChainHead", "params": [], "id": 3 }' \
+     'http://127.0.0.1:1234/rpc/v0'
+	 
+	 # 需要权限时,需要传入 JWT
+	 curl -X POST \
+     -H "Content-Type: application/json" \
+     -H "Authorization: Bearer $(cat ~/.lotusminer/token)" \
+     --data '{ "jsonrpc": "2.0", "method": "Filecoin.ChainHead", "params": [], "id": 3 }' \
+     'http://127.0.0.1:1234/rpc/v0'
+	```
+	
 	
