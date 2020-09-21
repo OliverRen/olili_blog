@@ -595,9 +595,9 @@ _20200921 begin update_
 - 开始同步区块 `lotus sync status` ,  `lotus sync wait`
 	需要注意的是目前的区块同步依然是一个比较大的工程,大概实际运行的数据需要1/4的下载同步时间,所以强烈建议通过下载快照来进行同步,[快照地址](https://very-temporary-spacerace-chain-snapshot.s3-us-west-2.amazonaws.com/Spacerace_stateroots_snapshot_latest.car),这个快照每过3-分钟都会进行更新.你可以使用 `lotus daemon --import-snamshot <snapshot>.car` 文件来进行同步数据的导入.
 - filecoin相关目录	, 整个本地数据由这些相关目录 和 wallet 及 chain文件组成
-	==~/.lotus ($LOTUS_PATH)==
-	==~./lotusminer ($LOTUS_MINER_PATH)==
-	==~./lotusworker ($LOTUS_WORKER_PATH)==
+	`~/.lotus ($LOTUS_PATH)`
+	`~./lotusminer ($LOTUS_MINER_PATH)`
+	`~./lotusworker ($LOTUS_WORKER_PATH)`
 - 区块数据的快照 snapshot
 	`lotus chain export <file>` 导出区块链
 	`lotus daemon --import-snapshot <file>` 导入区块链
