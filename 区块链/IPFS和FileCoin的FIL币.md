@@ -33,7 +33,9 @@ grammar_align: true
 grammar_tableExtra: true
 ---
 
-[toc]
+[toc?depth=3]
+
+### Protocol Labs下与FileCoin相关的项目
 
 Protocol Labs旗下的明星项目,每一个都有其独特的定位和功能。我们就来看一看围绕在IPFS和FileCoin周围的几个项目。在Protocol Labs的官网我们可以找到他们，即IPFS、Filecoin、Libp2p、IPLD.
 
@@ -257,6 +259,9 @@ DNSLink是直接使用dns的txt记录来实现的.即将对一个域名的访问
 `my-dns-tool set --type=TXT --ttl=60 --domain=libp2p.io --name=_dnslink --value="dnslink=/ipfs/Qmc2o4ZNtbinEmRF9UGouBYTuiHbtCSShMFRbBY5ZiZDmU"`
 
 ----------------
+----------------
+
+### FileCoin的前期调研和初步了解
 
 #### FileCoin Quick View
 
@@ -485,7 +490,7 @@ Filecoin 代币总量为 20 亿枚,
 
 - 存储质押：7天的扇区故障费和1个扇区故障检测费（和区块奖励大小挂钩）
 - 共识质押:  为了实现30%的网络流通量都要被锁定在初始共识质押中。 所以需根据扇区加权字节算力(QAP), 在网络中所占的比例分配给该扇区一小部分质押份额, 初始质押应随时间的减少而减少
-- 区块奖励质押：挖到币后先锁仓20天，后180天线性释放。意思就是20天后就能每天平均地拿到挖到的币，180天拿完。因为矿工是一致在挖币的， 所以只需要等待第一个20天， 后面每天都会受到奖励。
+- 区块奖励质押：挖到币后先锁仓20天，后180天线性释放。意思就是20天后就能每天平均地拿到挖到的币，180天拿完。因为矿工是一致在挖币的， 所以只需要等待第一个20天， 后面每天都会受到奖励。(update有调整 取消20天锁定)
 
 其中1+2目前是一个扇区1个FIL.只是极限值,未来只少不多.当然这只是 space race 时的测试值,主网正式上线的时候肯定时会调整的.否则中小矿工或新增矿工很难加入进来.
 
@@ -500,6 +505,13 @@ Filecoin 代币总量为 20 亿枚,
 
 - 第三阶段：挖币的人越来越多， 区块奖励越来越少，“简单产币”基本上没了， 这就和比特币一样，那么主要收入来源于提供高质量存储和检索服务和交易手续费了
 
+**消减**
+
+- 当出现sector故障的时候都会进行 br(2.14) 的一个扇区故障消减惩罚
+- 当矿工自我声明之后就不会收到后续的一次性的故障检出惩罚
+- 如果矿工自我声明,但是声明的太晚了,则依然会被做对于这个sector的消减惩罚 br(3.5) (update 数值有可能会变更)
+- 如果矿工没有自我声明,然后被区块网络检查错误,则会对整个 partition都执行消减惩罚 br(3.5) (update数值有可能会变更)
+
 **矿工应在以下3方面努力来挖到更多币**
 
 - 性能更高的复制证明算法：链上数据更少、验证时间更快、硬件成本更低、不同的安全性假设，从而使扇区生命周期更长，并且无需重新封装即可进行扇区升级。
@@ -511,6 +523,9 @@ Filecoin 代币总量为 20 亿枚,
 ![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/IPFS和FileCoin的FIL币/2020831/1598861682918.png)
 
 ----------------
+----------------
+
+### FileCoin的技术学习记录
 
 #### 推荐的学习路径文档列表
 
@@ -531,12 +546,73 @@ Filecoin 代币总量为 20 亿枚,
 
 7. 关于filecoin的存储证明教学 [proto_school](https://proto.school/tutorials) ,[proto school-verifying storage on filecoin](https://proto.school/verifying-storage-on-filecoin/)
 
+8. 仅作为参考的 开始挖矿系列 [Github awesome-filecoin-mining](https://github.com/bobjiang/awesome-filecoin-mining)
+
 ----------------------
+
+_20200921 begin update_
 
 #### 使用Lotus接入测试网络
 
 - 测试机器地址 172.16.0.26 有vnc
+- 测试网络信息 [Network Info](https://network.filecoin.io/#testnet)
 - 测试网络的水龙地址 [testnet filecoin faucet](https://spacerace.faucet.glif.io/)
-- 测试机上的filecoin地址 TODO
 - lotus的中国ipfs代理 `IPFS_GATEWAY="https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/"`
+- GO的代理
+	```	shell
+	go env -w GO111MODULE=on
+	go env -w GOPROXY=https://goproxy.io,direct
+	
+	# 设置不走 proxy 的私有仓库，多个用逗号相隔（可选）
+	go env -w GOPRIVATE=*.corp.example.com
 
+	# 设置不走 proxy 的私有组织（可选）
+	go env -w GOPRIVATE=example.com/org_name
+	```
+- ubuntu 的系统要求
+	`sudo apt update && sudo apt install mesa-opencl-icd ocl-icd-opencl-dev gcc git bzr jq pkg-config curl -y && sudo apt upgrade -y`
+- 对rustup的依赖,需要 ==cargo== 和 ==rustc== 两个工具
+	`snap install rustup`
+- 对go的依赖,我们使用golang官网的下载解压方式,需要安装 go 1.14及以上的版本
+- 使用git克隆lotus库
+	`git clone https://github.com/filecoin-project/lotus.git`
+- 支持 SHA 扩展指令的cpu使用 rust标记 [Native Filecoin FFI section](https://docs.filecoin.io/get-started/lotus/installation/#native-filecoin-ffi)
+	`export RUSTFLAGS="-C target-cpu=native -g"`
+	`export FFI_BUILD_FROM_SOURCE=1`
+- 编译 lotus
+	`make clean all && make install`
+- 查看可执行文件 ==lotus==	,==lotus-miner==	,==lotus-worker==	应该在 ==/usr/local/bin== 下
+- lotus的工作目录默认是在 $HOME/.lotus,用户不同是不一样的.
+- 启动 lotus的守护进程  `lotus daemon`
+- 或者通过命令创建 systemd service
+	`make install-daemon-service`
+	`make install-chainwatch-service`
+	`make install-miner-service` 
+	对应 ==systemctl status lotus-daemon==
+	默认的log重定向到 ==/var/log/lotus/daemon.log==,不能使用journalctl查看日志
+	当同步的时候在日志中产生的error和warning并不需要太过担心,他们一般都是守护进程执行一些分布式的方法出现的
+- 开始同步区块 `lotus sync status` ,  `lotus sync wait`
+	需要注意的是目前的区块同步依然是一个比较大的工程,大概实际运行的数据需要1/4的下载同步时间,所以强烈建议通过下载快照来进行同步,[快照地址](https://very-temporary-spacerace-chain-snapshot.s3-us-west-2.amazonaws.com/Spacerace_stateroots_snapshot_latest.car),这个快照每过3-分钟都会进行更新.你可以使用 `lotus daemon --import-snamshot <snapshot>.car` 文件来进行同步数据的导入.
+- filecoin相关目录	, 整个本地数据由这些相关目录 和 wallet 及 chain文件组成
+	==~/.lotus== ($LOTUS_PATH)
+	==~./lotusminer== ($LOTUS_MINER_PATH)
+	==~./lotusworker== ($LOTUS_WORKER_PATH)
+- 区块数据的快照 snapshot
+	`lotus chain export <file>` 导出区块链
+	`lotus daemon --import-snapshot <file>` 导入区块链
+	
+----------------------
+
+#### 钱包管理
+
+- 查看钱包
+	`lotus wallet list` 查看所有的钱包账户
+	`lotus wallet default` 查看默认钱包
+	`lotus wallet set-default <address>` 设置一个默认钱包
+	`lotus wallt balance` 
+- 新建钱包
+	`lotus wallet new [bls|secp256k1 (default secp256k1)]` 其中bls会生成 t3长地址(对multisig友好),secp256k1即btc的曲线参数会生成t1的短地址,新创建的钱包会在 ==$LOTUS_PATH/keystore==
+- 执行转账
+	`lotus wallet send --from=<sender_address> <target_address> <amount>`
+	`lotus wallet send <target_address> <amount>`
+	
