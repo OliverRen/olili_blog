@@ -483,6 +483,20 @@ Filecoin 代币总量为 20 亿枚,
 10% 用于融资，
 15% 分配给协议实验室，
 70% 分配给矿工。其中代币总量的 15%, 3亿枚，将被用作为挖矿储备金，以在未来激励检索矿工和其他类型的矿工，具体使用方式以后由社区通过 Filecoin 改进提案（FIP）共同决定。
+59.5% 存储矿工能挖到的币,实际实施到账的是30%,其他的还要线性180天进行释放,一天释放的币认为是在40万左右
+
+[资料来源](https://ipfs.io/ipfs/Qmdsip9Kcoyj3J3Fyvjw3wjPCuewkZiGVWpN8rYF3dJKqg/vesting.html)
+
+种种这些措施都能看出，项目方对项目的代币释放计划是经过精心设计的。
+
+这样的设计首先从制度上约束了项目方不能不劳而获在项目没完成之前就得到大量奖励。由于代币是分批释放的，因此项目方必须把项目做好，刺激代币价格上涨，这样自己后续拿到代币时收益才能尽量高。
+
+另外这样的释放计划也尽量防止代币在上线初期像其它很多项目那样被投资者套现抛售而导致价格承受巨大的抛压。
+
+在这个项目中，上线初期没有任何一方手中握有大量筹码，因此市场上的代币货源稀少。
+
+总的说来，这个项目从代币释放的机制来看项目方可谓是用心良苦，尽量约束和平衡各方的利益，促使各方一起为项目的长远发展和生态建设努力。
+
 
 **质押**
 
@@ -521,6 +535,45 @@ Filecoin 代币总量为 20 亿枚,
 - 更多可以使扇区持续更长的时间的交易订单功能。
 
 ![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/IPFS和FileCoin的FIL币/2020831/1598861682918.png)
+
+----------------
+
+#### FileCoin的区块结构 tipsets
+
+GHOSTy协议让矿工记录过去所有被观察到的区块，以增加其区块链的权重。Filecoin的共识机制建立在这些综合之上，叫做tipsets。 如果比特币是靠最长和最有效的链的竞赛来运作，那么Filecoin的期望共识就是基于选举，在指定回合中可以选举多个矿工作为领导者。这就意味着可以在每个区块中创建多个有效的同级区块，**在每个新的纪元（epoch），新一代的家谱发展出来，称之为tipset，这也是我们网络中独特的系统。**
+
+Filecoin中的区块按纪元（epoch）排序，每个新的区块都引用上一个纪元（epoch）中产生的至少一个块（父块）。一个tipset集是具有相同父块且在同一个纪元（epoch）中挖到的有效区块组成。
+
+下图，为了简化没有将存储算力考虑在内，用不同颜色表示的3个来自相同祖父块的tipsets。让我们来计算一下这些tipsets的权重。
+
+![在同一个Epoch中3个Tipsets的示例](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/IPFS和FileCoin的FIL币/2020924/1600918330213.png)
+
+下面第一个图表中， “**祖块+父块+子块**” 给纪元2中的第一个tipset赋予总权重为5.
+
+![纪元2中的第一个tipset总权重为5](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/IPFS和FileCoin的FIL币/2020924/1600918422870.png)
+
+下面第二个tipset拥有总权重为4（一个祖块，两个父块，一个子块）。
+
+![纪元2中第二个tipset权重为4](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/IPFS和FileCoin的FIL币/2020924/1600918442371.png)
+
+最后一个tipset(第三张表）拥有总权重为3（一个祖块、一个父块、一个子块）
+
+![纪元2中第三个tipset权重为3](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/IPFS和FileCoin的FIL币/2020924/1600918457685.png)
+
+最后的表提供了该链的全面视角，在纪元2里第一个tipset赢了, 尽管到下一个纪元才会被确认。
+
+![来自同一纪元的所有tipsets。尽管还没有到下一个纪元被确认，目前权重最大的链是第一个权重为5的tipset](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/IPFS和FileCoin的FIL币/2020924/1600918479137.png)
+
+与以太坊一样，该系统通过确保不浪费任何工作量来激励协作并从总体来提高链上的吞吐量。此外，由于tipset要求严格，所有的块都必须来自相同的父块，并且在相同的高度被开采，因此在分叉的情况下，该链可以实现“*快速收敛*”。
+
+**最终，Filecoin会赋予提供更多存储算力的区块以权重，因为它的核心是存储网络。随着时间的流逝，矿工会聚集在权重最大的链上来创造价值**，而权重小的链将成为孤块。
+
+-----------------
+
+#### FileCoin矿工的经济效应
+
+统一以官方的  AMD Ryzen线程撕裂者3970x,128GB ram,使用 nvidia 2080ti显卡为基准当量, 
+这个配置每天大概可以封装setor的个数在 4-5 个左右 (32GB) , 差不多是140-150GB的总量, 
 
 ----------------
 ----------------
