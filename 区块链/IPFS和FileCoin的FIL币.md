@@ -33,7 +33,7 @@ grammar_align: true
 grammar_tableExtra: true
 ---
 
-[toc?depth=3]
+[toc]
 
 ### Protocol Labs下与FileCoin相关的项目
 
@@ -474,6 +474,201 @@ IPFS的Filecoin挖矿技术成本很低,主要是官方提高了硬件成本
 
 PoSt主要受GPU约束，但可以利用具有许多内核的CPU来加速过程。例如，WindowPoSt当前必须在30分钟的窗口内进行；24核CPU和8核CPU之间的差异可能是在以适当的余量清除该窗口与在狭窄的时间范围内进行清除之间的差异。WinningPoSt是一种强度较低的计算，必须在Filecoin时期的较小窗口（当前为25秒）内完成。
 
+#### 服务器安装注意事项
+
+20200927 update
+
+- 服务器主板FPanel没有USB针,所以只有尾部的2个USB口,需要接hub
+- 引导U盘不能量产,所以是USB-ZIP模式,有可能主板比较新已经不支持了.只可以使用USB-HDD或者直接USB光驱引导
+- 设置SATA控制器为AHCI模式,再CSM兼容中关闭secure boot,设置所有板载设备为UEFI启动
+- 服务器的板载VGA如果选择safe graphic模式启动只能使用英文安装,否则后续步骤有按钮被遮挡无法控制选项
+- 创建了EFI分区后,需要手动在下方选择EFI分区来安装boot loader,他不会自动选择
+- Nvidia显卡在ubuntu中不能使用默认的开源驱动 nouveau ,需要手动禁用,否则会有looping登录界面的问题
+
+**显卡驱动和cuda加速**
+
+虽然在安装ubuntu的时候我已经勾选了专用软件和显卡驱动的选项,但是由于用到的是 NVIDIA RTX3080,不知道是不是因为太新了,所以并没有检测出来专用驱动,没办法只能自行安装了.
+
+PS:可以尝试添加PPA源使用apt的安装方式,当然要这个源有方案之后
+``` shell
+sudo add-apt-repository ppa:graphics-drivers/ppa
+sudo apt update
+```
+
+CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只是一个工具包,他是可以多个版本进行安装的.所以并不一定要安装cuda中的显卡驱动,具体可以看后面的安装过程,需要注意的是 cuda文件名上标记的版本号是支持的最低的显卡驱动的版本,所以如果自己安装显卡驱动的话,是一定需要在这个版本之上的.
+
+
+- 准备工作
+
+建议都使用离线安装的方式,主要还是网络太蛋疼了,显卡驱动几百M,cuda工具包下载的时候有好几G
+	
+显卡驱动:从官方网站下载 [download search](https://www.nvidia.cn/geforce/drivers/) , 我下载的版本是 NVIDIA-Linux-x86_64-455.23.04.run
+
+CUDA工具阿波:[下载界面地址](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=2004&target_type=runfilelocal)
+
+- 禁用开源驱动 nouveau编辑文件 blacklist.conf
+
+``` shell
+sudo gedit /etc/modprobe.d/blacklist.conf
+blacklist nouveau
+blacklist intel
+# 实际测试没有这句也没问题
+options nouveau modeset=0
+# 更新
+sudo update-initramfs -u
+# 重启
+sudo reboot
+# 验证
+lsmod | grep nouveau
+```
+
+- 删除干净历史安装
+
+``` shell
+# 驱动如果是 runfile安装的
+sudo NVIDIA-*.run -uninstall
+# 驱动如果是使用apt安装的
+sudo apt remove nvidia*
+
+# 卸载CUDA
+CUDA默认是安装在 /usr/local/cuda-*下的
+sudo uninstall_cuda_*.pl
+```
+
+- 禁用 x window服务
+
+网上教程都安装,重启,并停止了 lightdm,其实ubuntu 20.04是使用了gdm的.直接停止后尝试安装
+
+``` shell
+# 更新 apt
+sudo apt update
+
+# 有可能的 lightdm 然后完成需要重启
+sudo apt install lightdm 
+# 如果安装了lightdm需要关闭
+sudo service lightdm stop
+sudo systemctl stop lightdm
+
+# 直接关闭gdm
+sudo systemctl stop gdm
+```
+
+- 安装驱动文件
+
+进入runfile文件所在的目录,赋予权限,然后开始安装
+
+``` shell
+sudo chmod a+x NVIDIA*.run
+
+# NVIDIA*.run -h 可以输出帮助
+# NVIDIA*.run -A 可以输出扩展选项
+
+# 执行安装
+sudo ./NVIDIA-Linux-x86_64-396.18.run --no-x-check --no-nouveau-check --no-opengl-files 
+# 我们已经自己禁用了x-window
+# 我们已经手动禁用了nouveau
+# 由于ubuntu自己有opengl,所以我们不用安装opengl,否则会出现循环登录的情况
+```
+
+- 安装过程
+
+```
+大概说是NVIDIA驱动已经被Ubuntu集成安装,可以在软件更新器的附加驱动中找到,我就是因为3080显卡找不到才需要自己安装的,所以直接继续
+
+The distribution-provided pre-install script failed! Are you sure you want to continue?
+选择 yes 继续。
+
+Would you like to register the kernel module souces with DKMS? This will allow DKMS to automatically build a new module, if you install a different kernel later?
+选择 No 继续。
+
+是否安装 NVIDIA 32位兼容库
+选择NO继续
+
+Would you like to run the nvidia-xconfig utility to automatically update your x configuration so that the NVIDIA x driver will be used when you restart x? Any pre-existing x confile will be backed up.
+选择 Yes 继续
+```
+
+- 安装完成
+
+```
+# 挂载专用驱动 正常来说会自动挂载
+modprobe nvidia
+检查驱动是否成功
+nvidia-smi
+nvidia-settings 是ui界面的配置
+
+# 开启图形界面,之前如果安装了lightdm则启动之
+sudo systemctl start lightdm
+sudo systemctl start gdm
+
+sudo reboot
+
+# ps：如重启后出现分辨率为800*600，切不可调的情况执行下面命令：
+sudo mv /etc/X11/xorg.conf /etc/X11/xorg.conf.backup
+sudo touch /etc/X11/xorg.conf
+sudo reboot
+```
+
+- 安装CUDA
+
+进入runfile文件目录,添加执行权限后执行安装
+
+``` shell
+sudo sh ./cuda_*.run --no-opengl-libs
+
+# 同驱动安装一样,这里也不需要安装opengl库
+```
+
+- 安装过程
+
+```
+Do you accept the previously read EULA?
+accept
+然后选择安装项
+```
+
+- 安装完成
+
+``` shell
+# 安装CUDA工具需要自行设置path,编辑 .bashrc 或者 /etc/profile全局文件
+
+gedit ~/.bashrc 
+export PATH=/usr/local/cuda-8.0/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:$LD_LIBRARY_PATH
+```
+
+```
+===========
+= Summary =
+===========
+
+Driver:   Not Selected
+Toolkit:  Installed in /usr/local/cuda-11.1/
+Samples:  Installed in /home/rxc/, but missing recommended libraries
+
+Please make sure that
+ -   PATH includes /usr/local/cuda-11.1/bin
+ -   LD_LIBRARY_PATH includes /usr/local/cuda-11.1/lib64, or, add /usr/local/cuda-11.1/lib64 to /etc/ld.so.conf and run ldconfig as root
+
+To uninstall the CUDA Toolkit, run cuda-uninstaller in /usr/local/cuda-11.1/bin
+***WARNING: Incomplete installation! This installation did not install the CUDA Driver. A driver of version at least .00 is required for CUDA 11.1 functionality to work.
+To install the driver using this installer, run the following command, replacing <CudaInstaller> with the name of this run file:
+    sudo <CudaInstaller>.run --silent --driver
+
+Logfile is /var/log/cuda-installer.log
+
+```
+
+- 测试
+
+``` shell
+cd /usr/local/cuda-8.0/samples/1_Utilities/deviceQuery
+sudo make -j4
+# 这里-j4是因为是4核cpu，可以4个jobs一起跑。运行结果如下图
+
+./deviceQuery
+```
+
 ----------------
 
 20200924 update
@@ -526,10 +721,12 @@ Filecoin 代币总量为 20 亿枚
 
 **消减**
 
-- 当出现sector故障的时候都会进行 br(2.14) 的一个扇区故障消减惩罚
-- 当矿工自我声明之后就不会收到后续的一次性的故障检出惩罚
+- 只要未能提交PoSt证明就会有故障费用的消减 br(2.14)
+- 扇区故障费用的消减每天都会扣除直到钱包账户归零或矿工将sector从网络中移除,同时会受到一个扇区惩罚的消减
+- 当矿工在WindowPoSt检查发生之前自我声明之后就不会收到后续的一次性的故障检出惩罚
 - 如果矿工自我声明,但是声明的太晚了,则依然会被做对于这个sector的消减惩罚 br(3.5) (update 数值有可能会变更)
-- 如果矿工没有自我声明,然后被区块网络检查错误,则会对整个 partition都执行消减惩罚 br(3.5) (update数值有可能会变更)
+- 如果矿工没有自我声明,然后被区块网络检查错误,则会对整个 partition 都执行消减惩罚 br(3.5) (update数值有可能会变更)
+- 如果矿工的sector被删除的话会收到一个中止费用的消减.
 
 **矿工应在以下3方面努力来挖到更多币**
 
@@ -585,7 +782,7 @@ Filecoin中的区块按纪元（epoch）排序，每个新的区块都引用上�
 这个配置可以提供基准当量的 12倍左右的并行运行. 可以视作每天可以有1.5-1.8TB的总密封量,
 
 由币的释放模型可知,存储矿工每天挖出的币总数大概是在 40万枚,基准产币未达到的情况下,只有30%的简单产币即12万枚, 
-虽然每个 tipsets 设置所有矿工预期赢得选票数的平均值设为 5,(同时每个矿工的win count也由不同,这是可以有多份的),但目前实际都是偏小,大概在 3.5 左右(块由于网络原因丢了,或者是说孤块没有被网络接受) ,所以我们可以看到每个矿工出块的时候一个 win count的收益大概是12Fil,PS由于丢快和孤块的原因,所以你的绝对爆块率也肯定是小于你全网算力比例的.
+虽然每个 tipsets 设置所有矿工预期赢得选票数的平均值设为 5,(泊松分布)(同时每个矿工的win count也由不同,这是可以有多份的),但目前实际都是偏小,大概在 3.5 左右(块由于网络原因丢了,或者是说孤块没有被网络接受) ,所以我们可以看到每个矿工出块的时候一个 win count的收益大概是12Fil,PS由于丢快和孤块的原因,所以你的绝对爆块率也肯定是小于你全网算力比例的.
 
 `(3.5 win counts) \* 2tipsets \* 60 minutes * 24hours * 12FIL ==> 120000 FIL`
 
@@ -619,6 +816,7 @@ Filecoin中的区块按纪元（epoch）排序，每个新的区块都引用上�
 ![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/IPFS和FileCoin的FIL币/2020924/1600922951377.png)
 
 其中，h(vrfout)是不可预测随机数，totalPower是全网算力，myPower是当前矿工密封数据的算力，e=5是每个tipset预期出块数量。每个Epoch时，每个矿工可以计算上面公式看是否成立，若满足则矿工获得出块权，成功出块以后可以得到对应的收益。
+
  可以看出，当矿工的算力达到全网算力的20%时，矿工一定可以获得出块权；当矿工算力小于20%时，矿工获得出块权的比率与矿工算力占全网算力比率成正比。
 
 **平均区块奖励 这是错误的思路,只是销售用来量化阐述的概念**
@@ -650,27 +848,29 @@ Filecoin中的区块按纪元（epoch）排序，每个新的区块都引用上�
 
 当然从头开始看是最完整的,不过我们可以分主次,有一些是越早了解完全越好的
 
-1. FileCoin官方文档 [docs.filecoin.io](https://docs.filecoin.io/)
+1. FileCoin官方文档 [docs.filecoin.io](https://docs.filecoin.io/) ps官方的文档有可能一天都改动好多,看的时候多多刷新
 
 2. [术语表](https://docs.filecoin.io/reference/glossary)
 
 3. FileCoin官方说明书 [spec.filecoin.io](https://spec.filecoin.io/)
 
-4. 推荐的客户端工具Lotus [lotus.sh](https://lotu.sh/) , [lotus.github源码](https://github.com/filecoin-project/lotus)
+4. Go-filecoin的code review [github go-filecoin code review](https://github.com/filecoin-project/go-filecoin/blob/master/CODEWALK.md)
 
-5. 石榴矿池 6block提供的开源挖矿软件 [6block.lotus-miner](https://github.com/shannon-6block/lotus-miner)
+5. 推荐的客户端工具Lotus [lotus.sh](https://lotu.sh/) , [lotus.github源码](https://github.com/filecoin-project/lotus)
 
-6. FileCoin api驱动的接入工具powergate [powergate](https://docs.textile.io/powergate/)
+6. 石榴矿池 6block提供的开源挖矿软件 [6block.lotus-miner](https://github.com/shannon-6block/lotus-miner)
 
-7. IPFS的集群化管理软件 [Fleek的space-daemon](https://docs.fleek.co/), [源码](https://github.com/FleekHQ/space-daemon)
+7. FileCoin api驱动的接入工具powergate [powergate](https://docs.textile.io/powergate/)
 
-8. 关于filecoin的存储证明教学 [proto_school](https://proto.school/tutorials) ,[proto school-verifying storage on filecoin](https://proto.school/verifying-storage-on-filecoin/)
+8. IPFS的集群化管理软件 [Fleek的space-daemon](https://docs.fleek.co/), [源码](https://github.com/FleekHQ/space-daemon)
 
-9. 仅作为参考的 开始挖矿系列 [Github awesome-filecoin-mining](https://github.com/bobjiang/awesome-filecoin-mining)
+9. 关于filecoin的存储证明教学 [proto_school](https://proto.school/tutorials) ,[proto school-verifying storage on filecoin](https://proto.school/verifying-storage-on-filecoin/)
+
+10. 仅作为参考的 开始挖矿系列 [Github awesome-filecoin-mining](https://github.com/bobjiang/awesome-filecoin-mining)
 
 ----------------------
 
-_20200921 begin update_
+20200921 begin update
 
 #### 使用Lotus接入测试网络
 
@@ -712,7 +912,7 @@ _20200921 begin update_
 	默认的log重定向到 ==/var/log/lotus/daemon.log==,不能使用journalctl查看日志
 	当同步的时候在日志中产生的error和warning并不需要太过担心,他们一般都是守护进程执行一些分布式的方法出现的
 - 开始同步区块 `lotus sync status` ,  `lotus sync wait`
-	需要注意的是目前的区块同步依然是一个比较大的工程,大概实际运行的数据需要1/4的下载同步时间,所以强烈建议通过下载快照来进行同步,[快照地址](https://very-temporary-spacerace-chain-snapshot.s3-us-west-2.amazonaws.com/Spacerace_stateroots_snapshot_latest.car),这个快照每过3-分钟都会进行更新.你可以使用 `lotus daemon --import-snamshot <snapshot>.car` 文件来进行同步数据的导入.
+	需要注意的是目前的区块同步依然是一个比较大的工程,大概实际运行的数据需要1/4的下载同步时间,所以强烈建议通过下载快照来进行同步,[快照地址](https://very-temporary-spacerace-chain-snapshot.s3-us-west-2.amazonaws.com/Spacerace_stateroots_snapshot_latest.car),这个快照每6小时都会进行更新.你可以使用 `lotus daemon --import-snamshot <snapshot>.car` 文件来进行同步数据的导入.
 - filecoin相关目录	, 整个本地数据由这些相关目录 和 wallet 及 chain文件组成
 	`~/.lotus ($LOTUS_PATH)`
 	`~./lotusminer ($LOTUS_MINER_PATH)`
@@ -756,10 +956,13 @@ Variables specific to the _Lotus daemon_:
 - 执行转账
 	`lotus wallet send --from=<sender_address> <target_address> <amount>`
 	`lotus wallet send <target_address> <amount>`
-	
+- 导入导出钱包 (你也可以直接copy ~/.lotus/keystore)
+	`lotus wallet export <address> > wallet.private`
+	`lotus wallet import wallet.private` 
+
 ---------------------
 
-#### 使用 Lotus daemon 或 Lotus-miner监听的 json-rpc 接口
+#### 如何 Lotus daemon 或 Lotus-miner监听提供的 json-rpc 接口
 
 目前json-rpc接口没有文档,只能看源码
 
@@ -799,4 +1002,150 @@ Variables specific to the _Lotus daemon_:
      'http://127.0.0.1:1234/rpc/v0'
 	```
 	
+---------------------
+
+#### 使用Lotus存储数据
+
+术语解释 CAR文件:[Specification: Content Addressable aRchives](https://github.com/ipld/specs/blob/master/block-layer/content-addressable-archives.md)
+
+- 数据必须打包到一个CAR文件中,这里可以使用以下命令
+	`lotus client generate-car <input path> <output path>`
+	`lotus client import <file path>`
+- 列出本地已经导入或者创建car的文件
+	`lotus client local`
+- 数据必须切割到指定的扇区大小,如果你自己创建了car文件,确保使用--czr标志来进行导入	
+- 查询矿工,询问价格,开始存储交易(在线交易)
+	`lotus state list-miners`
+	`lotus client query-ask <miner>`
+	`lotus client deal` 
+- 扇区文件可以存储的容量,首先计算使用的是1024而不是1000,同时对于每256位 bits,需要保留2位作为证明之需.即32GB的sector可以存储的容量是 2^30\*254\/256 字节
+- 离线交易,生成car,然后生成对应所选矿工的piece块的CID,然后提出离线交易
+	`lotus client generate-car <input path>	<output path>`
+	`client commP <inputCAR filepath> <miner>`
+	`lotus client deal --manual-piece-cid=CID --manual-piece-size=datasize <Data CID> <miner> <piece> <duration>`
+	`lotus-miner deals import-data <dealCID> <filepath>`
+- 从IPFS中导入数据,首先需要在lotus配置中打开 UseIpfs,然后可以直接将ipfs中的文件进行在线交易
+	`lotus client deal QmSomeData t0100 0 100`
+
 	
+#### 使用Lotus检索交易
+
+- 查询自己的数据被哪些矿工存储
+	`lotus client find <Data CID>`
+- 进行检索交易
+	`lotus client retrieve <Data CID> <out file>`
+	
+---------------------	
+
+#### 使用官方Lotus-miner执行挖矿的常见问题
+
+1. 在lotus中使用filter只与指定的bot进行deal
+
+``` lotusminer/config.toml
+~/.lotusminer/config.toml
+
+[Dealmaking]
+Filter = <shell command>
+
+## Reject all deals
+Filter = "false"
+
+## Accept all deals
+Filter = "true"
+
+## Only accept deals from the 4 competition dealbots (requires jq installed)
+Filter = "jq -e '.Proposal.Client == \"t1nslxql4pck5pq7hddlzym3orxlx35wkepzjkm3i\" or .Proposal.Client == \"t1stghxhdp2w53dym2nz2jtbpk6ccd4l2lxgmezlq\" or .Proposal.Client == \"t1mcr5xkgv4jdl3rnz77outn6xbmygb55vdejgbfi\" or .Proposal.Client == \"t1qiqdbbmrdalbntnuapriirduvxu5ltsc5mhy7si\" '"
+```
+
+2. 修改miner的gas费率
+
+``` lotusminer/config.toml
+[Fees]
+MaxPreCommitGasFee = "0.05 FIL"
+MaxCommitGasFee = "0.05 FIL"
+MaxWindowPoStGasFee = "50 FIL"
+```
+
+3. [使用单独的地址来进行 windowPoSt](https://github.com/filecoin-project/lotus/blob/master/documentation/en/mining.md#separate-address-for-windowpost-messages)
+
+4. 如果sector损坏无法生成PoSt,而且就算只有一个 sector失败,也会把整个runPost标记为失败,如果是一个小矿工,所有的sector在一个window中,如果错失了提交则会在之后的24小时内失去所有算力,必须在24后重新提交一次有效WindowPoSt才能自动恢复.
+
+5. sector升级
+
+``` sh
+lotus-miner sectors list
+[sector number]: Proving sSet: YES active: YES tktH: XXXX seedH: YYYY deals: [0]
+
+lotus-miner sectors mark-for-upgrade [sector number]
+
+24小时内他将从 active:YES 变为 active :NO
+
+for s in $( seq $( lotus-miner sectors list | wc -l ) ) ; do lotus-miner sectors status --log $s | grep -Eo 'ReplaceCapacity":true' && echo $s; done`
+
+lotus-miner sectors status --on-chain-info $SECTOR_NUMBER | grep OnTime
+
+```
+
+6. 查看 lotus-miner显示支持的GPU和benchmark
+
+[权威列表](https://github.com/filecoin-project/bellman#supported--tested-cards)
+
+[使用自定义的GPU](https://docs.filecoin.io/mine/lotus/gpus/#enabling-a-custom-gpu)
+
+---------------------
+
+#### 使用官方Lotus-miner开始挖矿
+
+1. 查看上述的 ==使用Lotus接入测试网络== 章节安装 Lotus套件,并开启 Native Filecoin FFI, 并且确保设置了中国地区参与的必要参数
+2. 设置性能参数环境变量 
+``` shell
+# See https://github.com/filecoin-project/bellman
+export BELLMAN_CPU_UTILIZATION=0.875
+
+# See https://github.com/filecoin-project/rust-fil-proofs/
+export FIL_PROOFS_MAXIMIZE_CACHING=1 # More speed at RAM cost (1x sector-size of RAM - 32 GB).
+export FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1 # precommit2 GPU acceleration
+export FIL_PROOFS_USE_GPU_TREE_BUILDER=1
+```
+3. 设置 lotus node 节点 (当node和miner运行在不同的机器上的时候,详细参看上文的 如何 Lotus daemon 或 Lotus-miner监听提供的 json-rpc 接口 章节)
+`export FULLNODE_API_INFO=<api_token>:/ip4/<lotus_daemon_ip>/tcp/<lotus_daemon_port>/http`
+4. 如果内存过少,则需要添加swap分区,详细可以参看 linux使用文档中的添加swap
+``` shell
+sudo fallocate -l 256G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+# show current swap spaces and take note of the current highest priority
+swapon --show
+# append the following line to /etc/fstab (ensure highest priority) and then reboot
+# /swapfile swap swap pri=50 0 0
+sudo reboot
+# check a 256GB swap file is automatically mounted and has the highest priority
+swapon --show
+```
+5. 下载 Filecoin矿工证明参数,32GB和64GB时不一样的,(默认路径`/var/tmp/filecoin-proof-parameters`),通过环境变量设置,你可以通过提前下载,或是在init的时候自动下载
+`export FIL_PROOFS_PARAMETER_CACHE=/path/to/fast/mount`
+``` shell
+# Use sectors supported by the Filecoin network that the miner will join and use.
+# lotus-miner fetch-params <sector-size>
+lotus-miner fetch-params 32GiB
+lotus-miner fetch-params 64GiB
+```
+6. 矿工初始化,使用 --no-local-storage 创建配置文件,配置文件一般是在 ~/.lotusminer/ 或 $LOTUS_MINER_PATH
+`lotus-miner init --owner=<bls address>  --no-local-storage`
+7. 需要一个公网ip来进行矿工设置.编辑 ~/.lotusminer/config.toml
+``` lotusminer/config.toml
+[Libp2p]
+  ListenAddresses = ["/ip4/0.0.0.0/tcp/24001"] # choose a fixed port
+  AnnounceAddresses = ["/ip4/<YOUR_PUBLIC_IP_ADDRESS>/tcp/24001"] # important!
+```
+8. 当的确可以访问该公网ip时,启动 lotus-miner
+`lotus-miner run` 或 `systemctl start lotus-miner`
+9. 公布矿工地址 `lotus-miner actor set-addrs /ip4/<YOUR_PUBLIC_IP_ADDRESS>/tcp/24001`
+10. 其他步骤
+	- 配置自定义存储的布局,这要求一开始使用 --no-local-storage
+	- 编辑 lotus-miner 的配置
+	- 合适关闭或重启矿机
+	- 发现或者说通过运行基准测试来得到密封一个sector的时间 ExpectedSealDuration
+	- 配置额外的worker来提高miner的密封sector的能力
+	- 为 windowPost设置单独的账户地址.
