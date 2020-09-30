@@ -186,7 +186,7 @@ IPLD是内容寻址的数据模型,即 merkle dag 的组装数据结构.
 ----------------
 ----------------
 
-### FileCoin 前期调研
+### FileCoin 初步理解
 
 Filecoin作为去中心化存储网络的激励和验证机制,矿工是整个网络的主要参与者,也是网络运营和维护者.所有去中心化网络的前提假设都是节点是自私的,理性的,因为只有基于这样的假设设计的机制才能保证网络的稳定性.在这样的假设下Filecoin利用期望共识(Expectation Consensus)保证区块链网络的共识,利用复制证明(Proof of Replication)和时空证明(Proof of Spacetime)保证了自私矿工的理性决策是做诚实的节点,即只有诚实的行为才能保证收益的最大化.
 
@@ -229,11 +229,9 @@ Filecoin作为去中心化存储网络的激励和验证机制,矿工是整个�
 - 产币 </br>
 	* 简单产币 : 6年减半的那种.这部分占每天释放币的30%.
 	* 基准产币 : 总网络达到某一个算力基准时, 才释放币.这个基准一开始为1EB(相当于1000PB),然后每年增加200%,之后5年分别是 : 3EB,9EB, 27EB, 81EB,243EB...全网算力一旦到了这个基准线,就继续释放剩余的奖励币, 这部分占70%
-
-
-	* 第一阶段 : 收入以“简单产币”为主,因为全网还没到1EB, 所以30%的币是一挖就有,另外70%得到了基准线后才有.
-	* 第二阶段 : 到了网络基准线了, 这时候整个网络容量很大,可以存很多有用的数据, 我们也能挖到那额外的70%的“基准产币”了,除此之外还会有一部分的存储订单交易收入.
-	* 第三阶段 : 挖币的人越来越多, 区块奖励越来越少,“简单产币”基本上没了, 这就和比特币一样,那么主要收入来源于提供高质量存储和检索服务和交易手续费了
+	1. 第一阶段 : 收入以“简单产币”为主,因为全网还没到1EB, 所以30%的币是一挖就有,另外70%得到了基准线后才有.
+	2. 第二阶段 : 到了网络基准线了, 这时候整个网络容量很大,可以存很多有用的数据, 我们也能挖到那额外的70%的“基准产币”了,除此之外还会有一部分的存储订单交易收入.
+	3. 第三阶段 : 挖币的人越来越多, 区块奖励越来越少,“简单产币”基本上没了, 这就和比特币一样,那么主要收入来源于提供高质量存储和检索服务和交易手续费了
 - 消减 </br>
 	* 只要未能提交PoSt证明就会有故障费用的消减 br(2.14)
 	* 扇区故障费用的消减每天都会扣除直到钱包账户归零或矿工将sector从网络中移除,同时会受到一个扇区惩罚的消减
@@ -247,6 +245,38 @@ Filecoin作为去中心化存储网络的激励和验证机制,矿工是整个�
 	* 更多可以使扇区持续更长的时间的交易订单功能.
 
 	![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/IPFS和FileCoin的FIL币/2020831/1598861682918.png)
+	
+4. FileCoin的区块结构 tipsets
+
+	GHOSTy协议让矿工记录过去所有被观察到的区块,以增加其区块链的权重.Filecoin的共识机制建立在这些综合之上,叫做tipsets. 如果比特币是靠最长和最有效的链的竞赛来运作,那么Filecoin的期望共识就是基于选举,在指定回合中可以选举多个矿工作为领导者.这就意味着可以在每个区块中创建多个有效的同级区块,**在每个新的纪元(epoch),新一代的家谱发展出来,称之为tipset,这也是我们网络中独特的系统.**
+
+	Filecoin中的区块按纪元(epoch)排序,每个新的区块都引用上一个纪元(epoch)中产生的至少一个块(父块).一个tipset集是具有相同父块且在同一个纪元(epoch)中挖到的有效区块组成.
+
+	下图,为了简化没有将存储算力考虑在内,用不同颜色表示的3个来自相同祖父块的tipsets.让我们来计算一下这些tipsets的权重.
+
+	![在同一个Epoch中3个Tipsets的示例](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/IPFS和FileCoin的FIL币/2020924/1600918330213.png)
+
+	下面第一个图表中, “**祖块+父块+子块**” 给纪元2中的第一个tipset赋予总权重为5.
+
+	![纪元2中的第一个tipset总权重为5](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/IPFS和FileCoin的FIL币/2020924/1600918422870.png)
+
+	下面第二个tipset拥有总权重为4(一个祖块,两个父块,一个子块).
+
+	![纪元2中第二个tipset权重为4](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/IPFS和FileCoin的FIL币/2020924/1600918442371.png)
+
+	最后一个tipset(第三张表)拥有总权重为3(一个祖块,一个父块,一个子块)
+
+	![纪元2中第三个tipset权重为3](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/IPFS和FileCoin的FIL币/2020924/1600918457685.png)
+
+	最后的表提供了该链的全面视角,在纪元2里第一个tipset赢了, 尽管到下一个纪元才会被确认.
+
+	![来自同一纪元的所有tipsets.尽管还没有到下一个纪元被确认,目前权重最大的链是第一个权重为5的tipset](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/IPFS和FileCoin的FIL币/2020924/1600918479137.png)
+
+	与以太坊一样,该系统通过确保不浪费任何工作量来激励协作并从总体来提高链上的吞吐量.此外,由于tipset要求严格,所有的块都必须来自相同的父块,并且在相同的高度被开采,因此在分叉的情况下,该链可以实现“*快速收敛*”.
+
+	**最终,Filecoin会赋予提供更多存储算力的区块以权重,因为它的核心是存储网络.随着时间的流逝,矿工会聚集在权重最大的链上来创造价值**,而权重小的链将成为孤块.
+
+----------------
 
 #### Fileoin的基础术语
 
@@ -589,35 +619,6 @@ CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只�
 
 ----------------
 
-#### FileCoin的区块结构 tipsets
-
-GHOSTy协议让矿工记录过去所有被观察到的区块,以增加其区块链的权重.Filecoin的共识机制建立在这些综合之上,叫做tipsets. 如果比特币是靠最长和最有效的链的竞赛来运作,那么Filecoin的期望共识就是基于选举,在指定回合中可以选举多个矿工作为领导者.这就意味着可以在每个区块中创建多个有效的同级区块,**在每个新的纪元(epoch),新一代的家谱发展出来,称之为tipset,这也是我们网络中独特的系统.**
-
-Filecoin中的区块按纪元(epoch)排序,每个新的区块都引用上一个纪元(epoch)中产生的至少一个块(父块).一个tipset集是具有相同父块且在同一个纪元(epoch)中挖到的有效区块组成.
-
-下图,为了简化没有将存储算力考虑在内,用不同颜色表示的3个来自相同祖父块的tipsets.让我们来计算一下这些tipsets的权重.
-
-![在同一个Epoch中3个Tipsets的示例](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/IPFS和FileCoin的FIL币/2020924/1600918330213.png)
-
-下面第一个图表中, “**祖块+父块+子块**” 给纪元2中的第一个tipset赋予总权重为5.
-
-![纪元2中的第一个tipset总权重为5](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/IPFS和FileCoin的FIL币/2020924/1600918422870.png)
-
-下面第二个tipset拥有总权重为4(一个祖块,两个父块,一个子块).
-
-![纪元2中第二个tipset权重为4](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/IPFS和FileCoin的FIL币/2020924/1600918442371.png)
-
-最后一个tipset(第三张表)拥有总权重为3(一个祖块,一个父块,一个子块)
-
-![纪元2中第三个tipset权重为3](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/IPFS和FileCoin的FIL币/2020924/1600918457685.png)
-
-最后的表提供了该链的全面视角,在纪元2里第一个tipset赢了, 尽管到下一个纪元才会被确认.
-
-![来自同一纪元的所有tipsets.尽管还没有到下一个纪元被确认,目前权重最大的链是第一个权重为5的tipset](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/IPFS和FileCoin的FIL币/2020924/1600918479137.png)
-
-与以太坊一样,该系统通过确保不浪费任何工作量来激励协作并从总体来提高链上的吞吐量.此外,由于tipset要求严格,所有的块都必须来自相同的父块,并且在相同的高度被开采,因此在分叉的情况下,该链可以实现“*快速收敛*”.
-
-**最终,Filecoin会赋予提供更多存储算力的区块以权重,因为它的核心是存储网络.随着时间的流逝,矿工会聚集在权重最大的链上来创造价值**,而权重小的链将成为孤块.
 
 -----------------
 
