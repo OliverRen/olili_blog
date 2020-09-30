@@ -791,38 +791,22 @@ Variables specific to the _Lotus daemon_
 		- `sign` - 可以使用私钥签名,包含 read,write
 		- `admin` - 管理节点的权限,包含 read,write,sign
 
+	- 发起请求
+		``` sh
+		# 不需要权限
+		curl -X POST \
+		 -H "Content-Type:application/json" \
+		 --data '{ "jsonrpc":"2.0", "method":"Filecoin.ChainHead", "params":[], "id":3 }' \
+		 'http://127.0.0.1:1234/rpc/v0'
 
+		 # 需要权限时,需要传入 JWT
+		 curl -X POST \
+		 -H "Content-Type:application/json" \
+		 -H "Authorization:Bearer $(cat ~/.lotusminer/token)" \
+		 --data '{ "jsonrpc":"2.0", "method":"Filecoin.ChainHead", "params":[], "id":3 }' \
+		 'http://127.0.0.1:1234/rpc/v0'
+		```
 
----------------------
-
-#### 如何使用 Lotus daemon 或 Lotus-miner提供的 json-rpc 接口
-
-
-
-1. 
-
-
-
-2. 有权限控制的 JWT
-	
-	
-
-3. 请求方式,和标准 json-rpc 2.0 一致.
-	``` sh
-	# 不需要权限
-	curl -X POST \
-     -H "Content-Type:application/json" \
-     --data '{ "jsonrpc":"2.0", "method":"Filecoin.ChainHead", "params":[], "id":3 }' \
-     'http://127.0.0.1:1234/rpc/v0'
-	 
-	 # 需要权限时,需要传入 JWT
-	 curl -X POST \
-     -H "Content-Type:application/json" \
-     -H "Authorization:Bearer $(cat ~/.lotusminer/token)" \
-     --data '{ "jsonrpc":"2.0", "method":"Filecoin.ChainHead", "params":[], "id":3 }' \
-     'http://127.0.0.1:1234/rpc/v0'
-	```
-	
 ---------------------
 
 #### 使用Lotus存储数据
