@@ -146,7 +146,7 @@ IPLD是内容寻址的数据模型,即 merkle dag 的组装数据结构.
 - schema layer
 
 	架构曾定义了从数据模型层到包含了复杂数据结构的映射 : Set, List, Queue, Stack, SortedSet, Map, ListMap, SortedMap
-	
+
 ----------------
 
 #### IPFS
