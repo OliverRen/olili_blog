@@ -645,9 +645,16 @@ CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只�
 	git config --global --unset http.proxy
 	git config --global --unset https.proxy
 	```
-- lotus的中国ipfs代理 `IPFS_GATEWAY="https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/"`
 - ubuntu 的系统要求	
-	`sudo apt update && sudo apt install mesa-opencl-icd ocl-icd-opencl-dev gcc git bzr jq pkg-config curl -y && sudo apt upgrade -y`
+	`sudo apt update && sudo apt install mesa-opencl-icd ocl-icd-opencl-dev gcc git bzr jq pkg-config curl -y && sudo apt upgrade -y`	
+	
+	
+	
+	
+	
+	
+- lotus的中国ipfs代理 `IPFS_GATEWAY="https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/"`
+
 - 对rustup的依赖,需要 ==cargo== 和 ==rustc== 两个工具
 	`snap install rustup` or
 	`rustup install stable` or
