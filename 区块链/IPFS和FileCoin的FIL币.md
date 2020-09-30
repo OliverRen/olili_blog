@@ -514,7 +514,6 @@ CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只�
 	export PATH=/usr/local/cuda-8.0/bin:$PATH
 	export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:$LD_LIBRARY_PATH
 	```
-
 - 测试 </br>
 ``` shell
 cd /usr/local/cuda-8.0/samples/1_Utilities/deviceQuery
