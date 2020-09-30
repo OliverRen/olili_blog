@@ -701,32 +701,21 @@ CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只�
 	`sudo apt isntall clang`
 	`sudo apt install llvm`
 - lotus的中国ipfs代理 `IPFS_GATEWAY="https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/"`,或者有良好的网络的时候,也可以使用本地的ipfs节点
-
-
-	
-	
-
 - 使用git克隆lotus库
 	`git clone https://github.com/Filecoin-project/lotus.git`
-- 支持 SHA 扩展指令的cpu使用 rust标记 [Native Filecoin FFI section](https://docs.Filecoin.io/get-started/lotus/installation/#native-Filecoin-ffi)
+- 对支持 SHA 扩展指令的cpu使用环境变量标记 rust FFI [Native Filecoin FFI section](https://docs.Filecoin.io/get-started/lotus/installation/#native-Filecoin-ffi)
 	`export RUSTFLAGS="-C target-cpu=native -g"`
 	`export FFI_BUILD_FROM_SOURCE=1`
 - 编译 lotus
 	`sudo make clean all`
 	`sudo make install`
 - 查看可执行文件 ==lotus==	,==lotus-miner==	,==lotus-worker==	应该在 ==/usr/local/bin== 下
-- lotus的工作目录默认是在 $HOME/.lotus,用户不同是不一样的.
 - 启动 lotus的守护进程  `lotus daemon`,或者通过命令创建 systemd service
 	`sudo make install-daemon-service`
 	`sudo make install-chainwatch-service`
 	`sudo make install-miner-service` 
-- 需要注意如果有设置了环境变量在启动服务文件中也需要设置**,systemd加载环境变量的文件在/etc/systemd/system.conf和/etc/systemd/user.conf中,可以使用`systemctl -e service`来创建配置文件夹,修改其中的override.conf即可, 需要注意,如果使用sudo来运行命令,由于安全原因会清除掉用户环境变量,如果确实有需要,可以用 `-E` 参数,即 `sudo -E`.
-- 开始同步区块 `lotus sync status` ,  `lotus sync wait`
+- 开始同步区块可以使用 `lotus sync status` ,  `lotus sync wait` 来查看同步情况
 	需要注意的是目前的区块同步依然是一个比较大的工程,大概实际运行的数据需要1/4的下载同步时间,所以强烈建议通过下载快照来进行同步,[快照地址](https://very-temporary-spacerace-chain-snapshot.s3-us-west-2.amazonaws.com/Spacerace_stateroots_snapshot_latest.car),请直接使用浏览器下载速度会快的多,这个快照每6小时都会进行更新.你可以使用 `lotus daemon --import-snapshot <snapshot>.car` 文件来进行同步数据的导入.
-- Filecoin相关目录	, 整个本地数据由这些相关目录 和 wallet 及 chain文件组成,切记同步的时候把全局代理取消了
-	`~/.lotus ($LOTUS_PATH)`
-	`~./lotusminer ($LOTUS_MINER_PATH)`
-	`~./lotusworker ($LOTUS_WORKER_PATH)`
 - 区块数据的快照 snapshot
 	`lotus chain export <file>` 导出区块链
 	`lotus daemon --import-snapshot <file>` 导入区块链
@@ -737,20 +726,45 @@ CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只�
 
 Lotus的配置文件在 ==$LOTUS_PATH/config.toml== ,主要是关于api和libp2p的网络配置,其中api设置的是lotus daemon本身监听的端口,而libp2p则是用在与网络中的其他节点进行交互的设置,其中ListenAddress和AnnounceAddresses可以显示的配置为自己的固定ip和port,当然需要使用multiaddress的格式.
 
-**环境变量的设置**
+Filecoin相关目录环境变量, 整个本地数据由这些相关目录 和 wallet 及 chain文件组成
+* `~/.lotus ($LOTUS_PATH)`
+* `~./lotusminer ($LOTUS_MINER_PATH)`
+* `~./lotusworker ($LOTUS_WORKER_PATH)`
 
-*   `LOTUS_FD_MAX` : Sets the file descriptor limit for the process
-*   `LOTUS_JAEGER` : Sets the Jaeger URL to send traces. See TODO.
-*   `LOTUS_DEV` : Any non-empty value will enable more verbose logging, useful only for developers.
+* `LOTUS_FD_MAX` : Sets the file descriptor limit for the process
+* `LOTUS_JAEGER` : Sets the Jaeger URL to send traces. See TODO.
+* `LOTUS_DEV` : Any non-empty value will enable more verbose logging, useful only for developers.
 
 Variables specific to the _Lotus daemon_ 
 
-*   `LOTUS_PATH` : Location to store Lotus data (defaults to `~/.lotus`).
-*   `LOTUS_SKIP_GENESIS_CHECK=_yes_` : Set only if you wish to run a lotus network with a different genesis block.
-*   `LOTUS_CHAIN_TIPSET_CACHE` : Sets the size for the chainstore tipset cache. Defaults to `8192`. Increase if you perform frequent arbitrary tipset lookups.
-*   `LOTUS_CHAIN_INDEX_CACHE` : Sets the size for the epoch index cache. Defaults to `32768`. Increase if you perform frequent deep chain lookups for block heights far from the latest height.
-*   `LOTUS_BSYNC_MSG_WINDOW` : Sets the initial maximum window size for message fetching blocksync request. Set to 10-20 if you have an internet connection with low bandwidth.
-*   `FULLNODE_API_INFO="TOKEN : /ip4/<IP>/tcp/<PORT>/http"` 可以设置本地的lotus读取远程的 lotus daemon
+* `LOTUS_PATH` : Location to store Lotus data (defaults to `~/.lotus`).
+* `LOTUS_SKIP_GENESIS_CHECK=_yes_` : Set only if you wish to run a lotus network with a different genesis block.
+* `LOTUS_CHAIN_TIPSET_CACHE` : Sets the size for the chainstore tipset cache. Defaults to `8192`. Increase if you perform frequent arbitrary tipset lookups.
+* `LOTUS_CHAIN_INDEX_CACHE` : Sets the size for the epoch index cache. Defaults to `32768`. Increase if you perform frequent deep chain lookups for block heights far from the latest height.
+* `LOTUS_BSYNC_MSG_WINDOW` : Sets the initial maximum window size for message fetching blocksync request. Set to 10-20 if you have an internet connection with low bandwidth.
+* `FULLNODE_API_INFO="TOKEN : /ip4/<IP>/tcp/<PORT>/http"` 可以设置本地的lotus读取远程的 lotus daemon
+
+
+
+
+
+
+
+
+- 需要注意如果有设置了环境变量在启动服务文件中也需要设置**,systemd加载环境变量的文件在/etc/systemd/system.conf和/etc/systemd/user.conf中,可以使用`systemctl -e service`来创建配置文件夹,修改其中的override.conf即可, 需要注意,如果使用sudo来运行命令,由于安全原因会清除掉用户环境变量,如果确实有需要,可以用 `-E` 参数,即 `sudo -E`.
+
+- 
+
+
+
+
+
+
+
+
+
+
+
 
 ---------------------
 
