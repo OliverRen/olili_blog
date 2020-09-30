@@ -161,7 +161,7 @@ IPLD是内容寻址的数据模型,即 merkle dag 的组装数据结构.
 1. CID
 
 	CID 有两种版本
-	- CID v0 : 使用Qm开头的cid,其内容只包含了 multihash,其内容看起来大概是这样的
+	- CID v0 : 使用Qm开头的cid,其内容只包含了 multihash,且只会使用base58编码,其内容看起来大概是这样的
 		`<0><dag-pb><multihash>`
 	- CID v1 : 包含了一只前缀来标识可以向后兼容的cid version.
 
