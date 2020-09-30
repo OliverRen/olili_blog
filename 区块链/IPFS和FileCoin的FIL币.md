@@ -661,16 +661,6 @@ CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只�
 	proxy = "172.16.0.25:1081"
 	```	
 - 或者对 cargo 配置国内镜像	
-	
-	
-	
-- lotus的中国ipfs代理 `IPFS_GATEWAY="https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/"`
-
-- 对rustup的依赖,需要 ==cargo== 和 ==rustc== 两个工具
-	
-	
-	
-		
 	``` shell
 	# 安环境变量 设置环境变量 RUSTUP_DIST_SERVER(用于更新 toolchain)
 	export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static
@@ -695,6 +685,16 @@ CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只�
 	[source.rustcc]
 	registry = "https://code.aliyun.com/rustcc/crates.io-index.git"
 	```	
+	
+	
+- lotus的中国ipfs代理 `IPFS_GATEWAY="https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/"`
+
+- 对rustup的依赖,需要 ==cargo== 和 ==rustc== 两个工具
+	
+	
+	
+		
+	
 - 服务器需要安装clang,llvm	,否则在编译lotus的时候会出现 llvm-config 找不到文件的问题
 	`sudo apt isntall clang`
 	`sudo apt install llvm`
