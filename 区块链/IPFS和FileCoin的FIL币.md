@@ -752,20 +752,6 @@ Variables specific to the _Lotus daemon_
 
 
 - 需要注意如果有设置了环境变量在启动服务文件中也需要设置**,systemd加载环境变量的文件在/etc/systemd/system.conf和/etc/systemd/user.conf中,可以使用`systemctl -e service`来创建配置文件夹,修改其中的override.conf即可, 需要注意,如果使用sudo来运行命令,由于安全原因会清除掉用户环境变量,如果确实有需要,可以用 `-E` 参数,即 `sudo -E`.
-
-- 
-
-
-
-
-
-
-
-
-
-
-
-
 ---------------------
 
 #### 钱包管理
