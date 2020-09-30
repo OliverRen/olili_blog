@@ -39,20 +39,20 @@ grammar_tableExtra : true
 
 Protocol Labs 旗下的明星项目,每一个都有其独特的定位和功能.我们就来看一看围绕在 IPFS 和 FileCoin 周围的几个项目,他们分别是 libp2p,IPLD,IPFS,Filecoin.
 
-#### libp2p 协议
+#### libp2p
 
-libp2p 是一个模块化的网络栈,通过将各种传输和 P2P 协议结合在一起,使得开发人员很容易构建大型,健壮的 P2P 网络. [libp2p.io官网](https://libp2p.io/)
+0. libp2p 简介 </br>
+	libp2p 是一个模块化的网络栈,通过将各种传输和 P2P 协议结合在一起,使得开发人员很容易构建大型,健壮的 P2P 网络. [libp2p.io官网](https://libp2p.io/)
 
-libp2p 被用作IPFS的网络层,主要负责发现节点,连接节点,发现数据,传输数据.
+	libp2p 被用作IPFS的网络层,主要负责发现节点,连接节点,发现数据,传输数据.
 
-libp2p 集成了各种传输协议和点对点协议,其主要作用是发现节点和内容,并且让不同的网络协议能够互相之间顺利的传送数据.开发人员可以使用 libp2p 轻松构建大型,稳定的 p2p 网络. libp2p 主要包含了如下技术实现
+	libp2p 集成了各种传输协议和点对点协议,其主要作用是发现节点和内容,并且让不同的网络协议能够互相之间顺利的传送数据.开发人员可以使用 libp2p 轻松构建大型,稳定的 p2p 网络. libp2p 主要包含了如下技术实现
 
-- Transports : 传输
-- Discovery : 发现
-- Peer Routing : 节点路由
-- NAT Traversal : NAT穿透
-- Content Routing : 内容路由
-
+	- Transports : 传输
+	- Discovery : 发现
+	- Peer Routing : 节点路由
+	- NAT Traversal : NAT穿透
+	- Content Routing : 内容路由
 1. libp2p 架构 </br>
 	*   ==Discovery 发现== </br>
 		发现和识别网络中的其他节点.	
