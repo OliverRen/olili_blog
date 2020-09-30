@@ -714,8 +714,7 @@ CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只�
 	`sudo make install-daemon-service`
 	`sudo make install-chainwatch-service`
 	`sudo make install-miner-service` 
-	
-	**需要注意如果有设置了环境变量在启动服务文件中也需要设置**,systemd加载环境变量的文件在/etc/systemd/system.conf和/etc/systemd/user.conf中, 需要注意,如果使用sudo来运行命令,由于安全原因会清除掉用户环境变量,如果确实有需要,可以用 `-E` 参数,即 `sudo -E`.
+- 需要注意如果有设置了环境变量在启动服务文件中也需要设置**,systemd加载环境变量的文件在/etc/systemd/system.conf和/etc/systemd/user.conf中,可以使用`systemctl -e service`来创建配置文件夹,修改其中的override.conf即可, 需要注意,如果使用sudo来运行命令,由于安全原因会清除掉用户环境变量,如果确实有需要,可以用 `-E` 参数,即 `sudo -E`.
 - 开始同步区块 `lotus sync status` ,  `lotus sync wait`
 	需要注意的是目前的区块同步依然是一个比较大的工程,大概实际运行的数据需要1/4的下载同步时间,所以强烈建议通过下载快照来进行同步,[快照地址](https://very-temporary-spacerace-chain-snapshot.s3-us-west-2.amazonaws.com/Spacerace_stateroots_snapshot_latest.car),请直接使用浏览器下载速度会快的多,这个快照每6小时都会进行更新.你可以使用 `lotus daemon --import-snapshot <snapshot>.car` 文件来进行同步数据的导入.
 - Filecoin相关目录	, 整个本地数据由这些相关目录 和 wallet 及 chain文件组成,切记同步的时候把全局代理取消了
