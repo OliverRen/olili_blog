@@ -376,7 +376,7 @@ Filecoin作为去中心化存储网络的激励和验证机制,矿工是整个�
 
 -------------------
 
-**显卡驱动和cuda加速**
+#### 显卡驱动和cuda加速
 
 虽然在安装ubuntu的时候我已经勾选了专用软件和显卡驱动的选项,但是由于用到的是 NVIDIA RTX3080,不知道是不是因为太新了,所以并没有检测出来专用驱动,没办法只能自行安装了.
 
@@ -388,43 +388,42 @@ sudo apt update
 
 CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只是一个工具包,他是可以多个版本进行安装的.所以并不一定要安装cuda中的显卡驱动,具体可以看后面的安装过程,需要注意的是 cuda文件名上标记的版本号是支持的最低的显卡驱动的版本,所以如果自己安装显卡驱动的话,是一定需要在这个版本之上的.
 
-
 - 准备工作
 
-建议都使用离线安装的方式,主要还是网络太蛋疼了,显卡驱动几百M,cuda工具包下载的时候有好几G
+	建议都使用离线安装的方式,主要还是网络太蛋疼了,显卡驱动几百M,cuda工具包下载的时候有好几G
 	
-显卡驱动 : 从官方网站下载 [download search](https://www.nvidia.cn/geforce/drivers/) , 我下载的版本是 NVIDIA-Linux-x86_64-455.23.04.run
+	显卡驱动 : 从官方网站下载 [download search](https://www.nvidia.cn/geforce/drivers/) , 我下载的版本是 NVIDIA-Linux-x86_64-455.23.04.run
 
-CUDA工具阿波 : [下载界面地址](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=2004&target_type=runfilelocal)
+	CUDA工具 : [下载界面地址](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=2004&target_type=runfilelocal)
 
 - 禁用开源驱动 nouveau编辑文件 blacklist.conf
 
-``` shell
-sudo gedit /etc/modprobe.d/blacklist.conf
-blacklist nouveau
-blacklist intel
-# 实际测试没有这句也没问题
-options nouveau modeset=0
-# 更新
-sudo update-initramfs -u
-# 重启
-sudo reboot
-# 验证
-lsmod | grep nouveau
-```
+	``` shell
+	sudo gedit /etc/modprobe.d/blacklist.conf
+	blacklist nouveau
+	blacklist intel
+	# 实际测试没有这句也没问题
+	options nouveau modeset=0
+	# 更新
+	sudo update-initramfs -u
+	# 重启
+	sudo reboot
+	# 验证
+	lsmod | grep nouveau
+	```
 
 - 删除干净历史安装
 
-``` shell
-# 驱动如果是 runfile安装的
-sudo NVIDIA-*.run -uninstall
-# 驱动如果是使用apt安装的
-sudo apt remove nvidia*
+	``` shell
+	# 驱动如果是 runfile安装的
+	sudo NVIDIA-*.run -uninstall
+	# 驱动如果是使用apt安装的
+	sudo apt remove nvidia*
 
-# 卸载CUDA
-CUDA默认是安装在 /usr/local/cuda-*下的
-sudo uninstall_cuda_*.pl
-```
+	# 卸载CUDA
+	CUDA默认是安装在 /usr/local/cuda-*下的
+	sudo uninstall_cuda_*.pl
+	```
 
 - 禁用 x window服务
 
