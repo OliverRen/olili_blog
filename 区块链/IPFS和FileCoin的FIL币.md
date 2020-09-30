@@ -153,9 +153,14 @@ IPLD是内容寻址的数据模型,即 merkle dag 的组装数据结构.
 
 - IPLD : 将数据 import 到 ipfs 中组织的协议族
 - Bitswap : 拉取和传输数据区块的协议
+- DHT : A Distributed Hash Table (DHT) 分布式的key-value存储.
+
+
 - CID v0 : 使用Qm开头的cid
 - CID v1 : 包含了一只前缀来标识可以向后兼容的cid version.
-- DHT : A Distributed Hash Table (DHT) 分布式的key-value存储.
+
+
+
 - Gateway : ipfs网络在http上的代理接入点
 - multihash中被hash的数据是通过multicodec组织的数据
 - multihash是一个自描述hash算法后的数据
