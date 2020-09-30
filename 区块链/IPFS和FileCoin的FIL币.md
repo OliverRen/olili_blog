@@ -388,16 +388,15 @@ sudo apt update
 
 CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只是一个工具包,他是可以多个版本进行安装的.所以并不一定要安装cuda中的显卡驱动,具体可以看后面的安装过程,需要注意的是 cuda文件名上标记的版本号是支持的最低的显卡驱动的版本,所以如果自己安装显卡驱动的话,是一定需要在这个版本之上的.
 
-- 准备工作
+- 准备工作 </br>
 
-	建议都使用离线安装的方式,主要还是网络太蛋疼了,显卡驱动几百M,cuda工具包下载的时候有好几G
+	建议都使用离线安装的方式,主要还是网络太蛋疼了,显卡驱动几百M,cuda工具包下载的时候有好几G.
 	
 	显卡驱动 : 从官方网站下载 [download search](https://www.nvidia.cn/geforce/drivers/) , 我下载的版本是 NVIDIA-Linux-x86_64-455.23.04.run
 
 	CUDA工具 : [下载界面地址](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=2004&target_type=runfilelocal)
 
-- 禁用开源驱动 nouveau编辑文件 blacklist.conf
-
+- 禁用开源驱动 nouveau编辑文件 blacklist.conf </br>
 	``` shell
 	sudo gedit /etc/modprobe.d/blacklist.conf
 	blacklist nouveau
@@ -412,7 +411,7 @@ CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只�
 	lsmod | grep nouveau
 	```
 
-- 删除干净历史安装
+- 删除干净历史安装 </br>
 
 	``` shell
 	# 驱动如果是 runfile安装的
@@ -425,7 +424,7 @@ CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只�
 	sudo uninstall_cuda_*.pl
 	```
 
-- 禁用 x window服务
+- 禁用 x window服务 </br>
 
 网上教程都安装,重启,并停止了 lightdm,其实ubuntu 20.04是使用了gdm的.直接停止后尝试安装
 
@@ -443,7 +442,7 @@ sudo systemctl stop lightdm
 sudo systemctl stop gdm
 ```
 
-- 安装驱动文件
+- 安装驱动文件 </br>
 
 进入runfile文件所在的目录,赋予权限,然后开始安装
 
@@ -460,7 +459,7 @@ sudo ./NVIDIA-Linux-x86_64-396.18.run --no-x-check --no-nouveau-check --no-openg
 # 由于ubuntu自己有opengl,所以我们不用安装opengl,否则会出现循环登录的情况
 ```
 
-- 安装过程
+- 安装过程 </br>
 
 ```
 大概说是NVIDIA驱动已经被Ubuntu集成安装,可以在软件更新器的附加驱动中找到,我就是因为3080显卡找不到才需要自己安装的,所以直接继续
@@ -478,7 +477,7 @@ Would you like to run the nvidia-xconfig utility to automatically update your x 
 选择 Yes 继续
 ```
 
-- 安装完成
+- 安装完成 </br>
 
 ```
 # 挂载专用驱动 正常来说会自动挂载
@@ -499,7 +498,7 @@ sudo touch /etc/X11/xorg.conf
 sudo reboot
 ```
 
-- 安装CUDA
+- 安装CUDA </br>
 
 进入runfile文件目录,添加执行权限后执行安装
 
@@ -509,7 +508,7 @@ sudo sh ./cuda_*.run --no-opengl-libs
 # 同驱动安装一样,这里也不需要安装opengl库
 ```
 
-- 安装过程
+- 安装过程 </br>
 
 ```
 Do you accept the previously read EULA?
@@ -517,7 +516,7 @@ accept
 然后选择安装项
 ```
 
-- 安装完成
+- 安装完成 </br>
 
 ``` shell
 # 安装CUDA工具需要自行设置path,编辑 .bashrc 或者 /etc/profile全局文件
@@ -549,7 +548,7 @@ Logfile is /var/log/cuda-installer.log
 
 ```
 
-- 测试
+- 测试 </br>
 
 ``` shell
 cd /usr/local/cuda-8.0/samples/1_Utilities/deviceQuery
