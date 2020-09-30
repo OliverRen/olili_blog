@@ -35,16 +35,8 @@ grammar_tableExtra : true
 
 [toc]
 
-
-
-
-
   * [Protocol Labs 下与 FileCoin 相关的项目](#protocol-labs-%E4%B8%8B%E4%B8%8E-filecoin-%E7%9B%B8%E5%85%B3%E7%9A%84%E9%A1%B9%E7%9B%AE)
     * [libp2p 协议](#libp2p-%E5%8D%8F%E8%AE%AE)
-      * [libp2p 架构](#libp2p-%E6%9E%B6%E6%9E%84)
-      * [libp2p 流程](#libp2p-%E6%B5%81%E7%A8%8B)
-      * [NAT 遍历](#nat-%E9%81%8D%E5%8E%86)
-      * [多路复用](#%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8)
     * [IPLD](#ipld)
     * [IPFS](#ipfs)
   * [FileCoin的前期调研和初步了解](#filecoin%E7%9A%84%E5%89%8D%E6%9C%9F%E8%B0%83%E7%A0%94%E5%92%8C%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3)
@@ -66,12 +58,6 @@ grammar_tableExtra : true
     * [使用Lotus检索交易](#%E4%BD%BF%E7%94%A8lotus%E6%A3%80%E7%B4%A2%E4%BA%A4%E6%98%93)
     * [使用官方Lotus\-miner执行挖矿的常见问题](#%E4%BD%BF%E7%94%A8%E5%AE%98%E6%96%B9lotus-miner%E6%89%A7%E8%A1%8C%E6%8C%96%E7%9F%BF%E7%9A%84%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98)
     * [使用官方Lotus\-miner开始挖矿](#%E4%BD%BF%E7%94%A8%E5%AE%98%E6%96%B9lotus-miner%E5%BC%80%E5%A7%8B%E6%8C%96%E7%9F%BF)
-
-
-
-
-
-
 
 ### Protocol Labs 下与 FileCoin 相关的项目
 
