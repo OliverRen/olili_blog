@@ -807,9 +807,7 @@ Variables specific to the _Lotus daemon_
 		 'http://127.0.0.1:1234/rpc/v0'
 		```
 
----------------------
-
-#### 使用Lotus存储数据
+3. 使用Lotus存储数据
 
 术语解释 CAR文件 : [Specification : Content Addressable aRchives](https://github.com/ipld/specs/blob/master/block-layer/content-addressable-archives.md)
 
@@ -831,9 +829,8 @@ Variables specific to the _Lotus daemon_
 	`lotus-miner deals import-data <dealCID> <filepath>` </br>
 - 从IPFS中导入数据,首先需要在lotus配置中打开 UseIpfs,然后可以直接将ipfs中的文件进行在线交易 </br>
 	`lotus client deal QmSomeData t0100 0 100`
-
 	
-#### 使用Lotus检索交易
+4. 使用Lotus检索交易
 
 - 查询自己的数据被哪些矿工存储
 	`lotus client find <Data CID>`
@@ -842,11 +839,87 @@ Variables specific to the _Lotus daemon_
 	
 ---------------------	
 
+#### 使用官方Lotus-miner开始挖矿
+
+1. 查看上述的 ==使用Lotus接入测试网络== 章节安装 Lotus套件,并开启 Native Filecoin FFI, 并且确保设置了中国地区参与的必要参数
+2. 设置性能参数环境变量 
+``` shell
+# See https://github.com/Filecoin-project/bellman
+export BELLMAN_CPU_UTILIZATION=0.875
+
+# See https://github.com/Filecoin-project/rust-fil-proofs/
+export FIL_PROOFS_MAXIMIZE_CACHING=1 # More speed at RAM cost (1x sector-size of RAM - 32 GB).使用更多的内存来加快预提交的速度
+export FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1 # precommit 2 GPU acceleration,加快GPU
+export FIL_PROOFS_USE_GPU_TREE_BUILDER=1
+```
+3. 设置 lotus node 节点 (当node和miner运行在不同的机器上的时候,详细参看上文的 如何使用 Lotus daemon 或 Lotus-miner监听提供的 json-rpc 接口 章节)
+`export FULLNODE_API_INFO=<api_token>:/ip4/<lotus_daemon_ip>/tcp/<lotus_daemon_port>/http`
+4. 如果内存过少,则需要添加swap分区,详细可以参看 linux使用文档中的添加swap
+``` shell
+sudo fallocate -l 256G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+# show current swap spaces and take note of the current highest priority
+swapon --show
+# append the following line to /etc/fstab (ensure highest priority) and then reboot
+# /swapfile swap swap pri=50 0 0
+sudo reboot
+# check a 256GB swap file is automatically mounted and has the highest priority
+swapon --show
+```
+5. 下载 Filecoin矿工证明参数,32GB和64GB时不一样的,(默认路径`/var/tmp/Filecoin-proof-parameters`),通过环境变量设置,你可以通过提前下载,或是在init的时候自动下载
+`export FIL_PROOFS_PARAMETER_CACHE=/path/to/fast/mount`
+``` shell
+# Use sectors supported by the Filecoin network that the miner will join and use.
+# lotus-miner fetch-params <sector-size>
+lotus-miner fetch-params 32GiB
+lotus-miner fetch-params 64GiB
+```
+6. 矿工初始化,使用 --no-local-storage 创建配置文件,配置文件一般是在 ~/.lotusminer/ 或 $LOTUS_MINER_PATH
+`lotus-miner init --owner=<bls address>  --no-local-storage`
+7. 需要一个公网ip来进行矿工设置.编辑 ~/.lotusminer/config.toml
+``` lotusminer/config.toml
+[libp2p]
+  ListenAddresses = ["/ip4/0.0.0.0/tcp/24001"] # choose a fixed port
+  AnnounceAddresses = ["/ip4/<YOUR_PUBLIC_IP_ADDRESS>/tcp/24001"] # important!
+```
+8. 当的确可以访问该公网ip时,启动 lotus-miner
+`lotus-miner run` 或 `systemctl start lotus-miner`
+9. 公布矿工地址 `lotus-miner actor set-addrs /ip4/<YOUR_PUBLIC_IP_ADDRESS>/tcp/24001`
+10. 其他步骤
+	- 配置自定义存储的布局,这要求一开始使用 --no-local-storage
+	- 编辑 lotus-miner 的配置
+	- 合适关闭或重启矿机
+	- 发现或者说通过运行基准测试来得到密封一个sector的时间 ExpectedSealDuration
+	- 配置额外的worker来提高miner的密封sector的能力
+	- 为 windowPost设置单独的账户地址.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #### 使用官方Lotus-miner执行挖矿的常见问题
 
 1. 在lotus中使用filter只与指定的bot进行deal
 
 ``` lotusminer/config.toml
+
 ~/.lotusminer/config.toml
 
 [Dealmaking]
@@ -904,61 +977,3 @@ lotus-miner sectors status --on-chain-info $SECTOR_NUMBER | grep OnTime
 
 测试
 `./lotus-bench sealing --sector-size=2KiB`
-
----------------------
-
-#### 使用官方Lotus-miner开始挖矿
-
-1. 查看上述的 ==使用Lotus接入测试网络== 章节安装 Lotus套件,并开启 Native Filecoin FFI, 并且确保设置了中国地区参与的必要参数
-2. 设置性能参数环境变量 
-``` shell
-# See https://github.com/Filecoin-project/bellman
-export BELLMAN_CPU_UTILIZATION=0.875
-
-# See https://github.com/Filecoin-project/rust-fil-proofs/
-export FIL_PROOFS_MAXIMIZE_CACHING=1 # More speed at RAM cost (1x sector-size of RAM - 32 GB).使用更多的内存来加快预提交的速度
-export FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1 # precommit 2 GPU acceleration,加快GPU
-export FIL_PROOFS_USE_GPU_TREE_BUILDER=1
-```
-3. 设置 lotus node 节点 (当node和miner运行在不同的机器上的时候,详细参看上文的 如何使用 Lotus daemon 或 Lotus-miner监听提供的 json-rpc 接口 章节)
-`export FULLNODE_API_INFO=<api_token>:/ip4/<lotus_daemon_ip>/tcp/<lotus_daemon_port>/http`
-4. 如果内存过少,则需要添加swap分区,详细可以参看 linux使用文档中的添加swap
-``` shell
-sudo fallocate -l 256G /swapfile
-sudo chmod 600 /swapfile
-sudo mkswap /swapfile
-sudo swapon /swapfile
-# show current swap spaces and take note of the current highest priority
-swapon --show
-# append the following line to /etc/fstab (ensure highest priority) and then reboot
-# /swapfile swap swap pri=50 0 0
-sudo reboot
-# check a 256GB swap file is automatically mounted and has the highest priority
-swapon --show
-```
-5. 下载 Filecoin矿工证明参数,32GB和64GB时不一样的,(默认路径`/var/tmp/Filecoin-proof-parameters`),通过环境变量设置,你可以通过提前下载,或是在init的时候自动下载
-`export FIL_PROOFS_PARAMETER_CACHE=/path/to/fast/mount`
-``` shell
-# Use sectors supported by the Filecoin network that the miner will join and use.
-# lotus-miner fetch-params <sector-size>
-lotus-miner fetch-params 32GiB
-lotus-miner fetch-params 64GiB
-```
-6. 矿工初始化,使用 --no-local-storage 创建配置文件,配置文件一般是在 ~/.lotusminer/ 或 $LOTUS_MINER_PATH
-`lotus-miner init --owner=<bls address>  --no-local-storage`
-7. 需要一个公网ip来进行矿工设置.编辑 ~/.lotusminer/config.toml
-``` lotusminer/config.toml
-[libp2p]
-  ListenAddresses = ["/ip4/0.0.0.0/tcp/24001"] # choose a fixed port
-  AnnounceAddresses = ["/ip4/<YOUR_PUBLIC_IP_ADDRESS>/tcp/24001"] # important!
-```
-8. 当的确可以访问该公网ip时,启动 lotus-miner
-`lotus-miner run` 或 `systemctl start lotus-miner`
-9. 公布矿工地址 `lotus-miner actor set-addrs /ip4/<YOUR_PUBLIC_IP_ADDRESS>/tcp/24001`
-10. 其他步骤
-	- 配置自定义存储的布局,这要求一开始使用 --no-local-storage
-	- 编辑 lotus-miner 的配置
-	- 合适关闭或重启矿机
-	- 发现或者说通过运行基准测试来得到密封一个sector的时间 ExpectedSealDuration
-	- 配置额外的worker来提高miner的密封sector的能力
-	- 为 windowPost设置单独的账户地址.
