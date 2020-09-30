@@ -37,11 +37,11 @@ grammar_tableExtra : true
 
 ### Protocol Labs 下与 FileCoin 相关的项目
 
-Protocol Labs 旗下的明星项目,每一个都有其独特的定位和功能.我们就来看一看围绕在 IPFS 和 FileCoin 周围的几个项目.在 Protocol Labs 的官网我们可以找到他们,分别是 libp2p,IPFS,Filecoin,IPLD.
+Protocol Labs 旗下的明星项目,每一个都有其独特的定位和功能.我们就来看一看围绕在 IPFS 和 FileCoin 周围的几个项目,他们分别是 libp2p,IPLD,IPFS,Filecoin.
 
 #### libp2p 协议
 
-libp2p 是一个模块化的网络栈,通过将各种传输和 P2P 协议结合在一起,使得开发人员很容易构建大型,健壮的 P2P 网络.下面给出了 libp2p 项目的官网和开源代码 [libp2p.io](https://libp2p.io/)
+libp2p 是一个模块化的网络栈,通过将各种传输和 P2P 协议结合在一起,使得开发人员很容易构建大型,健壮的 P2P 网络. [libp2p.io官网](https://libp2p.io/)
 
 libp2p 被用作IPFS的网络层,主要负责发现节点,连接节点,发现数据,传输数据.
 
@@ -55,16 +55,16 @@ libp2p 集成了各种传输协议和点对点协议,其主要作用是发现节
 
 ##### Libp2p的架构
 
-*   ==Peer Routing - 节点路由==
-    用来决定使用哪些节点来路由指定的消息.这种路由机制可以递归甚至在广播/组播模式下完成.
+*   ==Peer Routing 节点路由==
+用来决定使用哪些节点来路由指定的消息.这种路由机制可以递归甚至在广播/组播模式下完成.
 	
-*   ==Swarm - 连接处理==
+*   ==Swarm 连接处理==
     负责管理节点之间连接的创建,维护,销毁.包括协议多路复用,流多路复用,NAT穿透和连接中继,同时进行多路传输.
 	
-*   ==Distributed Record Store - 分布式记录存储==
+*   ==Distributed Record Store 分布式记录存储==
     存储和分发记录的系统,负责记录节点相关的各种信息,便于连接管理和内容寻址.
 	
-*   ==Discovery - 发现==
+*   ==Discovery 发现==
     发现和识别网络中的其他节点.
 
 ##### Libp2p的流程
