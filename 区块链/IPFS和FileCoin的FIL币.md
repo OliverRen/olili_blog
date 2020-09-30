@@ -35,30 +35,6 @@ grammar_tableExtra : true
 
 [toc]
 
-  * [Protocol Labs 下与 FileCoin 相关的项目](#protocol-labs-%E4%B8%8B%E4%B8%8E-filecoin-%E7%9B%B8%E5%85%B3%E7%9A%84%E9%A1%B9%E7%9B%AE)
-    * [libp2p 协议](#libp2p-%E5%8D%8F%E8%AE%AE)
-    * [IPLD](#ipld)
-    * [IPFS](#ipfs)
-  * [FileCoin的前期调研和初步了解](#filecoin%E7%9A%84%E5%89%8D%E6%9C%9F%E8%B0%83%E7%A0%94%E5%92%8C%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3)
-    * [FileCoin Quick View](#filecoin-quick-view)
-    * [Fileoin的基础术语](#fileoin%E7%9A%84%E5%9F%BA%E7%A1%80%E6%9C%AF%E8%AF%AD)
-    * [一般硬件问题](#%E4%B8%80%E8%88%AC%E7%A1%AC%E4%BB%B6%E9%97%AE%E9%A2%98)
-    * [先进的采矿注意事项](#%E5%85%88%E8%BF%9B%E7%9A%84%E9%87%87%E7%9F%BF%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9)
-    * [服务器安装注意事项](#%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9)
-    * [FileCoin的经济模型](#filecoin%E7%9A%84%E7%BB%8F%E6%B5%8E%E6%A8%A1%E5%9E%8B)
-    * [FileCoin的区块结构 tipsets](#filecoin%E7%9A%84%E5%8C%BA%E5%9D%97%E7%BB%93%E6%9E%84-tipsets)
-    * [FileCoin矿工的经济效应](#filecoin%E7%9F%BF%E5%B7%A5%E7%9A%84%E7%BB%8F%E6%B5%8E%E6%95%88%E5%BA%94)
-  * [FileCoin的技术学习记录](#filecoin%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95)
-    * [推荐的学习路径文档列表](#%E6%8E%A8%E8%8D%90%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84%E6%96%87%E6%A1%A3%E5%88%97%E8%A1%A8)
-    * [使用Lotus接入测试网络](#%E4%BD%BF%E7%94%A8lotus%E6%8E%A5%E5%85%A5%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9C)
-    * [Lotus的配置文件和环境变量](#lotus%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%92%8C%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F)
-    * [钱包管理](#%E9%92%B1%E5%8C%85%E7%AE%A1%E7%90%86)
-    * [如何使用 Lotus daemon 或 Lotus\-miner提供的 json\-rpc 接口](#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-lotus-daemon-%E6%88%96-lotus-miner%E6%8F%90%E4%BE%9B%E7%9A%84-json-rpc-%E6%8E%A5%E5%8F%A3)
-    * [使用Lotus存储数据](#%E4%BD%BF%E7%94%A8lotus%E5%AD%98%E5%82%A8%E6%95%B0%E6%8D%AE)
-    * [使用Lotus检索交易](#%E4%BD%BF%E7%94%A8lotus%E6%A3%80%E7%B4%A2%E4%BA%A4%E6%98%93)
-    * [使用官方Lotus\-miner执行挖矿的常见问题](#%E4%BD%BF%E7%94%A8%E5%AE%98%E6%96%B9lotus-miner%E6%89%A7%E8%A1%8C%E6%8C%96%E7%9F%BF%E7%9A%84%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98)
-    * [使用官方Lotus\-miner开始挖矿](#%E4%BD%BF%E7%94%A8%E5%AE%98%E6%96%B9lotus-miner%E5%BC%80%E5%A7%8B%E6%8C%96%E7%9F%BF)
-
 ### Protocol Labs 下与 FileCoin 相关的项目
 
 Protocol Labs 旗下的明星项目,每一个都有其独特的定位和功能.我们就来看一看围绕在 IPFS 和 FileCoin 周围的几个项目,他们分别是 libp2p,IPLD,IPFS,Filecoin.
