@@ -685,20 +685,7 @@ CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只�
 	[source.rustcc]
 	registry = "https://code.aliyun.com/rustcc/crates.io-index.git"
 	```	
--
-	
-- lotus的中国ipfs代理 `IPFS_GATEWAY="https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/"`
-
-
-	
-	
-	
-		
-	
-- 服务器需要安装clang,llvm	,否则在编译lotus的时候会出现 llvm-config 找不到文件的问题
-	`sudo apt isntall clang`
-	`sudo apt install llvm`
-- 对go的依赖,我们使用golang官网的下载解压方式,需要安装 go 1.14及以上的版本
+- lotus 对 golang 得依赖,我们使用golang官网的下载解压方式,需要安装 go 1.14及以上的版本
 - GO的代理	
 	```	shell
 	go env -w GO111MODULE=on
@@ -710,6 +697,15 @@ CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只�
 	# 设置不走 proxy 的私有组织(可选)
 	go env -w GOPRIVATE=example.com/org_name
 	```	
+- 服务器需要安装clang,llvm	,否则在编译lotus的时候会出现 llvm-config 找不到文件的问题
+	`sudo apt isntall clang`
+	`sudo apt install llvm`
+- lotus的中国ipfs代理 `IPFS_GATEWAY="https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/"`,或者有良好的网络的时候,也可以使用本地的ipfs节点
+
+
+	
+	
+
 - 使用git克隆lotus库
 	`git clone https://github.com/Filecoin-project/lotus.git`
 - 支持 SHA 扩展指令的cpu使用 rust标记 [Native Filecoin FFI section](https://docs.Filecoin.io/get-started/lotus/installation/#native-Filecoin-ffi)
