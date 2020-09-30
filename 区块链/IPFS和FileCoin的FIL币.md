@@ -711,7 +711,6 @@ CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只�
 - 查看可执行文件 ==lotus==	,==lotus-miner==	,==lotus-worker==	应该在 ==/usr/local/bin== 下
 - lotus的工作目录默认是在 $HOME/.lotus,用户不同是不一样的.
 - 启动 lotus的守护进程  `lotus daemon`,或者通过命令创建 systemd service
-- 
 	`sudo make install-daemon-service`
 	`sudo make install-chainwatch-service`
 	`sudo make install-miner-service` 
