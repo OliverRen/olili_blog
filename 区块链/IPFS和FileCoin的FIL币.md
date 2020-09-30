@@ -634,7 +634,6 @@ CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只�
 
 #### 使用Lotus接入测试网络
 
-- 测试机器地址 172.16.0.27 有vino
 - 测试网络信息 [Network Info](https://network.Filecoin.io/#testnet)
 - 测试网络的水龙地址 [testnet Filecoin faucet](https://spacerace.faucet.glif.io/)
 - apt源选网易或者阿里
