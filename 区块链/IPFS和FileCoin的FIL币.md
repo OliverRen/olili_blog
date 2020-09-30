@@ -647,17 +647,6 @@ CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只�
 	git config --global --unset https.proxy
 	```
 - lotus的中国ipfs代理 `IPFS_GATEWAY="https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/"`
-- GO的代理	
-	```	shell
-	go env -w GO111MODULE=on
-	go env -w GOPROXY=https://goproxy.io,direct
-	
-	# 设置不走 proxy 的私有仓库,多个用逗号相隔(可选)
-	go env -w GOPRIVATE=*.corp.example.com
-
-	# 设置不走 proxy 的私有组织(可选)
-	go env -w GOPRIVATE=example.com/org_name
-	```	
 - ubuntu 的系统要求	
 	`sudo apt update && sudo apt install mesa-opencl-icd ocl-icd-opencl-dev gcc git bzr jq pkg-config curl -y && sudo apt upgrade -y`
 - 对rustup的依赖,需要 ==cargo== 和 ==rustc== 两个工具
@@ -683,28 +672,34 @@ CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只�
 	registry = "https://github.com/rust-lang/crates.io-index"
 	# 指定镜像 下面任选其一
 	replace-with = 'sjtu'
-
 	# 清华大学
 	[source.tuna]
 	registry = "https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git"
-
 	# 中国科学技术大学
 	[source.ustc]
 	registry = "git://mirrors.ustc.edu.cn/crates.io-index"
-
 	# 上海交通大学
 	[source.sjtu]
 	registry = "https://mirrors.sjtug.sjtu.edu.cn/git/crates.io-index"
-
 	# rustcc社区
 	[source.rustcc]
 	registry = "https://code.aliyun.com/rustcc/crates.io-index.git"
-	```
-	
+	```	
 - 服务器需要安装clang,llvm	,否则在编译lotus的时候会出现 llvm-config 找不到文件的问题
 	`sudo apt isntall clang`
 	`sudo apt install llvm`
 - 对go的依赖,我们使用golang官网的下载解压方式,需要安装 go 1.14及以上的版本
+- GO的代理	
+	```	shell
+	go env -w GO111MODULE=on
+	go env -w GOPROXY=https://goproxy.io,direct
+	
+	# 设置不走 proxy 的私有仓库,多个用逗号相隔(可选)
+	go env -w GOPRIVATE=*.corp.example.com
+
+	# 设置不走 proxy 的私有组织(可选)
+	go env -w GOPRIVATE=example.com/org_name
+	```	
 - 使用git克隆lotus库
 	`git clone https://github.com/Filecoin-project/lotus.git`
 - 支持 SHA 扩展指令的cpu使用 rust标记 [Native Filecoin FFI section](https://docs.Filecoin.io/get-started/lotus/installation/#native-Filecoin-ffi)
@@ -715,8 +710,8 @@ CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只�
 	`sudo make install`
 - 查看可执行文件 ==lotus==	,==lotus-miner==	,==lotus-worker==	应该在 ==/usr/local/bin== 下
 - lotus的工作目录默认是在 $HOME/.lotus,用户不同是不一样的.
-- 启动 lotus的守护进程  `lotus daemon`
-- 或者通过命令创建 systemd service
+- 启动 lotus的守护进程  `lotus daemon`,或者通过命令创建 systemd service
+- 
 	`sudo make install-daemon-service`
 	`sudo make install-chainwatch-service`
 	`sudo make install-miner-service` 
