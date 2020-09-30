@@ -385,17 +385,14 @@ PS : 可以尝试添加PPA源使用apt的安装方式,当然要这个源有方�
 sudo add-apt-repository ppa:graphics-drivers/ppa
 sudo apt update
 ```
-
 CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只是一个工具包,他是可以多个版本进行安装的.所以并不一定要安装cuda中的显卡驱动,具体可以看后面的安装过程,需要注意的是 cuda文件名上标记的版本号是支持的最低的显卡驱动的版本,所以如果自己安装显卡驱动的话,是一定需要在这个版本之上的.
 
 - 准备工作 </br>
-
 	建议都使用离线安装的方式,主要还是网络太蛋疼了,显卡驱动几百M,cuda工具包下载的时候有好几G.
 	
 	显卡驱动 : 从官方网站下载 [download search](https://www.nvidia.cn/geforce/drivers/) , 我下载的版本是 NVIDIA-Linux-x86_64-455.23.04.run
 
 	CUDA工具 : [下载界面地址](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=2004&target_type=runfilelocal)
-
 - 禁用开源驱动 nouveau编辑文件 blacklist.conf </br>
 	``` shell
 	sudo gedit /etc/modprobe.d/blacklist.conf
@@ -410,9 +407,7 @@ CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只�
 	# 验证
 	lsmod | grep nouveau
 	```
-
 - 删除干净历史安装 </br>
-
 	``` shell
 	# 驱动如果是 runfile安装的
 	sudo NVIDIA-*.run -uninstall
@@ -423,24 +418,21 @@ CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只�
 	CUDA默认是安装在 /usr/local/cuda-*下的
 	sudo uninstall_cuda_*.pl
 	```
-
 - 禁用 x window服务 </br>
+	网上教程都安装,重启,并停止了 lightdm,其实ubuntu 20.04是使用了gdm的.直接停止后尝试安装,当然如果有用向日葵之类的软件进行远程控制的话,建议切换到lightdm,因为gdm压根就连不上会被中断
+	``` shell
+	# 更新 apt
+	sudo apt update
 
-网上教程都安装,重启,并停止了 lightdm,其实ubuntu 20.04是使用了gdm的.直接停止后尝试安装
+	# 有可能的 lightdm 然后完成需要重启
+	sudo apt install lightdm 
+	# 如果安装了lightdm需要关闭
+	sudo service lightdm stop
+	sudo systemctl stop lightdm
 
-``` shell
-# 更新 apt
-sudo apt update
-
-# 有可能的 lightdm 然后完成需要重启
-sudo apt install lightdm 
-# 如果安装了lightdm需要关闭
-sudo service lightdm stop
-sudo systemctl stop lightdm
-
-# 直接关闭gdm
-sudo systemctl stop gdm
-```
+	# 直接关闭gdm
+	sudo systemctl stop gdm
+	```
 
 - 安装驱动文件 </br>
 
