@@ -35,7 +35,7 @@ grammar_tableExtra : true
 
 [toc]
 
-### Protocol Labs 下与 FileCoin 相关的项目
+### Protocol Labs
 
 Protocol Labs 旗下的明星项目,每一个都有其独特的定位和功能.我们就来看一看围绕在 IPFS 和 FileCoin 周围的几个项目,他们分别是 libp2p,IPLD,IPFS,Filecoin.
 
