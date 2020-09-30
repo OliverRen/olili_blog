@@ -167,27 +167,11 @@ IPLD是内容寻址的数据模型,即 merkle dag 的组装数据结构.
 			Binary : `<cid-version><ipld-format><multihash>` </br>
 			String : `<base>base(<cid-version><ipld-format><multihash>)`
 		
+2. 将文件加入到ipfs
 
+	首先会对要加入的文件内容进行 chunk 分块,并组成dag的形式,然后从叶子节点开始一层一层往上计算cid直到最终的根节点,可以使用这个工具进行分析 [dag.ipfs.io](https://dag.ipfs.io/)
 
-
-
-
-
-
-
-
-
-**将文件加入到ipfs**
-
-首先会对要加入的文件内容进行 chunk 分块,并组成dag的形式
-
-然后从叶子节点开始一层一层往上计算cid直到最终的根节点
-
-可以使用这个工具进行分析 [dag.ipfs.io](https://dag.ipfs.io/)
-
-平均分割法和smart变长分割法(rabin方式);
-rabin方式会使用16byte的滑动窗口来计算,使得块大小分布在一个平均值形成正太分布,
-这样可以使得内容的修改仅仅知会影响修改的块
+	chunk 可以有 `平均分割法`和`smart变长分割法(rabin方式)`, rabin方式会使用16byte的滑动窗口来计算,使得块大小分布在一个平均值形成正太分布,这样可以使得内容的修改仅仅知会影响修改的块
 
 ==UnixFS==
 
