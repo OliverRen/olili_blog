@@ -449,104 +449,77 @@ CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只�
 	
 	# 安装过程
 	大概说是NVIDIA驱动已经被Ubuntu集成安装,可以在软件更新器的附加驱动中找到,我就是因为3080显卡找不到才需要自己安装的,所以直接继续
-
 	The distribution-provided pre-install script failed! Are you sure you want to continue?
 	选择 yes 继续.
-
 	Would you like to register the kernel module souces with DKMS? This will allow DKMS to automatically build a new module, if you install a different kernel later?
 	选择 No 继续.
-
 	是否安装 NVIDIA 32位兼容库
 	选择NO继续
-
 	Would you like to run the nvidia-xconfig utility to automatically update your x configuration so that the NVIDIA x driver will be used when you restart x? Any pre-existing x confile will be backed up.
 	选择 Yes 继续
+	
+	# 安装完成
+	# 挂载专用驱动 正常来说会自动挂载
+	modprobe nvidia
+	检查驱动是否成功
+	nvidia-smi
+	nvidia-settings 是ui界面的配置
+
+	# 开启图形界面,之前如果安装了lightdm则启动之
+	sudo systemctl start lightdm
+	sudo systemctl start gdm
+
+	sudo reboot
+
+	# ps : 如重启后出现分辨率为800*600,且不可调的情况执行下面命令
+	sudo mv /etc/X11/xorg.conf /etc/X11/xorg.conf.backup
+	sudo touch /etc/X11/xorg.conf
+	sudo reboot	
 	```
 
-- 安装过程 </br>
-
-```
-
-```
-
-- 安装完成 </br>
-
-```
-# 挂载专用驱动 正常来说会自动挂载
-modprobe nvidia
-检查驱动是否成功
-nvidia-smi
-nvidia-settings 是ui界面的配置
-
-# 开启图形界面,之前如果安装了lightdm则启动之
-sudo systemctl start lightdm
-sudo systemctl start gdm
-
-sudo reboot
-
-# ps : 如重启后出现分辨率为800*600,且不可调的情况执行下面命令
-sudo mv /etc/X11/xorg.conf /etc/X11/xorg.conf.backup
-sudo touch /etc/X11/xorg.conf
-sudo reboot
-```
-
 - 安装CUDA </br>
+	进入runfile文件目录,添加执行权限后执行安装
 
-进入runfile文件目录,添加执行权限后执行安装
+	``` shell
+	sudo sh ./cuda_*.run --no-opengl-libs
+	# 同驱动安装一样,这里也不需要安装opengl库
+	
+	# 安装过程
+	Do you accept the previously read EULA?
+	accept
+	然后通过界面选择安装项,注意安装的东西
+	
+	# 安装完成,会输入大概如下的Summary
+	===========
+	= Summary =
+	===========
 
-``` shell
-sudo sh ./cuda_*.run --no-opengl-libs
+	Driver : Not Selected
+	Toolkit : Installed in /usr/local/cuda-11.1/
+	Samples : Installed in /home/rxc/, but missing recommended libraries
 
-# 同驱动安装一样,这里也不需要安装opengl库
-```
+	Please make sure that
+	 -   PATH includes /usr/local/cuda-11.1/bin
+	 -   LD_LIBRARY_PATH includes /usr/local/cuda-11.1/lib64, or, add /usr/local/cuda-11.1/lib64 to /etc/ld.so.conf and run ldconfig as root
 
-- 安装过程 </br>
+	To uninstall the CUDA Toolkit, run cuda-uninstaller in /usr/local/cuda-11.1/bin
+	***WARNING : Incomplete installation! This installation did not install the CUDA Driver. A driver of version at least .00 is required for CUDA 11.1 functionality to work.
+	To install the driver using this installer, run the following command, replacing <CudaInstaller> with the name of this run file : 
+		sudo <CudaInstaller>.run --silent --driver
 
-```
-Do you accept the previously read EULA?
-accept
-然后选择安装项
-```
-
-- 安装完成 </br>
-
-``` shell
-# 安装CUDA工具需要自行设置path,编辑 .bashrc 或者 /etc/profile全局文件
-
-gedit ~/.bashrc 
-export PATH=/usr/local/cuda-8.0/bin:$PATH
-export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:$LD_LIBRARY_PATH
-```
-
-```
-===========
-= Summary =
-===========
-
-Driver : Not Selected
-Toolkit : Installed in /usr/local/cuda-11.1/
-Samples : Installed in /home/rxc/, but missing recommended libraries
-
-Please make sure that
- -   PATH includes /usr/local/cuda-11.1/bin
- -   LD_LIBRARY_PATH includes /usr/local/cuda-11.1/lib64, or, add /usr/local/cuda-11.1/lib64 to /etc/ld.so.conf and run ldconfig as root
-
-To uninstall the CUDA Toolkit, run cuda-uninstaller in /usr/local/cuda-11.1/bin
-***WARNING : Incomplete installation! This installation did not install the CUDA Driver. A driver of version at least .00 is required for CUDA 11.1 functionality to work.
-To install the driver using this installer, run the following command, replacing <CudaInstaller> with the name of this run file : 
-    sudo <CudaInstaller>.run --silent --driver
-
-Logfile is /var/log/cuda-installer.log
-
-```
+	Logfile is /var/log/cuda-installer.log
+	
+	# 安装CUDA工具需要自行设置path,编辑 .bashrc 或者 /etc/profile全局文件
+	gedit ~/.bashrc 
+	export PATH=/usr/local/cuda-8.0/bin:$PATH
+	export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:$LD_LIBRARY_PATH
+	```
 
 - 测试 </br>
-
 ``` shell
 cd /usr/local/cuda-8.0/samples/1_Utilities/deviceQuery
 sudo make -j4
-# 这里-j4是因为是4核cpu,可以4个jobs一起跑.运行结果如下图
-
+# 这里-j4是因为是4核cpu,可以4个jobs一起跑
 ./deviceQuery
 ```
 
