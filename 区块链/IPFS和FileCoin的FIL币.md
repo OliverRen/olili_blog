@@ -665,15 +665,13 @@ CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只�
 	`rustup install stable` or
 	`rustup default stable`		
 	cargo在编译时需要下载,在 `/home/.cargo`创建config文件,其实使用了sudo会在 /root下,cargo在编译的时候也需要下载,config文件中可以指定代理项,或者也可以直接使用国内镜像的方式
-	```
+	``` cargo.config
 	[http]
 	proxy = "172.16.0.25:1081"
 	[https]
 	proxy = "172.16.0.25:1081"
 	```	
-	
-	
-	
+		
 	``` shell
 	# 安环境变量 设置环境变量 RUSTUP_DIST_SERVER(用于更新 toolchain)
 	export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static
@@ -683,7 +681,7 @@ CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只�
 	cargo镜像配置,在/home/.cargo下的config文件中配置如下内容
 	[source.crates-io]
 	registry = "https://github.com/rust-lang/crates.io-index"
-	# 指定镜像
+	# 指定镜像 下面任选其一
 	replace-with = 'sjtu'
 
 	# 清华大学
