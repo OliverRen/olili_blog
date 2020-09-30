@@ -444,6 +444,7 @@ Filecoin作为去中心化存储网络的激励和验证机制,矿工是整个�
 3. 挖矿服务器安装踩坑
 
 	20200927 update
+	
 	- 服务器主板FPanel没有USB针,所以只有尾部的2个USB口,需要接hub
 	- 引导U盘不能量产,所以是USB-ZIP模式,有可能主板比较新已经不支持了.只可以使用USB-HDD或者直接USB光驱引导
 	- 设置SATA控制器为AHCI模式,再CSM兼容中关闭secure boot,设置所有板载设备为UEFI启动
