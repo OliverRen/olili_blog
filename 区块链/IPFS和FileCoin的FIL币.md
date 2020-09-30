@@ -173,18 +173,14 @@ IPLD是内容寻址的数据模型,即 merkle dag 的组装数据结构.
 
 	chunk 可以有 `平均分割法`和`smart变长分割法(rabin方式)`, rabin方式会使用16byte的滑动窗口来计算,使得块大小分布在一个平均值形成正太分布,这样可以使得内容的修改仅仅知会影响修改的块
 
-==UnixFS==
+3. 客户端
 
-Node+ \[UnixFS File] + C1
+	使用 go-ipfs 的cli或者是 ipfs-desktop 的 windows客户端都可以,使用 ipfs-update进行更新,或者在更新了程序后使用 `ipfs daemon`进行数据升级迁移.
 
-**客户端**
-
-使用 go-ipfs 的cli或者是 ipfs-desktop 的 windows客户端都可以;
-使用 ipfs-update进行更新,或者在更新了程序后使用 `ipfs daemon`进行数据升级迁移.
-
-**IPNS和DNSLink**
-IPNS是使用 `ipfs name pushlish CID`来创建一个对特定内容 ipfs-path 的指向;
-DNSLink是直接使用dns的txt记录来实现的.即将对一个域名的访问,改为 dnslink=/ipfs/Cid 的访问;
+4. IPNS和DNSLink
+	
+	IPNS是使用 `ipfs name pushlish CID`来创建一个对特定内容 ipfs-path 的指向 </br>
+	DNSLink是直接使用dns的txt记录来实现的.即将对一个域名的访问,改为 dnslink=/ipfs/Cid 的访问
 
 `my-dns-tool set --type=TXT --ttl=60 --domain=libp2p.io --name=_dnslink --value="dnslink=/ipfs/Qmc2o4ZNtbinEmRF9UGouBYTuiHbtCSShMFRbBY5ZiZDmU"`
 
