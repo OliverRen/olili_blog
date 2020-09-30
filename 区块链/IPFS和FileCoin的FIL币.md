@@ -170,7 +170,7 @@ Filecoin作为去中心化存储网络的激励和验证机制,矿工是整个�
 	- C1 密封提交阶段1 执行生成证明所必需的准备工作的中间阶段 CPU运算
 	- C2 该密封阶段涉及创建SNARK 将证明在广播之前进行压缩, 30分钟 GPU
 3. FileCoin的经济模型 </br>
-	20200924 update </br>
+	20200924 update
 	
 	101. 代币释放模型 [资料来源](https://ipfs.io/ipfs/Qmdsip9Kcoyj3J3Fyvjw3wjPCuewkZiGVWpN8rYF3dJKqg/vesting.html) </br>
 		* Filecoin 代币总量为 20 亿枚
