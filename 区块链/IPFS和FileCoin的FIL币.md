@@ -638,8 +638,7 @@ CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只�
 - 测试网络信息 [Network Info](https://network.Filecoin.io/#testnet)
 - 测试网络的水龙地址 [testnet Filecoin faucet](https://spacerace.faucet.glif.io/)
 - apt源选网易或者阿里
-- 安装好git后需要设置本地代理
-	
+- 安装好git后需要设置本地代理	
 	```
 	git config --gloabl http.proxy=http://xxx:1080
 	git config --global https.proxy=http://xxx:1080
@@ -648,8 +647,7 @@ CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只�
 	git config --global --unset https.proxy
 	```
 - lotus的中国ipfs代理 `IPFS_GATEWAY="https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/"`
-- GO的代理
-	
+- GO的代理	
 	```	shell
 	go env -w GO111MODULE=on
 	go env -w GOPROXY=https://goproxy.io,direct
@@ -660,24 +658,21 @@ CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只�
 	# 设置不走 proxy 的私有组织(可选)
 	go env -w GOPRIVATE=example.com/org_name
 	```	
-- ubuntu 的系统要求
-	
+- ubuntu 的系统要求	
 	`sudo apt update && sudo apt install mesa-opencl-icd ocl-icd-opencl-dev gcc git bzr jq pkg-config curl -y && sudo apt upgrade -y`
-- 对rustup的依赖,需要 ==cargo== 和 ==rustc== 两个工具,哪个命令好用用哪个,其实都一样.而且现在lotus在make clean的时候也会下载指定版本的rust和cargo,这里是否需要自己安装也未可知
-	`snap install rustup`
-	`rustup install stable`
-	`rustup default stable`
-		
-	cargo在编译时需要下载,在 `/home/.cargo`创建config文件,其实使用了sudo会在 /root下,cargo在编译的时候也需要下载,config文件中可以指定代理项
+- 对rustup的依赖,需要 ==cargo== 和 ==rustc== 两个工具
+	`snap install rustup` or
+	`rustup install stable` or
+	`rustup default stable`		
+	cargo在编译时需要下载,在 `/home/.cargo`创建config文件,其实使用了sudo会在 /root下,cargo在编译的时候也需要下载,config文件中可以指定代理项,或者也可以直接使用国内镜像的方式
 	```
 	[http]
 	proxy = "172.16.0.25:1081"
-
 	[https]
 	proxy = "172.16.0.25:1081"
 	```	
 	
-	或者也可以直接使用国内镜像的方式
+	
 	
 	``` shell
 	# 安环境变量 设置环境变量 RUSTUP_DIST_SERVER(用于更新 toolchain)
