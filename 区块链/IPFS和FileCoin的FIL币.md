@@ -654,6 +654,12 @@ CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只�
 - cargo配置代理	
 	
 	cargo在编译时需要下载,在 `/home/.cargo`创建config文件,其实使用了sudo会在 /root下,cargo在编译的时候也需要下载,config文件中可以指定代理项,或者也可以直接使用国内镜像的方式
+	``` cargo.config
+	[http]
+	proxy = "172.16.0.25:1081"
+	[https]
+	proxy = "172.16.0.25:1081"
+	```	
 	
 	
 	
@@ -663,12 +669,7 @@ CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只�
 - 对rustup的依赖,需要 ==cargo== 和 ==rustc== 两个工具
 	
 	
-	``` cargo.config
-	[http]
-	proxy = "172.16.0.25:1081"
-	[https]
-	proxy = "172.16.0.25:1081"
-	```	
+	
 		
 	``` shell
 	# 安环境变量 设置环境变量 RUSTUP_DIST_SERVER(用于更新 toolchain)
