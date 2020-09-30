@@ -750,9 +750,9 @@ Variables specific to the _Lotus daemon_
 
 ---------------------
 
-#### Lotus客户的使用
+#### Lotus客户端的使用
 
-1. 钱包管理
+1. 钱包管理 </br>
 	- 查看钱包
 		`lotus wallet list` 查看所有的钱包账户
 		`lotus wallet default` 查看默认钱包
@@ -767,16 +767,10 @@ Variables specific to the _Lotus daemon_
 		`lotus wallet export <address> > wallet.private`
 		`lotus wallet import wallet.private` 
 
+2. JsonRPC的Json Web Token </br>
+	
+	目前json-rpc接口没有文档,只能看源码
 
-
-
-
-
-
-
-
-
-#### 钱包管理
 
 
 
@@ -784,7 +778,7 @@ Variables specific to the _Lotus daemon_
 
 #### 如何使用 Lotus daemon 或 Lotus-miner提供的 json-rpc 接口
 
-目前json-rpc接口没有文档,只能看源码
+
 
 1. EndPoint
 
