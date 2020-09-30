@@ -206,7 +206,7 @@ Filecoin作为去中心化存储网络的激励和验证机制,矿工是整个�
 
 3. FileCoin的经济模型
 
-20200924 update
+	20200924 update
 
 - 代币释放模型 </br>
 	Filecoin 代币总量为 20 亿枚 </br>
