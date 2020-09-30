@@ -771,6 +771,25 @@ Variables specific to the _Lotus daemon_
 	
 	目前json-rpc接口没有文档,只能看源码
 
+	- EndPoint
+		* `http://[api:port]/rpc/v0` http json-rpc接口
+		* `ws://[api:port]/rpc/v0` websocket json-rpc接口
+		* `http://[api:port]/rest/v0/import` 只允许put请求,需要一个写权限来添加文件
+
+	- 创建JWT
+		```sh
+		# Lotus Node
+		lotus auth create-token --perm admin
+
+		# Lotus Miner
+		lotus-miner auth create-token --perm admin
+		```
+
+		其中有4种权限
+		- `read` - 只能读取
+		- `write` - 可以写入,包含 read
+		- `sign` - 可以使用私钥签名,包含 read,write
+		- `admin` - 管理节点的权限,包含 read,write,sign
 
 
 
@@ -780,25 +799,13 @@ Variables specific to the _Lotus daemon_
 
 
 
-1. EndPoint
+1. 
 
-*   `http://[api:port]/rpc/v0` http json-rpc接口
-*   `ws://[api:port]/rpc/v0` websocket json-rpc接口
-*   `http://[api:port]/rest/v0/import` 只允许put请求,需要一个写权限来添加文件
 
-2. 创建有权限控制的 JWT
-	```sh
-	# Lotus Node
-	lotus auth create-token --perm admin
 
-	# Lotus Miner
-	lotus-miner auth create-token --perm admin
-	```
-	其中有4种权限
-	- `read` - 只能读取
-	- `write` - 可以写入,包含 read
-	- `sign` - 可以使用私钥签名,包含 read,write
-	- `admin` - 管理节点的权限,包含 read,write,sign
+2. 有权限控制的 JWT
+	
+	
 
 3. 请求方式,和标准 json-rpc 2.0 一致.
 	``` sh
