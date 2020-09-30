@@ -35,7 +35,7 @@ grammar_tableExtra : true
 
 [toc]
 
-### Protocol Labs
+### Protocol Labs 的明星项目
 
 Protocol Labs 旗下的明星项目,每一个都有其独特的定位和功能.我们就来看一看围绕在 IPFS 和 FileCoin 周围的几个项目,他们分别是 libp2p,IPLD,IPFS,Filecoin.
 
@@ -131,18 +131,15 @@ libp2p 中一般是在初始配置中对这一模块进行启用的配置,然后
 
 #### IPLD
 
-IPLD是内容寻址的数据模型,即 merkle dag的组装数据结构.
+IPLD是内容寻址的数据模型,即 merkle dag 的组装数据结构.
 
-- schema layer
-- data model layer
-- block layer
+- block layer (layer 0)
 
-**block layer (layer 0)**
-仅此一层就可以描述很多格式的的基本数据,但是并没有定义数据结构或者数据类型,可以使用不同的编码器编码到不同的类型.
+	仅此一层就可以描述很多格式的的基本数据,但是并没有定义数据结构或者数据类型,可以使用不同的编码器编码到不同的类型.
 
-类似于字符的编码,只是十六进制编码,但是存储格式并不确定,只是说明了某种类型的数据应该有的基本数据,但并没有规定如何组织数据结构和如何存储(类如json?binary?之类的定义).
+	类似于字符的编码,只是十六进制编码,但是存储格式并不确定,只是说明了某种类型的数据应该有的基本数据,但并没有规定如何组织数据结构和如何存储(类如json?binary?之类的定义).
 
-比如一个区块可以用 cid,编码器和一个 hash-value 加上二进制数据来表示.
+	比如一个区块可以用 cid,编码器和一个 hash-value 加上二进制数据来表示.
 
 **data model layer (layer 1)**
 
