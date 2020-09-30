@@ -433,40 +433,40 @@ CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只�
 	# 直接关闭gdm
 	sudo systemctl stop gdm
 	```
-
 - 安装驱动文件 </br>
+	进入runfile文件所在的目录,赋予权限,然后开始安装
+	``` shell
+	sudo chmod a+x NVIDIA*.run
 
-进入runfile文件所在的目录,赋予权限,然后开始安装
+	# NVIDIA*.run -h 可以输出帮助
+	# NVIDIA*.run -A 可以输出扩展选项
 
-``` shell
-sudo chmod a+x NVIDIA*.run
+	# 执行安装
+	sudo ./NVIDIA-Linux-x86_64-396.18.run --no-x-check --no-nouveau-check --no-opengl-files 
+	# 我们已经自己禁用了x-window
+	# 我们已经手动禁用了nouveau
+	# 由于ubuntu自己有opengl,所以我们不用安装opengl,否则会出现循环登录的情况
+	
+	# 安装过程
+	大概说是NVIDIA驱动已经被Ubuntu集成安装,可以在软件更新器的附加驱动中找到,我就是因为3080显卡找不到才需要自己安装的,所以直接继续
 
-# NVIDIA*.run -h 可以输出帮助
-# NVIDIA*.run -A 可以输出扩展选项
+	The distribution-provided pre-install script failed! Are you sure you want to continue?
+	选择 yes 继续.
 
-# 执行安装
-sudo ./NVIDIA-Linux-x86_64-396.18.run --no-x-check --no-nouveau-check --no-opengl-files 
-# 我们已经自己禁用了x-window
-# 我们已经手动禁用了nouveau
-# 由于ubuntu自己有opengl,所以我们不用安装opengl,否则会出现循环登录的情况
-```
+	Would you like to register the kernel module souces with DKMS? This will allow DKMS to automatically build a new module, if you install a different kernel later?
+	选择 No 继续.
+
+	是否安装 NVIDIA 32位兼容库
+	选择NO继续
+
+	Would you like to run the nvidia-xconfig utility to automatically update your x configuration so that the NVIDIA x driver will be used when you restart x? Any pre-existing x confile will be backed up.
+	选择 Yes 继续
+	```
 
 - 安装过程 </br>
 
 ```
-大概说是NVIDIA驱动已经被Ubuntu集成安装,可以在软件更新器的附加驱动中找到,我就是因为3080显卡找不到才需要自己安装的,所以直接继续
 
-The distribution-provided pre-install script failed! Are you sure you want to continue?
-选择 yes 继续.
-
-Would you like to register the kernel module souces with DKMS? This will allow DKMS to automatically build a new module, if you install a different kernel later?
-选择 No 继续.
-
-是否安装 NVIDIA 32位兼容库
-选择NO继续
-
-Would you like to run the nvidia-xconfig utility to automatically update your x configuration so that the NVIDIA x driver will be used when you restart x? Any pre-existing x confile will be backed up.
-选择 Yes 继续
 ```
 
 - 安装完成 </br>
