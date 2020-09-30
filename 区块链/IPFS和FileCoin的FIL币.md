@@ -207,7 +207,7 @@ Filecoin作为去中心化存储网络的激励和验证机制,矿工是整个�
 #### Fileoin的基础术语
 
 - **Block和Epoch** </br>
-	FileCoin 区块链中的 epoch 是离散为25秒的一个时期,每个 epoch 中,都会选择存储矿工的一个子集,这个子集会通过 Winning-of-Spacetime 来向 filecoin 添加一个block区块.这个选择被称为选举,一个矿工当选的可能性大致与他们贡献的网络总存储容量占整个 filecoin 网络的份额成正比.这些矿工提交的区块 block 一起构成了一个 tipset .
+	FileCoin 区块链中的 epoch 是离散为25秒的一个时期,每个 epoch 中,都会选择存储矿工的一个子集,这个子集会通过 Winning-of-Spacetime 来向 Filecoin 添加一个block区块.这个选择被称为选举,一个矿工当选的可能性大致与他们贡献的网络总存储容量占整个 Filecoin 网络的份额成正比.这些矿工提交的区块 block 一起构成了一个 tipset .
 
 - **客户** </br>
 	客户付费存储和检索数据.他们可以从可用的存储服务商中进行选择.如果他们想存储私有数据,则需要在将其提交给存储服务商之前对其进行加密.
@@ -225,29 +225,29 @@ Filecoin作为去中心化存储网络的激励和验证机制,矿工是整个�
 	扇区是存储矿工提供给网络的一些磁盘空间(可以认为是与特定存储提供者的磁盘空间的特定部分相关联的唯一ID).矿工将客户的物品存放在其所在的区域,并为其服务赚取代币.为了存储片段,存储矿工必须向网络保证其扇区可用.目前sector的大小有32GB和64GB两种.
 	
 - **订单和订单簿** </br>
-	订单是请求或提供服务的意图声明.客户向市场提交标的订单以请求服务(分别是用于存储数据的存储市场和用于获取数据的检索市场),而矿工则接受订单以提供服务.订单簿是订单的集合.Filecoin为存储市场和检索市场维护独立的订单簿.
+	订单是请求或提供服务的意图声明.客户向市场提交标的订单以请求服务(分别是用于存储数据的存储市场和用于获取数据的检索市场),而矿工则接受订单以提供服务.订单簿是订单的集合. Filecoin 为存储市场和检索市场维护独立的订单簿.
 	
 - **承诺aka质押** </br>
-	承诺是向网络提供存储(特别是扇区)的承诺.存储矿工必须向账本(文件币区块链)提交质押才能开始在存储市场中接受订单.质押包括质押扇区的规模和存储矿工存放的抵押币.
+	承诺是向网络提供存储(特别是扇区)的承诺.存储矿工必须向 Filecoin 区块链提交质押才能开始在存储市场中接受订单.质押包括质押扇区的规模和存储矿工存放的抵押币.
 	
 - **消减(Slash)** </br>
-	当某个扇区出现故障的时候,filecoin网络会大幅减少本应该存储这个sector的存储矿工.并且会减去该矿工的总算力.
+	当某个扇区出现故障的时候,Filecoin 网络会大幅减少本应该存储这个 sector 的存储矿工.并且会减去该矿工的总算力.
 	
 - **密封(Seal)** </br>
-	密封是Filecoin协议的基本构建块之一.这是在一个扇区上执行的计算密集型过程,导致该扇区的唯一表示.这种新表示的性质是基本验证的复制的和验证的时空过程.
+	密封是 Filecoin 协议的基本构建块之一.这是在一个扇区上执行的计算密集型过程,导致该扇区的唯一表示.这种新表示的性质是基本验证的复制的和验证的时空过程.
 
 - **存储挖矿** </br>
-	存储矿工的作用是代表Filecoin网络保存文件.存储矿工必须以加密方式证明他们兑现了存储这些文件的承诺–这是通过复制证明(PoRep)和时空证明(PoSt)机制实现的.将存储抵押到Filecoin网络本身需要Filecoin.这些被用作担保,以确保存储矿工履行其合同义务.
+	存储矿工的作用是代表 Filecoin 网络保存文件.存储矿工必须以加密方式证明他们兑现了存储这些文件的承诺–这是通过复制证明(PoRep)和时空证明(PoSt)机制实现的.将存储抵押到 Filecoin 网络本身需要 Filecoin .这些被用作担保,以确保存储矿工履行其合同义务.
 
 - **储存资料** </br>
-	在Filecoin网络中,数据存储在固定大小的扇区中.通常,存储矿工用代表客户存储的数据填充这些部门,客户通过交易在特定时间段内与存储矿工服务签约.但是,存储矿工并没有被迫进行交易.如果存储矿工没有找到任何有吸引力的交易建议,他们可以选择做出容量承诺,用任意数据填充部门.这使他们可以证明他们正在代表网络保留空间.如果需要,以后可以“升级”为充当容量承诺而创建的部门,以便为将来的交易提供合同存储空间.
+	在 Filecoin 网络中,数据存储在固定大小的扇区中.通常,存储矿工用代表客户存储的数据填充这些部门,客户通过交易在特定时间段内与存储矿工服务签约.但是,存储矿工并没有被迫进行交易.如果存储矿工没有找到任何有吸引力的交易建议,他们可以选择做出容量承诺,用任意数据填充部门.这使他们可以证明他们正在代表网络保留空间.如果需要,以后可以“升级”为充当容量承诺而创建的部门,以便为将来的交易提供合同存储空间.
 	
 - **非交互性零知识证明(zk-SNARK)** </br>
 	验证者和证明者之间不需要进行交互,而仅仅只需要持有相对应随机数不同的hash值即可判定证明者的确证明了对应的事物.这里就需要证明者自证即为 WindowsPost
 
-- **存储证明Proof-of-Storage(PoSt)** </br>
+- **存储证明Proof-of-Storage** </br>
 
-	许多区块链网络都以参与者为区块链提供某种价值这一观念为基础-这种贡献很难伪造,但如果确实做出了,则可以进行微不足道的验证.通常认为基于这种方法的区块链需要“ X证明”,其中X是有价值的贡献.Filecoin区块链重视存储容量的贡献；它以新颖的存储证明(PoSt)构造为基础,将其与其他区块链区分开来,而其他区块链在大多数情况下需要贡献计算能力.
+	许多区块链网络都以参与者为区块链提供某种价值这一观念为基础-这种贡献很难伪造,但如果确实做出了,则可以进行微不足道的验证.通常认为基于这种方法的区块链需要“ X证明”,其中X是有价值的贡献.Filecoin区块链重视存储容量的贡献；它以新颖的存储证明构造为基础,将其与其他区块链区分开来,而其他区块链在大多数情况下需要贡献计算能力.
 
 	术语,存储证明是指Filecoin协议的设计元素,它使一个人可以保证(达到很高的容忍度)声称声称贡献了给定存储量的参与者确实履行了这一承诺.实际上,Filecoin的存储证明结构提供了更为强大的主张,使人们可以有效地验证参与者是否正在存储特定的数据,而无需一个人自己拥有文件的副本.
 
@@ -343,27 +343,23 @@ Filecoin作为去中心化存储网络的激励和验证机制,矿工是整个�
 
 #### 先进的采矿注意事项
 
-如前所述,Filecoin存储挖掘主要由与PoRep和PoSt机制相关的担忧所主导.PoRep本身是由几个阶段和Lotus实施Filecoin的便于这些阶段不同的机器代表团使用效率最大化密封工人.Protocol Labs开发了一个示例架构,旨在利用这些功能进行大规模挖掘.在这里,我们分解了设计类似系统时要考虑的不同瓶颈.
+如前所述, Filecoin 存储挖掘主要由与 PoRep 和 PoSt 机制相关的担忧所主导. PoRep 本身是由几个阶段和 Lotus 实施 Filecoin 的便于这些阶段不同的机器代表团使用效率最大化密封工人. Protocol Labs 开发了一个示例架构,旨在利用这些功能进行大规模挖掘.在这里,我们分解了设计类似系统时要考虑的不同瓶颈.
 
 - 密封预交付阶段1
-
-在此阶段,进行PoRep SDR编码.此阶段受CPU限制,并且是单线程的(根据设计,它不适合并行化).该阶段预计需要几个小时的时间,确切的时间取决于要密封的扇形的大小,当然还取决于进行密封的机器的规格.如前所述,Protocol Labs(及其他)发现,具有SHA扩展的AMD处理器在很大程度上加快了此过程.使用时钟频率更高的CPU也会提高性能.
+	在此阶段,进行PoRep SDR编码.此阶段受CPU限制,并且是单线程的(根据设计,它不适合并行化).该阶段预计需要几个小时的时间,确切的时间取决于要密封的扇形的大小,当然还取决于进行密封的机器的规格.如前所述,Protocol Labs(及其他)发现,具有SHA扩展的AMD处理器在很大程度上加快了此过程.使用时钟频率更高的CPU也会提高性能.
 
 - 密封预交付阶段2
-
-在此阶段,使用波塞冬(Poseidon)哈希算法执行Merkle树生成.此过程主要是受GPU限制的-可以将CPU用作替代方案,但应该会慢得多.使用GPU时,此阶段预计需要45分钟到一个小时.
+	在此阶段,使用波塞冬(Poseidon)哈希算法执行Merkle树生成.此过程主要是受GPU限制的-可以将CPU用作替代方案,但应该会慢得多.使用GPU时,此阶段预计需要45分钟到一个小时.
 
 - 密封提交阶段1
-
-这是执行生成证明所必需的准备工作的中间阶段.它受CPU限制,通常在数十秒内完成.
+	这是执行生成证明所必需的准备工作的中间阶段.它受CPU限制,通常在数十秒内完成.
 
 - 密封提交阶段2
+	最后,该密封阶段涉及创建SNARK,该SNARK用于在将必需的证明广播到区块链之前对其进行压缩.这是一个GPU密集型过程,预计需要20到30分钟才能完成.
 
-最后,该密封阶段涉及创建SNARK,该SNARK用于在将必需的证明广播到区块链之前对其进行压缩.这是一个GPU密集型过程,预计需要20到30分钟才能完成.
+	协议实验室发现将preCommit阶段2,提交阶段1和提交阶段2并置在同一台计算机上是有效的,利用高密度计算机进行preCommit阶段1.但是,preCommit阶段1之间存在大量文件传输以及交付前阶段2；在网络访问速度较慢或使用硬盘而不是固态驱动器的计算机上,这可能会超过其他方面的性能提升.在这种情况下,让所有阶段都出现在同一台机器上可能会更有效率.
 
-协议实验室发现将preCommit阶段2,提交阶段1和提交阶段2并置在同一台计算机上是有效的,利用高密度计算机进行preCommit阶段1.但是,preCommit阶段1之间存在大量文件传输以及交付前阶段2；在网络访问速度较慢或使用硬盘而不是固态驱动器的计算机上,这可能会超过其他方面的性能提升.在这种情况下,让所有阶段都出现在同一台机器上可能会更有效率.
-
-PoSt主要受GPU约束,但可以利用具有许多内核的CPU来加速过程.例如,WindowPoSt当前必须在30分钟的窗口内进行；24核CPU和8核CPU之间的差异可能是在以适当的余量清除该窗口与在狭窄的时间范围内进行清除之间的差异.WinningPoSt是一种强度较低的计算,必须在Filecoin时期的较小窗口(当前为25秒)内完成.
+	PoSt主要受GPU约束,但可以利用具有许多内核的CPU来加速过程.例如,WindowPoSt当前必须在30分钟的窗口内进行；24核CPU和8核CPU之间的差异可能是在以适当的余量清除该窗口与在狭窄的时间范围内进行清除之间的差异.WinningPoSt是一种强度较低的计算,必须在Filecoin时期的较小窗口(当前为25秒)内完成.
 
 -------------------
 
@@ -741,15 +737,15 @@ Filecoin中的区块按纪元(epoch)排序,每个新的区块都引用上一个�
 
 当然从头开始看是最完整的,不过我们可以分主次,有一些是越早了解完全越好的
 
-1. FileCoin官方文档 [docs.filecoin.io](https://docs.filecoin.io/) ps官方的文档有可能一天都改动好多,看的时候多多刷新
+1. FileCoin官方文档 [docs.Filecoin.io](https://docs.Filecoin.io/) ps官方的文档有可能一天都改动好多,看的时候多多刷新
 
-2. [术语表](https://docs.filecoin.io/reference/glossary)
+2. [术语表](https://docs.Filecoin.io/reference/glossary)
 
-3. FileCoin官方说明书 [spec.filecoin.io](https://spec.filecoin.io/)
+3. FileCoin官方说明书 [spec.Filecoin.io](https://spec.Filecoin.io/)
 
-4. Go-filecoin的code review [github go-filecoin code review](https://github.com/filecoin-project/go-filecoin/blob/master/CODEWALK.md)
+4. Go-Filecoin的code review [github go-Filecoin code review](https://github.com/Filecoin-project/go-Filecoin/blob/master/CODEWALK.md)
 
-5. 推荐的客户端工具Lotus [lotus.sh](https://lotu.sh/) , [lotus.github源码](https://github.com/filecoin-project/lotus)
+5. 推荐的客户端工具Lotus [lotus.sh](https://lotu.sh/) , [lotus.github源码](https://github.com/Filecoin-project/lotus)
 
 6. 石榴矿池 6block提供的开源挖矿软件 [6block.lotus-miner](https://github.com/shannon-6block/lotus-miner)
 
@@ -757,9 +753,9 @@ Filecoin中的区块按纪元(epoch)排序,每个新的区块都引用上一个�
 
 8. IPFS的集群化管理软件 [Fleek的space-daemon](https://docs.fleek.co/), [源码](https://github.com/FleekHQ/space-daemon)
 
-9. 关于filecoin的存储证明教学 [proto_school](https://proto.school/tutorials) ,[proto school-verifying storage on filecoin](https://proto.school/verifying-storage-on-filecoin/)
+9. 关于Filecoin的存储证明教学 [proto_school](https://proto.school/tutorials) ,[proto school-verifying storage on Filecoin](https://proto.school/verifying-storage-on-Filecoin/)
 
-10. 仅作为参考的 开始挖矿系列 [Github awesome-filecoin-mining](https://github.com/bobjiang/awesome-filecoin-mining)
+10. 仅作为参考的 开始挖矿系列 [Github awesome-Filecoin-mining](https://github.com/bobjiang/awesome-Filecoin-mining)
 
 ----------------------
 
@@ -768,8 +764,8 @@ Filecoin中的区块按纪元(epoch)排序,每个新的区块都引用上一个�
 #### 使用Lotus接入测试网络
 
 - 测试机器地址 172.16.0.27 有vino
-- 测试网络信息 [Network Info](https://network.filecoin.io/#testnet)
-- 测试网络的水龙地址 [testnet filecoin faucet](https://spacerace.faucet.glif.io/)
+- 测试网络信息 [Network Info](https://network.Filecoin.io/#testnet)
+- 测试网络的水龙地址 [testnet Filecoin faucet](https://spacerace.faucet.glif.io/)
 - apt源选网易或者阿里
 - 安装好git后需要设置本地代理
 	
@@ -846,8 +842,8 @@ Filecoin中的区块按纪元(epoch)排序,每个新的区块都引用上一个�
 	`sudo apt install llvm`
 - 对go的依赖,我们使用golang官网的下载解压方式,需要安装 go 1.14及以上的版本
 - 使用git克隆lotus库
-	`git clone https://github.com/filecoin-project/lotus.git`
-- 支持 SHA 扩展指令的cpu使用 rust标记 [Native Filecoin FFI section](https://docs.filecoin.io/get-started/lotus/installation/#native-filecoin-ffi)
+	`git clone https://github.com/Filecoin-project/lotus.git`
+- 支持 SHA 扩展指令的cpu使用 rust标记 [Native Filecoin FFI section](https://docs.Filecoin.io/get-started/lotus/installation/#native-Filecoin-ffi)
 	`export RUSTFLAGS="-C target-cpu=native -g"`
 	`export FFI_BUILD_FROM_SOURCE=1`
 - 编译 lotus
@@ -866,7 +862,7 @@ Filecoin中的区块按纪元(epoch)排序,每个新的区块都引用上一个�
 	**需要注意如果有设置了环境变量在启动服务文件中也需要设置**,systemd加载环境变量的文件在/etc/systemd/system.conf和/etc/systemd/user.conf中, 需要注意,如果使用sudo来运行命令,由于安全原因会清除掉用户环境变量,如果确实有需要,可以用 `-E` 参数,即 `sudo -E`.
 - 开始同步区块 `lotus sync status` ,  `lotus sync wait`
 	需要注意的是目前的区块同步依然是一个比较大的工程,大概实际运行的数据需要1/4的下载同步时间,所以强烈建议通过下载快照来进行同步,[快照地址](https://very-temporary-spacerace-chain-snapshot.s3-us-west-2.amazonaws.com/Spacerace_stateroots_snapshot_latest.car),请直接使用浏览器下载速度会快的多,这个快照每6小时都会进行更新.你可以使用 `lotus daemon --import-snapshot <snapshot>.car` 文件来进行同步数据的导入.
-- filecoin相关目录	, 整个本地数据由这些相关目录 和 wallet 及 chain文件组成,切记同步的时候把全局代理取消了
+- Filecoin相关目录	, 整个本地数据由这些相关目录 和 wallet 及 chain文件组成,切记同步的时候把全局代理取消了
 	`~/.lotus ($LOTUS_PATH)`
 	`~./lotusminer ($LOTUS_MINER_PATH)`
 	`~./lotusworker ($LOTUS_WORKER_PATH)`
@@ -1019,7 +1015,7 @@ MaxCommitGasFee = "0.05 FIL"
 MaxWindowPoStGasFee = "50 FIL"
 ```
 
-3. [使用单独的地址来进行 windowPoSt](https://github.com/filecoin-project/lotus/blob/master/documentation/en/mining.md#separate-address-for-windowpost-messages)
+3. [使用单独的地址来进行 windowPoSt](https://github.com/Filecoin-project/lotus/blob/master/documentation/en/mining.md#separate-address-for-windowpost-messages)
 
 4. 如果sector损坏无法生成PoSt,而且就算只有一个 sector失败,也会把整个runPost标记为失败,如果是一个小矿工,所有的sector在一个window中,如果错失了提交则会在之后的24小时内失去所有算力,必须在24后重新提交一次有效WindowPoSt才能自动恢复.
 
@@ -1041,11 +1037,11 @@ lotus-miner sectors status --on-chain-info $SECTOR_NUMBER | grep OnTime
 
 6. 查看 lotus-miner显示支持的GPU和benchmark
 
-[权威列表](https://github.com/filecoin-project/bellman#supported--tested-cards)
+[权威列表](https://github.com/Filecoin-project/bellman#supported--tested-cards)
 
-[使用自定义的GPU](https://docs.filecoin.io/mine/lotus/gpus/#enabling-a-custom-gpu)
+[使用自定义的GPU](https://docs.Filecoin.io/mine/lotus/gpus/#enabling-a-custom-gpu)
 
-[bellperson](https://github.com/filecoin-project/bellman#supported--tested-cards)
+[bellperson](https://github.com/Filecoin-project/bellman#supported--tested-cards)
 
 添加环境变量
 `export BELLMAN_CUSTOM_GPU="GeForce RTX 3080:8704"`
@@ -1060,10 +1056,10 @@ lotus-miner sectors status --on-chain-info $SECTOR_NUMBER | grep OnTime
 1. 查看上述的 ==使用Lotus接入测试网络== 章节安装 Lotus套件,并开启 Native Filecoin FFI, 并且确保设置了中国地区参与的必要参数
 2. 设置性能参数环境变量 
 ``` shell
-# See https://github.com/filecoin-project/bellman
+# See https://github.com/Filecoin-project/bellman
 export BELLMAN_CPU_UTILIZATION=0.875
 
-# See https://github.com/filecoin-project/rust-fil-proofs/
+# See https://github.com/Filecoin-project/rust-fil-proofs/
 export FIL_PROOFS_MAXIMIZE_CACHING=1 # More speed at RAM cost (1x sector-size of RAM - 32 GB).使用更多的内存来加快预提交的速度
 export FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1 # precommit 2 GPU acceleration,加快GPU
 export FIL_PROOFS_USE_GPU_TREE_BUILDER=1
@@ -1084,7 +1080,7 @@ sudo reboot
 # check a 256GB swap file is automatically mounted and has the highest priority
 swapon --show
 ```
-5. 下载 Filecoin矿工证明参数,32GB和64GB时不一样的,(默认路径`/var/tmp/filecoin-proof-parameters`),通过环境变量设置,你可以通过提前下载,或是在init的时候自动下载
+5. 下载 Filecoin矿工证明参数,32GB和64GB时不一样的,(默认路径`/var/tmp/Filecoin-proof-parameters`),通过环境变量设置,你可以通过提前下载,或是在init的时候自动下载
 `export FIL_PROOFS_PARAMETER_CACHE=/path/to/fast/mount`
 ``` shell
 # Use sectors supported by the Filecoin network that the miner will join and use.
