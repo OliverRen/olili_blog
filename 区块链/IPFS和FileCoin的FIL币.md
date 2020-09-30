@@ -750,21 +750,35 @@ Variables specific to the _Lotus daemon_
 
 ---------------------
 
+#### Lotus客户的使用
+
+1. 钱包管理
+	- 查看钱包
+		`lotus wallet list` 查看所有的钱包账户
+		`lotus wallet default` 查看默认钱包
+		`lotus wallet set-default <address>` 设置一个默认钱包
+		`lotus wallt balance` 
+	- 新建钱包
+		`lotus wallet new [bls|secp256k1 (default secp256k1)]` 其中bls会生成 t3长地址(对multisig友好),secp256k1即btc的曲线参数会生成t1的短地址,新创建的钱包会在 ==$LOTUS_PATH/keystore==
+	- 执行转账
+		`lotus wallet send --from=<sender_address> <target_address> <amount>`
+		`lotus wallet send <target_address> <amount>`
+	- 导入导出钱包 (你也可以直接copy ~/.lotus/keystore)
+		`lotus wallet export <address> > wallet.private`
+		`lotus wallet import wallet.private` 
+
+
+
+
+
+
+
+
+
+
 #### 钱包管理
 
-- 查看钱包
-	`lotus wallet list` 查看所有的钱包账户
-	`lotus wallet default` 查看默认钱包
-	`lotus wallet set-default <address>` 设置一个默认钱包
-	`lotus wallt balance` 
-- 新建钱包
-	`lotus wallet new [bls|secp256k1 (default secp256k1)]` 其中bls会生成 t3长地址(对multisig友好),secp256k1即btc的曲线参数会生成t1的短地址,新创建的钱包会在 ==$LOTUS_PATH/keystore==
-- 执行转账
-	`lotus wallet send --from=<sender_address> <target_address> <amount>`
-	`lotus wallet send <target_address> <amount>`
-- 导入导出钱包 (你也可以直接copy ~/.lotus/keystore)
-	`lotus wallet export <address> > wallet.private`
-	`lotus wallet import wallet.private` 
+
 
 ---------------------
 
