@@ -390,16 +390,15 @@ CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只�
 - 准备工作 </br>
 	建议都使用离线安装的方式,主要还是网络太蛋疼了,显卡驱动几百M,cuda工具包下载的时候有好几G.
 	
-	显卡驱动 : 从官方网站下载 [download search](https://www.nvidia.cn/geforce/drivers/) , 我下载的版本是 NVIDIA-Linux-x86_64-455.23.04.run
+	显卡驱动 : 从官方网站下载 [download](https://www.nvidia.cn/geforce/drivers/) , 我下载的版本是 NVIDIA-Linux-x86_64-455.23.04.run
 
-	CUDA工具 : [下载界面地址](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=2004&target_type=runfilelocal)
+	CUDA工具 : [download](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=2004&target_type=runfilelocal)
 - 禁用开源驱动 nouveau编辑文件 blacklist.conf </br>
 	``` shell
 	sudo gedit /etc/modprobe.d/blacklist.conf
 	blacklist nouveau
 	blacklist intel
-	# 实际测试没有这句也没问题
-	options nouveau modeset=0
+		options nouveau modeset=0
 	# 更新
 	sudo update-initramfs -u
 	# 重启
@@ -414,8 +413,7 @@ CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只�
 	# 驱动如果是使用apt安装的
 	sudo apt remove nvidia*
 
-	# 卸载CUDA
-	CUDA默认是安装在 /usr/local/cuda-*下的
+	# 卸载CUDA,CUDA默认是安装在 /usr/local/cuda-*下的
 	sudo uninstall_cuda_*.pl
 	```
 - 禁用 x window服务 </br>
@@ -515,12 +513,12 @@ CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只�
 	export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:$LD_LIBRARY_PATH
 	```
 - 测试 </br>
-``` shell
-cd /usr/local/cuda-8.0/samples/1_Utilities/deviceQuery
-sudo make -j4
-# 这里-j4是因为是4核cpu,可以4个jobs一起跑
-./deviceQuery
-```
+	``` shell
+	cd /usr/local/cuda-8.0/samples/1_Utilities/deviceQuery
+	sudo make -j4
+	# 这里-j4是因为是4核cpu,可以4个jobs一起跑
+	./deviceQuery
+	```
 
 ----------------
 
