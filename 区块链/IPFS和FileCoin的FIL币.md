@@ -254,7 +254,7 @@ Filecoin作为去中心化存储网络的激励和验证机制,矿工是整个�
 	* 更具可扩展性的共识算法,可以提供更大的吞吐量并以更短的时间内处理更多的消 息.
 	* 更多可以使扇区持续更长的时间的交易订单功能.
 
-![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/IPFS和FileCoin的FIL币/2020831/1598861682918.png)
+	![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/IPFS和FileCoin的FIL币/2020831/1598861682918.png)
 
 #### Fileoin的基础术语
 
