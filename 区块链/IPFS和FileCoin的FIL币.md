@@ -474,6 +474,8 @@ IPFS的Filecoin挖矿技术成本很低,主要是官方提高了硬件成本
 
 PoSt主要受GPU约束，但可以利用具有许多内核的CPU来加速过程。例如，WindowPoSt当前必须在30分钟的窗口内进行；24核CPU和8核CPU之间的差异可能是在以适当的余量清除该窗口与在狭窄的时间范围内进行清除之间的差异。WinningPoSt是一种强度较低的计算，必须在Filecoin时期的较小窗口（当前为25秒）内完成。
 
+-------------------
+
 #### 服务器安装注意事项
 
 20200927 update
@@ -874,11 +876,22 @@ Filecoin中的区块按纪元（epoch）排序，每个新的区块都引用上�
 
 #### 使用Lotus接入测试网络
 
-- 测试机器地址 172.16.0.26 有vnc
+- 测试机器地址 172.16.0.27 有vino
 - 测试网络信息 [Network Info](https://network.filecoin.io/#testnet)
 - 测试网络的水龙地址 [testnet filecoin faucet](https://spacerace.faucet.glif.io/)
+- apt源选网易或者阿里
+- 安装好git后需要设置本地代理
+	
+	```
+	git config --gloabl http.proxy=http://xxx:1080
+	git config --global https.proxy=http://xxx:1080
+	
+	git config --global --unset http.proxy
+	git config --global --unset https.proxy
+	```
 - lotus的中国ipfs代理 `IPFS_GATEWAY="https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/"`
 - GO的代理
+	
 	```	shell
 	go env -w GO111MODULE=on
 	go env -w GOPROXY=https://goproxy.io,direct
@@ -888,11 +901,61 @@ Filecoin中的区块按纪元（epoch）排序，每个新的区块都引用上�
 
 	# 设置不走 proxy 的私有组织（可选）
 	go env -w GOPRIVATE=example.com/org_name
-	```
+	```	
 - ubuntu 的系统要求
+	
 	`sudo apt update && sudo apt install mesa-opencl-icd ocl-icd-opencl-dev gcc git bzr jq pkg-config curl -y && sudo apt upgrade -y`
-- 对rustup的依赖,需要 ==cargo== 和 ==rustc== 两个工具
+- 对rustup的依赖,需要 ==cargo== 和 ==rustc== 两个工具,哪个命令好用用哪个,其实都一样.而且现在lotus在make clean的时候也会下载指定版本的rust和cargo,这里是否需要自己安装也未可知
 	`snap install rustup`
+	`rustup install stable`
+	`rustup default stable`
+	
+	安装完lotus后可以使用该命令进行测试
+	`RUST_LOG=info cargo test --features gpu -- --exact multiexp::gpu_multiexp_consistency --nocapture`
+	
+	cargo在编译时需要下载,在 `/home/.cargo`创建config文件,其实使用了sudo会在 /root下,cargo在编译的时候也需要下载,config文件中可以指定代理项
+	```
+	[http]
+	proxy = "172.16.0.25:1081"
+
+	[https]
+	proxy = "172.16.0.25:1081"
+	```	
+	
+	或者也可以直接使用国内镜像的方式
+	
+	``` shell
+	# 安环境变量 设置环境变量 RUSTUP_DIST_SERVER(用于更新 toolchain)
+	export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static
+	以及 RUSTUP_UPDATE_ROOT(用于更新 rustup)
+	export RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup
+	
+	cargo镜像配置,在/home/.cargo下的config文件中配置如下内容
+	[source.crates-io]
+	registry = "https://github.com/rust-lang/crates.io-index"
+	# 指定镜像
+	replace-with = 'sjtu'
+
+	# 清华大学
+	[source.tuna]
+	registry = "https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git"
+
+	# 中国科学技术大学
+	[source.ustc]
+	registry = "git://mirrors.ustc.edu.cn/crates.io-index"
+
+	# 上海交通大学
+	[source.sjtu]
+	registry = "https://mirrors.sjtug.sjtu.edu.cn/git/crates.io-index"
+
+	# rustcc社区
+	[source.rustcc]
+	registry = "https://code.aliyun.com/rustcc/crates.io-index.git"
+	```
+	
+- 服务器需要安装clang,llvm	,否则在编译lotus的时候会出现 llvm-config 找不到文件的问题
+	`sudo apt isntall clang`
+	`sudo apt install llvm`
 - 对go的依赖,我们使用golang官网的下载解压方式,需要安装 go 1.14及以上的版本
 - 使用git克隆lotus库
 	`git clone https://github.com/filecoin-project/lotus.git`
@@ -900,20 +963,22 @@ Filecoin中的区块按纪元（epoch）排序，每个新的区块都引用上�
 	`export RUSTFLAGS="-C target-cpu=native -g"`
 	`export FFI_BUILD_FROM_SOURCE=1`
 - 编译 lotus
-	`make clean all && make install`
+	`sudo make clean all`
+	`sudo make install`
 - 查看可执行文件 ==lotus==	,==lotus-miner==	,==lotus-worker==	应该在 ==/usr/local/bin== 下
 - lotus的工作目录默认是在 $HOME/.lotus,用户不同是不一样的.
 - 启动 lotus的守护进程  `lotus daemon`
 - 或者通过命令创建 systemd service
-	`make install-daemon-service`
-	`make install-chainwatch-service`
-	`make install-miner-service` 
+	`sudo make install-daemon-service`
+	`sudo make install-chainwatch-service`
+	`sudo make install-miner-service` 
 	对应 ==systemctl status lotus-daemon==
 	默认的log重定向到 ==/var/log/lotus/daemon.log==,不能使用journalctl查看日志
 	当同步的时候在日志中产生的error和warning并不需要太过担心,他们一般都是守护进程执行一些分布式的方法出现的
+	**需要注意如果有设置了环境变量在启动服务文件中也需要设置**,systemd加载环境变量的文件在/etc/systemd/system.conf和/etc/systemd/user.conf中, 需要注意,如果使用sudo来运行命令,由于安全原因会清除掉用户环境变量,如果确实有需要,可以用 `-E` 参数,即 `sudo -E`.
 - 开始同步区块 `lotus sync status` ,  `lotus sync wait`
-	需要注意的是目前的区块同步依然是一个比较大的工程,大概实际运行的数据需要1/4的下载同步时间,所以强烈建议通过下载快照来进行同步,[快照地址](https://very-temporary-spacerace-chain-snapshot.s3-us-west-2.amazonaws.com/Spacerace_stateroots_snapshot_latest.car),这个快照每6小时都会进行更新.你可以使用 `lotus daemon --import-snamshot <snapshot>.car` 文件来进行同步数据的导入.
-- filecoin相关目录	, 整个本地数据由这些相关目录 和 wallet 及 chain文件组成
+	需要注意的是目前的区块同步依然是一个比较大的工程,大概实际运行的数据需要1/4的下载同步时间,所以强烈建议通过下载快照来进行同步,[快照地址](https://very-temporary-spacerace-chain-snapshot.s3-us-west-2.amazonaws.com/Spacerace_stateroots_snapshot_latest.car),请直接使用浏览器下载速度会快的多,这个快照每6小时都会进行更新.你可以使用 `lotus daemon --import-snapshot <snapshot>.car` 文件来进行同步数据的导入.
+- filecoin相关目录	, 整个本地数据由这些相关目录 和 wallet 及 chain文件组成,切记同步的时候把全局代理取消了
 	`~/.lotus ($LOTUS_PATH)`
 	`~./lotusminer ($LOTUS_MINER_PATH)`
 	`~./lotusworker ($LOTUS_WORKER_PATH)`
@@ -962,7 +1027,7 @@ Variables specific to the _Lotus daemon_:
 
 ---------------------
 
-#### 如何 Lotus daemon 或 Lotus-miner监听提供的 json-rpc 接口
+#### 如何使用 Lotus daemon 或 Lotus-miner提供的 json-rpc 接口
 
 目前json-rpc接口没有文档,只能看源码
 
@@ -1070,7 +1135,7 @@ MaxWindowPoStGasFee = "50 FIL"
 
 4. 如果sector损坏无法生成PoSt,而且就算只有一个 sector失败,也会把整个runPost标记为失败,如果是一个小矿工,所有的sector在一个window中,如果错失了提交则会在之后的24小时内失去所有算力,必须在24后重新提交一次有效WindowPoSt才能自动恢复.
 
-5. sector升级
+5. sector升级,再SR中,必须升级一个sector才判定会成功挖矿
 
 ``` sh
 lotus-miner sectors list
@@ -1092,6 +1157,14 @@ lotus-miner sectors status --on-chain-info $SECTOR_NUMBER | grep OnTime
 
 [使用自定义的GPU](https://docs.filecoin.io/mine/lotus/gpus/#enabling-a-custom-gpu)
 
+[bellperson](https://github.com/filecoin-project/bellman#supported--tested-cards)
+
+添加环境变量
+`export BELLMAN_CUSTOM_GPU="GeForce RTX 3080:8704"`
+
+测试
+`./lotus-bench sealing --sector-size=2KiB`
+
 ---------------------
 
 #### 使用官方Lotus-miner开始挖矿
@@ -1103,11 +1176,11 @@ lotus-miner sectors status --on-chain-info $SECTOR_NUMBER | grep OnTime
 export BELLMAN_CPU_UTILIZATION=0.875
 
 # See https://github.com/filecoin-project/rust-fil-proofs/
-export FIL_PROOFS_MAXIMIZE_CACHING=1 # More speed at RAM cost (1x sector-size of RAM - 32 GB).
-export FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1 # precommit2 GPU acceleration
+export FIL_PROOFS_MAXIMIZE_CACHING=1 # More speed at RAM cost (1x sector-size of RAM - 32 GB).使用更多的内存来加快预提交的速度
+export FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1 # precommit 2 GPU acceleration,加快GPU
 export FIL_PROOFS_USE_GPU_TREE_BUILDER=1
 ```
-3. 设置 lotus node 节点 (当node和miner运行在不同的机器上的时候,详细参看上文的 如何 Lotus daemon 或 Lotus-miner监听提供的 json-rpc 接口 章节)
+3. 设置 lotus node 节点 (当node和miner运行在不同的机器上的时候,详细参看上文的 如何使用 Lotus daemon 或 Lotus-miner监听提供的 json-rpc 接口 章节)
 `export FULLNODE_API_INFO=<api_token>:/ip4/<lotus_daemon_ip>/tcp/<lotus_daemon_port>/http`
 4. 如果内存过少,则需要添加swap分区,详细可以参看 linux使用文档中的添加swap
 ``` shell
