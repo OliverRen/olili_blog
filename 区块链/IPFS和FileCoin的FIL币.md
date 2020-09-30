@@ -160,39 +160,22 @@ IPLD是内容寻址的数据模型,即 merkle dag 的组装数据结构.
 
 1. CID
 
-	CID 有两种版本
+	CID 有两种版本,可以使用这个工具进行分析 [cid.ipfs.io](https://cid.ipfs.io)
 	- CID v0 : 使用Qm开头的cid,其内容只包含了 multihash,且只会使用base58编码,其内容看起来大概是这样的
 		`<0><dag-pb><multihash>`
-	- CID v1 : 包含了一只前缀来标识可以向后兼容的cid version.看起来像这样
-		`<cid-version><ipld-format><multihash>`
+	- CID v1 : 包含了前缀标识可以向后兼容的cid version,其通过第一个字符来标识编码,`b`表示base32,`z`表示base58,`f`表示base16,这个base字符叫做 multibase table [multibase](https://github.com/multiformats/multibase).其内容看起来像这样
+		Binary : `<cid-version><ipld-format><multihash>`
+		String : `<base>base(<cid-version><ipld-format><multihash>)`
+		
 
 
 
 
 
 
-**CID字符串的组成**
-```
 
 
-cid v0是 Qm开头的 只有multihash
-看起来是这样的
 
-当使用cid v0的时候都是固定使用base58的
-
-cid v1是 一串00000001的version数据看起来像这样
-Binary : 
-
-String : 
-<base>base(<cid-version><ipld-format><multihash>)
-ipld-format是定义好的不是 magic-number 的常量
-```
-
-当使用cid v1的时候如果第一个字符是 b表示base32,z表示base58btc,f表示base16
-
-这个base字符叫做 multibase table [multibase](https://github.com/multiformats/multibase)
-
-可以使用这个工具进行分析 [cid.ipfs.io](https://cid.ipfs.io)
 
 **将文件加入到ipfs**
 
