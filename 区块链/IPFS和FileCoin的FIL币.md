@@ -211,14 +211,26 @@ Filecoin作为去中心化存储网络的激励和验证机制,矿工是整个�
 		3. 第三阶段 : 挖币的人越来越多, 区块奖励越来越少,“简单产币”基本上没了, 这就和比特币一样,那么主要收入来源于提供高质量存储和检索服务和交易手续费了
 
 	4. 消减 </br>
+		 1. 存储故障消减 storage fault slashing 
+		 2. 共识故障消减 consensus fault slashing
+
+		目前讨论的主要还是第一种 存储故障的消减,一般不会有共识故障的消减
+
 		* 只要未能提交PoSt证明就会有故障费用的消减 br(2.14)
-		* 扇区故障费用的消减每天都会扣除直到钱包账户归零或矿工将sector从网络中移除,同时会受到一个扇区惩罚的消减
+		* 扇区故障费用的消减每天都会扣除直到钱包账户归零或矿工将sector从网络中移除,同时会受到一个扇区终止费的消减
 		* 当矿工在WindowPoSt检查发生之前自我声明之后就不会收到后续的一次性的故障检出惩罚
 		* 如果矿工自我声明,但是声明的太晚了,则依然会被做对于这个sector的消减惩罚 br(3.5) (update 数值有可能会变更)
 		* 如果矿工没有自我声明,然后被区块网络检查错误,则会对整个 partition 都执行消减惩罚 br(3.5) (update数值有可能会变更)
 		* 如果矿工的sector被删除的话会收到一个中止费用的消减.
 	
-	5. 矿工应在以下3方面努力来挖到更多币 </br>
+	5. 矿工的奖励 </br>
+		- Storage fees 存储费用是在达成交易后,作为为客户存储好数据而定期获得被支付的费用,这些奖励会随着时间的推移会自动存入矿工的提款钱包,并在收到后短暂的锁定.
+		- Block rewards 区块奖励是给矿工的,这是相当于网络增发出来的FIL币.通过 WInningPoSt来赢得出新块的权力,这个几率和矿工对网络贡献的存储量成正比.在FileCoin网络中,时间被离散成一系列的epoch,每一个epoch开始都有一些矿工被选举出来能挖矿,这些新块组合成了tipset,数量是基于λ= 5泊松分布的随机变量.矿工应该使用策略来决定需要在他们的块中包含什么信息来最大程度的减少重叠,因为每个消息只有第一次执行才会被收取费用.
+		- 经过验证的客户,他们得到了一个特殊的存力乘数,即普通密封乘数为1,已经执行过update的为1.1,而经过验证的客户的数据乘数为10.
+		- 检索费用
+
+		矿工应在以下3方面努力来挖到更多币
+		
 		* 性能更高的复制证明算法 : 链上数据更少,验证时间更快,硬件成本更低,不同的安全性假设,从而使扇区生命周期更长,并且无需重新封装即可进行扇区升级.
 		* 更具可扩展性的共识算法,可以提供更大的吞吐量并以更短的时间内处理更多的消 息.
 		* 更多可以使扇区持续更长的时间的交易订单功能.
@@ -714,6 +726,7 @@ CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只�
 	`sudo make install-daemon-service`
 	`sudo make install-chainwatch-service`
 	`sudo make install-miner-service` 
+	其他有用的工具包括 `lotus-stats`,`lotus-pcr`,`lotus-health`
 - 开始同步区块可以使用 `lotus sync status` ,  `lotus sync wait` 来查看同步情况
 	需要注意的是目前的区块同步依然是一个比较大的工程,大概实际运行的数据需要1/4的下载同步时间,所以强烈建议通过下载快照来进行同步,[快照地址](https://very-temporary-spacerace-chain-snapshot.s3-us-west-2.amazonaws.com/Spacerace_stateroots_snapshot_latest.car),请直接使用浏览器下载速度会快的多,这个快照每6小时都会进行更新.你可以使用 `lotus daemon --import-snapshot <snapshot>.car` 文件来进行同步数据的导入.
 - 区块数据的快照 snapshot
@@ -839,10 +852,13 @@ Variables specific to the _Lotus daemon_
 	
 ---------------------	
 
-#### 使用官方Lotus-miner开始挖矿
+#### Lotus-miner 官方工具挖矿
 
-1. 查看上述的 ==使用Lotus接入测试网络== 章节安装 Lotus套件,并开启 Native Filecoin FFI, 并且确保设置了中国地区参与的必要参数
-2. 设置性能参数环境变量 
+20200930 update
+
+1. 按照上述文档完整的安装了 Lotus 套件,并且使用 `lotus daemon` 完成 FileCoin 网络的同步,在中国必须要设置好 go的代理参数和 ipfs代理网关.
+
+2. 设置性能参数环境变量,切记 systemd 服务要单独在服务配置文件中设置
 ``` shell
 # See https://github.com/Filecoin-project/bellman
 export BELLMAN_CPU_UTILIZATION=0.875
@@ -852,8 +868,10 @@ export FIL_PROOFS_MAXIMIZE_CACHING=1 # More speed at RAM cost (1x sector-size of
 export FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1 # precommit 2 GPU acceleration,加快GPU
 export FIL_PROOFS_USE_GPU_TREE_BUILDER=1
 ```
+
 3. 设置 lotus node 节点 (当node和miner运行在不同的机器上的时候,详细参看上文的 如何使用 Lotus daemon 或 Lotus-miner监听提供的 json-rpc 接口 章节)
 `export FULLNODE_API_INFO=<api_token>:/ip4/<lotus_daemon_ip>/tcp/<lotus_daemon_port>/http`
+
 4. 如果内存过少,则需要添加swap分区,详细可以参看 linux使用文档中的添加swap
 ``` shell
 sudo fallocate -l 256G /swapfile
@@ -868,16 +886,58 @@ sudo reboot
 # check a 256GB swap file is automatically mounted and has the highest priority
 swapon --show
 ```
-5. 下载 Filecoin矿工证明参数,32GB和64GB时不一样的,(默认路径`/var/tmp/Filecoin-proof-parameters`),通过环境变量设置,你可以通过提前下载,或是在init的时候自动下载
-`export FIL_PROOFS_PARAMETER_CACHE=/path/to/fast/mount`
-``` shell
-# Use sectors supported by the Filecoin network that the miner will join and use.
-# lotus-miner fetch-params <sector-size>
-lotus-miner fetch-params 32GiB
-lotus-miner fetch-params 64GiB
-```
-6. 矿工初始化,使用 --no-local-storage 创建配置文件,配置文件一般是在 ~/.lotusminer/ 或 $LOTUS_MINER_PATH
-`lotus-miner init --owner=<bls address>  --no-local-storage`
+
+5. 执行挖矿必须要有 BLS 钱包,即 t3 开头的钱包,默认的创建的 spec256k1 是 t1开头的.
+
+6. 下载 Filecoin矿工证明参数,32GB和64GB时不一样的,强烈建议通过环境变量来设置一个位置保存他们
+	
+	- filecoin-proof-parameters 默认路径 `/var/tmp/filecoin-proof-parameters/` , `export FIL_PROOFS_PARAMETER_CACHE=/path/to/folder/in/fast/disk`
+	- filecoin-parents 默认路径 `/var/tmp/filecoin-parents/` , `export FIL_PROOFS_PARENT_CACHE=/path/to/folder/in/fast/disk2`
+	- seal sector的tmp目录 `export TMPDIR=/disk3`
+
+	``` shell
+	# Use sectors supported by the Filecoin network that the miner will join and use.
+	# lotus-miner fetch-params <sector-size>
+	lotus-miner fetch-params 32GiB
+	lotus-miner fetch-params 64GiB
+	```
+	
+7. 设置环境变量,类似的如果通过systemctl来启动服务的,也需要再 lotus-miner.service.d 下的override文件进行配置
+
+	``` shell
+	export LOTUS_MINER_PATH=/path/to/miner/config/storage
+	export LOTUS_PATH=/path/to/lotus/node/folder       # when using a local node
+	export BELLMAN_CPU_UTILIZATION=0.875
+	export FIL_PROOFS_MAXIMIZE_CACHING=1
+	export FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1        # when having GPU
+	export FIL_PROOFS_USE_GPU_TREE_BUILDER=1         # when having GPU
+	export FIL_PROOFS_PARAMETER_CACHE=/fast/disk/folder  # > 100GiB!
+	export FIL_PROOFS_PARENT_CACHE=/fast/disk/folder2   # > 50GiB!
+	export TMPDIR=/fast/disk/folder3               # Used when sealing.
+	```
+	
+8. 矿工初始化,使用 --no-local-storage可以使得我们之后可以配置特定的存储位置而不是直接执行.配置文件一般是在 ~/.lotusminer/ 或 $LOTUS_MINER_PATH 下. 关于矿工的钱包账户之间的区别请参看 使用官方Lotus-miner执行挖矿的常见问题中的矿工钱包.
+`lotus-miner init --owner=<bls address>  --worker=<other_address> --no-local-storage`
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+6. 
 7. 需要一个公网ip来进行矿工设置.编辑 ~/.lotusminer/config.toml
 ``` lotusminer/config.toml
 [libp2p]
@@ -894,25 +954,6 @@ lotus-miner fetch-params 64GiB
 	- 发现或者说通过运行基准测试来得到密封一个sector的时间 ExpectedSealDuration
 	- 配置额外的worker来提高miner的密封sector的能力
 	- 为 windowPost设置单独的账户地址.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #### 使用官方Lotus-miner执行挖矿的常见问题
 
@@ -944,11 +985,9 @@ MaxCommitGasFee = "0.05 FIL"
 MaxWindowPoStGasFee = "50 FIL"
 ```
 
-3. [使用单独的地址来进行 windowPoSt](https://github.com/Filecoin-project/lotus/blob/master/documentation/en/mining.md#separate-address-for-windowpost-messages)
+3. 如果sector损坏无法生成PoSt,而且就算只有一个 sector失败,也会把整个runPost标记为失败,如果是一个小矿工,所有的sector在一个window中,如果错失了提交则会在之后的24小时内失去所有算力,必须在24后重新提交一次有效WindowPoSt才能自动恢复.
 
-4. 如果sector损坏无法生成PoSt,而且就算只有一个 sector失败,也会把整个runPost标记为失败,如果是一个小矿工,所有的sector在一个window中,如果错失了提交则会在之后的24小时内失去所有算力,必须在24后重新提交一次有效WindowPoSt才能自动恢复.
-
-5. sector升级,再SR中,必须升级一个sector才判定会成功挖矿
+4. sector升级,再SR中,必须升级一个sector才判定会成功挖矿
 
 ``` sh
 lotus-miner sectors list
@@ -964,7 +1003,7 @@ lotus-miner sectors status --on-chain-info $SECTOR_NUMBER | grep OnTime
 
 ```
 
-6. 查看 lotus-miner显示支持的GPU和benchmark
+5. 查看 lotus-miner显示支持的GPU和benchmark
 
 [权威列表](https://github.com/Filecoin-project/bellman#supported--tested-cards)
 
@@ -977,3 +1016,18 @@ lotus-miner sectors status --on-chain-info $SECTOR_NUMBER | grep OnTime
 
 测试
 `./lotus-bench sealing --sector-size=2KiB`
+
+6. 矿工钱包
+
+矿工钱包可以配置为由几个账户组成,可以使用命令 `lotus-miner actor control list` 查看, 在矿工的init过程中,filecoin网络会给该矿工初始化一个 ==t0== 开头的表示账户id叫做 actor ,actor负责收集所有发送到矿工的币.
+	- owner 地址,设计成尽可能离线冷钱包的形式.
+	- worker 地址,生产环境中热钱包地址,强烈建议 owner地址和worker地址分开.
+	- control 地址
+
+owner是在矿工初始化的时候设置的,只有如下几个场景需要用到owner地址
+	- 改变矿工actor的worker地址.
+	- 从矿工actor提取代币
+	- 提交 WindowPoSt,如果设置了单独的control地址且有余额的情况下是会使用control地址的.
+
+worker地址是矿工每日的工作中使用的:
+	- 
