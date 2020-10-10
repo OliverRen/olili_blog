@@ -850,7 +850,7 @@ Variables specific to the _Lotus daemon_
 - 进行检索交易
 	`lotus client retrieve <Data CID> <out file>`
 	
----------------------	
+--------------------
 
 #### Lotus-miner 官方工具挖矿
 
@@ -887,9 +887,23 @@ sudo reboot
 swapon --show
 ```
 
-5. 执行挖矿必须要有 BLS 钱包,即 t3 开头的钱包,默认的创建的 spec256k1 是 t1开头的.
+5. 查看 lotus-miner显示支持的GPU和benchmark
 
-6. 下载 Filecoin矿工证明参数,32GB和64GB时不一样的,强烈建议通过环境变量来设置一个位置保存他们
+[权威列表](https://github.com/Filecoin-project/bellman#supported--tested-cards)
+
+[使用自定义的GPU](https://docs.Filecoin.io/mine/lotus/gpus/#enabling-a-custom-gpu)
+
+[bellperson](https://github.com/Filecoin-project/bellman#supported--tested-cards)
+
+添加环境变量
+`export BELLMAN_CUSTOM_GPU="GeForce RTX 3080:8704"`
+
+测试
+`./lotus-bench sealing --sector-size=2KiB`
+
+6. 执行挖矿必须要有 BLS 钱包,即 t3 开头的钱包,默认的创建的 spec256k1 是 t1开头的.
+
+7. 下载 Filecoin矿工证明参数,32GB和64GB时不一样的,强烈建议通过环境变量来设置一个位置保存他们
 	
 	- filecoin-proof-parameters 默认路径 `/var/tmp/filecoin-proof-parameters/` , `export FIL_PROOFS_PARAMETER_CACHE=/path/to/folder/in/fast/disk`
 	- filecoin-parents 默认路径 `/var/tmp/filecoin-parents/` , `export FIL_PROOFS_PARENT_CACHE=/path/to/folder/in/fast/disk2`
@@ -902,7 +916,7 @@ swapon --show
 	lotus-miner fetch-params 64GiB
 	```
 	
-7. 设置环境变量,类似的如果通过systemctl来启动服务的,也需要再 lotus-miner.service.d 下的override文件进行配置
+8. 设置环境变量,类似的如果通过systemctl来启动服务的,也需要再 lotus-miner.service.d 下的override文件进行配置
 
 	``` shell
 	export LOTUS_MINER_PATH=/path/to/miner/config/storage
@@ -916,38 +930,23 @@ swapon --show
 	export TMPDIR=/fast/disk/folder3               # Used when sealing.
 	```
 	
-8. 矿工初始化,使用 --no-local-storage可以使得我们之后可以配置特定的存储位置而不是直接执行.配置文件一般是在 ~/.lotusminer/ 或 $LOTUS_MINER_PATH 下. 关于矿工的钱包账户之间的区别请参看 使用官方Lotus-miner执行挖矿的常见问题中的矿工钱包.
+9. 矿工初始化,使用 --no-local-storage可以使得我们之后可以配置特定的存储位置而不是直接执行.配置文件一般是在 ~/.lotusminer/ 或 $LOTUS_MINER_PATH 下. 关于矿工的钱包账户之间的区别请参看 使用官方Lotus-miner执行挖矿的常见问题中的矿工钱包.
 `lotus-miner init --owner=<bls address>  --worker=<other_address> --no-local-storage`
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+10. 需要一个公网ip来进行矿工设置.编辑 `$LOTUS_MINER_PATH/config.toml`, 其默认值是 `~/.lotusminer/config.toml`
 
-
-6. 
-7. 需要一个公网ip来进行矿工设置.编辑 ~/.lotusminer/config.toml
-``` lotusminer/config.toml
+``` toml
 [libp2p]
   ListenAddresses = ["/ip4/0.0.0.0/tcp/24001"] # choose a fixed port
   AnnounceAddresses = ["/ip4/<YOUR_PUBLIC_IP_ADDRESS>/tcp/24001"] # important!
 ```
-8. 当的确可以访问该公网ip时,启动 lotus-miner
+
+11. 当的确可以访问该公网ip时,启动 lotus-miner
 `lotus-miner run` 或 `systemctl start lotus-miner`
-9. 公布矿工地址 `lotus-miner actor set-addrs /ip4/<YOUR_PUBLIC_IP_ADDRESS>/tcp/24001`
-10. 其他步骤
+
+12. 公布矿工地址 `lotus-miner actor set-addrs /ip4/<YOUR_PUBLIC_IP_ADDRESS>/tcp/24001`
+
+13. 其他步骤
 	- 配置自定义存储的布局,这要求一开始使用 --no-local-storage
 	- 编辑 lotus-miner 的配置
 	- 合适关闭或重启矿机
@@ -955,7 +954,60 @@ swapon --show
 	- 配置额外的worker来提高miner的密封sector的能力
 	- 为 windowPost设置单独的账户地址.
 
-#### 使用官方Lotus-miner执行挖矿的常见问题
+--------------------
+
+####  Lotus-miner 官方工具挖矿进阶设置
+
+1. 矿工自定义存储布局
+
+首先要在矿工初始化时,使用 `--no-local-storage`.然后可以指定用于 seal密封 (建议在ssd伤) 和长期存储的磁盘位置.你可以在 `$LOTUS_MINER_PATH/storage.json` 中设定,其默认值为 `~/.lotusminer/storage.json`.
+
+自定义密封位置: `lotus-miner storage attach --init --seal <PATH_FOR_SEALING_STORAGE>`
+
+自定义存储位置: `lotus-miner storage attach --init --store <PATH_FOR_LONG_TERM_STORAGE>`
+
+列出所有存储位置 : `lotus-miner storage list`
+
+2. 跑 benchmark 来得知机器封装一个块的时间
+
+在lotus目录编译 `make lotus-bench`. 运行help可以查看到帮助.大体上命令是这样的
+
+`./lotus-bench sealing --storage-dir /data/bench --sector-size 32GiB --num-sectors 1 --parallel 1 --json-out `
+
+3. 矿工钱包,分开 owner 地址和 worker 地址,为 windowPoSt设置单独的 control 地址.
+
+矿工钱包可以配置为由几个账户组成,可以使用命令 `lotus-miner actor control list` 查看, 在矿工的init过程中,filecoin网络会给该矿工初始化一个 ==t0== 开头的表示账户id叫做 actor ,actor负责收集所有发送到矿工的币.
+	- owner 地址,设计成尽可能离线冷钱包的形式.
+	- worker 地址,生产环境中热钱包地址,强烈建议 owner地址和worker地址分开.
+	- control 地址
+
+owner是在矿工初始化的时候设置的,只有如下几个场景需要用到owner地址
+	- 改变矿工actor的worker地址.
+	- 从矿工actor提取代币
+	- 提交 WindowPoSt,如果设置了单独的control地址且有余额的情况下是会使用control地址的.
+
+worker地址是矿工每日的工作中使用的:
+	- 初始化矿工
+	- 修改矿工的peer id和multiaddresses
+	- 与市场和支付渠道交互
+	- 对新区块进行签名
+	- 提交证明,声明错误,当control和owner都不能提交的时候也会用worker的余额来提交 WindowPoSt
+
+control地址是用来提交 WindowPoSt证明的,由于这些证明是提交的消息交易,所以是需要手续费的.但是这个消息比较特殊,因为消减的存在所以提交 WindowPoSt的消息是非常的高价值的.所以使用单独的Control地址来提交这些消息可以避免被头部攻击等.control地址可以设置多个.第一个有余额的地址就会被用来提交 WindowPoSt.
+
+`lotus-miner actor control set --really-do-it t3defg...`
+`lotus state wait-msg bafy2..`
+`lotus-miner actor control list`
+
+管理余额
+
+`lotus-miner info` 其中 miner 可用余额可以通过 `lotus-miner actor withdraw <amount>` 提取.
+
+--------------------
+
+#### 使用官方Lotus-miner执行挖矿的当前热点问题
+
+这部分内容有时效性,有可能指挥在 spacerace 阶段有效.
 
 1. 在lotus中使用filter只与指定的bot进行deal
 
@@ -985,9 +1037,7 @@ MaxCommitGasFee = "0.05 FIL"
 MaxWindowPoStGasFee = "50 FIL"
 ```
 
-3. 如果sector损坏无法生成PoSt,而且就算只有一个 sector失败,也会把整个runPost标记为失败,如果是一个小矿工,所有的sector在一个window中,如果错失了提交则会在之后的24小时内失去所有算力,必须在24后重新提交一次有效WindowPoSt才能自动恢复.
-
-4. sector升级,再SR中,必须升级一个sector才判定会成功挖矿
+3. sector升级,再SR中,必须升级一个sector才判定会成功挖矿
 
 ``` sh
 lotus-miner sectors list
@@ -1000,34 +1050,4 @@ lotus-miner sectors mark-for-upgrade [sector number]
 for s in $( seq $( lotus-miner sectors list | wc -l ) ) ; do lotus-miner sectors status --log $s | grep -Eo 'ReplaceCapacity":true' && echo $s; done`
 
 lotus-miner sectors status --on-chain-info $SECTOR_NUMBER | grep OnTime
-
 ```
-
-5. 查看 lotus-miner显示支持的GPU和benchmark
-
-[权威列表](https://github.com/Filecoin-project/bellman#supported--tested-cards)
-
-[使用自定义的GPU](https://docs.Filecoin.io/mine/lotus/gpus/#enabling-a-custom-gpu)
-
-[bellperson](https://github.com/Filecoin-project/bellman#supported--tested-cards)
-
-添加环境变量
-`export BELLMAN_CUSTOM_GPU="GeForce RTX 3080:8704"`
-
-测试
-`./lotus-bench sealing --sector-size=2KiB`
-
-6. 矿工钱包
-
-矿工钱包可以配置为由几个账户组成,可以使用命令 `lotus-miner actor control list` 查看, 在矿工的init过程中,filecoin网络会给该矿工初始化一个 ==t0== 开头的表示账户id叫做 actor ,actor负责收集所有发送到矿工的币.
-	- owner 地址,设计成尽可能离线冷钱包的形式.
-	- worker 地址,生产环境中热钱包地址,强烈建议 owner地址和worker地址分开.
-	- control 地址
-
-owner是在矿工初始化的时候设置的,只有如下几个场景需要用到owner地址
-	- 改变矿工actor的worker地址.
-	- 从矿工actor提取代币
-	- 提交 WindowPoSt,如果设置了单独的control地址且有余额的情况下是会使用control地址的.
-
-worker地址是矿工每日的工作中使用的:
-	- 
