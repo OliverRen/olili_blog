@@ -1,39 +1,62 @@
 ---
-title : IPFS和FileCoin的FIL币
-tags : 小书匠语法
-renderNumberedHeading : true
-grammar_abbr : true
-grammar_table : true
-grammar_defList : true
-grammar_emoji : true
-grammar_footnote : true
-grammar_ins : true
-grammar_mark : true
-grammar_sub : true
-grammar_sup : true
-grammar_checkbox : true
-grammar_mathjax : true
-grammar_flow : true
-grammar_sequence : true
-grammar_plot : true
-grammar_code : true
-grammar_highlight : true
-grammar_html : true
-grammar_linkify : true
-grammar_typographer : true
-grammar_video : true
-grammar_audio : true
-grammar_attachment : true
-grammar_mermaid : true
-grammar_classy : true
-grammar_cjkEmphasis : true
-grammar_cjkRuby : true
-grammar_center : true
-grammar_align : true
-grammar_tableExtra : true
+title: IPFS和FileCoin的FIL币
+tags: 小书匠语法
+renderNumberedHeading: true
+grammar_abbr: true
+grammar_table: true
+grammar_defList: true
+grammar_emoji: true
+grammar_footnote: true
+grammar_ins: true
+grammar_mark: true
+grammar_sub: true
+grammar_sup: true
+grammar_checkbox: true
+grammar_mathjax: true
+grammar_flow: true
+grammar_sequence: true
+grammar_plot: true
+grammar_code: true
+grammar_highlight: true
+grammar_html: true
+grammar_linkify: true
+grammar_typographer: true
+grammar_video: true
+grammar_audio: true
+grammar_attachment: true
+grammar_mermaid: true
+grammar_classy: true
+grammar_cjkEmphasis: true
+grammar_cjkRuby: true
+grammar_center: true
+grammar_align: true
+grammar_tableExtra: true
 ---
 
 [toc]
+
+  * [Protocol Labs 的明星项目](#protocol-labs-%E7%9A%84%E6%98%8E%E6%98%9F%E9%A1%B9%E7%9B%AE)
+    * [libp2p](#libp2p)
+    * [IPLD](#ipld)
+    * [IPFS](#ipfs)
+  * [FileCoin 初步理解](#filecoin-%E5%88%9D%E6%AD%A5%E7%90%86%E8%A7%A3)
+  * [Fileoin的基础术语](#fileoin%E7%9A%84%E5%9F%BA%E7%A1%80%E6%9C%AF%E8%AF%AD)
+  * [矿机硬件问题](#%E7%9F%BF%E6%9C%BA%E7%A1%AC%E4%BB%B6%E9%97%AE%E9%A2%98)
+  * [显卡驱动和cuda加速](#%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8%E5%92%8Ccuda%E5%8A%A0%E9%80%9F)
+  * [FileCoin的技术学习记录](#filecoin%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95)
+    * [推荐的学习路径文档列表](#%E6%8E%A8%E8%8D%90%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84%E6%96%87%E6%A1%A3%E5%88%97%E8%A1%A8)
+    * [使用Lotus接入测试网络即同步数据](#%E4%BD%BF%E7%94%A8lotus%E6%8E%A5%E5%85%A5%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9C%E5%8D%B3%E5%90%8C%E6%AD%A5%E6%95%B0%E6%8D%AE)
+    * [Lotus的配置文件和环境变量](#lotus%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%92%8C%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F)
+    * [Lotus客户端的使用](#lotus%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%9A%84%E4%BD%BF%E7%94%A8)
+    * [Lotus\-miner 官方工具挖矿](#lotus-miner-%E5%AE%98%E6%96%B9%E5%B7%A5%E5%85%B7%E6%8C%96%E7%9F%BF)
+    * [Lotus\-miner 官方工具挖矿进阶设置](#lotus-miner-%E5%AE%98%E6%96%B9%E5%B7%A5%E5%85%B7%E6%8C%96%E7%9F%BF%E8%BF%9B%E9%98%B6%E8%AE%BE%E7%BD%AE)
+    * [Lotus mine 抵押扇区](#lotus-mine-%E6%8A%B5%E6%8A%BC%E6%89%87%E5%8C%BA)
+    * [Lotus miner seal worker](#lotus-miner-seal-worker)
+    * [同时运行 miner 和 worker的CPU分配](#%E5%90%8C%E6%97%B6%E8%BF%90%E8%A1%8C-miner-%E5%92%8C-worker%E7%9A%84cpu%E5%88%86%E9%85%8D)
+    * [Lotus miner 故障排除](#lotus-miner-%E6%95%85%E9%9A%9C%E6%8E%92%E9%99%A4)
+    * [Lotus miner 管理交易](#lotus-miner-%E7%AE%A1%E7%90%86%E4%BA%A4%E6%98%93)
+    * [交易的gas,fee,limit和cap](#%E4%BA%A4%E6%98%93%E7%9A%84gasfeelimit%E5%92%8Ccap)
+    * [使用官方Lotus\-miner执行挖矿的当前热点问题](#%E4%BD%BF%E7%94%A8%E5%AE%98%E6%96%B9lotus-miner%E6%89%A7%E8%A1%8C%E6%8C%96%E7%9F%BF%E7%9A%84%E5%BD%93%E5%89%8D%E7%83%AD%E7%82%B9%E9%97%AE%E9%A2%98)
 
 ### Protocol Labs 的明星项目
 
@@ -239,6 +262,31 @@ Filecoin作为去中心化存储网络的激励和验证机制,矿工是整个�
 		
 4. FileCoin矿工的经济效应 </br>
 	20200924 add
+	
+	关于数量级的问题见下表
+	
+	| **倍数和分数** | **词头** | **符号** | **英文** |
+	| --- | --- | --- | --- |
+	| 10^24 | 尧（它） | Y | Yotta |
+	| 10^21 | 泽（它） | Z | Zetta |
+	| 10^18 | 艾（可萨） | E | Exa |
+	| 10^15 | 拍（它） | P | Peta |
+	| 10^12 | 太（拉） | T | Tera |
+	| 10^9 | 吉（咖） | G | Giga |
+	| 10^6 | 兆 | M | Mega |
+	| 10^3 | 千 | k | kilo |
+	| 10^2 | 百 | h | hecta |
+	| 10^1 | 十 | da | deca |
+	| 10^-1 | 分 | d | deci |
+	| 10^-2 | 厘 | c | centi |
+	| 10^-3 | 毫 | m | milli |
+	| 10^-6 | 微 | μ | micro |
+	| 10^-9 | 纳（诺） | n | nano |
+	| 10^-12 | 皮（可） | p | pico |
+	| 10^-15 | 飞（母托） | f | femto |
+	| 10^-18 | 阿（托） | a | atto |
+	| 10^-21 | 仄（普托） | z | zepto |
+	| 10^-24 | 幺（科托） | y | yocto |
 
 	统一以官方的  AMD Ryzen线程撕裂者3970x,128GB ram,使用 nvidia 2080TI显卡为基准当量, 
 	这个配置每天大概可以封装setor的个数在 4-5 个左右 (32GB) , 差不多是140-150GB的总量, 
@@ -719,7 +767,7 @@ CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只�
 	`export RUSTFLAGS="-C target-cpu=native -g"`
 	`export FFI_BUILD_FROM_SOURCE=1`
 - 编译 lotus
-	`sudo make clean all`
+	`sudo make clean deps all`
 	`sudo make install`
 - 查看可执行文件 ==lotus==	,==lotus-miner==	,==lotus-worker==	应该在 ==/usr/local/bin== 下
 - 启动 lotus的守护进程  `lotus daemon`,或者通过命令创建 systemd service
@@ -757,7 +805,7 @@ Variables specific to the _Lotus daemon_
 * `LOTUS_BSYNC_MSG_WINDOW` : Sets the initial maximum window size for message fetching blocksync request. Set to 10-20 if you have an internet connection with low bandwidth.
 * `FULLNODE_API_INFO="TOKEN : /ip4/<IP>/tcp/<PORT>/http"` 可以设置本地的lotus读取远程的 lotus daemon
 
-需要注意的是软件默认的路径是跟执行用户有关系的,而且一般都需要root权限来执行相关文件的创建,如果直接使用 sudo 命令启动,则相关的路径文件默认时在 `/root/`下的.同时由于 sudo 命令由于安全性问题是会清除掉用户设置的环境变量的,这里可以考虑在 `sudoers` 文件中保留相关的环境变量,也可以使用 `sudo -E` 参数来附加当前的用户环境变量.
+需要注意的是软件默认的路径是跟执行用户有关系的,而且一般都需要root权限来执行相关文件的创建,如果直接使用 sudo 命令启动,则相关的路径文件默认时在 `/root/`下的.同时由于 sudo 命令由于安全性问题是会清除掉用户设置的环境变量的,这里可以考虑在 `sudoers` 文件中保留相关的环境变量,也可以使用 `sudo -E` 参数来附加当前的用户环境变量. 当然建议直接通过 `su -`切换到root
 
 不过最推荐的还是注册成 systemd 服务的方式来进行管理, systemd 加载的环境变量全局文件是 `/etc/systemd/system.conf` 和 `/etc/systemd/user.conf` 中,不过一般都会通过服务注册在 `/etc/systemd/system`下文件中的 `Environment` 来进行配置.如果担心更新lotus重新编译或者执行安装的时候覆盖掉了,可以使用 `systemctl edit service` 来创建 `conf.d/override.conf` 中进行配置
 
@@ -930,7 +978,7 @@ swapon --show
 	export TMPDIR=/fast/disk/folder3               # Used when sealing.
 	```
 	
-9. 矿工初始化,使用 --no-local-storage可以使得我们之后可以配置特定的存储位置而不是直接执行.配置文件一般是在 ~/.lotusminer/ 或 $LOTUS_MINER_PATH 下. 关于矿工的钱包账户之间的区别请参看 使用官方Lotus-miner执行挖矿的常见问题中的矿工钱包.
+9. 矿工初始化,使用 --no-local-storage可以使得我们之后可以配置特定的存储位置而不是直接执行.配置文件一般是在 ~/.lotusminer/ 或 $LOTUS_MINER_PATH 下. 关于矿工的钱包账户之间的区别请参看 使用官方Lotus-miner执行挖矿的常见问题中的矿工钱包. 注意该命令需要owner发送消息需要代币
 `lotus-miner init --owner=<bls address>  --worker=<other_address> --no-local-storage`
 	
 10. 需要一个公网ip来进行矿工设置.编辑 `$LOTUS_MINER_PATH/config.toml`, 其默认值是 `~/.lotusminer/config.toml`
@@ -949,7 +997,7 @@ swapon --show
 13. 其他步骤
 	- 配置自定义存储的布局,这要求一开始使用 --no-local-storage
 	- 编辑 lotus-miner 的配置
-	- 合适关闭或重启矿机
+	- 了解什么是关机和重启矿机的好时机
 	- 发现或者说通过运行基准测试来得到密封一个sector的时间 ExpectedSealDuration
 	- 配置额外的worker来提高miner的密封sector的能力
 	- 为 windowPost设置单独的账户地址.
@@ -958,9 +1006,18 @@ swapon --show
 
 ####  Lotus-miner 官方工具挖矿进阶设置
 
+0. 防火墙有可能要开启
+
+- 1234 lotus daemon api
+- 2345 lotus-miner api
+- 24001 lotus-miner work
+- ssh
+
 1. 矿工自定义存储布局
 
-首先要在矿工初始化时,使用 `--no-local-storage`.然后可以指定用于 seal密封 (建议在ssd伤) 和长期存储的磁盘位置.你可以在 `$LOTUS_MINER_PATH/storage.json` 中设定,其默认值为 `~/.lotusminer/storage.json`.
+首先要在矿工初始化时,使用 `--no-local-storage`.然后可以指定用于 seal密封 (建议在ssd上) 和长期存储的磁盘位置.你可以在 `$LOTUS_MINER_PATH/storage.json` 中设定,其默认值为 `~/.lotusminer/storage.json`.
+
+使用自定义命令行需要lotus-miner运行,设置后需要重启miner
 
 自定义密封位置: `lotus-miner storage attach --init --seal <PATH_FOR_SEALING_STORAGE>`
 
@@ -973,6 +1030,58 @@ swapon --show
 在lotus目录编译 `make lotus-bench`. 运行help可以查看到帮助.大体上命令是这样的
 
 `./lotus-bench sealing --storage-dir /data/bench --sector-size 32GiB --num-sectors 1 --parallel 1 --json-out `
+
+``` json
+lotus benchmark result
+{
+  "SectorSize": 34359738368,
+  "SealingResults": [
+    {
+      "AddPiece": 870097300267,
+      "PreCommit1": 19675090466708,
+      "PreCommit2": 2160057571490,
+      "Commit1": 44283547951,
+      "Commit2": 5573822383169,
+      "Verify": 28487520,
+      "Unseal": 19463753783027
+    }
+  ],
+  "PostGenerateCandidates": 155197,
+  "PostWinningProofCold": 8356540927,
+  "PostWinningProofHot": 4285092397,
+  "VerifyWinningPostCold": 57527449,
+  "VerifyWinningPostHot": 20039908,
+  "PostWindowProofCold": 1077144420908,
+  "PostWindowProofHot": 973861248741,
+  "VerifyWindowPostCold": 6744654407,
+  "VerifyWindowPostHot": 63166446
+}
+```
+
+单位 unit 应该是 tick = 1\/3600000000000 H
+
+| 时间 | 操作 | 换算 |
+| --- | --- | --- |
+| 封装 | 封装 | 封装 |
+| 870097300267 | add | 0.2417H = 14M 30S |
+| 19675090466708 | p1 | 5.4653H = 5H 28M |
+| 2160057571490 | p2 | 0.6000H = 36M |
+| 44283547951 | c1 | 0.0123H = 44S |
+| 5573822383169 | c2 | 1.5483H = 1H 32M 53S |
+| 校验 | 校验 | 校验 |
+| 28487520 | verify | 0.03S |
+| 19463753783027 | unseal | 5.4065H = 5H 24M 24S |
+| 出块 | 出块 | 出块 |
+| 155197 | candidate | 几乎为0 |
+| 4285092397 | winning proof hot | 4.28S |
+| 8356540927 | winning proof cold | 8.35S |
+| 20039908 | winning post hot | 0.02S |
+| 57527449 | winning post cold | 0.05S |
+| 时空证明 | 时空证明 | 时空证明 |
+| 973861248741 | window proof hot | 0.2705H	= 16M 14S |
+| 1077144420908 | window proof cold | 0.2992H = 18M |
+| 63166446 | window post hot | 0.06S |
+| 6744654407 | window post cold | 6.74S |
 
 3. 矿工钱包,分开 owner 地址和 worker 地址,为 windowPoSt设置单独的 control 地址.
 
@@ -993,7 +1102,7 @@ worker地址是矿工每日的工作中使用的:
 	- 对新区块进行签名
 	- 提交证明,声明错误,当control和owner都不能提交的时候也会用worker的余额来提交 WindowPoSt
 
-control地址是用来提交 WindowPoSt证明的,由于这些证明是提交的消息交易,所以是需要手续费的.但是这个消息比较特殊,因为消减的存在所以提交 WindowPoSt的消息是非常的高价值的.所以使用单独的Control地址来提交这些消息可以避免被头部攻击等.control地址可以设置多个.第一个有余额的地址就会被用来提交 WindowPoSt.
+control地址是用来提交 WindowPoSt证明的,由于这些证明是提交的消息交易,所以是需要手续费的.但是这个消息比较特殊,因为消减的存在所以提交 WindowPoSt的消息是非常的高价值的.所以使用单独的Control地址来提交这些消息可以避免队首阻塞问题,因为这里也有nonce的概念.control地址可以设置多个.第一个有余额的地址就会被用来提交 WindowPoSt.
 
 `lotus-miner actor control set --really-do-it t3defg...`
 `lotus state wait-msg bafy2..`
@@ -1003,6 +1112,287 @@ control地址是用来提交 WindowPoSt证明的,由于这些证明是提交的�
 
 `lotus-miner info` 其中 miner 可用余额可以通过 `lotus-miner actor withdraw <amount>` 提取.
 
+4. Lotus Miner 配置参考
+
+Lotus Miner配置是在初始化 init 步骤之后的,其位置是 `$LOTUS_MINER_PATH/config.toml`, 其默认值是 `~/.lotusminer/config.toml`. 必须重新启动矿机即miner服务才可以使配置生效.
+
+- API部分 主要使为了worker来使用的,默认使绑定在本地环路接口,如果是多机器则需要配置到使用的网络接口
+- Libp2p部分 这部分是配置miner嵌入的 Libp2p 节点的,需要配置成miner的公共ip和固定的端口
+- PubSub部分用于在网络中分发消息
+- Deal Making部分 用于控制存储和检索交易.注意 `ExpectedSealDuration` 应该等于 `(TIME_TO_SEAL_A_SECTOR + WaitDealsDelay) * 1.5`
+- Sealing部分 即密封部分配置
+- Storage部分 即存储部分,控制矿工是否可以执行某些密封行为
+- Fees费用部分
+
+5. Lotus软件升级
+
+- 关闭所有的 seal miner 和 worker
+- 关闭 lotus daemon
+- git pull
+- 执行安装 
+	``` shell
+	export RUSTFLAGS="-C target-cpu=native -g"
+	export FFI_BUILD_FROM_SOURCE=1
+	git pull
+	git checkout <tag_or_branch>
+	git submodule update
+	make clean deps all
+	make install
+	
+	#安装服务 可以简单的 make install-all-services
+	make install-daemon-service
+	make install-chainwatch-service
+	make install-miner-service
+	# 其他有用的工具包括 `lotus-stats`,`lotus-pcr`,`lotus-health`	
+	```
+- 启动 daemon `systemctl start lotus-daemon`	
+- 启动 miner `systemctl start lotus-miner`
+- 启动 worker `systemctl start lotus-worker`
+- 如果你需要重置所有本地数据,那么需要备份的包括 lotus钱包,node数据和miner配置,然后删除掉 $LOTUS_PATH , $LOTUS_MINER_PATH , $LOTUS_WORKER_PATH
+
+6. 安全的升级和重启miner
+
+需要考虑的因素包括: 
+
+- 需要离线多久
+- proving时间期限的分布如何
+- 是否存在交易和检索
+- 是否有正在进行的密封操作
+
+	1. 重启前,建议对lotus程序进行升级,同时下载更新挖矿参数到ssd上 $FIL_PROOFS_PARAMETER_CACHE
+	2. 必须确认有时间窗口可以进行重启,使用命令 `lotus-miner proving info` 确认 deadline open有对 current epoch的时间窗口,也可以使用 `lotus-miner proving deadlines` 来确认将来24小时内的分布.
+	3. 检查交易 `lotus-miner storage-deals list`, `lotus-miner retrieval-deals list` , `lotus-miner data-transfers list` . 并暂时禁用交易 `lotus-miner storage-deals selection reject --online --offline` , `lotus-miner retrieval-deals selection reject --online --offline`. 当miner 重启完成后,需要使用以下命令恢复交易 `lotus-miner storage-deals selection reset`, `lotus-miner retrieval-deals selection reset`.
+	4. 检查当前正在进行的密封行为 `lotus-miner sectors list`
+
+7. 重启 worker
+
+可以随时重新启动 Lotus Seal Worker,但是他们如果正在执行密封的某一个步骤的话,重新后需要从最后一个检查点重新开始.而且如果是在 C2阶段最多只有3次尝试的机会.
+
+8. 更改存储的位置
+
+这一部分内容和小节1中的自定义配置存储位置其实差不多,但一般更改存储位置都是在已经上线存续运行的时候,需要在线的更新.
+
+通过命令 `lotus-miner storage list` 可以查询到当前 lotus-miner 所使用的存储位置,如果你需要对其进行修改,你需要执行以下步骤: 
+
+- 执行命令拒绝所有存储和检索加以
+- 将原数据复制到新的位置,这涉及到大量的数据迁移,所以在下一步停止miner之后,有可能需要再次同步一下数据,防止文件的状态不一致.
+- 停止miner
+- 编辑 storage.json 文件,这里无法使用命令来进行修改了.直接修改该文件,内容是一个简单的json文件指定了miner可以使用的存储位置,至于存储位置的权重和是否可以seal及storage是在指定位置下有单独的 sectorstorage.json 来进行配置的.
+- 启动miner,如果一切正常的话,原来位置的数据就可以进行删除了
+
+当然如果你只是简单的想要增加可用的存储空间以增加存力,那么简单的使用在线命令 `lotus-miner storage attach`就可以实现了.可以不用停止 miner.
+
+9. 更改worker的存储位置
+
+- 停止 worker
+- 迁移数据
+- 对 $LOTUS_WORKER_PATH进行设置
+- 重新启动 worker
+
+需要注意的是不同线程的 worker 之间的数据是不支持转移和共享的.
+
+--------------------
+
+#### Lotus mine 抵押扇区
+
+抵押扇区是增加有效存力的唯一方式,同时需要根据一个扇区的密封的时间\*1.5来更新配置中的`ExpectedSealDuration`字段.
+
+抵押一个扇区即承诺自己提供一个扇区的容量给网络可用,使用命令 `lotus-miner sectors pledge` , 需要注意的是这会完整的走完整个过程,即肯定是要写入数据的.通过以下命令来进行检查
+
+``` shell
+# 查看密封中的工作,这一般会在 $TMPDIR/unsealed 中创建文件
+lotus-miner sealing jobs
+# 查看密封进度,密封完成时 pSet: NO将变为pSet: YES
+lotus-miner sectors list
+# 查看密封使用的资源
+lotus-miner sealing workers
+# 通过log来查看一个扇区密封所需的时间
+lotus-miner sectors status --log 0
+```
+
+扇区状态 `lotus-miner sectors update-state --really-do-it number state` 
+
+- ComputeProofFailed
+- FinalizeFailed
+- FaultReported
+- FaultedFinal 我知道错了
+- Removed 强制移除
+- PreCommit1 重新来一次
+- PreCommit2
+- FinalizeSector
+- WaitSeed
+- PackingFailed
+- RecoverDealIDs
+- SealPreCommit1Failed
+- PreCommitFailed
+- CommitFailed
+- Packing
+- PreCommitWait
+- SubmitCommit
+- Empty
+- FailedUnrecoverable
+- Faulty
+- Committing 提交错误重新提交
+- CommitWait
+- Proving
+- SealPreCommit2Failed
+- Removing
+- WaitDeals
+- DealsExpired
+- RemoveFailed
+- PreCommitting
+
+升级抵押的扇区以存储与交易相关的实际数据 `lotus-miner sectors mark-for-upgrade <sector number>`
+
+--------------------
+
+#### Lotus miner seal worker
+
+lotus miner本身可以执行密封过程的所有阶段,但是 P1阶段的CPU的密集型任务会影响到后面的 winningPoSt 和 windowPoSt 的提交.所以我们可以创建管道让 worker来负责密封的部分阶段.这部分是关乎于压榨机器性能最重要的部分,涉及到了filecoin的证明系统 [SDR算法](https://github.com/filecoin-project/rust-fil-proofs/) .
+
+一个 worker 最多运行两个任务,每个任务作为一个插槽成为一个 window 窗口. 最终数据取决于可用的cpu核心数和GPU的数量,比如 有多核CPU 和 一个 GPU的机器上:
+
+*   2个_PreCommit1_任务（每个任务使用1个核心） 
+*   1个_PreCommit2_任务（使用所有可用核心 只有1个GPU）
+*   1个_提交_任务（使用所有可用的内核或使用GPU,C1很短,主要是C2只有1个GPU）
+*   2个_解封_任务（每个使用1个核心）
+
+当然实际测试中并不一定需要128GiB内存那么多,当然多总是好的. 使用命令 `lotus-worker run <flags>` 启动worker,需要注意的是不同的 worker 与 miner 要设置不同的 `$LOTUS_WORKER_PATH` 和 `$TMPDIR` 的环境变量,如果一台主机上运行多个 worker ,可以通过 `--listen`指定不同的监听端口,可选的 flags 参数如下
+
+```
+   --addpiece                    enable addpiece (default: true)
+   --precommit1                  enable precommit1 (32G sectors: 1 core, 128GiB Memory) (default: true)
+   --unseal                      enable unsealing (32G sectors: 1 core, 128GiB Memory) (default: true)
+   --precommit2                  enable precommit2 (32G sectors: all cores, 96GiB Memory) (default: true)
+   --commit                      enable commit (32G sectors: all cores or GPUs, 128GiB Memory + 64GiB swap) (default: true)
+```
+
+主miner只专注于执行 WindowPoSt 和 WinningPoSt
+
+单独的CPU任务 P1和unseal分配worker
+3个,最多6个p1,6个unseal
+
+单独的GPU任务 P2 C分配worker
+1个,最多1个p2,1个c
+
+切记Lotus Miner 配置中的 `MaxSealingSectors`,`MaxSealingSectorsForDeals`控制了可以同时 seal 的 sector 数量. `Storage`配置中如果要将工作全部分配给worker,则需要将对应的设置为false
+
+```
+[Storage]
+  AllowAddPiece = true
+  AllowPreCommit1 = true
+  AllowPreCommit2 = true
+  AllowCommit = true
+  AllowUnseal = true
+```
+
+#### 同时运行 miner 和 worker的CPU分配
+
+这里可以对 worker 启用多核心加快 SDR 的效率 .通过设置环境变量 `$FIL_PROOFS_USE_MULTICORE_SDR=1`, 然后通过 `taskset -C` 或 systemd 的中的 cpu亲和度参数来绑定相邻边界的4个核心
+
+启动参数:
+`lotus-worker run --listen 0.0.0.0:X --addpiece=false --precommit1=true --unseal=true --precommit2=false --commit=false`
+
+通过 taskset:
+```
+# Restrict to single core number 0
+taskset -c 0 <worker_pid | command>
+# Restrict to a single core complex (example)
+# Check your CPU model documentation to verify how many
+# core complexes it has and how many cores in each:
+taskset -c 0,1,2,3 <worker_pid | command>
+```
+
+通过systemd:
+```
+# workerN.service
+...
+CPUAffinity=C1,C2... # Specify the core number that this worker will use.
+...
+```
+
+--------------------
+
+#### Lotus miner 故障排除
+
+1. 连接问题
+
+- 使用命令查看节点的nat状态 `lotus-miner net reachability`,这需要你连接到足够的peers才能正确反馈,正常的值是 Public
+- 检查连接的对等点 peers ,使用命令 `lotus-miner net peers` , 如果过少,可以使用命令 `lotus-miner net connect <address1> <address2>...` 手动连接 [引导节点](https://github.com/filecoin-project/lotus/blob/master/build/bootstrap/bootstrappers.pi) 确保你们实在相同的网络分支中
+
+--------------------
+
+#### Lotus miner 管理交易
+
+这里把交易的内容抽离出来的主要原因是在 filecoin 整个网络的初期特别是小矿工压根是不会牵扯到存储和检索的交易的,并且就算没有存储和检索的交易,单纯的对垃圾数据进行seal也可以增长有效存力,进行出块.
+
+存储交易的几个主要的阶段分别是 1.数据传输 (transfer 用于在线交易) 或数据导入 (import 用于离线交易); 2.矿工对带有交易数据的sector进行密封; 3.矿工每24小时不间断的在订单时间内对 sector 进行时空证明
+
+1. 启用和禁用存储交易
+
+miner对交易的启用和禁用可以有两种方法:
+	- 配置法,修改 $LOTUS_MINER_PATH/config.toml 文件下的 `[DealMaking]`,然后重新启动 miner
+	- 命令法,由于修改配置需要重启 miner,所以较为推荐使用命令法来进行修改,同时命令也会修改文件中的值,如果后续真的重新了矿机,其配置也是生效的
+
+要禁用存储交易 `lotus-miner storage-deals selection reject --online --offline`,要启用存储交易 `lotus-miner storage-deals selection reset`, 你可以使用命令 `lotus-miner storage-deals selection list
+` 来进行校验
+
+2. 设定存储交易的要价
+
+达成存储交易一方面需要有需求,另外一方面就是矿工的价格和条件了.这是由矿工进行设置的,只要达成条件,那么矿工就可以自动的接受.这是由命令 `lotus-miner storage-deals set-ask` 来设置的. 举例如下:
+
+``` shell
+lotus-miner storage-deals set-ask \
+  --price 100000000000 \
+  --verified-price  100000000000 \
+  --min-piece-size 56KiB \
+  --max-piece-size 32GB
+```
+
+上述例子即矿工将交易价格设置为 每GiB每epoch的价格为 100000000000 attoFIL(即100 nanoFIL).所以如果客户需要存储 5GiB的数据一周,那么就需要支付 `5GiB * 100nanoFIL/GiB_Epoch * 20160 Epochs = 10080 microFIL`.
+
+矿工可以使用命令 `lotus-miner storage-deals get-ask` 查看自己的要价,使用命令 `lotus-miner storage-deals list -v` 来查看当前正在进行的交易 , 相对的客户可以使用 `lotus client query-ask <minerID>` 来查询指定矿工的要价.
+
+3. 使用过滤器限制交易
+
+这主要是通过配置文件中 `[DealMaking]` 中的 `Filter` 来实现的,他可以通过一个外部程序或者脚本返回 true 来接受交易,否则就拒绝.
+
+4. 封锁内容
+
+如果有一些内容不是很好,黄色啊之类的,那么可以通过cid进行阻止他们传入.下列命令接受一个文件,文件内容应该每行包括一个cid.
+
+`lotus-miner storage-deals set-blocklist blocklist-file.txt`
+
+可以使用命令 `lotus-miner storage-deals get-blocklist` 查看阻止列表 , 或使用命令 `lotus-miner storage-deals reset-blocklist` 来清除列表
+
+5. 在sector中接受多个交易,操作效率就更高,这减少了密封和验证的操作.这主要是由配置中的 `[Sealing]` 的 `WaitDealsDelay` 来控制的,即等待多少时间.
+
+6. 离线交易的数据导入,使用命令 `lotus-miner deals import-data <dealCid> <filePath>`
+
+7. 检索交易的文档暂缺
+
+--------------------
+
+#### 交易的gas,fee,limit和cap
+
+BaseFee:单位为 attoFIL / gas ,指定了单位gas消耗的 FIL 数量.故每个消息消耗的代币为 BaseFee * GasUsed. 该值根据网络阻塞参数即块大小来自动更新,可以通过命令 `lotus chain head | xargs lotus chain getblock | jq -r .ParentBaseFee` 获取.
+
+消息的发送方还有如下可以设置的参数
+
+GasLimit: gas的数量,指定可以消耗的gas量的上限,如果gas被消耗完,消息将失败,所有操作状态会还原.而矿工的奖励以 GasLimit * GasPremium 计
+
+GasPremium : 以 attoFIL / gas 为单位,表示矿工通过包含该消息可以获得报酬,一般是 GasLimit * GasPremium , 不是 GasUsed 而是 GasLimit, 所以预估准gaslimit也很重要,否则就会有 over estimation burn的预估超出的额外手续费燃烧.
+
+GasFeeCap : 以 attoFIL / gas 为单位,是发送方对消息设置一个花费的天花板.一条消息的总花费为 GasPremium + BaseFee.由于给矿工的赏金 GasPremium 是发送方自己设置的,所以 GasFeeCap本质上用来防止意外的高额 BaseFee
+
+如果BaseFee + GasPremium大于消息的GasFeeCap，则矿工的奖励为GasLimit \*（GasFeeCap-BaseFee）。请注意，如果消息的GasFeeCap低于BaseFee，则矿工出作为罚款.
+
+如果你的交易一直没有矿工进行打包,他就会卡在mpool中,一般是当网络的BaseFee很高时GasFeeCap太低造成的,当然如果网络很拥堵,也可能是GasPremium太低造成的.
+
+你可以使用命令查看本地消息 `lotus mpool pending --local`.
+
+替换 mpool 中的消息,你可以通过推送一个相同 nonce,但是 GasPremium比原始消息大 25%以上的消息.简单的来说,可以使用命令 `lotus mpool replace --auto <from> <nonce>` 达成. 或通过各个参数自行选择 `lotus mpool replace --gas-feecap <feecap> --gas-premuim <premium> --gas-limit <limit> <from> <nonce>` .当然你也可以使用已经本地签名过的消息直接通过 MpoolPush 发送.
+
 --------------------
 
 #### 使用官方Lotus-miner执行挖矿的当前热点问题
@@ -1011,7 +1401,7 @@ control地址是用来提交 WindowPoSt证明的,由于这些证明是提交的�
 
 1. 在lotus中使用filter只与指定的bot进行deal
 
-``` lotusminer/config.toml
+``` toml
 
 ~/.lotusminer/config.toml
 
