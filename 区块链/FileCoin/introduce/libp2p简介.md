@@ -113,3 +113,5 @@ grammar_tableExtra: true
 	
 ---------------------
 
+- [完整的libp2p文档doc](https://docs.libp2p.io/)
+- [libp2p说明书github spec](https://github.com/libp2p/specs)
