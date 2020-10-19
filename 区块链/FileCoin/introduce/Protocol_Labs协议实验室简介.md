@@ -53,4 +53,4 @@ Juan Benet——出生在墨西哥的程序员。他进入斯坦福大学后，�
 
 **联系方式**
 
-目前开发项目团队都是使用 slack, 官网有动态的邀请链接
+chat:官方目前使用的slack,官网有动态的加入链接 [slack](https://filecoin.io/slack/)
