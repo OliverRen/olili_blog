@@ -50,3 +50,18 @@ Juan Benet——出生在墨西哥的程序员。他进入斯坦福大学后，�
 3. Libp2p 一个模块化网络堆栈。libp2p 汇集了各种传输和点对点协议，使开发人员可轻松构建大型，强壮的p2p网络。
 4. IPFS即星际文件系统：一种新的分散网络的协议。允许使用内容寻址和数字签名创建完全分散和分布式的应用程序。
 5. FileCoin是IPFS的激励项目，一个加密货币驱动的存储网络。矿工通过为分布式存储网络提供开放的硬盘空间，赚取Filecoin；用户则花费 Filecoin，将文件加密存储于去中心化网络。
+
+**联系**
+
+- 实时chat:官方目前使用的slack,官网有动态的加入链接 [slack](https://filecoin.io/slack/)
+- 论坛:[discuss](https://discuss.filecoin.io/)
+- 帮助文档:[docs](https://docs.filecoin.io/)
+- 技术说明书:[spec](https://spec.filecoin.io/)
+- 视频:[youtube](https://www.youtube.com/channel/UCPyYmtJYQwxM-EUyRUTp5DA)
+- github
+	- [ipfs](https://github.com/ipfs)
+	- [libp2p](https://github.com/libp2p)
+	- [multiformats](https://github.com/multiformats)
+	- [lotus](https://github.com/filecoin-project/lotus)
+	- [rust-fil-proofs](https://github.com/filecoin-project/rust-fil-proofs)
+	
