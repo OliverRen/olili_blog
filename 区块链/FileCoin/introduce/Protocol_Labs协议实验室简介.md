@@ -53,11 +53,10 @@ Juan Benet——出生在墨西哥的程序员。他进入斯坦福大学后，�
 
 **联系方式**
 
-实时chat:官方目前使用的slack,官网有动态的加入链接 [slack](https://filecoin.io/slack/)
-论坛:[discuss](https://discuss.filecoin.io/)
-帮助文档:[docs](https://docs.filecoin.io/)
-技术说明书:[spec]()
-
+- 实时chat:官方目前使用的slack,官网有动态的加入链接 [slack](https://filecoin.io/slack/)
+- 论坛:[discuss](https://discuss.filecoin.io/)
+- 帮助文档:[docs](https://docs.filecoin.io/)
+- 技术说明书:[spec](https://spec.filecoin.io/)
 - github
 	- [ipfs](https://github.com/ipfs)
 	- [libp2p](https://github.com/libp2p)
