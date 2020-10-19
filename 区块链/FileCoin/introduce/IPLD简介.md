@@ -245,8 +245,3 @@ Content IDentifier, 这是一个自描述的数据结构标识符. 其中包含�
 - [IPLD的目标](https://docs.ipld.io/docs/objectives.html#databases)
 - [IPLD的架构](https://specs.ipld.io/schemas/)
 - [高级IPLD数据布局](https://docs.ipld.io/docs/advanced-layouts.html)
-
-
-
-
-
