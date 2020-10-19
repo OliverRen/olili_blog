@@ -57,6 +57,7 @@ Juan Benet——出生在墨西哥的程序员。他进入斯坦福大学后，�
 - 论坛:[discuss](https://discuss.filecoin.io/)
 - 帮助文档:[docs](https://docs.filecoin.io/)
 - 技术说明书:[spec](https://spec.filecoin.io/)
+- 视频:[youtube](https://www.youtube.com/channel/UCPyYmtJYQwxM-EUyRUTp5DA)
 - github
 	- [ipfs](https://github.com/ipfs)
 	- [libp2p](https://github.com/libp2p)
