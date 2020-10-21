@@ -1054,7 +1054,8 @@ Variables specific to the _Lotus daemon_
 		make install-daemon-service
 		make install-chainwatch-service
 		make install-miner-service
-		# 其他有用的工具包括 `lotus-stats`,`lotus-pcr`,`lotus-health`	
+		# 其他有用的工具包括 `lotus-stats`,`lotus-pcr`,`lotus-health`
+		make lotus-stats lotus-pcr lotus-health
 		```
 	- 启动 daemon `systemctl start lotus-daemon`	
 	- 启动 miner `systemctl start lotus-miner`
