@@ -150,14 +150,15 @@ Filecoin作为去中心化存储网络的激励和验证机制,矿工是整个�
 
 		目前讨论的主要还是第一种 存储故障的消减,一般不会有共识故障的消减
 		
-		1. sector离线的故障费用 区块3.51天的期望收益每天扣除
-		2. sector错误的链检出惩罚 你没有declare fault的话会被链上其他矿工出块举报检出,他有奖金你有罚金.
-		3. 区块中止费用,最终terminate的费用
+		1. Fault fees(FF)(故障费用):sector离线的故障费用 区块3.51天的期望收益每天扣除
+		2. Sector penalties(SP-FF)(故障检出费用):sector错误的链检出惩罚 你没有declare fault的话会被链上其他矿工出块举报检出,他有奖金你有罚金.
+		3. Termination fees(区块中止费用):最终terminate的费用
 
 		同时 FIP-0002对错过 windowPoSt的惩罚进行了减轻,初次错过不会有惩罚,即检出后的第一个deadline才会有故障费用.处理故障sector而不会针对整个partition.
 		
 		具体的变更如下:
-		DeclareFaultsRecovered故障恢复后 SubmitWindowedPoSt
+		- DeclareFaultsRecovered 故障恢复后 SubmitWindowedPoSt 原来也需要支付故障费用,现在不需要了
+		- 对申明为skipped跳过的活动区块,比如已经active活动的即需要proving的区块进行了removed.原来会扣除算力,标记故障后执行故障检出费用处罚.并会在proving的dealing时发生故障费用.现在的话会扣除算力,标记故障,但不会执行故障检出费用的处罚,当然故障费用还是会扣的
 
 		* 只要未能提交PoSt证明就会有故障费用的消减 br(3.51 FIP-0002调整)
 		* 扇区故障费用的消减每天都会扣除直到钱包账户归零或矿工将sector从网络中移除,同时会受到一个扇区终止费的消减
