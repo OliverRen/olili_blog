@@ -89,7 +89,7 @@ libp2p 集成了各种传输协议和点对点协议,其主要作用是发现节
 
 **Multiplexing** : 多路复用是指在单个逻辑“介质”上组合多个通信流的过程,例如,我们可以在单个TCP网络连接上维护多个独立的数据流,当然,它本身可以在单个物理连接（以太网，wifi等）上多路复用.
 
-**multistream** : 这是一种轻量级约定，用于使用简短的标头“标记”二进制数据流，该标头标识流的内容。
+**Multistream** : 这是一种轻量级约定，用于使用简短的标头“标记”二进制数据流，该标头标识流的内容。
 
 #### 概念
 
@@ -110,12 +110,17 @@ libp2p通过调用传输协议的连接函数来尝试连接目的地node.
 
 
 
-1. 地址解析(multiaddr) </br>
-		为了适应复杂的网络环境,libp2p 支持多种不同的底层协议,甚至 IPFS 社区专门立了一个项目来标准化节点的地址[multiaddr](https://github.com/multiformats/multiaddr).目前 libp2p 主要支持以下几种地址格式,通过地址解析, libp2p 能获知如何才能连接到目的节点,下一步就是尝试建立连接.
-		*   `/ip4/127.0.0.1/tcp/4001/ipfs/QmNodeID` : 这种格式跟传统的 TCP 网络里是一样的,直接可以解析出对应的 IPv4 地址和端口号
-		*   `/ipfs/QmNodeID` : 这种格式的地址适用于 IPFS 网络,只有节点ID的地址,需要节点路由模块找到节点对应的IP地址,然后再进行连接
-		*   `/dns4/http://ipfs.ipfsbit.com/tcp/443/wss/p2p-webrtc-star` : 这种地址需要调用`multiaddr-dns`组件,把域名解析成IP地址,然后再进行连接
-		*   `/p2p-circuit/p2p/QmNodeID` : 这种地址是 relay 地址,用于中继网络,需要首先连接一个中继节点,才能连接到目的节点
+
+
+
+1. 地址解析(multiaddr)
+		
+为了适应复杂的网络环境,libp2p 支持多种不同的底层协议,甚至 IPFS 社区专门立了一个项目来标准化节点的地址[multiaddr](https://github.com/multiformats/multiaddr).目前 libp2p 主要支持以下几种地址格式,通过地址解析, libp2p 能获知如何才能连接到目的节点,下一步就是尝试建立连接.
+		
+	*   `/ip4/127.0.0.1/tcp/4001/ipfs/QmNodeID` : 这种格式跟传统的 TCP 网络里是一样的,直接可以解析出对应的 IPv4 地址和端口号
+	*   `/ipfs/QmNodeID` : 这种格式的地址适用于 IPFS 网络,只有节点ID的地址,需要节点路由模块找到节点对应的IP地址,然后再进行连接
+	*   `/dns4/http://ipfs.ipfsbit.com/tcp/443/wss/p2p-webrtc-star` : 这种地址需要调用`multiaddr-dns`组件,把域名解析成IP地址,然后再进行连接
+	*   `/p2p-circuit/p2p/QmNodeID` : 这种地址是 relay 地址,用于中继网络,需要首先连接一个中继节点,才能连接到目的节点
 
 
 		
