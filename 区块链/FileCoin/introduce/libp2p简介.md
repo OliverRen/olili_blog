@@ -35,9 +35,11 @@ grammar_tableExtra: true
 
 #### 术语
 
-Circuit Relay
+[doc](https://docs.libp2p.io/reference/glossary/)
 
+**Circuit Relay** : 由于网络,或应用协议的不同等原因,peer与peer之间无法直接建立连接进行通信,此时就可以由这些愿意充当中介的第三方 peer来充当"继电器",分别建立与双方的连接并转发信息以实现通信.
 
+**DHT** : 即 `distributed hash table`
 
 
 
