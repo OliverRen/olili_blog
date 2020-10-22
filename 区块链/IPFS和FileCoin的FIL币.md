@@ -157,7 +157,7 @@ Filecoin作为去中心化存储网络的激励和验证机制,矿工是整个�
 		同时 FIP-0002对错过 windowPoSt的惩罚进行了减轻,初次错过不会有惩罚,即检出后的第一个deadline才会有故障费用.处理故障sector而不会针对整个partition.
 		
 		具体的变更如下:
-		declare recover故障恢复后 SubmitWindowedPoSt
+		DeclareFaultsRecovered故障恢复后 SubmitWindowedPoSt
 
 		* 只要未能提交PoSt证明就会有故障费用的消减 br(3.51 FIP-0002调整)
 		* 扇区故障费用的消减每天都会扣除直到钱包账户归零或矿工将sector从网络中移除,同时会受到一个扇区终止费的消减
