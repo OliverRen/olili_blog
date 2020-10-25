@@ -116,3 +116,48 @@ M	H	D	m	d	cmd
 
 `0 4 1 jan * /usr/local/etc/rc.d/lighttpd restart` </br>
 一月一号的4点重启apache
+
+##### cron的环境变量问题
+
+就算是用户级别的定时任务,由于在运行crontab的时候是non_login方式调用程序的,所以只会加载 `/ect/environment`
+
+并不会加载 `/etc/profile`,`/etc/bashrc` ,`~/.bash_profile`, `~/.bashrc`,这些是需要用户登录的
+
+所以需要通过在 crontab 定义任务自行添加环境变量,这一点和 systemd 的管理方式是类似的.
+
+以下方法可以参考:
+
+1. 在 cron 任务中直接执行 source,例如 `* * * * * source ~/.bashrc && task`
+2. 在 cron 任务的脚本中执行初始化 例如 
+	```
+	#!/bin/sh
+	
+	. /etc/profile
+	```
+3. 如果你实在有些环境变量是针对特定程序的,那么只能是在 cron 任务的脚本中自行 export 来指定环境变量
+
+
+##### Ubuntu cron开启日志
+
+ubuntu默认没有开启cron日志记录,需要修改 `rsyslog` 来开启
+
+```
+# 编辑配置
+vim /etc/rsyslog.d/50-default.conf 
+# 取消该句前面的注释
+cron.* /var/log/cron.log
+# 重启 rsyslog
+service rsyslog restart
+```
+
+需要注意的是 cron 默认会把任务的执行结果和错误信息发送到邮箱,如果没有配置邮件服务器,你会得到一个info日志提示 `No MTA installed, discarding output`
+
+所以在定义任务需要重定向标准输出和错误输出:
+
+```
+其中 >> 为追加输出,若只需要最后一次执行结果可以使用 > 覆盖输出
+2为错误输出stderr &1为标准输出stdout的文件描述符
+故意思为将标准输出追加重定向到 /var/log/task.log,同时将错误输出也输出到标准输出,即也输出到log文件
+0 2 * * * task >> /var/log/task.log 2>&1
+```
+
