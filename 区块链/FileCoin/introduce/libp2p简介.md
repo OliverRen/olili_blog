@@ -123,6 +123,12 @@ grammar_tableExtra: true
 4. NAT 遍历
 
 	libp2p应用程序可以在任何地点运行,而不仅仅是在IDC或需要有稳定的公网IP的机器上运行.所以目前libp2p中有这些可用的NAT方法.
+	
+	
+	
+	
+	
+	
 
 
 
