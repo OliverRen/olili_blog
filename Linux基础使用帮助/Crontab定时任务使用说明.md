@@ -33,63 +33,41 @@ grammar_align: true
 grammar_tableExtra: true
 ---
 
-[toc]
+##### 安装
 
-1.  安装并检查crontab服务
+yum或apt安装即可.
 
-`yum install vixie-cron` 
-安装后台服务
+##### 主要命令
 
-`yum install crontabs`
-安装配置程序
+- `crontab -u` 指定用户
+- `crontab -l` 查看设定的定时任务
+- `crontab -e` 编辑用户的定时任务
+- `crontab -r` 删除定时任务
+- `crontab [file]` 用指定的文件代替当前的contab设置
 
-`crontab -l`
-查看设定的定时任务
+##### crontab相关文件说明
 
-2.  crontab相关文件说明
-
-`/usr/lib/cron/cron.allow` 
-表示谁能使用crontab命令。如果它是一个空文件表明没有一个用户能安排作业。
-
-`/usr/lib/cron/cron.deny`
-则只有不包括在这个文件中的用户才可以使用crontab命令。如果它是一个空文件表明任何用户都可安排作业。
+- `/usr/lib/cron/cron.allow` : 表示谁能使用crontab命令。如果它是一个空文件表明没有一个用户能安排作业。
+- `/usr/lib/cron/cron.deny` : 则只有不包括在这个文件中的用户才可以使用crontab命令。如果它是一个空文件表明任何用户都可安排作业。
 
 > 两个文件同时存在时cron.allow优先，如果都不存在，只有超级用户可以安排作业。
 
-每次编辑完某个用户的cron设置后，cron自动在`/var/spool/cron`下生成一个与此用户同名的文件，此用户的cron信息都记录在这个文件中，这个文件是不可以直接编辑的，只可以用crontab -e 来编辑。cron启动后每过一份钟读一次这个文件，检查是否要执行里面的命令。因此此文件修改后不需要重新启动cron服务。
+##### crontab的执行
 
-cron服务每分钟读取自 `/var/spool/cron` 所有文件实际执行的任务 
-还需要读一次 `/etc/crontab`
-所以使用crontab -e配置针对的是用户的,而编辑/etc/crontab是针对系统的
+cron服务每分钟读取一次 `/etc/crontab`,该文件设定是系统级别的定时任务
 
-3.  crontab命令说明
+用户使用crontab -e配置针对的是用户的,每次编辑完某个用户的cron设置后，cron自动在`/var/spool/cron`下生成一个与此用户同名的文件.
 
-使用权限 : ==所有使用者==
-使用方式 :
+此用户的cron信息都记录在这个文件中，这个文件是不可以直接编辑的，只可以用crontab -e 来编辑。
 
-* crontab file \[-u user]
-用指定的文件替代目前的crontab。
-
-* crontab- \[-u user]
-用标准输入替代目前的crontab.
-
-* crontab -l \[user]
-列出用户目前的crontab.
-
-* crontab -e \[user]
-编辑用户目前的crontab.
-
-* crontab -d \[user]
-删除用户目前的crontab.
-
-* crontab -c dir
-指定crontab的目录。
+cron启动后每过一份钟读一次这个文件，检查是否要执行里面的命令。因此此文件修改后不需要重新启动cron服务。
 
 > crontab 是用来让使用者在固定时间或固定间隔执行程序之用，换句话说，也就是类似使用者的时程表。-u user 是指设定指定 user 的时程表，这个前提是你必须要有其权限(比如说是 root)才能够指定他人的时程表。如果不使用 -u user 的话，就是表示设定自己的时程表。
 
-4.  crontab文件的格式：
+##### crontab文件的格式和一些例子
 
-基本格式 : 
+1. 基本格式 : 
+
 M H D m d cmd.
 *　　*　　*　　*　　*　　command
 分　 时　 日　 月　 周　 命令
@@ -105,7 +83,7 @@ cmd要运行的程序，程序被送入sh执行，这个shell只有USER,HOME,SHE
 `*/n` 表示 ==每n执行一次== ,每5分钟执行一次,每1小时执行一次,依此类推
 `a,b,c` 表示 ==在a,b,c执行一次==, 如 10分,20分,30分执行一次,依此类推
 
-5.  crontab文件的一些例子：
+2. crontab文件的一些例子：
 
 `30 21 * * * /usr/local/etc/rc.d/lighttpd restart`
 上面的例子表示每晚的21:30重启apache。
