@@ -35,7 +35,7 @@ grammar_tableExtra: true
 
 [toc]
 
-[本来来自 少数派 derotyoung](https://sspai.com/post/43338)
+[本文来自 少数派 derotyoung](https://sspai.com/post/43338)
 
 
 **引言**
@@ -46,7 +46,7 @@ grammar_tableExtra: true
 
 ## _Android_ 系统简介
 
-Android，常见的非官方中文名称为安卓，由谷歌(Google)公司发布的一个基于 Linux 内核的开放源代码移动操作系统。Android 最初由 _Andy · Rubin_ 等人开发制作，最初目的是创建一个数码相机的先进操作系统，于2005年7月11日被 Google 收购。2007年11月，Google 与 84 家硬件制造商、软件开发商及电信营运商成立开放手持设备联盟来共同研发改良 Android，随后Google 以 Apache 免费开放源代码许可证的授权方式。第一部 Android 智能手机发布于2008年9月22日。
+Android，常见的非官方中文名称为安卓，由谷歌(Google)公司发布的一个基于 Linux 内核的开放源代码移动操作系统。Android 最初由 _Andy · Rubin_ 等人开发制作，最初目的是创建一个数码相机的先进操作系统，于2005年7月11日被 Google 收购。2007年11月，Google 与 84 家硬件制造商、软件开发商及电信营运商成立开放手持设备联盟来共同研发改良 Android，随后Google 以 Apache 免费开放源代码许可证的授权方式。第一部 Android 智能手机发布于2008年9月22日。
 
 Android 底层使用开源的 Linux 操作系统，亦可归于嵌入式系统，同时开放了应用程序开发工具，使用 Java 语言进行开发(也支持 Kotlin)，所有程序开发人员都在统一、开放的开发平台上进行开发，保证了 Android 应用程序的可移植性。
 
@@ -77,7 +77,7 @@ Android系统最早的一个版本 Android 1.0 beta 发布于2007年11月5日，
 
 这类绝大多数为类原生系统
 
-[LineageOS](https://www.lineageos.org/ "LineageOS")：原 CyanogenMod(CM)，因原小组中几位成员不满其后的商业化不开源之路，以 Chainfire 为代表的几位成员遂脱离 CM 小组创立了现在的 LineageOS，其沿袭了 CM 稳定的特点，虽尚存少许 Bug，但瑕不掩瑜。国内有一个[LineageOS 中文论坛](https://www.lineageos.org.cn/ "LineageOS 中文论坛") 。
+[LineageOS](https://www.lineageos.org/ "LineageOS")：原 CyanogenMod(CM)，因原小组中几位成员不满其后的商业化不开源之路，以 Chainfire 为代表的几位成员遂脱离 CM 小组创立了现在的 LineageOS，其沿袭了 CM 稳定的特点，虽尚存少许 Bug，但瑕不掩瑜。国内有一个[LineageOS 中文论坛](https://www.lineageos.org.cn/ "LineageOS 中文论坛")。
 
 [魔趣ROM](https://download.mokeedev.com/ "魔趣ROM")：国内开源项目，本地化非常好，很符合国内使用的情况。
 
@@ -95,7 +95,7 @@ Touchwiz（三星）、Emotion UI（华为）、MIUI（小米）、Flyme OS（�
 
 ## 关于 _Google's Project Treble_
 
-Google I/O 2017 时谷歌推出的一项安卓更新计划。Android 8.0 版本的一项新元素是 [Project Treble](https://source.android.com/devices/architecture/treble#about-treble "Project Treble")。这是 Android 操作系统框架在架构方面的一项重大改变，旨在让制造商以更低的成本更轻松、更快速地将设备更新到新版 Android 系统。Project Treble 适用于搭载 Android 8.0 及后续版本的所有新设备（这种新的架构已经在 Pixel 手机的开发者预览版中投入使用）。利用新的供应商接口，Project Treble 将供应商实现（由芯片制造商编写的设备专属底层软件）与 Android 操作系统框架分离开来。
+Google I/O 2017 时谷歌推出的一项安卓更新计划。Android 8.0 版本的一项新元素是 [Project Treble](https://source.android.com/devices/architecture/treble#about-treble "Project Treble")。这是 Android 操作系统框架在架构方面的一项重大改变，旨在让制造商以更低的成本更轻松、更快速地将设备更新到新版 Android 系统。Project Treble 适用于搭载 Android 8.0 及后续版本的所有新设备（这种新的架构已经在 Pixel 手机的开发者预览版中投入使用）。利用新的供应商接口，Project Treble 将供应商实现（由芯片制造商编写的设备专属底层软件）与 Android 操作系统框架分离开来。
 
 通俗的讲，之前各定制系统如此慢的重要原因之一为：由芯片供应商提供的芯片驱动必须与 Android 的 API 严格对应，这样一来芯片厂商先要从 Google 拿到最新的系统的源代码，芯片厂商编写芯片驱动以能运行在最新的 Android，然后芯片厂商把驱动交给 OEM 厂商，最后 OEM 厂商为其设备适配，这样一来 OEM 厂商适配新版 Android 系统的进度严重依赖于前面几个环节。Project Treble 旨在最新的 Android 上应用兼容的芯片驱动，加快最新系统适配的速度。但这同样需要芯片厂商的的参与，如放出长支持（LTS）的芯片驱动。
 
@@ -141,11 +141,11 @@ Recovery 中文意思是恢复，简称 Rec。我们所说的 Recovery，一般�
 
 ## 第三方 _Recovery_ 介绍
 
-**ClockworkMod Recovery**，简称 **CWM**，资格非常老的第三方 Recovery。CWM 基于安卓 2.1 的 Recovery 改写，从安卓2.x 时代开始，它就非常流行，一度是最受欢迎的第三方 Recovery。不过，CWM 对触屏的支持并不好，而且功能也渐渐被其他 Recovery 超赶。
+**ClockworkMod Recovery**，简称 **CWM**，资格非常老的第三方 Recovery。CWM 基于安卓 2.1 的 Recovery 改写，从安卓2.x 时代开始，它就非常流行，一度是最受欢迎的第三方 Recovery。不过，CWM 对触屏的支持并不好，而且功能也渐渐被其他 Recovery 超赶。
 
 ![CWM](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/android玩机终极攻略/20201024/1603540286860.png "CWM")
 
-**Team Win Recovery Project**，简称 **TWRP**，目前最为流行的第三方 Recovery，可以说是现在刷机的标配了。TWRP 的界面更加华丽，语言可选中文，全触屏操作，支持截图等功能。在功能方面，TWRP 对比 CWM 可谓是有过之而无不及。
+**Team Win Recovery Project**，简称 **TWRP**，目前最为流行的第三方 Recovery，可以说是现在刷机的标配了。TWRP 的界面更加华丽，语言可选中文，全触屏操作，支持截图等功能。在功能方面，TWRP 对比 CWM 可谓是有过之而无不及。
 
 ![TWRP](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/android玩机终极攻略/20201024/1603540287036.png "TWRP")
 
@@ -177,11 +177,11 @@ Bootloader(以下简称BL)，译为引导加载程序，是嵌入式系统在加
 
 刷入第三方 Recovery 方法有很多，这里只介绍大部分机型都通用的方法。步骤如下：
 
-1.  下载你所持机型的 Recovery 的 `.img`包
+1.  下载你所持机型的 Recovery 的 `.img`包
 
-    *   TWRP 官网的 `.img`下载链接隐藏的比较深入，这里迂回进入其官网下载，先进入[LineageOS镜像下载](http://download.lineageos.org.cn/ "LineageOS镜像下载")页面，找到你所持设备该行，没有就是不支持此设备，然后点击行末的 TWRP 就会进入 TWRP 官网的 `.img`下载链接的页面。
-    *   TWRP 官方移动端软件 Official TWRP App 选择你的设备也能下载 `.img`包，还有一些论坛也提供下载。
-2.  手机开启USB调试功能，连接电脑，安装驱动(Win 10系统会自动安装驱动，如果你能在Windows 系统资源管理器中访问手机的 sdcard 目录，即说明驱动安装成功)。有命令行的操作方式，也有一键式刷入工具(其本质还是命令行操作，不过是把各条命令通过脚本集成在一个工具中)，为了节约时间，就以一键式刷入工具为例，提供一个谷歌云盘的[下载地址](https://drive.google.com/file/d/1IuGdNYBWzr6gTPHn4Nx6F54spv7iSoqb/view?usp=sharing "下载地址")，把下载的 `*.img` 文件重命名为 `recovery.img` 放入 recovery 文件夹，或者自己在网上下载个一键式刷入工具，记得把其中的`*.img`替换一下，然后以管理员身份运行`run.bat`，接下来按提示操作即可。
+    *   TWRP 官网的 `.img`下载链接隐藏的比较深入，这里迂回进入其官网下载，先进入[LineageOS镜像下载](http://download.lineageos.org.cn/ "LineageOS镜像下载")页面，找到你所持设备该行，没有就是不支持此设备，然后点击行末的 TWRP 就会进入 TWRP 官网的 `.img`下载链接的页面。
+    *   TWRP 官方移动端软件 Official TWRP App 选择你的设备也能下载 `.img`包，还有一些论坛也提供下载。
+2.  手机开启USB调试功能，连接电脑，安装驱动(Win 10系统会自动安装驱动，如果你能在Windows 系统资源管理器中访问手机的 sdcard 目录，即说明驱动安装成功)。有命令行的操作方式，也有一键式刷入工具(其本质还是命令行操作，不过是把各条命令通过脚本集成在一个工具中)，为了节约时间，就以一键式刷入工具为例，提供一个谷歌云盘的[下载地址](https://drive.google.com/file/d/1IuGdNYBWzr6gTPHn4Nx6F54spv7iSoqb/view?usp=sharing "下载地址")，把下载的 `*.img` 文件重命名为 `recovery.img` 放入 recovery 文件夹，或者自己在网上下载个一键式刷入工具，记得把其中的 `*.img` 替换一下，然后以管理员身份运行 `run.bat`，接下来按提示操作即可。
 
 3.  刷完 TWRP 后系统重启进入TWRP界面，若无法进入系统卡在开机界面，可尝试进入Rec 添加 Root 卡刷包(SuperSU 或 Magisk 都可以，下文会详细提到)刷入。
 
@@ -201,14 +201,14 @@ Root 译为“根”，所以 Root 权限也叫根权限，Root 是 Linux 系统
 
 在 Linux 下获取 Root 权限时，执行`sudo`或者`su`，然后输入 root 用户的密码，就可以了。
 
-但是 Android 里的`su`和 Linux 的不一样，不是验证密码的，而是看你原来的权限是什么。也就是说如果你是 root，那么你可以通过`su`切换到别的用户，比如 `shell`，`radio`，`audio` 什么的。但是如果你是 root 之外的用户，就不能切换回 root 了，会提示没有权限。
+但是 Android 里的`su`和 Linux 的不一样，不是验证密码的，而是看你原来的权限是什么。也就是说如果你是 root，那么你可以通过`su`切换到别的用户，比如 `shell`，`radio`，`audio` 什么的。但是如果你是 root 之外的用户，就不能切换回 root 了，会提示没有权限。
 
 ## 安卓系统如何获取 _Root_ 权限
 
-1.  **卡刷 SuperSU 的 `.zip`包刷入**
-    刷入 TWRP 后，刷入SuperSU (目前最流行的 Root 权限管理工具，即使是最新的安卓版本只要选择合适 SuperSU卡刷包仍能完美Root)卡刷包即可 Root。下载 SuperSU 的 `.zip`卡刷包放在手机 sdcard 目录，进入 Rec 选择该文件并安装，**不要勾选 Zip刷机包签名校验**。
-2.  **卡刷 Magisk 的 `.zip`包刷入**
-    文件换成 [Magisk](https://magiskmanager.com/ "Magisk") 的 `.zip`卡刷包，或在 [XDA下载](https://forum.xda-developers.com/apps/magisk "XDA下载") `.zip`包(或者手机端安装 Magisk 软件进行下载安装，和 Official TWRP App 的操作类似)，刷入方法和 SuperSU 的方法完全一样。Magisk 完全开源，并且能够隐藏 Root 不被系统检测到，同时也支持框架功能(由于推出的时间不长，现在能用的模块比较少)，目前在XDA论坛非常流行，大有追赶 Xposed 和赶超SuperSU之势，被认为将来是 Xposed 框架和 SuperSU 的继任者。**PS**：Magisk 和 SuperSU 有冲突，不能共存。
+1.  **卡刷 SuperSU 的 `.zip`包刷入**
+    刷入 TWRP 后，刷入SuperSU (目前最流行的 Root 权限管理工具，即使是最新的安卓版本只要选择合适 SuperSU卡刷包仍能完美Root)卡刷包即可 Root。下载 SuperSU 的 `.zip` 卡刷包放在手机 sdcard 目录，进入 Rec 选择该文件并安装，**不要勾选 Zip刷机包签名校验**。
+2.  **卡刷 Magisk 的 `.zip`包刷入**
+    文件换成 [Magisk](https://magiskmanager.com/ "Magisk") 的 `.zip` 卡刷包，或在 [XDA下载](https://forum.xda-developers.com/apps/magisk "XDA下载") `.zip` 包(或者手机端安装 Magisk 软件进行下载安装，和 Official TWRP App 的操作类似)，刷入方法和 SuperSU 的方法完全一样。Magisk 完全开源，并且能够隐藏 Root 不被系统检测到，同时也支持框架功能(由于推出的时间不长，现在能用的模块比较少)，目前在XDA论坛非常流行，大有追赶 Xposed 和赶超SuperSU之势，被认为将来是 Xposed 框架和 SuperSU 的继任者。**PS**：Magisk 和 SuperSU 有冲突，不能共存。
 3.  **其它方法(不推荐)**
     ROM 自带 Root，如 MIUI 开发版可在设置中开启，但却只有读权限，几乎没什么用处，还会被系统检测出 Root 危险；魔趣 ROM 自带的 Root 排除在此项之外；第三方 Root工具，如 KingRoot，Root大师等利用系统漏洞来接管 Root 权限，从原理上分析来看对于Android 6.0 以上的话，成功率会很低，安全性也令人堪忧。
 
@@ -234,7 +234,7 @@ Xposed 是由 rovo89 和 Tungstwenty 共同开发的一款可以在不修改 APK
 
 ## _Xposed_ 框架原理简单介绍
 
-Xposed 通过替换`/system/bin/app_process` 程序控制`zygote`进程，使得它在系统启动的过程中会加载 Xposed Framework 的一个`jar`文件即`XposedBridge.jar`，从而完成对`Zygote`进程及其创建的 `Dalvik` 虚拟机的劫持，并且能够允许开发者独立的替代任何`class`，例如Framework 本身，系统 UI 又或者任意的一个 App。
+Xposed 通过替换`/system/bin/app_process` 程序控制`zygote`进程，使得它在系统启动的过程中会加载 Xposed Framework 的一个`jar`文件即`XposedBridge.jar`，从而完成对`Zygote`进程及其创建的 `Dalvik` 虚拟机的劫持，并且能够允许开发者独立的替代任何`class`，例如Framework 本身，系统 UI 又或者任意的一个 App。
 
 ## _Xposed_ 能做什么
 
@@ -270,11 +270,11 @@ Xposed 模块本质也是 APK 文件，没有 Xposed 框架的情况下你也能
 
 与普通的 APK 文件不同的是，Xposed 模块 APK 里有一个特殊文件`asstss/xposed_init`，里面声明了入口类。系统每次启动新的 App，Xposed 框架都会调用这个类，因此 Xposed 模块可以不需要在后台运行，也能起作用，无需设置开机自启。
 
-在 APK 的`AndroidManifest.xml`文件中还添加了`mete-data`标签，包括 `xposedmoudle`、`xposeddescription`、`xposedminversio`属性，以让 Xposed Installer 识别该App 为 Xposed 模块，显示在 Xposed 模块列表中，并且显示模块的描述与支持的最低 API 版本号。
+在 APK 的`AndroidManifest.xml`文件中还添加了`mete-data`标签，包括 `xposedmoudle`、`xposeddescription`、`xposedminversio`属性，以让 Xposed Installer 识别该App 为 Xposed 模块，显示在 Xposed 模块列表中，并且显示模块的描述与支持的最低 API 版本号。
 
 ## 如何获取 _Xposed_ 模块
 
-1.  网页端：从[官网](http://repo.xposed.info/module-overview "官网")，[Xposed 中文论坛](http://xposed.appkg.com/category/modules "Xposed 中文论坛")或者 [XDA 论坛下载](https://forum.xda-developers.com/xposed/modules "XDA 论坛下载")
+1.  网页端：从[官网](http://repo.xposed.info/module-overview "官网")，[Xposed 中文论坛](http://xposed.appkg.com/category/modules "Xposed 中文论坛")或者 [XDA 论坛下载](https://forum.xda-developers.com/xposed/modules "XDA 论坛下载")
 2.  手机端：Xposed Installer，酷安 App 或者 XDA Labs 下载
     ![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/android玩机终极攻略/20201024/1603540287035.png)
 3.  社区，手机品牌官方论坛等
@@ -296,7 +296,7 @@ Google Play 服务完全依赖于谷歌服务框架（Google Services Framework�
 ## _Android_ 设备如何安装 _Google Play_ 服务
 
 1.  **通过第三方 Recovery 卡刷 GApps 包**
-    首先要获取`.zip`的 GApps卡刷包，可在 [Open GApps](http://opengapps.org/ "Open GApps") 中或者[官方App](https://www.coolapk.com/apk/org.opengapps.app "官方App") 中下载合适的版本。提供不同 GApps 版本，鼠标置于版本上会悬浮显示该版本信息说明，各版本区别自行了解。然后进入Rec 安装此`*.zip`即可。
+    首先要获取 `.zip` 的 GApps卡刷包，可在 [Open GApps](http://opengapps.org/ "Open GApps") 中或者 [官方App](https://www.coolapk.com/apk/org.opengapps.app "官方App") 中下载合适的版本。提供不同 GApps 版本，鼠标置于版本上会悬浮显示该版本信息说明，各版本区别自行了解。然后进入Rec 安装此 `*.zip` 即可。
 2.  **通过Open GApps App 安装**
     官方 App 中提供一个 Root 的安装方法。
     ![Open GApps App](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/android玩机终极攻略/20201024/1603540287032.png "Open GApps App")
