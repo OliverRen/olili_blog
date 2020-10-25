@@ -35,11 +35,20 @@ grammar_tableExtra: true
 
 [toc]
 
-##### 安装
+* [安装](#%E5%AE%89%E8%A3%85)
+* [主要命令](#%E4%B8%BB%E8%A6%81%E5%91%BD%E4%BB%A4)
+* [crontab相关文件说明](#crontab%E7%9B%B8%E5%85%B3%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E)
+* [crontab的执行](#crontab%E7%9A%84%E6%89%A7%E8%A1%8C)
+* [crontab文件的格式和一些例子](#crontab%E6%96%87%E4%BB%B6%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%92%8C%E4%B8%80%E4%BA%9B%E4%BE%8B%E5%AD%90)
+* [cron的环境变量问题](#cron%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%97%AE%E9%A2%98)
+* [Ubuntu cron开启日志](#ubuntu-cron%E5%BC%80%E5%90%AF%E6%97%A5%E5%BF%97)
+
+
+#### 安装
 
 yum或apt安装即可.
 
-##### 主要命令
+#### 主要命令
 
 - `crontab -u` 指定用户
 - `crontab -l` 查看设定的定时任务
@@ -47,14 +56,14 @@ yum或apt安装即可.
 - `crontab -r` 删除定时任务
 - `crontab [file]` 用指定的文件代替当前的contab设置
 
-##### crontab相关文件说明
+#### crontab相关文件说明
 
 - `/usr/lib/cron/cron.allow` : 表示谁能使用crontab命令。如果它是一个空文件表明没有一个用户能安排作业。
 - `/usr/lib/cron/cron.deny` : 则只有不包括在这个文件中的用户才可以使用crontab命令。如果它是一个空文件表明任何用户都可安排作业。
 
 > 两个文件同时存在时cron.allow优先，如果都不存在，只有超级用户可以安排作业。
 
-##### crontab的执行
+#### crontab的执行
 
 cron服务每分钟读取一次 `/etc/crontab`,该文件设定是系统级别的定时任务
 
@@ -66,7 +75,7 @@ cron启动后每过一份钟读一次这个文件，检查是否要执行里面�
 
 > crontab 是用来让使用者在固定时间或固定间隔执行程序之用，换句话说，也就是类似使用者的时程表。-u user 是指设定指定 user 的时程表，这个前提是你必须要有其权限(比如说是 root)才能够指定他人的时程表。如果不使用 -u user 的话，就是表示设定自己的时程表。
 
-##### crontab文件的格式和一些例子
+#### crontab文件的格式和一些例子
 
 1. 基本格式 : 
 
@@ -117,7 +126,7 @@ M	H	D	m	d	cmd
 `0 4 1 jan * /usr/local/etc/rc.d/lighttpd restart` </br>
 一月一号的4点重启apache
 
-##### cron的环境变量问题
+#### cron的环境变量问题
 
 就算是用户级别的定时任务,由于在运行crontab的时候是non_login方式调用程序的,所以只会加载 `/ect/environment`
 
@@ -137,7 +146,7 @@ M	H	D	m	d	cmd
 3. 如果你实在有些环境变量是针对特定程序的,那么只能是在 cron 任务的脚本中自行 export 来指定环境变量
 
 
-##### Ubuntu cron开启日志
+#### Ubuntu cron开启日志
 
 ubuntu默认没有开启cron日志记录,需要修改 `rsyslog` 来开启
 
@@ -160,4 +169,3 @@ service rsyslog restart
 故意思为将标准输出追加重定向到 /var/log/task.log,同时将错误输出也输出到标准输出,即也输出到log文件
 0 2 * * * task >> /var/log/task.log 2>&1
 ```
-
