@@ -33,6 +33,8 @@ grammar_align: true
 grammar_tableExtra: true
 ---
 
+[toc]
+
 ##### 安装
 
 yum或apt安装即可.
