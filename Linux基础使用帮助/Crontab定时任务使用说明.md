@@ -88,29 +88,29 @@ M	H	D	m	d	cmd
 
 2. crontab文件的一些例子：
 
-`30 21 * * * /usr/local/etc/rc.d/lighttpd restart`
+`30 21 * * * /usr/local/etc/rc.d/lighttpd restart` </br>
 上面的例子表示每晚的21:30重启apache。
 
-`45 4 1,10,22 * * /usr/local/etc/rc.d/lighttpd restart`
+`45 4 1,10,22 * * /usr/local/etc/rc.d/lighttpd restart` </br>
 上面的例子表示每月1、10、22日的4 : 45重启apache。
 
-`10 1 * * 6,0 /usr/local/etc/rc.d/lighttpd restart`
+`10 1 * * 6,0 /usr/local/etc/rc.d/lighttpd restart` </br>
 上面的例子表示每周六、周日的1 : 10重启apache。
 
-`0,30 18-23 * * * /usr/local/etc/rc.d/lighttpd restart`
+`0,30 18-23 * * * /usr/local/etc/rc.d/lighttpd restart` </br>
 上面的例子表示在每天18 : 00至23 : 00之间每隔30分钟重启apache。
 
-`0 23 * * 6 /usr/local/etc/rc.d/lighttpd restart`
+`0 23 * * 6 /usr/local/etc/rc.d/lighttpd restart` </br>
 上面的例子表示每星期六的11 : 00 pm重启apache。
 
-`* */1 * * * /usr/local/etc/rc.d/lighttpd restart`
+`* */1 * * * /usr/local/etc/rc.d/lighttpd restart` </br>
 每一小时重启apache
 
-`* 23-7/1 * * * /usr/local/etc/rc.d/lighttpd restart`
+`* 23-7/1 * * * /usr/local/etc/rc.d/lighttpd restart` </br>
 晚上11点到早上7点之间，每隔一小时重启apache
 
-`0 11 4 * mon-wed /usr/local/etc/rc.d/lighttpd restart`
+`0 11 4 * mon-wed /usr/local/etc/rc.d/lighttpd restart` </br>
 每月的4号与每周一到周三的11点重启apache
 
-`0 4 1 jan * /usr/local/etc/rc.d/lighttpd restart`
+`0 4 1 jan * /usr/local/etc/rc.d/lighttpd restart` </br>
 一月一号的4点重启apache
