@@ -1,5 +1,5 @@
 ---
-title: ipfs简介
+title: IPFS简介
 tags: 小书匠语法
 renderNumberedHeading: true
 grammar_abbr: true
@@ -34,3 +34,5 @@ grammar_tableExtra: true
 ---
 
 [toc]
+
+#### IPFS和IPLD的关系
