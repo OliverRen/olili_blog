@@ -759,6 +759,14 @@ CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只�
 	创建修剪过的快照可以如下方式创建
 	lotus export --skip-old-msgs --recent-stateroots=900 <filename>
 
+
+	缩减目前的lotus已经同步的链数据,其实就是停掉daemon后,把现在的数据全部删除.然后使用可信快照来进行快速导入
+	
+	```
+	lotus daemon stop;
+	rm -rf ~/.lotus/datastore/chain/*
+	lotus daemon --import-snapshot https://fil-chain-snapshots-fallback.s3.amazonaws.com/mainnet/minimal_finality_stateroots_latest.car
+	```
 ---------------------
 
 #### Lotus的配置文件和环境变量
