@@ -736,7 +736,11 @@ CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只�
 	`sudo make install-miner-service` 
 	其他有用的工具包括 `lotus-stats`,`lotus-pcr`,`lotus-health`
 - 开始同步区块可以使用 `lotus sync status` ,  `lotus sync wait` 来查看同步情况
-	需要注意的是目前的区块同步依然是一个比较大的工程,大概实际运行的数据需要1/4的下载同步时间,所以强烈建议通过下载快照来进行同步,[快照地址](https://very-temporary-spacerace-chain-snapshot.s3-us-west-2.amazonaws.com/Spacerace_stateroots_snapshot_latest.car),请直接使用浏览器下载速度会快的多,这个快照每6小时都会进行更新.你可以使用 `lotus daemon --import-snapshot <snapshot>.car` 文件来进行同步数据的导入.
+
+
+
+
+	\[Obsolete\ 这是spacerace时的快照,现在需要遵循下面的说明] 需要注意的是目前的区块同步依然是一个比较大的工程,大概实际运行的数据需要1/4的下载同步时间,所以强烈建议通过下载快照来进行同步,[快照地址](https://very-temporary-spacerace-chain-snapshot.s3-us-west-2.amazonaws.com/Spacerace_stateroots_snapshot_latest.car),请直接使用浏览器下载速度会快的多,这个快照每6小时都会进行更新.你可以使用 `lotus daemon --import-snapshot <snapshot>.car` 文件来进行同步数据的导入.
 	
 	如果不是区块链的浏览器,我们可以使用一个可信的状态快照来进行快速导入,这里不是全部数据
 	\# The snapshot size is about 7GiB. This works for mainnet.
@@ -744,12 +748,16 @@ CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只�
 	\# An alternative is to download first and use the file
 	lotus daemon --import-snapshot <filename.car>
 	
-	
+	全节点 lotus daemon --import-chain https://fil-chain-snapshots-fallback.s3.amazonaws.com/mainnet/complete_chain_with_finality_stateroots_latest.car
 	
 	
 - 区块数据的快照 snapshot
 	`lotus chain export <file>` 导出区块链
-	`lotus daemon --import-snapshot <file>` 导入区块链
+	`lotus daemon --import-snapshot <file>` 无链校对导入区块链
+	`lotus daemon --import-chain <filename>` 从链上校对导入区块链
+	
+	修剪过的快照可以如下方式创建
+	lotus export --skip-old-msgs --recent-stateroots=900 <filename>
 
 ---------------------
 
