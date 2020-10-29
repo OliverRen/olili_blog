@@ -44,7 +44,9 @@ grammar_tableExtra: true
 
 1. libp2p 简介
 
-	libp2p 是一个模块化的网络栈,通过将各种传输和 P2P 协议结合在一起,使得开发人员很容易构建大型,健壮的 P2P 网络. [libp2p.io官网](https://libp2p.io/)
+	在过去的相当长时间里，开发者构建一个p2p网络并不是一件容易的事情。复杂的网络环境、各种各样的通信协议和网络设备的存在使得创建大规模的点对点网络变得复杂并且困难。IPFS团队将点对点(peer-to-peer)网络的网络层从IPFS工程里面分离出来，形成一个独立的项目，这就是libp2p。该项目不仅可以供IPFS使用，也可以提供其它项目使用，作为一个p2p工程的底层协议存在。
+
+	[libp2p.io官网](https://libp2p.io/)
 
 	libp2p 被用作IPFS的网络层,主要负责发现节点,连接节点,发现数据,传输数据.
 
@@ -55,6 +57,12 @@ grammar_tableExtra: true
 	- Peer Routing : 节点路由
 	- NAT Traversal : NAT穿透
 	- Content Routing : 内容路由
+
+	libp2p的主要功能是：
+	- 发现节点
+	- 连接节点
+	- 发现数据
+	- 传输数据
 
 2. libp2p 架构
 
