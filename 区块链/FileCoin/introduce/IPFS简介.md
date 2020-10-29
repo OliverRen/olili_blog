@@ -36,3 +36,11 @@ grammar_tableExtra: true
 [toc]
 
 #### IPFS和IPLD的关系
+
+`IPFS`可以说是`Protocol Labs`下第一个真正的应用,它把 `Multiformats`,`IPLD`,`Libp2p`糅合在了一起.
+
+- Multiformats 用来定义
+- IPLD 用来描述数据
+- Libp2p 用来传输数据
+
+IPFS 是依赖 IPLD 的,是一个数据存储的具体实现.
