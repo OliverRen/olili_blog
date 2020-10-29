@@ -52,7 +52,7 @@ grammar_tableExtra: true
 	- [7.智能合约](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/whitepaper/7.智能合约.md)
 	- [8.未来的工作](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/whitepaper/8.未来的工作.md)
 
-- Protocol Labs的明星项目
+- Protocol Labs的IPFS明星项目家族
 	- [Multiformats简介](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/introduce/Multiformats简介.md)
 	- [IPLD简介](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/introduce/IPLD简介.md)
 	- [libp2p简介](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/introduce/Libp2p简介.md)
