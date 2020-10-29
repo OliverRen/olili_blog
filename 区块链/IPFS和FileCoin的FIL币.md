@@ -756,7 +756,7 @@ CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只�
 	`lotus daemon --import-snapshot <file>` 无链校对导入区块链
 	`lotus daemon --import-chain <filename>` 从链上校对导入区块链
 	
-	修剪过的快照可以如下方式创建
+	创建修剪过的快照可以如下方式创建
 	lotus export --skip-old-msgs --recent-stateroots=900 <filename>
 
 ---------------------
