@@ -58,45 +58,7 @@ grammar_tableExtra: true
     * [交易的gas,fee,limit和cap](#%E4%BA%A4%E6%98%93%E7%9A%84gasfeelimit%E5%92%8Ccap)
     * [使用官方Lotus\-miner执行挖矿的当前热点问题](#%E4%BD%BF%E7%94%A8%E5%AE%98%E6%96%B9lotus-miner%E6%89%A7%E8%A1%8C%E6%8C%96%E7%9F%BF%E7%9A%84%E5%BD%93%E5%89%8D%E7%83%AD%E7%82%B9%E9%97%AE%E9%A2%98)
 
-### Protocol Labs 的明星项目
 
-Protocol Labs 旗下的明星项目,每一个都有其独特的定位和功能.我们就来看一看围绕在 IPFS 和 FileCoin 周围的几个项目,他们分别是 libp2p,IPLD,IPFS,Filecoin.
-
-
-----------------
-
-----------------
-#### IPFS
-- IPLD : 将数据 import 到 ipfs 中组织的协议族
-- Bitswap : 拉取和传输数据区块的协议
-- DHT : A Distributed Hash Table (DHT) 分布式的key-value存储.
-- Gateway : ipfs网络在 http 上的代理接入点
-- multicodec : multihash中被hash的数据是通过multicodec组织的数据
-- multihash : 是一个自描述hash算法后的数据
-
-1. CID </br>
-	CID 有两种版本,可以使用这个工具进行分析 [cid.ipfs.io](https://cid.ipfs.io)
-	- CID v0 : 使用Qm开头的cid,其内容只包含了 multihash,且只会使用base58编码,其内容看起来大概是这样的 </br>
-			`<0><dag-pb><multihash>`
-	- CID v1 : 包含了前缀标识可以向后兼容的cid version,其通过第一个字符来标识编码,`b`表示base32,`z`表示base58,`f`表示base16,这个base字符叫做 multibase table [multibase](https://github.com/multiformats/multibase).其内容看起来像这样 </br>
-		Binary : `<cid-version><ipld-format><multihash>` </br>
-		String : `<base>base(<cid-version><ipld-format><multihash>)`
-		
-2. 将文件加入到ipfs </br>
-	首先会对要加入的文件内容进行 chunk 分块,并组成dag的形式,然后从叶子节点开始一层一层往上计算cid直到最终的根节点,可以使用这个工具进行分析 [dag.ipfs.io](https://dag.ipfs.io/)
-
-	chunk 可以有 `平均分割法`和`smart变长分割法(rabin方式)`, rabin方式会使用16byte的滑动窗口来计算,使得块大小分布在一个平均值形成正太分布,这样可以使得内容的修改仅仅知会影响修改的块
-	
-3. 客户端 </br>
-	使用 go-ipfs 的cli或者是 ipfs-desktop 的 windows客户端都可以,使用 ipfs-update进行更新,或者在更新了程序后使用 `ipfs daemon`进行数据升级迁移.
-	
-4. IPNS和DNSLink </br>	
-	IPNS是使用 `ipfs name pushlish CID`来创建一个对特定内容 ipfs-path 的指向 </br>
-	DNSLink是直接使用dns的txt记录来实现的.即将对一个域名的访问,改为 dnslink=/ipfs/Cid 的访问 </br>
-	`my-dns-tool set --type=TXT --ttl=60 --domain=libp2p.io --name=_dnslink --value="dnslink=/ipfs/Qmc2o4ZNtbinEmRF9UGouBYTuiHbtCSShMFRbBY5ZiZDmU"`
-
-----------------
-----------------
 
 ### FileCoin 初步理解
 
