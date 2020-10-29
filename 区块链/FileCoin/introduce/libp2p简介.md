@@ -1,5 +1,5 @@
 ---
-title: libp2p简介
+title: Libp2p简介
 tags: 小书匠语法
 renderNumberedHeading: true
 grammar_abbr: true
