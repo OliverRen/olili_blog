@@ -738,7 +738,7 @@ CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只�
 - 开始同步区块可以使用 `lotus sync status` ,  `lotus sync wait` 来查看同步情况
 
 
-
+	[doc 通过lotus 同步区块链](https://docs.filecoin.io/get-started/lotus/chain/#syncing)
 
 	\[Obsolete\ 这是spacerace时的快照,现在需要遵循下面的说明] 需要注意的是目前的区块同步依然是一个比较大的工程,大概实际运行的数据需要1/4的下载同步时间,所以强烈建议通过下载快照来进行同步,[快照地址](https://very-temporary-spacerace-chain-snapshot.s3-us-west-2.amazonaws.com/Spacerace_stateroots_snapshot_latest.car),请直接使用浏览器下载速度会快的多,这个快照每6小时都会进行更新.你可以使用 `lotus daemon --import-snapshot <snapshot>.car` 文件来进行同步数据的导入.
 	
