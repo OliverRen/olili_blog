@@ -37,6 +37,7 @@ grammar_tableExtra: true
 
 - [Protocol_Labs协议实验室简介](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/introduce/Protocol_Labs协议实验室简介.md)
 - [Filecoin网络的价值定位以及工作流程](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/introduce/Filecoin网络的价值定位以及工作流程.md)
+- [2020-09-04Filecoin经济结构问答](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/introduce/2020-09-04Filecoin经济结构问答.md)
 
 ------------------------
 
