@@ -1093,6 +1093,8 @@ Variables specific to the _Lotus daemon_
 		make install-miner-service
 		# 其他有用的工具包括 `lotus-stats`,`lotus-pcr`,`lotus-health`,`lotus-shed`
 		make lotus-stats lotus-pcr lotus-health lotus-shed
+		
+		make install install-all-services lotus-shed
 		```
 	- 启动 daemon `systemctl start lotus-daemon`	
 	- 启动 miner `systemctl start lotus-miner`
