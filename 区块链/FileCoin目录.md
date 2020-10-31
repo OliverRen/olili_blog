@@ -41,6 +41,7 @@ grammar_tableExtra: true
 - [2020-08-27-engineering-filecoins-economy-zh-cn-缔造Filecoin经济](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/introduce/2020-08-27-engineering-filecoins-economy-zh-cn-缔造Filecoin经济.md)
 - [Filecoin基线标准调整影响](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/introduce/Filecoin基线标准调整影响.md)
 - [Filecoin浅谈数据合规](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/introduce/Filecoin浅谈数据合规.md)
+- [Filecoin期货交易风险分析](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/introduce/Filecoin期货交易风险分析.md)
 
 ------------------------
 
