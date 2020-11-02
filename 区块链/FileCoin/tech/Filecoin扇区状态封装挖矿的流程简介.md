@@ -131,10 +131,10 @@ startCC begin
 主要是GPU运算进行压缩P1计算出的merkel树得到root根,这里需要计算8层, gpu+cpu all core+disk 16.18\*32g写入seal 时间也差不多根据cpu+gpu,最快25min,最长35min
 
 `[PreCommitting(PreCommitFailed)]`
-发送交易 Method:PreCommitSector 需要等待交易确认,主要看 lotus-daemon.忽略不计
+发送交易 Method:PreCommitSector 把P2计算得到的默克尔树的根提交上链,以此证明矿机的加密能力和已经完成了扇区密封的复制证明,需要等待交易确认,主要看 lotus-daemon.忽略不计
 
 `[WaitSeed]`
-强制等待150epoch大约75分钟 wait seed,需要等待这个将来的高度获取随机数seed作为种子
+强制等待150epoch大约75分钟 wait seed,需要等待这个将来的高度获取随机数seed作为种子,通过零知识证明来抽查P2密封的扇区内文件碎片是否真的存储了.
 
 `[(ComputeProofFailed)]`
 需要CPU执行一些hash运算 
