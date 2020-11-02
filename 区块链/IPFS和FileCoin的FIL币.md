@@ -896,6 +896,17 @@ Variables specific to the _Lotus daemon_
 
 	测试
 	`./lotus-bench sealing --sector-size=2KiB`
+	
+	
+	
+	
+	服务器中有多个GPU，选择特定的GPU运行程序可在程序运行命令前使用：CUDA_VISIBLE_DEVICES=0命令。0为服务器中的GPU编号，可以为0, 1, 2, 3等，表明对程序可见的GPU编号。
+可以和CPU亲和一样,用逗号隔开
+	
+	
+	
+	
+	
 
 6. 执行挖矿必须要有 BLS 钱包,即 t3 开头的钱包,默认的创建的 spec256k1 是 t1开头的.
 
