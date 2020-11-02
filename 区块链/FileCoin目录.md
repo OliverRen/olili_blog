@@ -63,6 +63,7 @@ grammar_tableExtra: true
 	- [IPLD简介](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/introduce/IPLD简介.md)
 	- [libp2p简介](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/introduce/Libp2p简介.md)
 	- [ipfs简介](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/introduce/IPFS简介.md)
+	- [Filecoin简介](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/introduce/Filecoin简介.md)
 
 - 技术文档
 	- [Filecoin扇区状态封装挖矿的流程简介](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/tech/Filecoin扇区状态封装挖矿的流程简介.md)
