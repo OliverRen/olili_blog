@@ -140,7 +140,7 @@ startCC begin
 需要CPU执行一些hash运算 
 
 `[Commiting(CommitFailed)]`
-主要还是CPU+GPU执行运算,验证需要的文件中的值,gpu+cpu all core,期望时间在1.5H,一般不会超过2H
+主要还是CPU+GPU执行运算,抽出对应文件碎片,计算出到默克尔根的文件路径,验证需要的文件中的值,gpu+cpu all core,期望时间在1.5H,一般不会超过2H
 
 `[CommitWait]`
 等待,提交c2计算的根,以证明文件的确被存储着
