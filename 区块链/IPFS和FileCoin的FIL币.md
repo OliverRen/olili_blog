@@ -35,32 +35,7 @@ grammar_tableExtra: true
 
 [toc]
 
-  * [Protocol Labs 的明星项目](#protocol-labs-%E7%9A%84%E6%98%8E%E6%98%9F%E9%A1%B9%E7%9B%AE)
-    * [libp2p](#libp2p)
-    * [IPLD](#ipld)
-    * [IPFS](#ipfs)
-  * [FileCoin 初步理解](#filecoin-%E5%88%9D%E6%AD%A5%E7%90%86%E8%A7%A3)
-  * [Fileoin的基础术语](#fileoin%E7%9A%84%E5%9F%BA%E7%A1%80%E6%9C%AF%E8%AF%AD)
-  * [矿机硬件问题](#%E7%9F%BF%E6%9C%BA%E7%A1%AC%E4%BB%B6%E9%97%AE%E9%A2%98)
-  * [显卡驱动和cuda加速](#%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8%E5%92%8Ccuda%E5%8A%A0%E9%80%9F)
-  * [FileCoin的技术学习记录](#filecoin%E7%9A%84%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95)
-    * [推荐的学习路径文档列表](#%E6%8E%A8%E8%8D%90%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84%E6%96%87%E6%A1%A3%E5%88%97%E8%A1%A8)
-    * [使用Lotus接入测试网络即同步数据](#%E4%BD%BF%E7%94%A8lotus%E6%8E%A5%E5%85%A5%E6%B5%8B%E8%AF%95%E7%BD%91%E7%BB%9C%E5%8D%B3%E5%90%8C%E6%AD%A5%E6%95%B0%E6%8D%AE)
-    * [Lotus的配置文件和环境变量](#lotus%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%92%8C%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F)
-    * [Lotus客户端的使用](#lotus%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%9A%84%E4%BD%BF%E7%94%A8)
-    * [Lotus\-miner 官方工具挖矿](#lotus-miner-%E5%AE%98%E6%96%B9%E5%B7%A5%E5%85%B7%E6%8C%96%E7%9F%BF)
-    * [Lotus\-miner 官方工具挖矿进阶设置](#lotus-miner-%E5%AE%98%E6%96%B9%E5%B7%A5%E5%85%B7%E6%8C%96%E7%9F%BF%E8%BF%9B%E9%98%B6%E8%AE%BE%E7%BD%AE)
-    * [Lotus mine 抵押扇区](#lotus-mine-%E6%8A%B5%E6%8A%BC%E6%89%87%E5%8C%BA)
-    * [Lotus miner seal worker](#lotus-miner-seal-worker)
-    * [同时运行 miner 和 worker的CPU分配](#%E5%90%8C%E6%97%B6%E8%BF%90%E8%A1%8C-miner-%E5%92%8C-worker%E7%9A%84cpu%E5%88%86%E9%85%8D)
-    * [Lotus miner 故障排除](#lotus-miner-%E6%95%85%E9%9A%9C%E6%8E%92%E9%99%A4)
-    * [Lotus miner 管理交易](#lotus-miner-%E7%AE%A1%E7%90%86%E4%BA%A4%E6%98%93)
-    * [交易的gas,fee,limit和cap](#%E4%BA%A4%E6%98%93%E7%9A%84gasfeelimit%E5%92%8Ccap)
-    * [使用官方Lotus\-miner执行挖矿的当前热点问题](#%E4%BD%BF%E7%94%A8%E5%AE%98%E6%96%B9lotus-miner%E6%89%A7%E8%A1%8C%E6%8C%96%E7%9F%BF%E7%9A%84%E5%BD%93%E5%89%8D%E7%83%AD%E7%82%B9%E9%97%AE%E9%A2%98)
-
-
-
-### FileCoin 初步理解
+ ### FileCoin 初步理解
 
 Filecoin作为去中心化存储网络的激励和验证机制,矿工是整个网络的主要参与者,也是网络运营和维护者.所有去中心化网络的前提假设都是节点是自私的,理性的,因为只有基于这样的假设设计的机制才能保证网络的稳定性.在这样的假设下Filecoin利用期望共识(Expectation Consensus)保证区块链网络的共识,利用复制证明(Proof of Replication)和时空证明(Proof of Spacetime)保证了自私矿工的理性决策是做诚实的节点,即只有诚实的行为才能保证收益的最大化.
 
