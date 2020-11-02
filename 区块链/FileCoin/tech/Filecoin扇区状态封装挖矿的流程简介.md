@@ -140,7 +140,7 @@ startCC begin
 需要CPU执行一些hash运算 
 
 `[Commiting(CommitFailed)]`
-主要还是CPU+GPU执行运算,抽出对应文件碎片,计算出到默克尔根的文件路径,验证需要的文件中的值,gpu+cpu all core,期望时间在1.5H,一般不会超过2H
+主要还是CPU+GPU执行运算,抽出对应文件碎片,计算出到默克尔根的文件路径,验证需要的文件中的值,gpu+cpu all core,期望时间在1.5H,一般不会超过2H,PS当然这里的时间有出入.根据最快的计算可能c1只要数十秒,c2需要25分钟即可.不过就算1.5h也不是主要耗时操作.
 
 `[CommitWait]`
 等待,提交c2计算的根,以证明文件的确被存储着
@@ -148,7 +148,7 @@ startCC begin
 `[Method:ProveCommitSector]`发送交易 需要等待交易确认
 
 `[FinalizeSector(FinalizeFailed)]`
-完成后会把seal中的磁盘擦除,写入storage
+完成后会把seal中的磁盘擦除,写入storage,扇区密封结束
 
 `[Proving]`
 PoRep
