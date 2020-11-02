@@ -43,6 +43,7 @@ grammar_tableExtra: true
 - [Filecoin浅谈数据合规](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/introduce/Filecoin浅谈数据合规.md)
 - [Filecoin期货交易风险分析](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/introduce/Filecoin期货交易风险分析.md)
 - [Filecoin与IPFS的关系](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/introduce/Filecoin与IPFS的关系.md)
+- [FIlecoin矿机矿场矿池和云算力的区别与关系](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/introduce/FIlecoin矿机矿场矿池和云算力的区别与关系.md)
 
 ------------------------
 
