@@ -91,9 +91,9 @@ grammar_tableExtra: true
 
 2. 流程说明
 
-- 首先在 `lotus-miner sectors pledge` 执行后会执行 incoming deal 过程,这个时间可以进行配置.
+`[Handle Deal]`
+首先在 `lotus-miner sectors pledge` 执行后会执行 incoming deal 过程,这个时间可以进行配置.
 
-{
 `[Empty]`
 startCC begin 
 
@@ -128,7 +128,6 @@ startCC begin
 
 `[Proving]`
 PoRep
-}
 
 3. lotus bench mark result:
 
