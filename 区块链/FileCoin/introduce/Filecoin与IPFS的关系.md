@@ -45,7 +45,7 @@ IPFS和Filecoin都是由协议实验室打造的明星项目，IPFS是一种点�
 
 ![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Filecoin与IPFS的关系/2020112/1604309931694.png)
 
-Filecoin是一个基于IPFS的去中心化存储网络，是IPFS上唯一的激励层，是一个基于区块链技术发行的通证。在FIlecoin网络中的矿工可以通过为客户提供存储和检索服务来获取FIL。相反的，客户可以通过花费FIL雇佣矿工来存储或分发数据。
+Filecoin是一个基于IPFS的去中心化存储网络，是IPFS上唯一的激励层，和IPFS是一对互补协议，并具有显著的交叉兼容性。Filecoin 是一个基于区块链技术发行的通证。在FIlecoin网络中的矿工可以通过为客户提供存储和检索服务来获取FIL。相反的，客户可以通过花费FIL雇佣矿工来存储或分发数据。
 
 ![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Filecoin与IPFS的关系/2020112/1604309945276.png)
 
