@@ -33,17 +33,27 @@ grammar_align: true
 grammar_tableExtra: true
 ---
 
-#### 交易的gas,fee,limit和cap
+**BaseFee**
 
-BaseFee:单位为 attoFIL / gas ,指定了单位gas消耗的 FIL 数量.故每个消息消耗的代币为 BaseFee * GasUsed. 该值根据网络阻塞参数即块大小来自动更新,可以通过命令 `lotus chain head | xargs lotus chain getblock | jq -r .ParentBaseFee` 获取.
+单位为 attoFIL / gas ,指定了单位gas消耗的 FIL 数量.故每个消息消耗的代币为 BaseFee * GasUsed. 
+
+该值根据网络阻塞参数即块大小来自动更新,可以通过命令 `lotus chain head | xargs lotus chain getblock | jq -r .ParentBaseFee` 获取.
 
 消息的发送方还有如下可以设置的参数
 
-GasLimit: gas的数量,指定可以消耗的gas量的上限,如果gas被消耗完,消息将失败,所有操作状态会还原.而矿工的奖励以 GasLimit * GasPremium 计
+**GasLimit**
 
-GasPremium : 以 attoFIL / gas 为单位,表示矿工通过包含该消息可以获得报酬,一般是 GasLimit * GasPremium , 不是 GasUsed 而是 GasLimit, 所以预估准gaslimit也很重要,否则就会有 over estimation burn的预估超出的额外手续费燃烧.
+gas的数量,指定可以消耗的gas量的上限,如果gas被消耗完,消息将失败,所有操作状态会还原.而矿工的奖励以 GasLimit * GasPremium 计
 
-GasFeeCap : 以 attoFIL / gas 为单位,是发送方对消息设置一个花费的天花板.一条消息的总花费为 GasPremium + BaseFee.由于给矿工的赏金 GasPremium 是发送方自己设置的,所以 GasFeeCap本质上用来防止意外的高额 BaseFee
+**GasPremium**
+
+以 attoFIL / gas 为单位,表示矿工通过包含该消息可以获得报酬,一般是 GasLimit * GasPremium , 不是 GasUsed 而是 GasLimit, 所以预估准gaslimit也很重要,否则就会有 over estimation burn的预估超出的额外手续费燃烧.
+
+**GasFeeCap**
+
+以 attoFIL / gas 为单位,是发送方对消息设置一个花费的天花板.一条消息的总花费为 GasPremium + BaseFee.由于给矿工的赏金 GasPremium 是发送方自己设置的,所以 GasFeeCap本质上用来防止意外的高额 BaseFee
+
+------------------
 
 如果BaseFee + GasPremium大于消息的GasFeeCap，则矿工的奖励为GasLimit \*（GasFeeCap-BaseFee）。请注意，如果消息的GasFeeCap低于BaseFee，则矿工出作为罚款.
 
