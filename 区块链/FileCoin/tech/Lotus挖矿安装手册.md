@@ -383,7 +383,7 @@ lotus benchmark result
 | 63166446 | window post hot | 0.06S |
 | 6744654407 | window post cold | 6.74S |
 
-#### 矿工钱包,分开 owner 地址和 worker 地址,为 windowPoSt设置单独的 control 地址.
+##### 矿工钱包,分开 owner 地址和 worker 地址,为 windowPoSt设置单独的 control 地址.
 
 矿工钱包可以配置为由几个账户组成,可以使用命令 `lotus-miner actor control list` 查看, 在矿工的init过程中,filecoin网络会给该矿工初始化一个 ==t0== 开头的表示账户id叫做 actor ,actor负责收集所有发送到矿工的币.
 	- owner 地址,设计成尽可能离线冷钱包的形式.
@@ -412,7 +412,7 @@ control地址是用来提交 WindowPoSt证明的,由于这些证明是提交的�
 
 `lotus-miner info` 其中 miner 可用余额可以通过 `lotus-miner actor withdraw <amount>` 提取.
 
-4. Lotus Miner 配置参考
+##### Lotus Miner 配置参考
 
 	Lotus Miner配置是在初始化 init 步骤之后的,其位置是 `$LOTUS_MINER_PATH/config.toml`, 其默认值是 `~/.lotusminer/config.toml`. 必须重新启动矿机即miner服务才可以使配置生效.
 
