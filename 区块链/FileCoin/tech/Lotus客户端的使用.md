@@ -96,3 +96,45 @@ grammar_tableExtra: true
 	 --data '{ "jsonrpc":"2.0", "method":"Filecoin.ChainHead", "params":[], "id":3 }' \
 	 'http://127.0.0.1:1234/rpc/v0'
 	```
+	
+#### 使用Lotus存储数据
+
+术语解释 CAR文件 : [Specification : Content Addressable aRchives](https://github.com/ipld/specs/blob/master/block-layer/content-addressable-archives.md)
+
+- 数据必须打包到一个CAR文件中,这里可以使用以下命令
+	
+	`lotus client generate-car <input path> <output path>` </br>
+	`lotus client import <file path>`
+	
+- 列出本地已经导入或者创建car的文件
+	
+	`lotus client local`
+	
+- 数据必须切割到指定的扇区大小,如果你自己创建了car文件,确保使用--czr标志来进行导入	
+- 查询矿工,询问价格,开始存储交易(在线交易)
+	
+	`lotus state list-miners` </br>
+	`lotus client query-ask <miner>` </br>
+	`lotus client deal` 
+	
+- 扇区文件可以存储的容量,首先计算使用的是1024而不是1000,同时对于每256位 bits,需要保留2位作为证明之需.即32GB的sector可以存储的容量是 2^30\*254\/256 字节
+- 离线交易,生成car,然后生成对应所选矿工的piece块的CID,然后提出离线交易
+	
+	`lotus client generate-car <input path>	<output path>` </br>
+	`client commP <inputCAR filepath> <miner>` </br>
+	`lotus client deal --manual-piece-cid=CID --manual-piece-size=datasize <Data CID> <miner> <piece> <duration>` </br>
+	`lotus-miner deals import-data <dealCID> <filepath>`
+	
+- 从IPFS中导入数据,首先需要在lotus配置中打开 UseIpfs,然后可以直接将ipfs中的文件进行在线交易
+	
+	`lotus client deal QmSomeData t0100 0 100`
+	
+#### 使用Lotus检索交易
+
+- 查询自己的数据被哪些矿工存储
+	
+	`lotus client find <Data CID>`
+	
+- 进行检索交易
+	
+	`lotus client retrieve <Data CID> <out file>`
