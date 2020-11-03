@@ -127,32 +127,26 @@ grammar_tableExtra: true
 	`sudo make install-chainwatch-service`
 	`sudo make install-miner-service` 
 	其他有用的工具包括 `lotus-stats`,`lotus-pcr`,`lotus-health`
-- 开始同步区块可以使用 `lotus sync status` ,  `lotus sync wait` 来查看同步情况
+- 运行daemon后开始同步区块,可以使用 `lotus sync status` ,  `lotus sync wait` 来查看同步情况.
 
+	这里通过文件导入区块链快照的部分进行了更新 [doc 通过lotus 同步区块链](https://docs.filecoin.io/get-started/lotus/chain/#syncing)
 
-	[doc 通过lotus 同步区块链](https://docs.filecoin.io/get-started/lotus/chain/#syncing)
+	如果不是区块链的浏览器,我们可以使用一个可信的状态快照来进行快速导入,这里不是全部数据,这个文件大概都是7GB大小,可以很快开始工作,并且是定时可以重置lotus节点的,国内由于网络问题,建议下载好后进行导入,否则会花费非常多的时间
+	
+	`lotus daemon --import-snapshot https://fil-chain-snapshots-fallback.s3.amazonaws.com/mainnet/minimal_finality_stateroots_latest.car`
+	
+	如果一定需要全节点,比如说要做一个区块链浏览器的,那么你只能通过全节点进行导入了
+	
+	`lotus daemon --import-chain https://fil-chain-snapshots-fallback.s3.amazonaws.com/mainnet/complete_chain_with_finality_stateroots_latest.car`
+	
+- 区块数据的快照 snapshot 管理
 
-	\[Obsolete\ 这是spacerace时的快照,现在需要遵循下面的说明] 需要注意的是目前的区块同步依然是一个比较大的工程,大概实际运行的数据需要1/4的下载同步时间,所以强烈建议通过下载快照来进行同步,[快照地址](https://very-temporary-spacerace-chain-snapshot.s3-us-west-2.amazonaws.com/Spacerace_stateroots_snapshot_latest.car),请直接使用浏览器下载速度会快的多,这个快照每6小时都会进行更新.你可以使用 `lotus daemon --import-snapshot <snapshot>.car` 文件来进行同步数据的导入.
-	
-	如果不是区块链的浏览器,我们可以使用一个可信的状态快照来进行快速导入,这里不是全部数据
-	\# The snapshot size is about 7GiB. This works for mainnet.
-	lotus daemon --import-snapshot https://fil-chain-snapshots-fallback.s3.amazonaws.com/mainnet/minimal_finality_stateroots_latest.car
-	\# An alternative is to download first and use the file
-	lotus daemon --import-snapshot <filename.car>
-	
-	全节点 lotus daemon --import-chain https://fil-chain-snapshots-fallback.s3.amazonaws.com/mainnet/complete_chain_with_finality_stateroots_latest.car
-	
-	
-- 区块数据的快照 snapshot
-	`lotus chain export <file>` 导出区块链
-	`lotus daemon --import-snapshot <file>` 无链校对导入区块链
-	`lotus daemon --import-chain <filename>` 从链上校对导入区块链
-	
-	创建修剪过的快照可以如下方式创建
-	lotus export --skip-old-msgs --recent-stateroots=900 <filename>
+	- `lotus chain export <file>` 导出区块链
+	- `lotus daemon --import-snapshot <file>` 无链校对导入区块链
+	- `lotus daemon --import-chain <filename>` 从链上校对导入区块链
+	- `lotus export --skip-old-msgs --recent-stateroots=900 <filename>` 创建修剪过的快照可以如下方式创建
 
-
-	缩减目前的lotus已经同步的链数据,其实就是停掉daemon后,把现在的数据全部删除.然后使用可信快照来进行快速导入
+- 缩减目前的lotus已经同步的链数据,其实就是停掉daemon后,把现在的数据全部删除.然后使用可信快照来进行快速导入,上面也提到了这个7GB的快照是可以反复重置lotus节点的
 	
 	```
 	lotus daemon stop;
