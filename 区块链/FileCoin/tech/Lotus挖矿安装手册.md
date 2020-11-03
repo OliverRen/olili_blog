@@ -383,34 +383,34 @@ lotus benchmark result
 | 63166446 | window post hot | 0.06S |
 | 6744654407 | window post cold | 6.74S |
 
-3. 矿工钱包,分开 owner 地址和 worker 地址,为 windowPoSt设置单独的 control 地址.
+#### 矿工钱包,分开 owner 地址和 worker 地址,为 windowPoSt设置单独的 control 地址.
 
-	矿工钱包可以配置为由几个账户组成,可以使用命令 `lotus-miner actor control list` 查看, 在矿工的init过程中,filecoin网络会给该矿工初始化一个 ==t0== 开头的表示账户id叫做 actor ,actor负责收集所有发送到矿工的币.
-		- owner 地址,设计成尽可能离线冷钱包的形式.
-		- worker 地址,生产环境中热钱包地址,强烈建议 owner地址和worker地址分开.
-		- control 地址
+矿工钱包可以配置为由几个账户组成,可以使用命令 `lotus-miner actor control list` 查看, 在矿工的init过程中,filecoin网络会给该矿工初始化一个 ==t0== 开头的表示账户id叫做 actor ,actor负责收集所有发送到矿工的币.
+	- owner 地址,设计成尽可能离线冷钱包的形式.
+	- worker 地址,生产环境中热钱包地址,强烈建议 owner地址和worker地址分开.
+	- control 地址
 
-	owner是在矿工初始化的时候设置的,只有如下几个场景需要用到owner地址
-		- 改变矿工actor的worker地址.
-		- 从矿工actor提取代币
-		- 提交 WindowPoSt,如果设置了单独的control地址且有余额的情况下是会使用control地址的.
+owner是在矿工初始化的时候设置的,只有如下几个场景需要用到owner地址
+	- 改变矿工actor的worker地址.
+	- 从矿工actor提取代币
+	- 提交 WindowPoSt,如果设置了单独的control地址且有余额的情况下是会使用control地址的.
 
-	worker地址是矿工每日的工作中使用的:
-		- 初始化矿工
-		- 修改矿工的peer id和multiaddresses
-		- 与市场和支付渠道交互
-		- 对新区块进行签名
-		- 提交证明,声明错误,当control和owner都不能提交的时候也会用worker的余额来提交 WindowPoSt
+worker地址是矿工每日的工作中使用的:
+	- 初始化矿工
+	- 修改矿工的peer id和multiaddresses
+	- 与市场和支付渠道交互
+	- 对新区块进行签名
+	- 提交证明,声明错误,当control和owner都不能提交的时候也会用worker的余额来提交 WindowPoSt
 
-	control地址是用来提交 WindowPoSt证明的,由于这些证明是提交的消息交易,所以是需要手续费的.但是这个消息比较特殊,因为消减的存在所以提交 WindowPoSt的消息是非常的高价值的.所以使用单独的Control地址来提交这些消息可以避免队首阻塞问题,因为这里也有nonce的概念.control地址可以设置多个.第一个有余额的地址就会被用来提交 WindowPoSt.
+control地址是用来提交 WindowPoSt证明的,由于这些证明是提交的消息交易,所以是需要手续费的.但是这个消息比较特殊,因为消减的存在所以提交 WindowPoSt的消息是非常的高价值的.所以使用单独的Control地址来提交这些消息可以避免队首阻塞问题,因为这里也有nonce的概念.control地址可以设置多个.第一个有余额的地址就会被用来提交 WindowPoSt.
 
-	`lotus-miner actor control set --really-do-it t3defg...`
-	`lotus state wait-msg bafy2..`
-	`lotus-miner actor control list`
+`lotus-miner actor control set --really-do-it t3defg...`
+`lotus state wait-msg bafy2..`
+`lotus-miner actor control list`
 
-	==管理余额==
+==管理余额==
 
-	`lotus-miner info` 其中 miner 可用余额可以通过 `lotus-miner actor withdraw <amount>` 提取.
+`lotus-miner info` 其中 miner 可用余额可以通过 `lotus-miner actor withdraw <amount>` 提取.
 
 4. Lotus Miner 配置参考
 
