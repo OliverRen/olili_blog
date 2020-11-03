@@ -75,6 +75,7 @@ grammar_tableExtra: true
 	- [Filecoin经济](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/tech/Filecoin经济.md)
 	- [显卡驱动和cuda加速](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/tech/显卡驱动和cuda加速.md)
 	- [Lotus挖矿安装手册](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/tech/Lotus挖矿安装手册.md)
+	- [Lotus客户端的使用](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/tech/Lotus客户端的使用.md)
 	- [Filecoin扇区状态封装挖矿的流程简介](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/tech/Filecoin扇区状态封装挖矿的流程简介.md)
 
 - 扩展阅读
