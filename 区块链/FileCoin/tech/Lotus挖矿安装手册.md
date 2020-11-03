@@ -155,7 +155,7 @@ grammar_tableExtra: true
 	rm -rf ~/.lotus/datastore/chain/*
 	lotus daemon --import-snapshot https://fil-chain-snapshots-fallback.s3.amazonaws.com/mainnet/minimal_finality_stateroots_latest.car
 	```
-	
+
 ---------------------
 
 #### Lotus的配置文件和环境变量
@@ -188,9 +188,7 @@ Variables specific to the _Lotus daemon_
 
 #### Lotus-miner 官方工具挖矿
 
-20200930 update
-
-1. 按照上述文档完整的安装了 Lotus 套件,并且使用 `lotus daemon` 完成 FileCoin 网络的同步,在中国必须要设置好 go的代理参数和 ipfs代理网关.
+1. 按照上述文档完整的安装了 Lotus 套件,并且使用 `lotus daemon` 完成 FileCoin 网络的同步,在中国必须要设置好 go的代理参数和 ipfs代理网关.如果 lotus daemon 和 lotus-miner 不是同一台机器,切记需要根据 Lotus客户端的使用 所述,将 lotus daemon 监听改在局域网段,然后创建 admin 权限的 json-rpc token 来让 lotus-miner 使用
 
 2. 设置性能参数环境变量,切记 systemd 服务要单独在服务配置文件中设置
 	``` shell
