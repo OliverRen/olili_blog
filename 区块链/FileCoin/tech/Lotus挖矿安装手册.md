@@ -111,6 +111,8 @@ grammar_tableExtra: true
 	```	
 8. lotus的中国ipfs代理 `IPFS_GATEWAY="https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/"`,或者有良好的网络的时候,也可以使用本地的ipfs节点
 
+------------------------------------------
+
 #### 编译安装lotus挖矿软件
 
 - 使用git克隆lotus库
@@ -181,7 +183,7 @@ Variables specific to the _Lotus daemon_
 
 不过最推荐的还是注册成 systemd 服务的方式来进行管理, systemd 加载的环境变量全局文件是 `/etc/systemd/system.conf` 和 `/etc/systemd/user.conf` 中,不过一般都会通过服务注册在 `/etc/systemd/system`下文件中的 `Environment` 来进行配置.如果担心更新lotus重新编译或者执行安装的时候覆盖掉了,可以使用 `systemctl edit service` 来创建 `conf.d/override.conf` 中进行配置
 
----------------------
+-----------------------
 
 #### Lotus客户端的使用
 
