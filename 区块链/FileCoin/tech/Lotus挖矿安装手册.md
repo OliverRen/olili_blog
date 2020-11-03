@@ -35,24 +35,18 @@ grammar_tableExtra: true
 
 [toc]
 
+本文初次编写为参与 SpaceRace,后在主网上线后做过更新
 
+网络信息 [Network Info](https://network.Filecoin.io)
 
+删除测试网络的水龙地址 主网已经没有水龙头了
 
+#### 准备工作
 
-
-
-
-
-
-
-
-
-#### 使用Lotus接入测试网络即同步数据
-
-- 测试网络信息 [Network Info](https://network.Filecoin.io/#testnet)
-- 测试网络的水龙地址 [testnet Filecoin faucet](https://spacerace.faucet.glif.io/)
-- apt源选网易或者阿里
-- 安装好git后需要设置本地代理	
+1. APT源更新为网易或阿里云
+2. `sudo apt update && sudo apt install mesa-opencl-icd ocl-icd-opencl-dev gcc git bzr jq pkg-config curl clang llvm -y && sudo apt upgrade -y`
+3. 设置git代理,如果有代理的话
+	
 	```
 	git config --gloabl http.proxy=http://xxx:1080
 	git config --global https.proxy=http://xxx:1080
@@ -60,22 +54,23 @@ grammar_tableExtra: true
 	git config --global --unset http.proxy
 	git config --global --unset https.proxy
 	```
-- ubuntu 的系统要求	
-	`sudo apt update && sudo apt install mesa-opencl-icd ocl-icd-opencl-dev gcc git bzr jq pkg-config curl -y && sudo apt upgrade -y`
-- lotus堆rust得依赖,需要 cargo 和 rustc 	
+4. lotus对rust得依赖,需要 cargo 和 rustc 	
+	
 	`snap install rustup` or
 	`rustup install stable` or
 	`rustup default stable`
-- cargo配置代理	
+
+5. cargo配置代理 或配置代理
 	
 	cargo在编译时需要下载,在 `/home/.cargo`创建config文件,其实使用了sudo会在 /root下,cargo在编译的时候也需要下载,config文件中可以指定代理项,或者也可以直接使用国内镜像的方式
+	
 	``` cargo.config
 	[http]
 	proxy = "172.16.0.25:1081"
 	[https]
 	proxy = "172.16.0.25:1081"
 	```	
-- 或者对 cargo 配置国内镜像	
+
 	``` shell
 	# 安环境变量 设置环境变量 RUSTUP_DIST_SERVER(用于更新 toolchain)
 	export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static
@@ -100,8 +95,10 @@ grammar_tableExtra: true
 	[source.rustcc]
 	registry = "https://code.aliyun.com/rustcc/crates.io-index.git"
 	```	
-- lotus 对 golang 得依赖,我们使用golang官网的下载解压方式,需要安装 go 1.14及以上的版本
-- GO的代理	
+
+6. lotus 对 golang 得依赖,我们使用golang官网的下载解压方式,需要安装 go 1.14及以上的版本
+7. GO的代理	
+
 	```	shell
 	go env -w GO111MODULE=on
 	go env -w GOPROXY=https://goproxy.io,direct
@@ -112,10 +109,10 @@ grammar_tableExtra: true
 	# 设置不走 proxy 的私有组织(可选)
 	go env -w GOPRIVATE=example.com/org_name
 	```	
-- 服务器需要安装clang,llvm	,否则在编译lotus的时候会出现 llvm-config 找不到文件的问题
-	`sudo apt isntall clang`
-	`sudo apt install llvm`
-- lotus的中国ipfs代理 `IPFS_GATEWAY="https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/"`,或者有良好的网络的时候,也可以使用本地的ipfs节点
+8. lotus的中国ipfs代理 `IPFS_GATEWAY="https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/"`,或者有良好的网络的时候,也可以使用本地的ipfs节点
+
+#### 编译安装lotus挖矿软件
+
 - 使用git克隆lotus库
 	`git clone https://github.com/Filecoin-project/lotus.git`
 - 对支持 SHA 扩展指令的cpu使用环境变量标记 rust FFI [Native Filecoin FFI section](https://docs.Filecoin.io/get-started/lotus/installation/#native-Filecoin-ffi)
