@@ -115,7 +115,7 @@ grammar_tableExtra: true
 
 #### 编译安装lotus挖矿软件
 
-- 使用git克隆lotus库
+1. 使用git克隆lotus库
 	`git clone https://github.com/Filecoin-project/lotus.git`
 - 对支持 SHA 扩展指令的cpu使用环境变量标记 rust FFI [Native Filecoin FFI section](https://docs.Filecoin.io/get-started/lotus/installation/#native-Filecoin-ffi)
 	`export RUSTFLAGS="-C target-cpu=native -g"`
