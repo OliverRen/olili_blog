@@ -39,6 +39,8 @@ grammar_tableExtra: true
 
 [github doc](https://github.com/filecoin-project/rust-fil-proofs)
 
+PS:本文翻译时日已久,官网文档已经更新,请尽量参阅官方文档
+
 The Filecoin Proving Subsystem provides the storage proofs required by the Filecoin protocol. It is implemented entirely in Rust,
 
 Filecoin证明子系统提供Filecoin协议所需的存储证明。它完全Rust实现，
