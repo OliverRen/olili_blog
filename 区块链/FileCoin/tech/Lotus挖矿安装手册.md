@@ -293,7 +293,8 @@ Variables specific to the _Lotus daemon_
 	
 	`lotus-miner actor set-addrs /ip4/<YOUR_PUBLIC_IP_ADDRESS>/tcp/24001`
 
-13. 其他步骤
+13. 其他步骤 这里请看下文进阶设置
+
 	- 配置自定义存储的布局,这要求一开始使用 --no-local-storage
 	- 编辑 lotus-miner 的配置
 	- 了解什么是关机和重启矿机的好时机
