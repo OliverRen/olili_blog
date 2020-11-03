@@ -293,7 +293,7 @@ Variables specific to the _Lotus daemon_
 	
 	`lotus-miner actor set-addrs /ip4/<YOUR_PUBLIC_IP_ADDRESS>/tcp/24001`
 
-13. 其他步骤 这里请看下文进阶设置
+13. 其他步骤 这里请看下文 ==进阶设置==
 
 	- 配置自定义存储的布局,这要求一开始使用 --no-local-storage
 	- 编辑 lotus-miner 的配置
@@ -306,82 +306,82 @@ Variables specific to the _Lotus daemon_
 
 ####  Lotus-miner 官方工具挖矿进阶设置
 
-0. 防火墙有可能要开启
+##### 防火墙有可能要开启
 
 - 1234 lotus daemon api
 - 2345 lotus-miner api
 - 24001 lotus-miner work
-- ssh
+- 2222 ssh
 
-1. 矿工自定义存储布局
+##### 矿工自定义存储布局
 
-	首先要在矿工初始化时,使用 `--no-local-storage`.然后可以指定用于 seal密封 (建议在ssd上) 和长期存储的磁盘位置.你可以在 `$LOTUS_MINER_PATH/storage.json` 中设定,其默认值为 `~/.lotusminer/storage.json`.
+首先要在矿工初始化时,使用 `--no-local-storage`.然后可以指定用于 seal密封 (建议在ssd上) 和长期存储的磁盘位置.你可以在 `$LOTUS_MINER_PATH/storage.json` 中设定,其默认值为 `~/.lotusminer/storage.json`.
 
-	使用自定义命令行需要lotus-miner运行,设置后需要重启miner
+使用自定义命令行需要lotus-miner运行,设置后需要重启miner
 
-	自定义密封位置: `lotus-miner storage attach --init --seal <PATH_FOR_SEALING_STORAGE>`
+自定义密封位置: `lotus-miner storage attach --init --seal <PATH_FOR_SEALING_STORAGE>`
 
-	自定义存储位置: `lotus-miner storage attach --init --store <PATH_FOR_LONG_TERM_STORAGE>`
+自定义存储位置: `lotus-miner storage attach --init --store <PATH_FOR_LONG_TERM_STORAGE>`
 
-	列出所有存储位置 : `lotus-miner storage list`
+列出所有存储位置 : `lotus-miner storage list`
 
-2. 跑 benchmark 来得知机器封装一个块的时间
+##### 跑 benchmark 来得知机器封装一个块的时间
 
-	在lotus目录编译 `make lotus-bench`. 运行help可以查看到帮助.大体上命令是这样的
+在lotus目录编译 `make lotus-bench`. 运行help可以查看到帮助.大体上命令是这样的
 
-	`./lotus-bench sealing --storage-dir /data/bench --sector-size 32GiB --num-sectors 1 --parallel 1 --json-out `
+`./lotus-bench sealing --storage-dir /data/bench --sector-size 32GiB --num-sectors 1 --parallel 1 --json-out `
 
-	``` json
-	lotus benchmark result
+``` json
+lotus benchmark result
+{
+  "SectorSize": 34359738368,
+  "SealingResults": [
 	{
-	  "SectorSize": 34359738368,
-	  "SealingResults": [
-		{
-		  "AddPiece": 870097300267,
-		  "PreCommit1": 19675090466708,
-		  "PreCommit2": 2160057571490,
-		  "Commit1": 44283547951,
-		  "Commit2": 5573822383169,
-		  "Verify": 28487520,
-		  "Unseal": 19463753783027
-		}
-	  ],
-	  "PostGenerateCandidates": 155197,
-	  "PostWinningProofCold": 8356540927,
-	  "PostWinningProofHot": 4285092397,
-	  "VerifyWinningPostCold": 57527449,
-	  "VerifyWinningPostHot": 20039908,
-	  "PostWindowProofCold": 1077144420908,
-	  "PostWindowProofHot": 973861248741,
-	  "VerifyWindowPostCold": 6744654407,
-	  "VerifyWindowPostHot": 63166446
+	  "AddPiece": 870097300267,
+	  "PreCommit1": 19675090466708,
+	  "PreCommit2": 2160057571490,
+	  "Commit1": 44283547951,
+	  "Commit2": 5573822383169,
+	  "Verify": 28487520,
+	  "Unseal": 19463753783027
 	}
-	```
+  ],
+  "PostGenerateCandidates": 155197,
+  "PostWinningProofCold": 8356540927,
+  "PostWinningProofHot": 4285092397,
+  "VerifyWinningPostCold": 57527449,
+  "VerifyWinningPostHot": 20039908,
+  "PostWindowProofCold": 1077144420908,
+  "PostWindowProofHot": 973861248741,
+  "VerifyWindowPostCold": 6744654407,
+  "VerifyWindowPostHot": 63166446
+}
+```
 
-	单位 unit 应该是 tick = 1\/3600000000000 H,这里是自己测试机的结果
+单位 unit 应该是 tick = 1\/3600000000000 H,这里是自己测试机的结果
 
-	| 时间 | 操作 | 换算 |
-	| --- | --- | --- |
-	| 封装 | 封装 | 封装 |
-	| 870097300267 | add | 0.2417H = 14M 30S |
-	| 19675090466708 | p1 | 5.4653H = 5H 28M |
-	| 2160057571490 | p2 | 0.6000H = 36M |
-	| 44283547951 | c1 | 0.0123H = 44S |
-	| 5573822383169 | c2 | 1.5483H = 1H 32M 53S |
-	| 校验 | 校验 | 校验 |
-	| 28487520 | verify | 0.03S |
-	| 19463753783027 | unseal | 5.4065H = 5H 24M 24S |
-	| 出块 | 出块 | 出块 |
-	| 155197 | candidate | 几乎为0 |
-	| 4285092397 | winning proof hot | 4.28S |
-	| 8356540927 | winning proof cold | 8.35S |
-	| 20039908 | winning post hot | 0.02S |
-	| 57527449 | winning post cold | 0.05S |
-	| 时空证明 | 时空证明 | 时空证明 |
-	| 973861248741 | window proof hot | 0.2705H	= 16M 14S |
-	| 1077144420908 | window proof cold | 0.2992H = 18M |
-	| 63166446 | window post hot | 0.06S |
-	| 6744654407 | window post cold | 6.74S |
+| 时间 | 操作 | 换算 |
+| --- | --- | --- |
+| 封装 | 封装 | 封装 |
+| 870097300267 | add | 0.2417H = 14M 30S |
+| 19675090466708 | p1 | 5.4653H = 5H 28M |
+| 2160057571490 | p2 | 0.6000H = 36M |
+| 44283547951 | c1 | 0.0123H = 44S |
+| 5573822383169 | c2 | 1.5483H = 1H 32M 53S |
+| 校验 | 校验 | 校验 |
+| 28487520 | verify | 0.03S |
+| 19463753783027 | unseal | 5.4065H = 5H 24M 24S |
+| 出块 | 出块 | 出块 |
+| 155197 | candidate | 几乎为0 |
+| 4285092397 | winning proof hot | 4.28S |
+| 8356540927 | winning proof cold | 8.35S |
+| 20039908 | winning post hot | 0.02S |
+| 57527449 | winning post cold | 0.05S |
+| 时空证明 | 时空证明 | 时空证明 |
+| 973861248741 | window proof hot | 0.2705H	= 16M 14S |
+| 1077144420908 | window proof cold | 0.2992H = 18M |
+| 63166446 | window post hot | 0.06S |
+| 6744654407 | window post cold | 6.74S |
 
 3. 矿工钱包,分开 owner 地址和 worker 地址,为 windowPoSt设置单独的 control 地址.
 
