@@ -72,6 +72,7 @@ grammar_tableExtra: true
 	- [Filecoin经济](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/tech/Filecoin经济.md)
 	- [显卡驱动和cuda加速](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/tech/显卡驱动和cuda加速.md)
 	- [Lotus挖矿安装手册](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/tech/Lotus挖矿安装手册.md)
+	- [Filecoin存储证明系统Rust-Fil-Proofs](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/tech/Filecoin存储证明系统Rust-Fil-Proofs.md)
 
 - 扩展阅读
 	- [语义网和关联数据](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/introduce/语义网和关联数据.md)
