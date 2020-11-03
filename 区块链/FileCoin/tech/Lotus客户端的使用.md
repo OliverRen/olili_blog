@@ -52,6 +52,17 @@ grammar_tableExtra: true
 	`lotus wallet export <address> > wallet.private`
 	`lotus wallet import wallet.private` 
 	
+- 管理信息池
+
+	`lotus mpool xxxx`
+	
+- 管理支付渠道
+
+	`lotus paych`
+	
+- filecoin链状态
+
+	`lotus state`
 
 #### JsonRPC的Json Web Token
 	
