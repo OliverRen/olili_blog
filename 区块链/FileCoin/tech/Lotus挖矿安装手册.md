@@ -37,6 +37,8 @@ grammar_tableExtra: true
 
 本文初次编写为参与 SpaceRace,后在主网上线后做过更新并且删除了 SR 阶段特有的内容
 
+version 2020-11-4
+
 网络信息 [Network Info](https://network.Filecoin.io)
 
 删除测试网络的水龙地址 主网已经没有水龙头了
