@@ -35,7 +35,7 @@ grammar_tableExtra: true
 
 [toc]
 
-本文初次编写为参与 SpaceRace,后在主网上线后做过更新
+本文初次编写为参与 SpaceRace,后在主网上线后做过更新并且删除了 SR 阶段特有的内容
 
 网络信息 [Network Info](https://network.Filecoin.io)
 
@@ -424,6 +424,15 @@ Lotus Miner配置是在初始化 init 步骤之后的,其位置是 `$LOTUS_MINER
 - Storage部分 即存储部分,控制矿工是否可以执行某些密封行为
 - Fees费用部分
 
+修改miner的gas费率
+
+``` lotusminer/config.toml
+[Fees]
+MaxPreCommitGasFee = "0.05 FIL"
+MaxCommitGasFee = "0.05 FIL"
+MaxWindowPoStGasFee = "50 FIL"
+```
+
 ##### Lotus套件升级
 
 - 关闭所有的 seal miner 和 worker
@@ -493,11 +502,11 @@ Lotus Miner配置是在初始化 init 步骤之后的,其位置是 `$LOTUS_MINER
 - 对 $LOTUS_WORKER_PATH进行设置
 - 重新启动 worker
 
-需要注意的是不同线程的 worker 之间的数据是不支持转移和共享的.
+需要注意的是不同线程的 worker 之间的数据(同一个阶段)是不支持转移和共享的.
 
 --------------------
 
-#### Lotus mine 抵押扇区
+#### Lotus mine 抵押扇区 及开始封装算力
 
 抵押扇区是增加有效存力的唯一方式,同时需要根据一个扇区的密封的时间\*1.5来更新配置中的`ExpectedSealDuration`字段.
 
@@ -561,7 +570,7 @@ lotus miner本身可以执行密封过程的所有阶段,但是 P1阶段的CPU�
 *   1个_提交_任务（使用所有可用的内核或使用GPU,C1很短,主要是C2只有1个GPU）
 *   2个_解封_任务（每个使用1个核心）
 
-当然实际测试中并不一定需要128GiB内存那么多,当然多总是好的. 使用命令 `lotus-worker run <flags>` 启动worker,需要注意的是不同的 worker 与 miner 要设置不同的 `$LOTUS_WORKER_PATH` 和 `$TMPDIR` 的环境变量,如果一台主机上运行多个 worker ,可以通过 `--listen`指定不同的监听端口,可选的 flags 参数如下
+当然实际测试中并不一定总是需要128GiB内存那么多,当然多总是好的. 使用命令 `lotus-worker run <flags>` 启动worker,需要注意的是不同的 worker 与 miner 要设置不同的 `$LOTUS_WORKER_PATH` 和 `$TMPDIR` 的环境变量,如果一台主机上运行多个 worker ,需要通过 `--listen`指定不同的监听端口,可选的 flags 参数如下
 
 ```
    --addpiece                    enable addpiece (default: true)
@@ -573,11 +582,9 @@ lotus miner本身可以执行密封过程的所有阶段,但是 P1阶段的CPU�
 
 主miner只专注于执行 WindowPoSt 和 WinningPoSt
 
-单独的CPU任务 P1和unseal分配worker
-3个,最多6个p1,6个unseal
+单独的CPU任务 P1和unseal分配worker -> 3个,最多6个p1,6个unseal
 
-单独的GPU任务 P2 C分配worker
-1个,最多1个p2,1个c
+单独的GPU任务 P2 C分配worker -> 1个,最多1个p2,1个c
 
 切记Lotus Miner 配置中的 `MaxSealingSectors`,`MaxSealingSectorsForDeals`控制了可以同时 seal 的 sector 数量. `Storage`配置中如果要将工作全部分配给worker,则需要将对应的设置为false
 
@@ -589,6 +596,8 @@ lotus miner本身可以执行密封过程的所有阶段,但是 P1阶段的CPU�
   AllowCommit = true
   AllowUnseal = true
 ```
+
+--------------------
 
 #### 同时运行 miner 和 worker的CPU分配
 
@@ -674,75 +683,3 @@ CPUAffinity=C1,C2... # Specify the core number that this worker will use.
 6. 离线交易的数据导入,使用命令 `lotus-miner deals import-data <dealCid> <filePath>`
 
 7. 检索交易的文档暂缺
-
---------------------
-
-#### 交易的gas,fee,limit和cap
-
-BaseFee:单位为 attoFIL / gas ,指定了单位gas消耗的 FIL 数量.故每个消息消耗的代币为 BaseFee * GasUsed. 该值根据网络阻塞参数即块大小来自动更新,可以通过命令 `lotus chain head | xargs lotus chain getblock | jq -r .ParentBaseFee` 获取.
-
-消息的发送方还有如下可以设置的参数
-
-GasLimit: gas的数量,指定可以消耗的gas量的上限,如果gas被消耗完,消息将失败,所有操作状态会还原.而矿工的奖励以 GasLimit * GasPremium 计
-
-GasPremium : 以 attoFIL / gas 为单位,表示矿工通过包含该消息可以获得报酬,一般是 GasLimit * GasPremium , 不是 GasUsed 而是 GasLimit, 所以预估准gaslimit也很重要,否则就会有 over estimation burn的预估超出的额外手续费燃烧.
-
-GasFeeCap : 以 attoFIL / gas 为单位,是发送方对消息设置一个花费的天花板.一条消息的总花费为 GasPremium + BaseFee.由于给矿工的赏金 GasPremium 是发送方自己设置的,所以 GasFeeCap本质上用来防止意外的高额 BaseFee
-
-如果BaseFee + GasPremium大于消息的GasFeeCap，则矿工的奖励为GasLimit \*（GasFeeCap-BaseFee）。请注意，如果消息的GasFeeCap低于BaseFee，则矿工出作为罚款.
-
-如果你的交易一直没有矿工进行打包,他就会卡在mpool中,一般是当网络的BaseFee很高时GasFeeCap太低造成的,当然如果网络很拥堵,也可能是GasPremium太低造成的.
-
-你可以使用命令查看本地消息 `lotus mpool pending --local`.
-
-替换 mpool 中的消息,你可以通过推送一个相同 nonce,但是 GasPremium比原始消息大 25%以上的消息.简单的来说,可以使用命令 `lotus mpool replace --auto <from> <nonce>` 达成. 或通过各个参数自行选择 `lotus mpool replace --gas-feecap <feecap> --gas-premuim <premium> --gas-limit <limit> <from> <nonce>` .当然你也可以使用已经本地签名过的消息直接通过 MpoolPush 发送.
-
---------------------
-
-#### 使用官方Lotus-miner执行挖矿的当前热点问题
-
-这部分内容有时效性,有可能指挥在 spacerace 阶段有效.
-
-1. 在lotus中使用filter只与指定的bot进行deal
-
-	``` toml
-
-	~/.lotusminer/config.toml
-
-	[Dealmaking]
-	Filter = <shell command>
-
-	## Reject all deals
-	Filter = "false"
-
-	## Accept all deals
-	Filter = "true"
-
-	## Only accept deals from the 4 competition dealbots (requires jq installed)
-	Filter = "jq -e '.Proposal.Client == \"t1nslxql4pck5pq7hddlzym3orxlx35wkepzjkm3i\" or .Proposal.Client == \"t1stghxhdp2w53dym2nz2jtbpk6ccd4l2lxgmezlq\" or .Proposal.Client == \"t1mcr5xkgv4jdl3rnz77outn6xbmygb55vdejgbfi\" or .Proposal.Client == \"t1qiqdbbmrdalbntnuapriirduvxu5ltsc5mhy7si\" '"
-	```
-
-2. 修改miner的gas费率
-
-	``` lotusminer/config.toml
-	[Fees]
-	MaxPreCommitGasFee = "0.05 FIL"
-	MaxCommitGasFee = "0.05 FIL"
-	MaxWindowPoStGasFee = "50 FIL"
-	```
-
-3. sector升级,再SR中,必须升级一个sector才判定会成功挖矿
-
-	``` sh
-	lotus-miner sectors list
-	[sector number]: Proving sSet: YES active: YES tktH: XXXX seedH: YYYY deals: [0]
-
-	lotus-miner sectors mark-for-upgrade [sector number]
-
-	24小时内他将从 active: YES 变为 active: NO
-
-	for s in $( seq $( lotus-miner sectors list | wc -l ) ) ; do lotus-miner sectors status --log $s | grep -Eo 'ReplaceCapacity":true' && echo $s; done`
-
-	lotus-miner sectors status --on-chain-info $SECTOR_NUMBER | grep OnTime
-
-	```
