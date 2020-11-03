@@ -83,7 +83,7 @@ grammar_tableExtra: true
 
 简单产币,Filecoin每6年减半并不意味着到第六年才开始递减，而是每一个区块释放的奖励代币都在递减。下面这个是Filecoin区块奖励释放的公式。
 
-https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Filecoin经济/2020113/1604408056004.jpg
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Filecoin经济/2020113/1604408056004.jpg)
 		
 		我们可以看到，第一个区块奖励是153.68654133573枚FIL，第二个区块奖励的是153.686524445924枚FIL，每个区块递减为0.00001689枚FIL。到第七年的第一个区块奖励为76.843270667866枚FIL，与第一个区块的数量刚好完成减半。
 		
