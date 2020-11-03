@@ -69,6 +69,7 @@ grammar_tableExtra: true
 
 - 技术文档
 	- [Filecoin入门基础概念](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/tech/Filecoin入门基础概念.md)
+	- [FileCoin的区块结构tipsets](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/tech/FileCoin的区块结构tipsets.md)
 	- [Filecoin存储证明系统Rust-Fil-Proofs](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/tech/Filecoin存储证明系统Rust-Fil-Proofs.md)
 	- [Filecoin经济](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/tech/Filecoin经济.md)
 	- [显卡驱动和cuda加速](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/tech/显卡驱动和cuda加速.md)
