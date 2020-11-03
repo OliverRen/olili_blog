@@ -213,6 +213,7 @@ Variables specific to the _Lotus daemon_
 `export FULLNODE_API_INFO=<api_token>:/ip4/<lotus_daemon_ip>/tcp/<lotus_daemon_port>/http`
 
 4. 如果内存过少,则需要添加swap分区,详细可以参看 linux使用文档中的添加swap
+	
 	``` shell
 	sudo fallocate -l 256G /swapfile
 	sudo chmod 600 /swapfile
@@ -240,17 +241,8 @@ Variables specific to the _Lotus daemon_
 
 	测试
 	`./lotus-bench sealing --sector-size=2KiB`
-	
-	
-	
-	
-	服务器中有多个GPU，选择特定的GPU运行程序可在程序运行命令前使用：CUDA_VISIBLE_DEVICES=0命令。0为服务器中的GPU编号，可以为0, 1, 2, 3等，表明对程序可见的GPU编号。
-可以和CPU亲和一样,用逗号隔开
-	
-	
-	
-	
-	
+		
+	服务器中有多个GPU，选择特定的GPU运行程序可在程序运行命令前使用：CUDA_VISIBLE_DEVICES=0命令。0为服务器中的GPU编号，可以为0, 1, 2, 3等，表明对程序可见的GPU编号。可以和CPU亲和一样,用逗号隔开	
 
 6. 执行挖矿必须要有 BLS 钱包,即 t3 开头的钱包,默认的创建的 spec256k1 是 t1开头的.
 
@@ -281,8 +273,9 @@ Variables specific to the _Lotus daemon_
 	export TMPDIR=/fast/disk/folder3               # Used when sealing.
 	```
 	
-9. 矿工初始化,使用 --no-local-storage可以使得我们之后可以配置特定的存储位置而不是直接执行.配置文件一般是在 ~/.lotusminer/ 或 $LOTUS_MINER_PATH 下. 关于矿工的钱包账户之间的区别请参看 使用官方Lotus-miner执行挖矿的常见问题中的矿工钱包. 注意该命令需要owner发送消息需要代币
-`lotus-miner init --owner=<bls address>  --worker=<other_address> --no-local-storage`
+9. 矿工初始化,使用 `--no-local-storage` 可以使得我们之后可以配置特定的存储位置而不是直接执行.配置文件一般是在 `~/.lotusminer/` 或 `$LOTUS_MINER_PATH` 下. 关于矿工的钱包账户之间的区别请参看 使用官方Lotus-miner执行挖矿的常见问题中的矿工钱包. 注意该命令需要owner发送消息需要代币
+
+	`lotus-miner init --owner=<bls address>  --worker=<other_address> --no-local-storage`
 	
 10. 需要一个公网ip来进行矿工设置.编辑 `$LOTUS_MINER_PATH/config.toml`, 其默认值是 `~/.lotusminer/config.toml`
 
@@ -293,9 +286,12 @@ Variables specific to the _Lotus daemon_
 	```
 
 11. 当的确可以访问该公网ip时,启动 lotus-miner
-`lotus-miner run` 或 `systemctl start lotus-miner`
+	
+	`lotus-miner run` 或 `systemctl start lotus-miner`
 
-12. 公布矿工地址 `lotus-miner actor set-addrs /ip4/<YOUR_PUBLIC_IP_ADDRESS>/tcp/24001`
+12. 公布矿工地址 
+	
+	`lotus-miner actor set-addrs /ip4/<YOUR_PUBLIC_IP_ADDRESS>/tcp/24001`
 
 13. 其他步骤
 	- 配置自定义存储的布局,这要求一开始使用 --no-local-storage
