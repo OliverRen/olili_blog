@@ -116,20 +116,28 @@ grammar_tableExtra: true
 #### 编译安装lotus挖矿软件
 
 1. 使用git克隆lotus库
+	
 	`git clone https://github.com/Filecoin-project/lotus.git`
-- 对支持 SHA 扩展指令的cpu使用环境变量标记 rust FFI [Native Filecoin FFI section](https://docs.Filecoin.io/get-started/lotus/installation/#native-Filecoin-ffi)
+	
+2. 对支持 SHA 扩展指令的cpu使用环境变量标记 rust FFI [Native Filecoin FFI section](https://docs.Filecoin.io/get-started/lotus/installation/#native-Filecoin-ffi)
+	
 	`export RUSTFLAGS="-C target-cpu=native -g"`
 	`export FFI_BUILD_FROM_SOURCE=1`
-- 编译 lotus
+	
+3. 编译 lotus
+	
 	`sudo make clean deps all`
 	`sudo make install`
-- 查看可执行文件 ==lotus==	,==lotus-miner==	,==lotus-worker==	应该在 ==/usr/local/bin== 下
-- 启动 lotus的守护进程  `lotus daemon`,或者通过命令创建 systemd service
-	`sudo make install-daemon-service`
-	`sudo make install-chainwatch-service`
-	`sudo make install-miner-service` 
+	
+4. 查看可执行文件 ==lotus==	,==lotus-miner==	,==lotus-worker==	应该在 ==/usr/local/bin== 下
+5. 启动 lotus的守护进程  `lotus daemon`,或者通过命令创建 systemd service
+	
+	`sudo make install-daemon-service` </br>
+	`sudo make install-chainwatch-service` </br>
+	`sudo make install-miner-service`  </br>
 	其他有用的工具包括 `lotus-stats`,`lotus-pcr`,`lotus-health`
-- 运行daemon后开始同步区块,可以使用 `lotus sync status` ,  `lotus sync wait` 来查看同步情况.
+	
+6. 运行daemon后开始同步区块,可以使用 `lotus sync status` ,  `lotus sync wait` 来查看同步情况.
 
 	这里通过文件导入区块链快照的部分进行了更新 [doc 通过lotus 同步区块链](https://docs.filecoin.io/get-started/lotus/chain/#syncing)
 
@@ -141,14 +149,14 @@ grammar_tableExtra: true
 	
 	`lotus daemon --import-chain https://fil-chain-snapshots-fallback.s3.amazonaws.com/mainnet/complete_chain_with_finality_stateroots_latest.car`
 	
-- 区块数据的快照 snapshot 管理
+7. 区块数据的快照 snapshot 管理
 
 	- `lotus chain export <file>` 导出区块链
 	- `lotus daemon --import-snapshot <file>` 无链校对导入区块链
 	- `lotus daemon --import-chain <filename>` 从链上校对导入区块链
 	- `lotus export --skip-old-msgs --recent-stateroots=900 <filename>` 创建修剪过的快照可以如下方式创建
 
-- 缩减目前的lotus已经同步的链数据,其实就是停掉daemon后,把现在的数据全部删除.然后使用可信快照来进行快速导入,上面也提到了这个7GB的快照是可以反复重置lotus节点的
+8. 缩减目前的lotus已经同步的链数据,其实就是停掉daemon后,把现在的数据全部删除.然后使用可信快照来进行快速导入,上面也提到了这个7GB的快照是可以反复重置lotus节点的
 	
 	```
 	lotus daemon stop;
