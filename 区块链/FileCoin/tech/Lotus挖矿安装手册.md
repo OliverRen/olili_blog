@@ -424,75 +424,76 @@ Lotus Miner配置是在初始化 init 步骤之后的,其位置是 `$LOTUS_MINER
 - Storage部分 即存储部分,控制矿工是否可以执行某些密封行为
 - Fees费用部分
 
-5. Lotus套件升级
+##### Lotus套件升级
 
-	- 关闭所有的 seal miner 和 worker
-	- 关闭 lotus daemon
-	- git pull
-	- 执行安装 
-		``` shell
-		export RUSTFLAGS="-C target-cpu=native -g"
-		export FFI_BUILD_FROM_SOURCE=1
-		git pull
-		git checkout <tag_or_branch>
-		git submodule update
-		make clean deps all
-		make install
+- 关闭所有的 seal miner 和 worker
+- 关闭 lotus daemon
+- git pull
+- 执行安装 
+	
+	``` shell
+	export RUSTFLAGS="-C target-cpu=native -g"
+	export FFI_BUILD_FROM_SOURCE=1
+	git pull or git checkout <tag_or_branch>		
+	git submodule update
+	make clean deps all
+	make install
 
-		#安装服务 可以简单的 make install-all-services
-		make install-daemon-service
-		make install-chainwatch-service
-		make install-miner-service
-		# 其他有用的工具包括 `lotus-stats`,`lotus-pcr`,`lotus-health`,`lotus-shed`
-		make lotus-stats lotus-pcr lotus-health lotus-shed
-		
-		make install install-all-services lotus-shed
-		```
-	- 启动 daemon `systemctl start lotus-daemon`	
-	- 启动 miner `systemctl start lotus-miner`
-	- 启动 worker `systemctl start lotus-worker`
-	- 如果你需要重置所有本地数据,那么需要备份的包括 lotus钱包,node数据和miner配置,然后删除掉 $LOTUS_PATH , $LOTUS_MINER_PATH , $LOTUS_WORKER_PATH
+	#安装服务 可以简单的 make install-all-services
+	make install-daemon-service
+	make install-chainwatch-service
+	make install-miner-service
+	# 其他有用的工具包括 `lotus-stats`,`lotus-pcr`,`lotus-health`,`lotus-shed`
+	
+	# 建议执行的安装是
+	make install install-all-services lotus-shed
+	```
+	
+- 启动 daemon `systemctl start lotus-daemon`	
+- 启动 miner `systemctl start lotus-miner`
+- 启动 worker `systemctl start lotus-worker`
+- 如果你需要重置所有本地数据,那么需要备份的包括 lotus钱包,node数据和miner配置,然后删除掉 $LOTUS_PATH , $LOTUS_MINER_PATH , $LOTUS_WORKER_PATH
 
-6. 安全的升级和重启miner
+##### 安全的升级和重启miner
 
-	需要考虑的因素包括: 
+需要考虑的因素包括: 
 
-	- 需要离线多久
-	- proving时间期限的分布如何
-	- 是否存在交易和检索
-	- 是否有正在进行的密封操作
+- 需要离线多久
+- proving时间期限的分布如何
+- 是否存在交易和检索
+- 是否有正在进行的密封操作
 
-	1. 重启前,建议对lotus程序进行升级,同时下载更新挖矿参数到ssd上 $FIL_PROOFS_PARAMETER_CACHE
-	2. 必须确认有时间窗口可以进行重启,使用命令 `lotus-miner proving info` 确认 deadline open有对 current epoch的时间窗口,也可以使用 `lotus-miner proving deadlines` 来确认将来24小时内的分布.
-	3. 检查交易 `lotus-miner storage-deals list`, `lotus-miner retrieval-deals list` , `lotus-miner data-transfers list` . 并暂时禁用交易 `lotus-miner storage-deals selection reject --online --offline` , `lotus-miner retrieval-deals selection reject --online --offline`. 当miner 重启完成后,需要使用以下命令恢复交易 `lotus-miner storage-deals selection reset`, `lotus-miner retrieval-deals selection reset`.
-	4. 检查当前正在进行的密封行为 `lotus-miner sectors list`
+1. 重启前,建议对lotus程序进行升级,同时下载更新挖矿参数到ssd上 $FIL_PROOFS_PARAMETER_CACHE
+2. 必须确认有时间窗口可以进行重启,使用命令 `lotus-miner proving info` 确认 deadline open有对 current epoch的时间窗口,也可以使用 `lotus-miner proving deadlines` 来确认将来24小时内的分布.
+3. 检查交易 `lotus-miner storage-deals list`, `lotus-miner retrieval-deals list` , `lotus-miner data-transfers list` . 并暂时禁用交易 `lotus-miner storage-deals selection reject --online --offline` , `lotus-miner retrieval-deals selection reject --online --offline`. 当miner 重启完成后,需要使用以下命令恢复交易 `lotus-miner storage-deals selection reset`, `lotus-miner retrieval-deals selection reset`.
+4. 检查当前正在进行的密封行为 `lotus-miner sectors list`
 
-7. 重启 worker
+##### 重启 worker
 
-	可以随时重新启动 Lotus Seal Worker,但是他们如果正在执行密封的某一个步骤的话,重新后需要从最后一个检查点重新开始.而且如果是在 C2阶段最多只有3次尝试的机会.
+可以随时重新启动 Lotus Seal Worker,但是他们如果正在执行密封的某一个步骤的话,重新后需要从最后一个检查点重新开始.而且如果是在 C2阶段最多只有3次尝试的机会.
 
-8. 更改存储的位置
+##### 更改存储的位置
 
-	这一部分内容和小节1中的自定义配置存储位置其实差不多,但一般更改存储位置都是在已经上线存续运行的时候,需要在线的更新.
+这一部分内容和小节1中的自定义配置存储位置其实差不多,但一般更改存储位置都是在已经上线存续运行的时候,需要在线的更新.
 
-	通过命令 `lotus-miner storage list` 可以查询到当前 lotus-miner 所使用的存储位置,如果你需要对其进行修改,你需要执行以下步骤: 
+通过命令 `lotus-miner storage list` 可以查询到当前 lotus-miner 所使用的存储位置,如果你需要对其进行修改,你需要执行以下步骤: 
 
-	- 执行命令拒绝所有存储和检索加以
-	- 将原数据复制到新的位置,这涉及到大量的数据迁移,所以在下一步停止miner之后,有可能需要再次同步一下数据,防止文件的状态不一致.
-	- 停止miner
-	- 编辑 storage.json 文件,这里无法使用命令来进行修改了.直接修改该文件,内容是一个简单的json文件指定了miner可以使用的存储位置,至于存储位置的权重和是否可以seal及storage是在指定位置下有单独的 sectorstorage.json 来进行配置的.
-	- 启动miner,如果一切正常的话,原来位置的数据就可以进行删除了
+- 执行命令拒绝所有存储和检索加以
+- 将原数据复制到新的位置,这涉及到大量的数据迁移,所以在下一步停止miner之后,有可能需要再次同步一下数据,防止文件的状态不一致.
+- 停止miner
+- 编辑 storage.json 文件,这里无法使用命令来进行修改了.直接修改该文件,内容是一个简单的json文件指定了miner可以使用的存储位置,至于存储位置的权重和是否可以seal及storage是在指定位置下有单独的 sectorstorage.json 来进行配置的.
+- 启动miner,如果一切正常的话,原来位置的数据就可以进行删除了
 
-	当然如果你只是简单的想要增加可用的存储空间以增加存力,那么简单的使用在线命令 `lotus-miner storage attach`就可以实现了.可以不用停止 miner.
+当然如果你只是简单的想要增加可用的存储空间以增加存力,那么简单的使用在线命令 `lotus-miner storage attach`就可以实现了.可以不用停止 miner.
 
-9. 更改worker的存储位置
+##### 更改worker的存储位置
 
-	- 停止 worker
-	- 迁移数据
-	- 对 $LOTUS_WORKER_PATH进行设置
-	- 重新启动 worker
+- 停止 worker
+- 迁移数据
+- 对 $LOTUS_WORKER_PATH进行设置
+- 重新启动 worker
 
-	需要注意的是不同线程的 worker 之间的数据是不支持转移和共享的.
+需要注意的是不同线程的 worker 之间的数据是不支持转移和共享的.
 
 --------------------
 
