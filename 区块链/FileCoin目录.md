@@ -79,5 +79,11 @@ grammar_tableExtra: true
 	- [Filecoin扇区状态封装挖矿的流程简介](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/tech/Filecoin扇区状态封装挖矿的流程简介.md)
 	- [Filecoin消息的gas费用](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/tech/Filecoin消息的gas费用.md)
 
+- 运维相关
+	- [auto-pledge-sector](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/script/auto-pledge-sector.sh)
+	- [backup-miner-config](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/script/backup-miner-config.sh)
+	- [check_intel_ssd](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/script/check_intel_ssd.sh)
+	- [crontab](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/script/crontab.txt)
+
 - 扩展阅读
 	- [语义网和关联数据](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/introduce/语义网和关联数据.md)
