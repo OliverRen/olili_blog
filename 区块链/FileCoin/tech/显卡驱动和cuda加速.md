@@ -63,7 +63,7 @@ CUDA工具 : [download](https://developer.nvidia.com/cuda-downloads?target_os=Li
 sudo gedit /etc/modprobe.d/blacklist.conf
 blacklist nouveau
 blacklist intel
-	options nouveau modeset=0
+options nouveau modeset=0
 # 更新
 sudo update-initramfs -u
 # 重启
