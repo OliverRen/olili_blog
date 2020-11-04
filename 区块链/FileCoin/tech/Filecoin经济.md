@@ -35,7 +35,18 @@ grammar_tableExtra: true
 
 [toc]
 
-#### FIP 已经实施的相关改进动议
+* [FIP已经实施的相关改进动议](#FIP%E5%B7%B2%E7%BB%8F%E5%AE%9E%E6%96%BD%E7%9A%84%E7%9B%B8%E5%85%B3%E6%94%B9%E8%BF%9B%E5%8A%A8%E8%AE%AE)
+* [Filecoin代币情况](#filecoin%E4%BB%A3%E5%B8%81%E6%83%85%E5%86%B5)
+* [Filecoin代币的分发策略](#filecoin%E4%BB%A3%E5%B8%81%E7%9A%84%E5%88%86%E5%8F%91%E7%AD%96%E7%95%A5)
+* [产币的说明](#%E4%BA%A7%E5%B8%81%E7%9A%84%E8%AF%B4%E6%98%8E)
+* [存储矿工奖励在Filecoin上进行真实的数据存储](#%E5%AD%98%E5%82%A8%E7%9F%BF%E5%B7%A5%E5%A5%96%E5%8A%B1%E5%9C%A8filecoin%E4%B8%8A%E8%BF%9B%E8%A1%8C%E7%9C%9F%E5%AE%9E%E7%9A%84%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8)
+* [质押详细说明](#%E8%B4%A8%E6%8A%BC%E8%AF%A6%E7%BB%86%E8%AF%B4%E6%98%8E)
+* [消减参数及其调整](#%E6%B6%88%E5%87%8F%E5%8F%82%E6%95%B0%E5%8F%8A%E5%85%B6%E8%B0%83%E6%95%B4)
+* [FileCoin矿工的经济效应](#filecoin%E7%9F%BF%E5%B7%A5%E7%9A%84%E7%BB%8F%E6%B5%8E%E6%95%88%E5%BA%94)
+* [Quick Question](#quick-question)
+* [结束语](#%E7%BB%93%E6%9D%9F%E8%AF%AD)
+
+#### FIP已经实施的相关改进动议
 
 - Lotus 0.7.0 主网正式上线将基线从1EB(每天增长200%)改为2.5EB(每天100%增长)
 - Lotus 0.8.0 实装 FIP-0002 epoch 94000 减少对错过windowPoSt的诚实矿工的处罚
@@ -100,7 +111,7 @@ grammar_tableExtra: true
 		
 其实在产币中关于基线产币也有特殊的需要说明,请参看另外一篇文章 [Filecoin基线标准调整影响](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/introduce/Filecoin基线标准调整影响.md)
 
-#### 存储矿工奖励 在Filecoin上进行真实的数据存储
+#### 存储矿工奖励在Filecoin上进行真实的数据存储
 
 1. 第一阶段 : 收入挖矿爆块产币为主
 2. 第二阶段 : 认为到了网络基准线, 这时候整个网络容量很大,可以存很多有用的数据,除了爆块外,还会有一部分的存储订单交易收入.
