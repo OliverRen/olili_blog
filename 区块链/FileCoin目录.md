@@ -80,7 +80,7 @@ grammar_tableExtra: true
 	- [Filecoin消息的gas费用](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/tech/Filecoin消息的gas费用.md)
 
 - 运维相关
-	- [矿机选型]
+	- [矿机选型](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/tech/矿机选型.md)
 	- [auto-pledge-sector](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/script/auto-pledge-sector.sh)
 	- [backup-miner-config](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/script/backup-miner-config.sh)
 	- [check_intel_ssd](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/script/check_intel_ssd.sh)
