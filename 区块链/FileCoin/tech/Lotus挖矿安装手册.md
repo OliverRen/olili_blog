@@ -67,7 +67,7 @@ version 2020-11-4
 #### 准备工作
 
 1. APT源更新为网易或阿里云
-2. `sudo apt update && sudo apt install mesa-opencl-icd ocl-icd-opencl-dev gcc git bzr jq pkg-config curl clang llvm -y && sudo apt upgrade -y`
+2. `sudo apt update && sudo apt install mesa-opencl-icd ocl-icd-opencl-dev gcc git bzr jq pkg-config curl clang llvm libhwloc-dev -y && sudo apt upgrade -y`
 3. 设置git代理,如果有代理的话
 	
 	```
