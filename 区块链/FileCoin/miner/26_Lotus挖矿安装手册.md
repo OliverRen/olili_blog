@@ -75,7 +75,7 @@ sudo apt-get install aptitude
 sudo aptitude install XXX
 
 sudo apt update
-sudo apt install mesa-opencl-icd ocl-icd-opencl-dev gcc git bzr jq pkg-config curl clang llvm libhwloc-dev -y
+sudo aptitude install mesa-opencl-icd ocl-icd-opencl-dev gcc git bzr jq pkg-config curl clang llvm libhwloc-dev -y
 
 sudo apt upgrade -y
 ```
