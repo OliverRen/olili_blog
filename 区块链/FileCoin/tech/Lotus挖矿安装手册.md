@@ -336,6 +336,11 @@ Variables specific to the _Lotus daemon_
 - 24001 lotus-miner work
 - 2222 ssh
 
+##### lotus和lotus-miner的远程访问
+
+lotus daemon的修改: 修改config中`API`下的`ListenAddress`,重启lotus daemon.通过`lotus auth api-info --perm admin`命令可以获得admin权限的api info key,再客户端机器上可以通过这个环境变量来访问该lotus daemon node的api.
+
+
 ##### 矿工自定义存储布局
 
 首先要在矿工初始化时,使用 `--no-local-storage`.然后可以指定用于 seal密封 (建议在ssd上) 和长期存储的磁盘位置.你可以在 `$LOTUS_MINER_PATH/storage.json` 中设定,其默认值为 `~/.lotusminer/storage.json`.
