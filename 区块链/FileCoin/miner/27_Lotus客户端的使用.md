@@ -35,6 +35,13 @@ grammar_tableExtra: true
 
 [toc]
 
+* [Lotus套件的软件说明](#lotus%E5%A5%97%E4%BB%B6%E7%9A%84%E8%BD%AF%E4%BB%B6%E8%AF%B4%E6%98%8E)
+* [常用操作](#%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C)
+* [钱包管理](#%E9%92%B1%E5%8C%85%E7%AE%A1%E7%90%86)
+* [JsonRPC的Json Web Token](#jsonrpc%E7%9A%84json-web-token)
+* [使用Lotus存储数据](#%E4%BD%BF%E7%94%A8lotus%E5%AD%98%E5%82%A8%E6%95%B0%E6%8D%AE)
+* [使用Lotus检索交易](#%E4%BD%BF%E7%94%A8lotus%E6%A3%80%E7%B4%A2%E4%BA%A4%E6%98%93)
+
 #### Lotus套件的软件说明
 
 - `lotus` lotus-daemon的链同步工具和钱包管理工具
