@@ -70,6 +70,7 @@ version 2020-11-4
 2. 安装编译工具等,建议使用 
 
 ```
+因为有依赖问题,建议使用aptitude安装
 sudo apt-get install aptitude
 sudo aptitude install XXX
 
