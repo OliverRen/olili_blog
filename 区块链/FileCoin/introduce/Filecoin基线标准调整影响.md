@@ -35,6 +35,9 @@ grammar_tableExtra: true
 
 [toc]
 
+* [Filecoin 基线铸造的重要性](#filecoin-%E5%9F%BA%E7%BA%BF%E9%93%B8%E9%80%A0%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7)
+* [主网上线的调整](#%E4%B8%BB%E7%BD%91%E4%B8%8A%E7%BA%BF%E7%9A%84%E8%B0%83%E6%95%B4)
+
 #### Filecoin 基线铸造的重要性
 
 Filecon 上的存储需求和供给匹配时，交易订单达成。
