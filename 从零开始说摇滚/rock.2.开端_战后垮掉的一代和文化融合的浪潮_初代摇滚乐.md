@@ -1,8 +1,5 @@
 ---
 title: rock.2.开端_战后垮掉的一代和文化融合的浪潮_初代摇滚乐
-tags: 从零开始说摇滚
-renderNumberedHeading: false
-grammar_cjkRuby: true
 ---
 
 这个系列的文章都是出自于豆瓣,声音图书馆小站
