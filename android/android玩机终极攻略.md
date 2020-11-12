@@ -6,7 +6,7 @@ title: android玩机终极攻略
 
 [本文来自 少数派 derotyoung](https://sspai.com/post/43338)
   
-  * [<em>Chapter 1</em> 认识 <em>Android</em> 系统](#chapter-1-%E8%AE%A4%E8%AF%86-android-%E7%B3%BB%E7%BB%9F)
+* [<em>Chapter 1</em> 认识 <em>Android</em> 系统](#chapter-1-%E8%AE%A4%E8%AF%86-android-%E7%B3%BB%E7%BB%9F)
   * [<em>Android</em> 系统简介](#android-%E7%B3%BB%E7%BB%9F%E7%AE%80%E4%BB%8B)
   * [<em>Android</em> 系统版本](#android-%E7%B3%BB%E7%BB%9F%E7%89%88%E6%9C%AC)
   * [<em>Android API</em> 等级](#android-api-%E7%AD%89%E7%BA%A7)
@@ -40,8 +40,6 @@ title: android玩机终极攻略
 * [<em>Chapter 5</em> 认识谷歌服务](#chapter-5-%E8%AE%A4%E8%AF%86%E8%B0%B7%E6%AD%8C%E6%9C%8D%E5%8A%A1)
   * [什么是 <em>Google Play</em> 服务](#%E4%BB%80%E4%B9%88%E6%98%AF-google-play-%E6%9C%8D%E5%8A%A1)
   * [<em>Android</em> 设备如何安装 <em>Google Play</em> 服务](#android-%E8%AE%BE%E5%A4%87%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85-google-play-%E6%9C%8D%E5%8A%A1)
-  * [写在最后](#%E5%86%99%E5%9C%A8%E6%9C%80%E5%90%8E)
-
 
 **引言**
 
