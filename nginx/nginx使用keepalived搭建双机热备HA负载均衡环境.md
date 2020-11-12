@@ -1,7 +1,5 @@
 ---
 title: nginx使用keepalived搭建双机热备HA负载均衡环境
-tags: 新建
-renderNumberedHeading: true
 ---
 
 [toc]
