@@ -1,8 +1,5 @@
 ---
 title: rock.4.民谣摇滚反抗与开辟
-tags: 从零开始说摇滚
-renderNumberedHeading: false
-grammar_cjkRuby: true
 ---
 
 这个系列的文章都是出自于豆瓣,声音图书馆小站
