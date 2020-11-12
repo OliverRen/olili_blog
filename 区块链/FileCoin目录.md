@@ -59,7 +59,11 @@ FileCoin概念 (concept)
 - [Lotus挖矿安装手册](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/26_Lotus挖矿安装手册.md)
 - [Lotus客户端的使用](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/27_Lotus客户端的使用.md)
 
-运维 (devops)
+
+
+
+
+临时运维 (devops)
 	
 - [auto-pledge-sector](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/devops/auto-pledge-sector.sh)
 - [backup-miner-config](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/devops/backup-miner-config.sh)
