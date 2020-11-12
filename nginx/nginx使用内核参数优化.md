@@ -1,7 +1,5 @@
 ---
 title: nginx使用内核参数优化
-tags: 新建
-renderNumberedHeading: true
 ---
 
 >Nginx内核参数在使用的时候有不少问题需要我们解决，其中在优化方面就需要我们格外的注意。
