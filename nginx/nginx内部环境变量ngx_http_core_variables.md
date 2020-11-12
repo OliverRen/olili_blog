@@ -1,10 +1,5 @@
 ---
 title: nginx内部环境变量
-tags: 
-renderNumberedHeading: true
-grammar_cjkRuby: true
-grammar_table: true
-grammar_tableExtra: true
 ---
 
 | 名称  | 说明              |
