@@ -1,8 +1,5 @@
 ---
 title: nginx配置location参数
-tags: 
-renderNumberedHeading: true
-grammar_cjkRuby: true
 ---
 
 [toc]
