@@ -1,8 +1,5 @@
 ---
 title: elkStack日志分析平台 
-tags: 
-renderNumberedHeading: false
-grammar_cjkRuby: true
 ---
 
 [toc]
