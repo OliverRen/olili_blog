@@ -6,3 +6,4 @@ title: Ubuntu设置root密码
 
 使用 `su -` 即可带有 root 环境变量切换到用户root了
 
+qie
