@@ -18,12 +18,10 @@ sudo apt update
 
 CUDA工具包其中其实也已经包含了显卡的驱动程序,但是cuda只是一个工具包,他是可以多个版本进行安装的.所以并不一定要安装cuda中的显卡驱动,具体可以看后面的安装过程,需要注意的是 cuda文件名上标记的版本号是支持的最低的显卡驱动的版本,所以如果自己安装显卡驱动的话,是一定需要在这个版本之上的.
 
-强烈建议自己单独分别安装GPU驱动和CUDA加速器,网络下载有时会非常的蛋疼.
+强烈建议自己单独分别安装GPU驱动和CUDA加速器,网络下载有时会非常的蛋疼
 
 1. 准备工作
 
-建议都使用离线安装的方式,主要还是网络太蛋疼了,显卡驱动几百M,cuda工具包下载的时候有好几G.
-	
 显卡驱动 : 从官方网站下载 [download](https://www.nvidia.cn/geforce/drivers/) , 我下载的版本是 NVIDIA-Linux-x86_64-455.23.04.run
 
 CUDA工具 : [download](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=2004&target_type=runfilelocal)
