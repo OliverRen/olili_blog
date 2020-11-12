@@ -2,8 +2,6 @@
 title: 搭建docker环境
 ---
 
-[toc]
-
 `yum install docker-io -y`
 
 配置国内docker hub镜像
