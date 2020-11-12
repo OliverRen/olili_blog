@@ -1,8 +1,5 @@
 ---
 title: docker使用
-tags:
-renderNumberedHeading: true
-grammar_cjkRuby: true
 ---
 
 ###### docker文件
