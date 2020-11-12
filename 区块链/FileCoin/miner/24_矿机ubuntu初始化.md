@@ -13,34 +13,37 @@ title: 矿机ubuntu初始化
 
 系统目前都是最小化安装 ubuntu 20.04 Desktop,将系统语言改为英语
 	
-sudo passwd root
-修改root密码
+sudo passwd root 修改root密码
 
 修改apt源为阿里云
 
 `apt install openssh-server`
 安装openssh-server
+
 `apt install openssh-client=1:8.4p4`
 如果出现 openssh-client版本依赖问题,先安装对应版本覆盖
+
 安装完后就可以离开服务器了
 
 无用软件清理 装desktop弊病
+
 `apt remove thunderbird totem rhythmbox empathy brasero simple-scan gnome-mahjongg aisleriot gnome-mines cheese transmission-common gnome-sudoku`
-删除
-thunderbird		邮件客户端
-totem			视频播放器
-rhythmbox		音频播放器
-empathy			即时通讯
-brasero			刻录软件
-simple-scan		扫描仪
-gnome-mahjongg aisleriot gnome-mines cheese gnome-sudoku	游戏
-transmission-common	下载软件
+
+删除如下软件 </br>
+thunderbird		邮件客户端 </br>
+totem			视频播放器 </br>
+rhythmbox		音频播放器 </br>
+empathy			即时通讯 </br>
+brasero			刻录软件 </br>
+simple-scan		扫描仪 </br>
+gnome-mahjongg aisleriot gnome-mines cheese gnome-sudoku	游戏 </br>
+transmission-common	下载软件 </br>
 gnome-orca		屏幕阅读
 
-安装基本工具
+安装基本工具 </br>
 `apt install vim gparted sysstat net-tools nvtop htop screen`
 
-修改打开文件进程数
+修改打开文件进程数 </br>
 ```
 cat >> /etc/security/limits.conf << EOF
 *		soft		nofile	655350
@@ -54,12 +57,11 @@ root		hard		nproc	655350
 EOF
 ```
 
-bash优化
+bash优化 </br>
 `vim ~/.bashrc`
 把 `alias ll='ls -alFh'`
 
-vim编辑器优化
-ubuntu也可以修改 /etc/vim/vimrc 全局的
+vim编辑器优化 ubuntu也可以修改 /etc/vim/vimrc 全局的 </br>
 ```
 cat >> ~/.vimrc << EOF
 set fenc=utf-8
@@ -97,7 +99,7 @@ syntax on
 EOF
 ```
 
-优化内核参数 视机器仅需要执行部分
+优化内核参数 视机器仅需要执行部分 </br>
 ```
 sysctl_config(){
 
