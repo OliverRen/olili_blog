@@ -1,6 +1,5 @@
 ---
 title: FileCoin目录
-tags: 小书匠语法
 ---
 
 初识FileCoin (introduce)
