@@ -1,8 +1,5 @@
 ---
 title: nginx.conf详解 
-tags: 
-renderNumberedHeading: true
-grammar_cjkRuby: true
 ---
 
 ``` nginxconf?linenums=false
