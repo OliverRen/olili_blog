@@ -1,8 +1,5 @@
 ---
 title: rock.5.从迷幻摇滚开始的探索与迷失
-tags: 从零开始说摇滚
-renderNumberedHeading: false
-grammar_cjkRuby: true
 ---
 
 这个系列的文章都是出自于豆瓣,声音图书馆小站
