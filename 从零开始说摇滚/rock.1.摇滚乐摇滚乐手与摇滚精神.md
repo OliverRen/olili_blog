@@ -1,8 +1,5 @@
 ---
 title: rock.1.摇滚乐摇滚乐手与摇滚精神
-tags: 从零开始说摇滚
-renderNumberedHeading: false
-grammar_cjkRuby: true
 ---
 
 这个系列的文章都是出自于豆瓣,声音图书馆小站
