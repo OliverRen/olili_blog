@@ -1,8 +1,5 @@
 ---
 title: nginx模块理解
-tags: 
-renderNumberedHeading: true
-grammar_cjkRuby: true
 ---
 
 1.ngx_http_core_module
