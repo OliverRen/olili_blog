@@ -1,8 +1,5 @@
 ---
 title: ftp理解 
-tags: 
-renderNumberedHeading: true
-grammar_cjkRuby: true
 ---
 
 [toc?theme=color]
