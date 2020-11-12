@@ -1,7 +1,5 @@
 ---
 title: nginx解决惊群问题
-tags: 新建
-renderNumberedHeading: true
 ---
 
 [toc]
