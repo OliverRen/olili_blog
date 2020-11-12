@@ -1,8 +1,5 @@
 ---
 title: rock.3.英国摇滚辉煌开端与BritishInvasion英伦入侵
-tags: 从零开始说摇滚
-renderNumberedHeading: false
-grammar_cjkRuby: true
 ---
 
 这个系列的文章都是出自于豆瓣,声音图书馆小站
