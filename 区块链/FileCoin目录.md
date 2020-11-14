@@ -29,6 +29,7 @@ FileCoin经济 (economic)
 - [2020-09-04-Filecoin经济结构问答](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/economic/02_2020-09-04Filecoin经济结构问答.md)
 - [Filecoin基线标准调整影响](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/economic/03_Filecoin基线标准调整影响.md)
 - [Filecoin经济](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/economic/04_Filecoin经济.md)
+- [Filecoin对客分币系统的设计](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/economic/05_Filecoin对客分币系统的设计.md)
 
 FileCoin白皮书中英文对照版 [白皮书原文地址](https://filecoin.io/filecoin.pdf) , tips原文太长,进行了切割,章节以title标题为准. (whitepaper)
 
