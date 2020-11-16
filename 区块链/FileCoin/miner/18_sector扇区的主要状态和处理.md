@@ -57,3 +57,93 @@ tags:
 - RemoveFailed
 - PreCommitting
 
+```
+	/////
+	// Now decide what to do next
+	//
+	/*
+				*   Empty <- incoming deals
+				|   |
+				|   v
+			    *<- WaitDeals <- incoming deals
+				|   |
+				|   v
+				*<- Packing <- incoming committed capacity
+				|   |
+				|   v
+				*<- PreCommit1 <--> SealPreCommit1Failed
+				|   |       ^          ^^
+				|   |       *----------++----\
+				|   v       v          ||    |
+				*<- PreCommit2 --------++--> SealPreCommit2Failed
+				|   |                  ||
+				|   v          /-------/|
+				*   PreCommitting <-----+---> PreCommitFailed
+				|   |                   |     ^
+				|   v                   |     |
+				*<- WaitSeed -----------+-----/
+				|   |||  ^              |
+				|   |||  \--------*-----/
+				|   |||           |
+				|   vvv      v----+----> ComputeProofFailed
+				*<- Committing    |
+				|   |        ^--> CommitFailed
+				|   v             ^
+		        |   SubmitCommit  |
+		        |   |             |
+		        |   v             |
+				*<- CommitWait ---/
+				|   |
+				|   v
+				|   FinalizeSector <--> FinalizeFailed
+				|   |
+				|   v
+				*<- Proving
+				|
+				v
+				FailedUnrecoverable
+				UndefinedSectorState <- ¯\_(ツ)_/¯
+					|                     ^
+					*---------------------/
+	*/
+```
+
+**扇区封装流程说明**
+
+`[Handle Deal]`
+首先在 `lotus-miner sectors pledge` 执行后会执行 incoming deal 过程,这个时间可以进行配置.
+
+`[Empty]`
+startCC begin 
+
+`[Packing]`
+开始Packing即 addPiece cpu 1 core+disk 32g写入unseal 随机填充数据也需要一点时间不过忽略不计,注意会有等待deal的时间
+
+`[PreCommit1(SealPreCommit1Failed)]`
+32g会被拆成32 Byte的小node,然后通过SDR算法计算出11层的merkel树 cpu 1 core+disk 15.18\*32g写入cache 时间主要根据IO.不过不是线性,单线程5.5H,4线程也不过是6H
+
+`[PreCommit2(SealPreCommit2Failed)]`
+主要是GPU运算进行压缩P1计算出的merkel树得到root根,这里需要计算8层, gpu+cpu all core+disk 16.18\*32g写入seal 时间也差不多根据cpu+gpu,最快25min,最长35min
+
+`[PreCommitting(PreCommitFailed)]`
+发送交易 Method:PreCommitSector 把P2计算得到的默克尔树的根提交上链,以此证明矿机的加密能力和已经完成了扇区密封的复制证明,需要等待交易确认,主要看 lotus-daemon.忽略不计
+
+`[WaitSeed]`
+强制等待150epoch大约75分钟 wait seed,需要等待这个将来的高度获取随机数seed作为种子,通过零知识证明来抽查P2密封的扇区内文件碎片是否真的存储了.
+
+`[(ComputeProofFailed)]`
+需要CPU执行一些hash运算 
+
+`[Commiting(CommitFailed)]`
+主要还是CPU+GPU执行运算,抽出对应文件碎片,计算出到默克尔根的文件路径,验证需要的文件中的值,gpu+cpu all core,期望时间在1.5H,一般不会超过2H,PS当然这里的时间有出入.根据最快的计算可能c1只要数十秒,c2需要25分钟即可.不过就算1.5h也不是主要耗时操作.
+
+`[CommitWait]`
+等待,提交c2计算的根,以证明文件的确被存储着
+
+`[Method:ProveCommitSector]`发送交易 需要等待交易确认
+
+`[FinalizeSector(FinalizeFailed)]`
+完成后会把seal中的磁盘擦除,写入storage,扇区密封结束
+
+`[Proving]`
+PoRep
