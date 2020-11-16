@@ -25,10 +25,11 @@ Protocol Labs的IPFS明星项目家族 (introduce)
 
 FileCoin经济 (economic)
 
-- [2020-08-27-engineering-filecoins-economy-zh-cn-缔造Filecoin经济](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/economic/13_2020-08-27-engineering-filecoins-economy-zh-cn-缔造Filecoin经济.md)
-- [2020-09-04-Filecoin经济结构问答](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/economic/14_2020-09-04Filecoin经济结构问答.md)
-- [Filecoin基线标准调整影响](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/economic/15_Filecoin基线标准调整影响.md)
-- [Filecoin经济](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/economic/16_Filecoin经济.md)
+- [2020-08-27-engineering-filecoins-economy-zh-cn-缔造Filecoin经济](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/economic/01_2020-08-27-engineering-filecoins-economy-zh-cn-缔造Filecoin经济.md)
+- [2020-09-04-Filecoin经济结构问答](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/economic/02_2020-09-04Filecoin经济结构问答.md)
+- [Filecoin基线标准调整影响](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/economic/03_Filecoin基线标准调整影响.md)
+- [Filecoin经济](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/economic/04_Filecoin经济.md)
+- [Filecoin对客分币系统的设计](https://github.com/OliverRen/olili_blog/blob/master/%E5%8C%BA%E5%9D%97%E9%93%BE/FileCoin/economic/05_Filecoin对客分币系统的设计.md)
 
 FileCoin白皮书中英文对照版 [白皮书原文地址](https://filecoin.io/filecoin.pdf) , tips原文太长,进行了切割,章节以title标题为准. (whitepaper)
 
@@ -44,27 +45,27 @@ FileCoin白皮书中英文对照版 [白皮书原文地址](https://filecoin.io/
 
 FileCoin概念 (concept)
 
-- [Filecoin入门基础概念](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/concept/17_Filecoin入门基础概念.md)
-- [FileCoin的区块结构tipsets](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/concept/18_FileCoin的区块结构tipsets.md)
-- [Filecoin代币数量级](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/concept/19_Filecoin代币数量级.md)
-- [Filecoin存储证明系统Rust-Fil-Proofs](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/concept/20_Filecoin存储证明系统Rust-Fil-Proofs.md)
-- [Filecoin扇区状态封装挖矿的流程简介](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/concept/21_Filecoin扇区状态封装挖矿的流程简介.md)
-- [Filecoin消息的gas费用](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/concept/22_Filecoin消息的gas费用.md)
+- [Filecoin入门基础概念](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/concept/01_Filecoin入门基础概念.md)
+- [FileCoin的区块结构tipsets](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/concept/02_FileCoin的区块结构tipsets.md)
+- [Filecoin代币数量级](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/concept/03_Filecoin代币数量级.md)
+- [Filecoin存储证明系统Rust-Fil-Proofs](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/concept/04_Filecoin存储证明系统Rust-Fil-Proofs.md)
+- [Filecoin扇区状态封装挖矿的流程简介](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/concept/05_Filecoin扇区状态封装挖矿的流程简介.md)
+- [Filecoin消息的gas费用](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/concept/06_Filecoin消息的gas费用.md)
 
 部署挖矿 (miner)
 
-- [矿机选型](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/23_矿机选型.md)
-- [矿机ubuntu初始化](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/24_矿机ubuntu初始化.md)
-- [显卡驱动和cuda加速](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/25_显卡驱动和cuda加速.md)
+- [矿机选型](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/01_矿机选型.md)
+- [矿机ubuntu初始化](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/02_矿机ubuntu初始化.md)
+- [显卡驱动和cuda加速](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/03_显卡驱动和cuda加速.md)
 
 
 
 
-- [Lotus挖矿安装手册](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/26_Lotus挖矿安装手册.md)
+- [Lotus挖矿安装手册](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/04_Lotus挖矿安装手册.md)
 
 
 
-- [Lotus客户端的使用](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/27_Lotus客户端的使用.md)
+- [Lotus客户端的使用](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/05_Lotus客户端的使用.md)
 
 
 
