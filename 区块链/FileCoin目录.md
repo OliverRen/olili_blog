@@ -46,11 +46,15 @@ FileCoin白皮书中英文对照版 [白皮书原文地址](https://filecoin.io/
 FileCoin概念 (concept)
 
 - [Filecoin入门基础概念](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/concept/01_Filecoin入门基础概念.md)
-- [FileCoin的区块结构tipsets](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/concept/02_FileCoin的区块结构tipsets.md)
-- [Filecoin代币数量级](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/concept/03_Filecoin代币数量级.md)
-- [Filecoin存储证明系统Rust-Fil-Proofs](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/concept/04_Filecoin存储证明系统Rust-Fil-Proofs.md)
+- [Fileoin的基础术语](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/concept/02_Fileoin的基础术语.md)
+- [FileCoin的区块结构tipsets](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/concept/03_FileCoin的区块结构tipsets.md)
+- [Filecoin代币数量级](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/concept/04_Filecoin代币数量级.md)
 - [Filecoin扇区状态封装挖矿的流程简介](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/concept/05_Filecoin扇区状态封装挖矿的流程简介.md)
 - [Filecoin消息的gas费用](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/concept/06_Filecoin消息的gas费用.md)
+- [Filecoin的实现](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/concept/07_Filecoin的实现.md)
+- [Filecoin网络性能_数据存储_数据检索](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/concept/08_Filecoin网络性能_数据存储_数据检索.md)
+- [Filecoin的共识机制](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/concept/09_Filecoin的共识机制.md)
+- [Filecoin存储证明系统Rust-Fil-Proofs](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/concept/10_Filecoin存储证明系统Rust-Fil-Proofs.md)
 
 部署挖矿 (miner)
 
