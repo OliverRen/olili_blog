@@ -111,8 +111,13 @@ tags:
 12. 公布矿工地址 
 	
 	`lotus-miner actor set-addrs /ip4/<YOUR_PUBLIC_IP_ADDRESS>/tcp/24001`
+	
+13. 连接性问题
 
-13. 其他步骤 这里请看下文 ==进阶设置==
+	- 使用命令查看节点的nat状态 `lotus-miner net reachability`,这需要你连接到足够的peers才能正确反馈,正常的值是 Public
+	- 检查连接的对等点 peers ,使用命令 `lotus-miner net peers` , 如果过少,可以使用命令 `lotus-miner net connect <address1> <address2>...` 手动连接 [引导节点](https://github.com/filecoin-project/lotus/blob/master/build/bootstrap/bootstrappers.pi) 确保你们实在相同的网络分支中
+
+14. 其他步骤 这里请看下文 ==进阶设置==
 
 	- 配置自定义存储的布局,这要求一开始使用 --no-local-storage
 	- 编辑 lotus-miner 的配置
