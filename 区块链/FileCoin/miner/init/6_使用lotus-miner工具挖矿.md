@@ -1,5 +1,5 @@
 ---
-title: 6_使用lotus-miner工具挖矿
+title: 6_使用lotus-miner工具挖矿的准备工作
 tags: 
 ---
 
