@@ -1,5 +1,5 @@
 ---
-title: 7_Lotus-miner自定义存储布局
+title: 12_Lotus-miner自定义存储布局
 tags: 
 ---
 

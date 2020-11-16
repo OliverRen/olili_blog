@@ -1,5 +1,5 @@
 ---
-title: 3_lotus同步的快照管理
+title: 06_lotus同步的快照管理
 tags: 
 ---
 

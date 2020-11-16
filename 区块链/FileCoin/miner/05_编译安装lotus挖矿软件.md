@@ -1,5 +1,5 @@
 ---
-title: 2_编译安装lotus挖矿软件
+title: 05_编译安装lotus挖矿软件
 tags: 
 ---
 

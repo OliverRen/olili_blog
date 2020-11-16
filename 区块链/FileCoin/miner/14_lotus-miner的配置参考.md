@@ -1,5 +1,5 @@
 ---
-title: 10_lotus-miner的配置参考
+title: 14_lotus-miner的配置参考
 tags: 
 ---
 

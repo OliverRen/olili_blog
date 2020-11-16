@@ -1,5 +1,5 @@
 ---
-title: 15_P1阶段的CPU绑定
+title: 17_P1阶段的CPU绑定
 tags: 
 ---
 

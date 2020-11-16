@@ -1,5 +1,5 @@
 ---
-title: 矿机ubuntu初始化
+title: 02_矿机ubuntu初始化
 ---
 
 [toc]
