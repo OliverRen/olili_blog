@@ -61,10 +61,10 @@ FileCoin概念 (concept)
 
 
 
-- [Lotus挖矿安装手册](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/04_Lotus挖矿安装手册.md)
 
 
 
+todo
 - [Lotus客户端的使用](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/05_Lotus客户端的使用.md)
 
 
