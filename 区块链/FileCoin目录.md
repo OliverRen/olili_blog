@@ -57,12 +57,22 @@ FileCoin概念 (concept)
 - [矿机选型](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/01_矿机选型.md)
 - [矿机ubuntu初始化](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/02_矿机ubuntu初始化.md)
 - [显卡驱动和cuda加速](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/03_显卡驱动和cuda加速.md)
-
-
-
-
-
-
+- [准备工作](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/04_准备工作.md)
+- [编译安装lotus挖矿软件](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/05_编译安装lotus挖矿软件.md)
+- [lotus同步的快照管理](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/06_lotus同步的快照管理.md)
+- [lotus配置文件和环境变量](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/07_lotus配置文件和环境变量.md)
+- [JsonWebTokenInJsonRPC](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/08_JsonWebTokenInJsonRPC.md)
+- [lotus套件升级](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/09_lotus套件升级.md)
+- [使用benchmark](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/10_使用benchmark.md)
+- [使用lotus-miner工具挖矿的准备工作](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/11_使用lotus-miner工具挖矿的准备工作.md)
+- [Lotus-miner自定义存储布局](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/12_Lotus-miner自定义存储布局.md)
+- [矿工的钱包管理](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/13_矿工的钱包管理.md)
+- [lotus-miner的配置参考](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/14_lotus-miner的配置参考.md)
+- [使用lotus-miner开始封装](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/15_使用lotus-miner开始封装.md)
+- [lotus-worker的使用](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/16_lotus-worker的使用.md)
+- [P1阶段的CPU绑定](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/17_P1阶段的CPU绑定.md)
+- [sector扇区的主要状态和处理](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/18_sector扇区的主要状态和处理.md)
+- [管理存储交易](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/19_管理存储交易.md)
 
 todo
 - [Lotus客户端的使用](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/05_Lotus客户端的使用.md)
