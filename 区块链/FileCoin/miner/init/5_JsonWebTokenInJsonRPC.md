@@ -5,6 +5,8 @@ tags:
 
 [toc]
 
+**JsonRPC**
+
 `JsonRPC`的`Json Web Token`
 	
 需要注意的是`lotus daemon`提供的api不光可以被应用请求,同时`lotus-miner`和`lotus-worker`也是以来这个`json-rpc`来与`lotus daemon`交互的
