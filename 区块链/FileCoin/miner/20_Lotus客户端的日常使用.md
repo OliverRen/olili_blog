@@ -11,81 +11,121 @@ title: 20_Lotus客户端的日常使用
 #### 常用操作
 
 - 查看 windowPoSt
-`clear ;echo proving ;lotus-miner info;lotus-miner proving info ; lotus-miner proving deadlines;`
+
+`clear;lotus-miner info;lotus-miner proving info;lotus-miner proving deadlines;`
 
 - 查看 sealing
-`clear ;echo sealing;lotus-miner sealing jobs;echo  ; lotus-miner sealing workers;lotus-miner sealing sched-diag; echo ; free -h ;`
+
+`clear;lotus-miner sealing jobs;lotus-miner sealing workers;lotus-miner sealing sched-diag;free -h;`
 
 - 查看 sectors
-`clear ;echo sector;lotus-miner sectors list | grep -v Proving;lotus-miner storage list --color;`
+
+`clear;lotus-miner sectors list | grep -v Proving;lotus-miner storage list --color;`
 
 - 查看和修改 sector status
-`clear ;lotus-miner sectors status --log 0;`
+
+`clear;lotus-miner sectors status --log 0;`
+
 `lotus-miner sectors update-state --really-do-it x Packing`
+
 - 本地移除
+
 `lotus-miner sectors remove --really-do-it x`
+
 - 强制中止扇区 已经上链了
+
 `/usr/local/lib/lotus/lotus-shed sectors terminate --really-do-it x`
 
-- 查询消息的执行
+- 查询消息的执行,等待消息的完成
+
 `lotus state exec-trace cid`
 
 - 查看 intel SSD
+
 `intelmas show -a -smart | grep Action`
 
 - 查看 lotus-miner 的log, 执行windowPoSt可以执行 grep `wdpost`,`Submitted window post`
+
 - 查看 lotus-miner 的log,执行开始质押新区快可以执行 grep `stub NewSector`,`Pledge`
 
-- 备份 lotus-miner
-	```
-	lotus-miner backup backup.cbor
-	lotus-miner backup --offline backup.cbor
-	lotus-miner init restore --config backup/config.toml --storage-config backup/storage.json backup/backup.cbor
-	```
+- 备份 lotus-miner,需要在lotus-miner的config中写入bak文件路径的prefix
+
+```
+lotus-miner backup backup.cbor
+lotus-miner backup --offline backup.cbor
+lotus-miner init restore --config backup/config.toml --storage-config backup/storage.json backup/backup.cbor
+```
+
 - mpool信息替换
+
 `./lotus mpool pending --local --cids | xargs -L1 ./lotus mpool replace --auto`
 
 - 操作矿工账号的几个方法
-`lotus-miner actor withdraw` 提现
-`lotus-miner actor  repay-debt` 充值
-`lotus-miner actor set-addrs` 设置公网发布地址
-`lotus-miner actor set-owner` 设置owner
-`lotus-miner actor control` 设置提交windowPoSt的control地址
+
+提现 
+`lotus-miner actor withdraw` 
+
+充值 
+`lotus-miner actor  repay-debt` 
+
+设置公网发布地址 
+`lotus-miner actor set-addrs` 
+
+设置owner 
+`lotus-miner actor set-owner` 
+
+设置提交windowPoSt的control地址 
+`lotus-miner actor control` 
 
 - 切换矿工的owner
-`lotus-miner actor set-owner --really-do-it address`
 
+`lotus-miner actor set-owner --really-do-it address`
 
 #### 钱包管理
 
 - 查看钱包
-	`lotus wallet list` 查看所有的钱包账户
-	`lotus wallet default` 查看默认钱包
-	`lotus wallet set-default <address>` 设置一个默认钱包
-	`lotus wallt balance` 
+
+查看所有的钱包账户 
+`lotus wallet list` 
+
+ 查看默认钱包 
+`lotus wallet default` 
+
+设置一个默认钱包 
+`lotus wallet set-default <address>` 
+
+查看钱包的余额 
+`lotus wallt balance` 
 	
-- 新建钱包
-	`lotus wallet new [bls|secp256k1 (default secp256k1)]` 其中bls会生成 t3长地址(对multisig友好),secp256k1即btc的曲线参数会生成t1的短地址,新创建的钱包会在 `$LOTUS_PATH/keystore`
+- 新建钱包 
+
+其中bls会生成 t3长地址(对multisig友好),secp256k1即btc的曲线参数会生成t1的短地址,新创建的钱包会在 `$LOTUS_PATH/keystore`
+
+`lotus wallet new [bls|secp256k1 (default secp256k1)]` 
 	
 - 执行转账
-	`lotus wallet send --from=<sender_address> <target_address> <amount>`
-	`lotus wallet send <target_address> <amount>`
+	
+`lotus wallet send --from=<sender_address> <target_address> <amount>`
+
+`lotus wallet send <target_address> <amount>`
 	
 - 导入导出钱包 (你也可以直接copy ~/.lotus/keystore)
-	`lotus wallet export <address> > wallet.private`
-	`lotus wallet import wallet.private` 
+	
+`lotus wallet export <address> > wallet.private`
+
+`lotus wallet import wallet.private` 
 	
 - 管理信息池
 
-	`lotus mpool xxxx`
+`lotus mpool xxxx`
 	
 - 管理支付渠道
 
-	`lotus paych`
+`lotus paych`
 	
 - filecoin链状态
 
-	`lotus state`
+`lotus state`
 
 #### Lotus套件的软件说明
 
