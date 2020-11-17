@@ -79,11 +79,12 @@ FileCoin概念 (concept)
 - [管理存储交易](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/19_管理存储交易.md)
 - [Lotus客户端的日常使用](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/20_Lotus客户端的日常使用.md)
 
-------------------------------------
-
 临时运维 (devops)
 	
 - [auto-pledge-sector](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/devops/auto-pledge-sector.sh)
 - [backup-miner-config](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/devops/backup-miner-config.sh)
 - [check_intel_ssd](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/devops/check_intel_ssd.sh)
 - [crontab](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/devops/crontab.txt)
+
+应用 IPFS 和 Filecoin (application)
+
