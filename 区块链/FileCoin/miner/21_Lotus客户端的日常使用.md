@@ -28,11 +28,11 @@ title: 21_Lotus客户端的日常使用
 
 `lotus-miner sectors update-state --really-do-it x Packing`
 
-- 本地移除
+- 本地移除sector
 
 `lotus-miner sectors remove --really-do-it x`
 
-- 强制中止扇区 已经上链了
+- 强制中止sector 已经上链了
 
 `/usr/local/lib/lotus/lotus-shed sectors terminate --really-do-it x`
 
@@ -60,6 +60,8 @@ lotus-miner init restore --config backup/config.toml --storage-config backup/sto
 
 `./lotus mpool pending --local --cids | xargs -L1 ./lotus mpool replace --auto`
 
+`lotus mpool xxxx`
+
 - 操作矿工账号的几个方法
 
 提现 
@@ -81,44 +83,6 @@ lotus-miner init restore --config backup/config.toml --storage-config backup/sto
 
 `lotus-miner actor set-owner --really-do-it address`
 
-#### 钱包管理
-
-- 查看钱包
-
-查看所有的钱包账户 
-`lotus wallet list` 
-
- 查看默认钱包 
-`lotus wallet default` 
-
-设置一个默认钱包 
-`lotus wallet set-default <address>` 
-
-查看钱包的余额 
-`lotus wallt balance` 
-	
-- 新建钱包 
-
-其中bls会生成 t3长地址(对multisig友好),secp256k1即btc的曲线参数会生成t1的短地址,新创建的钱包会在 `$LOTUS_PATH/keystore`
-
-`lotus wallet new [bls|secp256k1 (default secp256k1)]` 
-	
-- 执行转账
-	
-`lotus wallet send --from=<sender_address> <target_address> <amount>`
-
-`lotus wallet send <target_address> <amount>`
-	
-- 导入导出钱包 (你也可以直接copy ~/.lotus/keystore)
-	
-`lotus wallet export <address> > wallet.private`
-
-`lotus wallet import wallet.private` 
-	
-- 管理信息池
-
-`lotus mpool xxxx`
-	
 - 管理支付渠道
 
 `lotus paych`
