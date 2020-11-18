@@ -10,6 +10,7 @@ tags:
 1. 搭墙，因为翻墙有风险而且速度也不佳，此处不推荐并省略。
 2. 使用国内中国科技大学的代理
 3. 使用了snap安装rustup,通过rustup安装
+4. 使用国内APT源安装
 
 无论使用方法2还是方法3首先配置国内的镜像源
 
@@ -41,6 +42,15 @@ snap install rustup
 rustup install stable
 # 使用rustup可以方便的切换 stable,nightly,julia
 rustup default stable
+
+source ~/.cargo/env
+```
+
+使用方法4
+
+```
+apt install rustc
+apt install cargo
 
 source ~/.cargo/env
 ```
