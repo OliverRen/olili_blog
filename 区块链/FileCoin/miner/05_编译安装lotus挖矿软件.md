@@ -7,7 +7,16 @@ tags:
 
 1. 使用git克隆lotus库
 	
-	`git clone https://github.com/Filecoin-project/lotus.git`
+	```
+	git clone https://github.com/Filecoin-project/lotus.git
+	
+	git checkout <branch_or_tag>
+	# 选择网络
+	git checkout master # mainnet
+	git checkout ntwk-calibration # calibration-net
+	git checkout ntwk-nerpa # nerpa-net
+
+	```
 	
 2. 对支持 SHA 扩展指令的cpu使用环境变量标记 rust FFI [Native Filecoin FFI section](https://docs.Filecoin.io/get-started/lotus/installation/#native-Filecoin-ffi)
 	
