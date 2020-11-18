@@ -76,9 +76,9 @@ FileCoin概念 (concept)
 - [lotus-worker的使用](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/16_lotus-worker的使用.md)
 - [P1阶段的CPU绑定](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/17_P1阶段的CPU绑定.md)
 - [P2和C阶段得GPU绑定](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/18_P2和C阶段得GPU绑定.md)
-- [sector扇区的主要状态和处理](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/18_sector扇区的主要状态和处理.md)
-- [管理存储交易](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/19_管理存储交易.md)
-- [Lotus客户端的日常使用](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/20_Lotus客户端的日常使用.md)
+- [sector扇区的主要状态和处理](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/19_sector扇区的主要状态和处理.md)
+- [管理存储交易](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/20_管理存储交易.md)
+- [Lotus客户端的日常使用](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/21_Lotus客户端的日常使用.md)
 
 临时运维 (devops)
 	
