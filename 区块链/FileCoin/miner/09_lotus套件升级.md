@@ -17,8 +17,10 @@ tags:
 - 执行安装
 	
 	``` shell
+	# SHA指令集特有
 	export RUSTFLAGS="-C target-cpu=native -g"
 	export FFI_BUILD_FROM_SOURCE=1
+	
 	git pull or git checkout <tag_or_branch>		
 	git submodule update
 	make clean deps all
