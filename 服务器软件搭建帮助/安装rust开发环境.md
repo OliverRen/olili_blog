@@ -9,6 +9,9 @@ tags:
 
 1. 搭墙，因为翻墙有风险而且速度也不佳，此处不推荐并省略。
 2. 使用国内中国科技大学的代理
+3. 使用了snap安装rustup,通过rustup安装
+
+无论使用方法2还是方法3首先配置国内的镜像源
 
 - Rust Toolchain 反向代理：https://mirrors.ustc.edu.cn/help/rust-static.html
 - Rust Crates 源使用帮助：https://mirrors.ustc.edu.cn/help/crates.io-index.html
@@ -19,11 +22,26 @@ tags:
 echo "export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static" >> /etc/profile
 echo "export RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup" >> /etc/profile
 source /etc/profile
+```
 
+推荐使用方法2
+
+```
 # 使用官方推荐的脚本进行安装
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 # 安装完毕后刷新环境变量
+source ~/.cargo/env
+```
+
+使用方法3
+
+```
+snap install rustup
+rustup install stable
+# 使用rustup可以方便的切换 stable,nightly,julia
+rustup default stable
+
 source ~/.cargo/env
 ```
 
