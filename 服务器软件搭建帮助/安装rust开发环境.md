@@ -69,7 +69,7 @@ apt install cargo
  [source.crates-io]
 registry = "https://github.com/rust-lang/crates.io-index"
 
-# 指定镜像 下面任选其一,replace-with和选择的匹配即可
+# 指定镜像 下面任选其一,replace-with和选择的匹配即可,推荐sjtu,使用ustc编译lotus报错
 replace-with = 'sjtu'
 
 # 清华大学
