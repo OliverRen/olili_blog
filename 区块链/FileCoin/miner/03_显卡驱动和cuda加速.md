@@ -7,6 +7,14 @@ title: 03_显卡驱动和cuda加速
 
 **显卡驱动和cuda加速**
 
+查看本地的 nvidia显卡设备
+
+`apt install ubuntu-drivers-common`
+
+`ubuntu-drivers devices`
+
+可以使用apt直接安装,但是驱动和cuda都很大,建议都使用下载好之后安装.
+
 虽然在安装ubuntu的时候我已经勾选了专用软件和显卡驱动的选项,但是由于用到的是 NVIDIA RTX3080,不知道是不是因为太新了,所以并没有检测出来专用驱动,没办法只能自行安装了.
 
 PS : 可以尝试添加PPA源使用apt的安装方式,当然要这个源有方案之后
