@@ -21,7 +21,8 @@ tags:
 	export RUSTFLAGS="-C target-cpu=native -g"
 	export FFI_BUILD_FROM_SOURCE=1
 	
-	git pull or git checkout <tag_or_branch>		
+	git pull
+	git checkout <tag_or_branch>		
 	git submodule update
 	make clean deps all
 	make install
