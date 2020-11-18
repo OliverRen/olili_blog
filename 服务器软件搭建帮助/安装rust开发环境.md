@@ -31,7 +31,7 @@ source /etc/profile
 # 使用官方推荐的脚本进行安装
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
-# 安装完毕后刷新环境变量
+# 安装完毕后刷新环境变量,只是export,建议写入/etc/profile
 source ~/.cargo/env
 ```
 
@@ -42,8 +42,6 @@ snap install rustup
 rustup install stable
 # 使用rustup可以方便的切换 stable,nightly,julia
 rustup default stable
-
-source ~/.cargo/env
 ```
 
 使用方法4
@@ -51,8 +49,6 @@ source ~/.cargo/env
 ```
 apt install rustc
 apt install cargo
-
-source ~/.cargo/env
 ```
 
 #### 配置cargo
