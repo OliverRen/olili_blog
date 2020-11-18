@@ -1,5 +1,5 @@
 ---
-title: 18_sector扇区的主要状态和处理
+title: 19_sector扇区的主要状态和处理
 tags: 
 ---
 
