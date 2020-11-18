@@ -79,6 +79,15 @@ sudo systemctl stop gdm
 ```
 	
 5. 安装驱动文件
+
+如果是  Server 版本的系统安装时会有 x module的缺失,直接ok即可
+
+```
+ nvidia-installer was forced to guess the X library path '/usr/lib64' and X module path
+           '/usr/lib64/xorg/modules'; these paths were not queryable from the system.  If X fails to find the
+           NVIDIA X driver module, please install the `pkg-config` utility and the X.Org SDK/development
+           package for your distribution and reinstall the driver.
+```
 	
 进入runfile文件所在的目录,赋予权限,然后开始安装
 ``` shell
