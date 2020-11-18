@@ -12,6 +12,7 @@ tags:
 2. 对支持 SHA 扩展指令的cpu使用环境变量标记 rust FFI [Native Filecoin FFI section](https://docs.Filecoin.io/get-started/lotus/installation/#native-Filecoin-ffi)
 	
 	`export RUSTFLAGS="-C target-cpu=native -g"`
+	
 	`export FFI_BUILD_FROM_SOURCE=1`
 	
 3. 编译安装lotus
