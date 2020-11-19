@@ -169,6 +169,10 @@ Logfile is /var/log/cuda-installer.log
 gedit ~/.bashrc 
 export PATH=/usr/local/cuda-8.0/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:$LD_LIBRARY_PATH
+
+# Please make sure that
+# -   PATH includes /usr/local/cuda-11.1/bin
+# -   LD_LIBRARY_PATH includes /usr/local/cuda-11.1/lib64, or, add /usr/local/cuda-11.1/lib64 to /etc/ld.so.conf and run ldconfig as root
 ```
 
 7. 测试
