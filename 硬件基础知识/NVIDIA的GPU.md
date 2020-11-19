@@ -102,7 +102,7 @@ SM单元的概念正是随着G80架构出现的。`Streaming Multiprocessor`和`
 
 G80架构算是Tesla架构的前身，但两者的差别其实不大。G80的SM是第一代，Tesla的是第二代。Tesla正好赶上4位数的型号`GeForce 8&9`用完，所以型号转回3位数的`GeForce x00`。
 
-![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/NVIDIA的GPU/20201114/1605364685452.png)G80![](./attachments/1605364685680.jpg)![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/NVIDIA的GPU/20201114/1605364685504.png)Tesla GTX200
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/NVIDIA的GPU/20201114/1605364685452.png)G80![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/NVIDIA的GPU/20201119/1605768844171.jpg)![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/NVIDIA的GPU/20201114/1605364685504.png)Tesla GTX200
 
 注意，第一张^[[4]](https://zhuanlan.zhihu.com/p/258196004#ref_4)^是G80架构的TPC(Texture/Processor Cluster)，里面实际上有2个SM^[[5]](https://zhuanlan.zhihu.com/p/258196004#ref_5)^。G80的SM本质上是8个SP，2个SFU，以及大小为16KB的SLM。
 
@@ -164,7 +164,7 @@ Fermi的一大亮点在于，SM里有2个warp scheduler、Dispatch Unit，这意
 
 ### CUDA Core
 
-![](./attachments/1605364685812.jpg)真正的CUDA Core
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/NVIDIA的GPU/20201119/1605768844177.jpg)真正的CUDA Core
 
 具体到每个CUDA Core，内部其实有一个INT ALU和一个FPU，共享一个dispatch port。
 
@@ -402,7 +402,7 @@ FP32:FP64:SFU的比例依旧是4:2:1，只不过每个block砍了一半，省下
 
 之前的SIMT架构，最小执行粒度是warp，所以一个warp共享一个PC。遇到分支就修改mask，diverge的话多个分支会顺序执行，如图所示。
 
-![](./attachments/1605364685712.jpg)pre-volta
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/NVIDIA的GPU/20201119/1605768844193.jpg)pre-volta
 
 对于Volta，运行情况可能是下图所示：
 
@@ -416,7 +416,7 @@ AB之间插入了X的执行，可以看出scheduler已经不再是按照warp PC�
 
 前面的图里还有个重要的细节，Z原本是在branch外的，理应被整个warp共同执行；但是现在它有可能被两部分warp分开执行。其实图上描绘得很清晰了，原本自动插入的reconverge不见了，现在需要手动sync。
 
-![](./attachments/1605364685710.jpg)volta sync
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/NVIDIA的GPU/20201119/1605768844197.jpg)volta sync
 
 这也就是为什么从CUDA9开始，原先的warp shuffle指令`__shfl`变成deprecated，而在capability 7.0及以上的硬件中会自动转向使用`__shfl_sync`^[[33]](https://zhuanlan.zhihu.com/p/258196004#ref_33)^。后者加入了mask参数，其实会自动转化为sync。
 
