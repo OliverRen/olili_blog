@@ -277,7 +277,7 @@ AMD的做法是CPU和GPU挂在IF总线上，其实算是大同小异，因为IF�
 
 其实官方文档里写得非常简洁明了：
 
-![](./attachments/1605364213555.jpg)gen9 HD530
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/Intel核显的解析/20201119/1605768778555.jpg)gen9 HD530
 
 * * *
 
