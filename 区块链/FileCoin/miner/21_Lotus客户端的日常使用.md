@@ -57,9 +57,13 @@ lotus-miner init restore --config backup/config.toml --storage-config backup/sto
 
 - mpool信息替换
 
-`./lotus mpool pending --local --cids | xargs -L1 ./lotus mpool replace --auto`
+```
+# 查看本地的消息池
+lotus mpoll pending --local
 
-`lotus mpool xxxx`
+# 替换消息
+./lotus mpool pending --local --cids | xargs -L1 ./lotus mpool replace --auto
+```
 
 - 操作矿工账号的几个方法
 
