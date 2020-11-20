@@ -29,3 +29,23 @@ Unix 命令都带有参数，有些命令可以接受"标准输入"（stdin）�
 
 #### xargs命令的作用
 
+`xargs`命令的作用，是将标准输入转为命令行参数。
+
+```
+$ echo "hello world" | xargs echo
+hello world
+```
+
+上面的代码将管道左侧的标准输入，转为命令行参数`hello world`，传给第二个`echo`命令。
+
+`xargs`命令的格式如下。
+
+`$ xargs [-options] [command]`
+
+真正执行的命令，紧跟在`xargs`后面，接受`xargs`传来的参数。
+
+`xargs`的作用在于，大多数命令（比如`rm`、`mkdir`、`ls`）与管道一起使用时，都需要`xargs`将标准输入转为命令行参数。
+
+`$ echo "one two three" | xargs mkdir`
+
+上面的代码等同于`mkdir one two three`。如果不加`xargs`就会报错，提示`mkdir`缺少操作参数。
