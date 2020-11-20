@@ -49,3 +49,31 @@ hello world
 `$ echo "one two three" | xargs mkdir`
 
 上面的代码等同于`mkdir one two three`。如果不加`xargs`就会报错，提示`mkdir`缺少操作参数。
+
+#### xargs 的单独使用
+
+`xargs`后面的命令默认是`echo`。
+
+`$ xargs` 等同于 `$ xargs echo`
+
+大多数时候，`xargs`命令都是跟管道一起使用的。但是，它也可以单独使用。
+
+输入`xargs`按下回车以后，命令行就会等待用户输入，作为标准输入。你可以输入任意内容，然后按下`Ctrl d`，表示输入结束，这时`echo`命令就会把前面的输入打印出来。
+
+```
+$ xargs
+hello (Ctrl + d)
+hello
+```
+
+再看一个例子
+
+```
+$ xargs find -name
+"*.txt"
+./foo.txt
+./hello.txt
+```
+
+上面的例子输入`xargs find -name`以后，命令行会等待用户输入所要搜索的文件。用户输入`"*.txt"`，表示搜索当前目录下的所有 TXT 文件，然后按下`Ctrl d`，表示输入结束。这时就相当执行`find -name *.txt`。
+
