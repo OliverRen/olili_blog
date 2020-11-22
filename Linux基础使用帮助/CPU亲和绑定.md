@@ -69,3 +69,56 @@ CPU affinity典型的表示方法是使用16进制,具体如下.
 `NUMAMask`
 
 配置将与所选NUMA策略关联的NUMA节点掩码。请注意， default并且localNUMA策略不需要显式的NUMA节点掩码，该选项的值可以为空。与相似NUMAPolicy=，值可以由单位文件中的各个服务覆盖
+
+#### taskset 命令
+
+```
+# 命令行形式
+taskset [options] mask command [arg]...
+taskset [options] -p [mask] pid
+
+PARAMETER
+　　　　mask : cpu亲和性,当没有-c选项时, 其值前无论有没有0x标记都是16进制的,
+　　　　　　　　当有-c选项时,其值是十进制的.
+　　　　command : 命令或者可执行程序
+　　　　arg : command的参数
+　　　　pid : 进程ID,可以通过ps/top/pidof等命令获取
+	
+OPTIONS
+　	-a, --all-tasks (旧版本中没有这个选项)
+　　　　　　　　这个选项涉及到了linux中TID的概念,他会将一个进程中所有的TID都执行一次CPU亲和性设置.
+　　　　　　　　TID就是Thread ID,他和POSIX中pthread_t表示的线程ID完全不是同一个东西.
+　　　　　　　　Linux中的POSIX线程库实现的线程其实也是一个进程(LWP),这个TID就是这个线程的真实PID.
+       -p, --pid
+              操作已存在的PID,而不是加载一个新的程序
+       -c, --cpu-list
+              声明CPU的亲和力使用数字表示而不是用位掩码表示. 例如 0,5,7,9-11.
+       -h, --help
+              display usage information and exit
+       -V, --version
+              output version information and exit
+```
+
+1. 指定一个程序的 CPU亲和
+
+`taskset [-c] mask command [arg]...`
+
+`taskset -c 0 ls -al /etc/init.d/`
+
+2. 显示已经运行的进程的CPU亲和
+
+`taskset -p pid`
+
+3. 改变已经运行进程的CPU亲和
+
+```
+ taskset -p[c] mask pid
+
+举例:打开2个终端,在第一个终端运行top命令,第二个终端中
+首先运行:[~]# ps -eo pid,args,psr | grep top #获取top命令的pid和其所运行的CPU号
+其次运行:[~]# taskset -cp 新的CPU号 pid       #更改top命令运行的CPU号
+最后运行:[~]# ps -eo pid,args,psr | grep top #查看是否更改成功
+```
+
+
+#### numactl 命令
