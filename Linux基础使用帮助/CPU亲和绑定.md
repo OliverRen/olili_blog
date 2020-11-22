@@ -112,7 +112,7 @@ OPTIONS
 3. 改变已经运行进程的CPU亲和
 
 ```
- taskset -p[c] mask pid
+taskset -p[c] mask pid
 
 举例:打开2个终端,在第一个终端运行top命令,第二个终端中
 首先运行:[~]# ps -eo pid,args,psr | grep top #获取top命令的pid和其所运行的CPU号
