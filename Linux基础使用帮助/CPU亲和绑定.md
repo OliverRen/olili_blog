@@ -1,5 +1,5 @@
 ---
-title: CPU绑定
+title: CPU亲和绑定
 tags: 
 ---
 
