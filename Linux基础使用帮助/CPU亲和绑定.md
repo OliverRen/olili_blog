@@ -120,5 +120,20 @@ taskset -p[c] mask pid
 最后运行:[~]# ps -eo pid,args,psr | grep top #查看是否更改成功
 ```
 
+PS:taskset命令其实就是使用`sched_getaffinity()`和`sched_setaffinity()`接口实现的
 
 #### numactl 命令
+
+NUMA(Non-Uniform Memory Access)字面直译为“非一致性内存访问”，对于Linux内核来说最早出现在2.6.7版本上。这种特性对于当下大内存+多CPU为潮流的X86平台来说确实会有不少的性能提升，但相反的，如果配置不当的话，也是一个很大的坑。本文就从头开始说说Linux下关于CPU NUMA特性的配置和调优。
+
+最早Intel在Nehalem架构上实现了NUMA，取代了在此之前一直使用的FSB前端总线的架构，用以对抗AMD的HyperTransport技术。一方面这个架构的特点是内存控制器从传统的北桥中移到了CPU中，排除了商业战略方向的考虑之外，这样做的方法同样是为了实现NUMA。
+
+在SMP多CPU架构中，传统上多CPU对于内存的访问是总线方式。是总线就会存在资源争用和一致性问题，而且如果不断的增加CPU数量，总线的争用会愈演愈烈，这就体现在4核CPU的跑分性能达不到2核CPU的2倍，甚至1.5倍！理论上来说这种方式实现12core以上的CPU已经没有太大的意义。
+
+Intel的NUMA解决方案，Litrin始终认为它来自本家的安藤。他的模型有点类似于MapReduce。放弃总线的访问方式，将CPU划分到多个Node中，每个node有自己独立的内存空间。各个node之间通过高速互联通讯，通讯通道被成为QuickPath Interconnect即QPI。
+
+`numactl --hardware` 查看系统的numa状态 
+
+对node进行绑定可以使用 `--cpubind`和`membind`
+
+对thread进行绑定可以使用 `-C`
