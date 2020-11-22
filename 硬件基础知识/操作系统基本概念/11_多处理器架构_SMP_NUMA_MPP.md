@@ -1,5 +1,5 @@
 ---
-title: 10_多处理器架构_SMP_NUMA_MPP
+title: 11_多处理器架构_SMP_NUMA_MPP
 tags: 
 ---
 
