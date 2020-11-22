@@ -1,5 +1,5 @@
 ---
-title: CPU三大架构_SMP_NUMA_MPP
+title: 09_CPU三大架构_SMP_NUMA_MPP
 tags: 
 ---
 
