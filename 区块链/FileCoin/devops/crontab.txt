@@ -1,9 +1,0 @@
-crontab
-
-
-15 8 * * * systemctl stop lotus-worker.gpu.service
-16 8 * * * systemctl stop lotus-worker.gpu-p2.service
-17 8 * * * systemctl stop lotus-worker.gpu-c.service
-5 10 * * * systemctl start lotus-worker.gpu.service
-6 10 * * * systemctl start lotus-worker.gpu-p2.service
-* */5 * * * /filecoin/auto-pledge-sector.sh
