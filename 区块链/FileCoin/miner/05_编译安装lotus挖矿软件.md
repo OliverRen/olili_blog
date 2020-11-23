@@ -23,6 +23,8 @@ tags:
 	
 	`export FFI_BUILD_FROM_SOURCE=1`
 	
+	所以如果做编译二进制要区分这两个环境变量即可,仅编译时需要
+	
 3. 编译安装lotus
 	
 	```
