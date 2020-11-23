@@ -34,4 +34,4 @@ tags:
 	lotus daemon --import-snapshot https://fil-chain-snapshots-fallback.s3.amazonaws.com/mainnet/minimal_finality_stateroots_latest.car
 	```
 	
-需要注意的是在导入快照的时候,`lotus daemon`是会检测证明参数文件的,需要先通过环境变量指向.
+需要注意的是在导入快照的时候,`lotus daemon`是会检测证明参数文件的,需要先通过环境变量指向.测试结果是`filecoin-proof-parameters`在环境变量设置的目录下有,`/var/tmp`下也有
