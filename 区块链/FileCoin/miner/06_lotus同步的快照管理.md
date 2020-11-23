@@ -33,3 +33,5 @@ tags:
 	rm -rf ~/.lotus/datastore/chain/*
 	lotus daemon --import-snapshot https://fil-chain-snapshots-fallback.s3.amazonaws.com/mainnet/minimal_finality_stateroots_latest.car
 	```
+	
+需要注意的是在导入快照的时候,`lotus daemon`是会检测证明参数文件的,需要先通过环境变量指向.
