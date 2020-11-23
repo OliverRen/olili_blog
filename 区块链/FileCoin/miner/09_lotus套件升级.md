@@ -26,15 +26,6 @@ tags:
 	git submodule update
 	make clean deps all
 	make install
-
-	#安装服务 可以简单的 make install-all-services
-	make install-daemon-service
-	make install-chainwatch-service
-	make install-miner-service
-	# 其他有用的工具包括 `lotus-stats`,`lotus-pcr`,`lotus-health`,`lotus-shed`
-	
-	# 建议执行的安装是
-	make install install-all-services lotus-shed
 	```
 	
 - 启动 daemon `systemctl start lotus-daemon`	
