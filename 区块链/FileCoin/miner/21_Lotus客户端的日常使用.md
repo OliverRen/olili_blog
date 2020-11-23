@@ -63,6 +63,8 @@ lotus mpoll pending --local
 
 # 替换消息
 ./lotus mpool pending --local --cids | xargs -L1 ./lotus mpool replace --auto
+
+如果不清楚 mpool replace 具体的相关信息,尽量只使用 --auto,from,nonce来进行消息替换
 ```
 
 - 操作矿工账号的几个方法
