@@ -54,19 +54,19 @@ Lotus的配置文件在 `$LOTUS_PATH/config.toml`
   EnableLedger = false
 ```
 
-
-
-
-
-
-
-
+#### Lotus的环境变量
 
 Filecoin相关目录环境变量, 整个本地数据由这些相关目录 和 wallet 及 chain文件组成
 
 * `~/.lotus ($LOTUS_PATH)`
 * `~./lotusminer ($LOTUS_MINER_PATH)`
 * `~./lotusworker ($LOTUS_WORKER_PATH)`
+
+以下环境变量对大多数的 Lotus 二进制文件都是有效的
+
+
+
+
 
 * `LOTUS_FD_MAX` : Sets the file descriptor limit for the process
 * `LOTUS_JAEGER` : Sets the Jaeger URL to send traces. See more on docs.
