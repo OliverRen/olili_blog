@@ -3,9 +3,64 @@ title: 07_lotus配置文件和环境变量
 tags: 
 ---
 
-**Lotus的配置文件和环境变量**
+#### Lotus的配置文件
 
-Lotus的配置文件在 `$LOTUS_PATH/config.toml` ,主要是关于api和libp2p的网络配置,其中api设置的是lotus daemon本身监听的端口,而libp2p则是用在与 Filecoin 网络中的其他节点进行交互的设置,其中ListenAddress和AnnounceAddresses可以显示的配置为自己的固定ip和port,当然需要使用multiaddress的格式.
+Lotus的配置文件在 `$LOTUS_PATH/config.toml` 
+
+- API : lotus daemon本身监听的端口
+- Libp2p : 与 Filecoin 网络中的其他节点进行交互的设置
+
+```
+# lotus rpc api
+[API]
+  # lotus rpc api绑定
+  ListenAddress = "/ip4/127.0.0.1/tcp/1234/http"
+  # lotus daemon不需要进行设置
+  RemoteListenAddress = ""
+  # 通用的网络超时
+  Timeout = "30s"
+
+# 在filecoin网络中与其他node节点的连接
+[Libp2p]
+  # libp2p的监听,使用端口0意味着随机端口
+  ListenAddresses = ["/ip4/0.0.0.0/tcp/0", "/ip6/::/tcp/0"]
+  # 显示的指定自己可以被公开访问到的地址,如果指定了那么上面肯定是需要使用固定的端口的  
+  AnnounceAddresses = []
+  # 避免被访问到的地址
+  NoAnnounceAddresses = []
+  # 连接管理器的设置
+  ConnMgrLow = 150
+  ConnMgrHigh = 180
+  ConnMgrGrace = "20s"
+
+# pubsub是用来向网络广播信息的
+[Pubsub]
+  Bootstrapper = false
+  RemoteTracer = "/dns4/pubsub-tracer.filecoin.io/tcp/4001/p2p/QmTd6UvR47vUidRNZ1ZKXHrAFhqTJAD27rKL9XYghEKgKX"
+
+# 是否使用本地的ipfs节点
+[Client]
+  UseIpfs = false
+  IpfsMAddr = ""
+  IpfsUseForRetrieval = false
+
+# 标准配置
+[Metrics]
+  Nickname = ""
+  HeadNotifs = false
+
+# 钱包配置
+[Wallet]
+  EnableLedger = false
+```
+
+
+
+
+
+
+
+
 
 Filecoin相关目录环境变量, 整个本地数据由这些相关目录 和 wallet 及 chain文件组成
 
