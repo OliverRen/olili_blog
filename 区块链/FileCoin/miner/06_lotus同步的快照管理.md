@@ -3,6 +3,14 @@ title: 06_lotus同步的快照管理
 tags: 
 ---
 
+**快速查看lotus的同步情况**
+
+查看同步状态 `lotus sync status`
+
+同步阻塞的等待lotus同步完成 `lotus sync wait`
+
+获取本地chain最后一个区块的时间 `date -d @$(lotus chain getblock $(lotus chain head) | jq .Timestamp)`
+
 **lotus同步的快照管理**
 
 1. UPDATE
