@@ -80,8 +80,3 @@ Filecoin相关目录环境变量, 整个本地数据由这些相关目录 和 wa
 * `LOTUS_BSYNC_MSG_WINDOW` : 设置区块同步初始化时从网络中获取消息的最大的窗口大小,如果带宽不大,可以设置为10-20.
 * `FULLNODE_API_INFO="TOKEN:/ip4/<IP>/tcp/<PORT>/http"` 可以通过这种方式来提供给远程节点访问本机lotus节点rpc api的权限
 
-**Hint**
-
-需要注意的是软件默认的路径是跟执行用户有关系的,而且一般都需要root权限来执行相关文件的创建,如果直接使用 sudo 命令启动,则相关的路径文件默认时在 `/root/`下的.同时由于 sudo 命令由于安全性问题是会清除掉用户设置的环境变量的,这里可以考虑在 `sudoers` 文件中保留相关的环境变量,也可以使用 `sudo -E` 参数来附加当前的用户环境变量. 更建议直接通过 `su -`切换到root
-
-不过最推荐的还是注册成 systemd 服务的方式来进行管理, systemd 加载的环境变量全局文件是 `/etc/systemd/system.conf` 和 `/etc/systemd/user.conf` 中,不过一般都会通过服务注册在 `/etc/systemd/system`下文件中的 `Environment` 来进行配置.如果担心更新lotus重新编译或者执行安装的时候覆盖掉了,可以使用 `systemctl edit service` 来创建 `conf.d/override.conf` 中进行配置
