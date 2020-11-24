@@ -24,7 +24,7 @@ Lotus的配置文件在 `$LOTUS_PATH/config.toml`
 [Libp2p]
   # libp2p的监听,使用端口0意味着随机端口
   ListenAddresses = ["/ip4/0.0.0.0/tcp/0", "/ip6/::/tcp/0"]
-  # 显示的指定自己可以被公开访问到的地址,如果指定了那么上面肯定是需要使用固定的端口的  
+  # 显示的指定自己可以被公开访问到的地址,如果指定了那么上面肯定是需要使用固定的端口的,然后路由需要端口转发
   AnnounceAddresses = []
   # 避免被访问到的地址
   NoAnnounceAddresses = []
