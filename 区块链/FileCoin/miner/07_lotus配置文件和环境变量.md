@@ -64,22 +64,21 @@ Filecoin相关目录环境变量, 整个本地数据由这些相关目录 和 wa
 
 以下环境变量对大多数的 Lotus 二进制文件都是有效的
 
+* `LOTUS_FD_MAX` : 进程的文件描述符的限制
+* `LOTUS_JAEGER` : Jaeger URL来发送追踪
+* `LOTUS_DEV` : 任何非空字段都可以用来输出更多的日志,开发者较多使用
+* `GOLOG_OUTPUT` : go日志的输出格式,可以是 stdout, stderr, file ,多个可以使用 `+` 连接
+* `GOLOG_FILE` : go日志输出的文件路径
+* `GOLOG_LOG_FMT` : go输出日志的格式 ,可以使用 json,nocolor
 
+以下是专门针对 `lotus daemon` 来进行设置的
 
-
-
-* `LOTUS_FD_MAX` : Sets the file descriptor limit for the process
-* `LOTUS_JAEGER` : Sets the Jaeger URL to send traces. See more on docs.
-* `LOTUS_DEV` : Any non-empty value will enable more verbose logging, useful only for developers.
-
-Variables specific to the _Lotus daemon_ 
-
-* `LOTUS_PATH` : Location to store Lotus data (defaults to `~/.lotus`).
-* `LOTUS_SKIP_GENESIS_CHECK=_yes_` : Set only if you wish to run a lotus network with a different genesis block.
-* `LOTUS_CHAIN_TIPSET_CACHE` : Sets the size for the chainstore tipset cache. Defaults to `8192`. Increase if you perform frequent arbitrary tipset lookups.
-* `LOTUS_CHAIN_INDEX_CACHE` : Sets the size for the epoch index cache. Defaults to `32768`. Increase if you perform frequent deep chain lookups for block heights far from the latest height.
-* `LOTUS_BSYNC_MSG_WINDOW` : Sets the initial maximum window size for message fetching blocksync request. Set to 10-20 if you have an internet connection with low bandwidth.
-* `FULLNODE_API_INFO="TOKEN : /ip4/<IP>/tcp/<PORT>/http"` 可以设置本地的lotus读取远程的 lotus daemon
+* `LOTUS_PATH` : lotus同步链文件的位置 (默认在 `~/.lotus`).
+* `LOTUS_SKIP_GENESIS_CHECK=_yes_` : 当你运行一个不同创世块的filecoin网络的时候才需要
+* `LOTUS_CHAIN_TIPSET_CACHE` : 设置链存储的tipset缓存的数目,注意一个epoch是有多个tipset的,默认是8192.如果需要缓存更多的查询,可以增加
+* `LOTUS_CHAIN_INDEX_CACHE` : 设置epoch索引的缓存大小,默认是32768.如果要向前查很远的区块高度,就需要加高
+* `LOTUS_BSYNC_MSG_WINDOW` : 设置区块同步初始化时从网络中获取消息的最大的窗口大小,如果带宽不大,可以设置为10-20.
+* `FULLNODE_API_INFO="TOKEN:/ip4/<IP>/tcp/<PORT>/http"` 可以通过这种方式来提供给远程节点访问本机lotus节点rpc api的权限
 
 **Hint**
 
