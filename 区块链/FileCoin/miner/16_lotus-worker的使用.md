@@ -42,6 +42,26 @@ tags:
    --commit			enable commit (32G sectors: all cores or GPUs, 128GiB Memory + 64GiB swap) (default: true)
 ```
 
+启动worker的环境变量和miner是类似的
+
+```
+# MINER_API_INFO as obtained before
+export TMPDIR=/fast/disk/folder3                    # Used when sealing.
+export MINER_API_INFO:<TOKEN>:/ip4/<miner_api_address>/tcp/<port>/http`
+export BELLMAN_CPU_UTILIZATION=0.875
+export FIL_PROOFS_MAXIMIZE_CACHING=1
+export FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1 # when GPU is available
+export FIL_PROOFS_USE_GPU_TREE_BUILDER=1   # when GPU is available
+export FIL_PROOFS_PARAMETER_CACHE=/fast/disk/folder # > 100GiB!
+export FIL_PROOFS_PARENT_CACHE=/fast/disk/folder2   # > 50GiB!
+
+# The following increases speed of PreCommit1 at the cost of using a full
+# CPU core-complex rather than a single core. Should be used with CPU affinities set!
+# See https://github.com/filecoin-project/rust-fil-proofs/ and the
+# "Worker co-location" section below.
+export FIL_PROOFS_USE_MULTICORE_SDR=1
+```
+
 **lotus-miner的有关配置**
 
 切记Lotus Miner 配置中的 `MaxSealingSectors`,`MaxSealingSectorsForDeals`控制了可以同时 seal 的 sector 数量. `Storage`配置中如果要将工作全部分配给worker,则需要将对应的设置为false
