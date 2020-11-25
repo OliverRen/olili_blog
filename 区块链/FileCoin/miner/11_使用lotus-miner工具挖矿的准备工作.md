@@ -120,6 +120,10 @@ tags:
 	- 使用命令查看节点的nat状态 `lotus-miner net reachability`,这需要你连接到足够的peers才能正确反馈,正常的值是 Public
 	- 检查连接的对等点 peers ,使用命令 `lotus-miner net peers` , 如果过少,可以使用命令 `lotus-miner net connect <address1> <address2>...` 手动连接 [引导节点](https://github.com/filecoin-project/lotus/blob/master/build/bootstrap/bootstrappers.pi) 确保你们实在相同的网络分支中
 
+	如果不是本机有公网IP.那么肯定要在路由上做端口转发了
+	
+	如果的确矿池没有公共IP.那么也可以使用 VPN或者 SSH反向连接代理出去获得公网的连接性
+
 14. 其他步骤 这里请看下文 ==进阶设置==
 
 	- 配置自定义存储的布局,这要求一开始使用 --no-local-storage
