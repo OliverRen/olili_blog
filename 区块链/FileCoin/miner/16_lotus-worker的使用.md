@@ -55,6 +55,8 @@ tags:
   AllowUnseal = true
 ```
 
+设置 `ListenAddress` 和 `RemoteListenAddress` 到非本地接口,并使用 `lotus-miner auth api-info --perm admin` 获得可以访问的Token 
+
 **重启 worker**
 
 可以随时重新启动 Lotus Seal Worker,但是他们如果正在执行密封的某一个步骤的话,重新后需要从最后一个检查点重新开始.而且如果是在 C2阶段最多只有3次尝试的机会.
