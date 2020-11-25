@@ -23,9 +23,12 @@ tags:
 	# See https://github.com/Filecoin-project/rust-fil-proofs/
 	# 加内存来获得更快的封装速度
 	export FIL_PROOFS_MAXIMIZE_CACHING=1 # More speed at RAM cost (1x sector-size of RAM - 32 GB).使用更多的内存来加快预提交的速度
-	# GPU加速
+	# P2阶段的GPU加速
 	export FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1 # precommit 2 GPU acceleration
 	export FIL_PROOFS_USE_GPU_TREE_BUILDER=1
+	
+	# 需要结合CPU亲和来使用相邻的4个Core加快P1中单线程的执行
+	FIL_PROOFS_USE_MULTICORE_SDR=1
 	```
 
 5. 如果内存过少,则需要添加swap分区,详细可以参看 linux使用文档中的添加swap
