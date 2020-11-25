@@ -108,7 +108,7 @@ tags:
 	```
 
 11. 当的确可以访问该公网ip时,启动 lotus-miner
-	
+
 	`lotus-miner run` 或 `systemctl start lotus-miner`
 
 12. 公布矿工地址 
