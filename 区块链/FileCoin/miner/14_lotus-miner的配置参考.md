@@ -188,7 +188,7 @@ RetrievalFilter = "/path/to/go/bin/bitscreen"
   MaxPreCommitGasFee = "0.05 FIL"
   # 提交块是需要手续费的 平均需要 0.001 FIL以下,高费率是0.1
   MaxCommitGasFee = "0.1 FIL"
-  # 高费率在1FIL左右
+  # 高费率在1FIL左右,默认的50FIL太高了
   MaxWindowPoStGasFee = "1 FIL"
   # 保持默认就好
   MaxPublishDealsFee = "0.05 FIL"
