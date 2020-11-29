@@ -133,7 +133,7 @@ func ComputeGasOverestimationBurn(GasUsage, gasLimit int64) (int64, int64) {
 
 如果 `GasLimit` 预估没有超过 `GasUsage`的 10%,则不会造成款燃烧.
 
-如果 `GasLimit` 超过 `GasUsag`e 的 10% - 110% 燃烧部分差不多是超出的 `overgas(overgas/GasUsage-1/10`作为罚款燃烧,即`overgas`乘以超出的比例扣掉10%.
+如果 `GasLimit` 超过 `GasUsag`e 的 10% - 110% 燃烧部分差不多是超出的 `overgas(overgas/GasUsage-1/10)`作为罚款燃烧,即`overgas`乘以超出的比例扣掉10%.
 
 如果 `GasLimit` 超过 `GasUsage` 的110% 则是 `overgas`作为罚款燃烧
 
