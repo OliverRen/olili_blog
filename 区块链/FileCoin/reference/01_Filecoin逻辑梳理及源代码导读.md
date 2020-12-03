@@ -11,17 +11,17 @@ Filecoin的源代码可以从Github下载：https://github.com/filecoin-project/
 
 在阅读源代码之前，强烈建议看两份对阅读代码有益的文档：
 
-Filecoin的设计文档 
+- Filecoin的设计文档 
 
-https://github.com/filecoin-project/specs
+	https://github.com/filecoin-project/specs
 
-设计文档，从设计的角度，分别介绍数据结构，挖矿机制，共识机制，支付方式，虚拟机执行，状态机，存储角色等等。
+	设计文档，从设计的角度，分别介绍数据结构，挖矿机制，共识机制，支付方式，虚拟机执行，状态机，存储角色等等。
 
-CODEWALK.md
+- CODEWALK.md
 
-https://github.com/filecoin-project/go-filecoin/blob/master/CODEWALK.md
+	https://github.com/filecoin-project/go-filecoin/blob/master/CODEWALK.md
 
-CODEWALK也是高屋建瓴的讲述了Filecoin的代码历史，框架，以及各个模块的功能。
+	CODEWALK也是高屋建瓴的讲述了Filecoin的代码历史，框架，以及各个模块的功能。
 
 总的来说，这两份文档篇幅都不长，对理解Filecoin的项目以及代码很有帮助。建议大家有空看看。注意的是，这些文档也不是实时更新，和代码有些出入的。闲话不多说，我整理了一下Filecoin源代码的一些理解，方便对Filecoin代码感兴趣的小伙伴，可以更快的理解Filecoin的设计以及现状。文章比较长，请耐心阅读 :)
 
