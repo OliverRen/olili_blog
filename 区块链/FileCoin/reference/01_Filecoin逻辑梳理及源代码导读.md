@@ -37,6 +37,8 @@ docs: Add dual license
 
 Missing it in the manifest. Not sure if this is how GX reads it (cc @whyrusleeping), but I'm going off of this example from @kemitchell.
 
+---------------
+
 #### Filecoin的几个基本概念
 
 **Filecoin State Machine (Filecoin状态机)**:
@@ -91,6 +93,8 @@ Block是一个区块，定义在types/block.go文件中：
 
 目前Filecoin的代码中，每个区块的生成时间设置为30秒。
 
+---------------
+
 #### Filecoin地址生成逻辑
 
 在深入其他逻辑之前，先介绍一下Filecoin网络中的地址生成逻辑。Filecoin的地址总共为41个字节，比如**fc**qphnea72vq5yynshuur33pfnnksjsn5sle75rxc。**fc**代表是主网，**tf**代表是测试网络。
@@ -101,6 +105,8 @@ Block是一个区块，定义在types/block.go文件中：
 
 ![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/01_Filecoin逻辑梳理及源代码导读/2020123/1606985452978.jpg)
 
+---------------
+
 #### Filecoin的整体框架
 
 Filecoin区块链相关的整体框架如下图所示：
@@ -108,6 +114,8 @@ Filecoin区块链相关的整体框架如下图所示：
 ![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/01_Filecoin逻辑梳理及源代码导读/2020123/1606985452984.jpg)
 
 所有的交易在节点间同步到每个节点的“Message Pool”中。经过“Expected Consensus”共识机制，当选为Leader的一个或者多个节点从“Message Pool”中挑选Message，并打包。被打包的区块，会同步给其他节点。打包的区块中的交易（Message）会被Filecoin虚拟机执行，更新各个Actor的状态。所有的区块数据，Actor的状态是通过IPFS/IPLD进行存储。
+
+---------------
 
 #### Filecoin 虚拟机以及Gas计算
 
@@ -132,6 +140,8 @@ Filecoin虚拟机相关的代码在vm的目录下。所有的区块数据以及A
 *   Rand函数提供了随机数能力
 
 *   Send函数提供了调用其他Actor函数的能力
+
+---------------
 
 #### Expected Consensus - EC共识机制
 
@@ -162,6 +172,8 @@ Filecoin的共识算法叫Expected Consensus，简称EC共识机制。Expected C
 目前，ECV设置为10， ECPrM设置为100，Ratio是当前节点的存储有效率（节点存储的容量/所有节点的存储容量）。在目前的算法下，也就是说，节点的ratio高，Weight就高。
 
 一个TipSet的Weight等于TipSet中所有区块的Weight的总和。Weight大的TipSet认为是主链。当两个TipSet的Weight一样大的时候，取Ticket较小者。
+
+---------------
 
 #### Filecoin协议层
 
