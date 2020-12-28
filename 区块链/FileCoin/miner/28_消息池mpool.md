@@ -161,6 +161,6 @@ gasToBurn=500-100=400=>400*100=40000=>40000/100=400
 
 简单的来说,可以使用命令 `lotus mpool replace --auto <from> <nonce>` 达成. 
 
-或通过各个参数自行选择 `lotus mpool replace --gas-feecap <feecap> --gas-premuim <premium> --gas-limit <limit> <from> <nonce>` .
+或通过各个参数自行选择 `lotus mpool replace --gas-feecap <feecap> --gas-premium <premium> --gas-limit <limit> <from> <nonce>` .
 
 当然你也可以使用已经本地签名过的消息直接通过 MpoolPush 发送.
