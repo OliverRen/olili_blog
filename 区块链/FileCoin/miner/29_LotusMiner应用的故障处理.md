@@ -61,3 +61,28 @@ root       2333 6666 88 Nov31 ?        1-02:50:00 lotus-miner run
 # 为lotus-miner设置ulimit
 sudo prlimit --nofile=1048576 --nproc=unlimited --stack=1048576 --rtprio=99 --nice=-19 --pid 2333\
 ```
+
+- 使用脚本简单的处理 sector 报错 
+
+```
+m=`lotus-miner info | grep 'Miner:' | awk -F ' ' '{print $2}'`
+lotus state sectors $m > /tmp/s.txt
+for i in `lotus-miner sectors list | grep -P '(Fatal|Fail|Recover)' | grep -v Remove | awk -F ' ' '{print $1}'`
+do
+  a=`cat /tmp/s.txt | grep -P "^$i:" | wc -l`
+  if [ $a -eq 0 ]
+  then
+    echo $i $a Removing
+    lotus-miner sectors update-state --really-do-it $i Removing
+  else
+    echo $i $a Proving
+    lotus-miner sectors update-state --really-do-it $i Proving
+  fi
+done
+
+lotus-miner sectors status --log 0
+lotus-miner sectors update-state --really-do-it 0 Removing
+当sector出现意料之外的错误，会进入如下两种状态。
+FatalError。通常由于sector的链上信息不符合预期，此时需要手动排查问题。
+Removing/RemoveFailed/Removed。当垃圾sector出现预料之外的错误，我们选择直接删除。
+```
