@@ -60,6 +60,8 @@ lotus-miner init restore --config backup/config.toml --storage-config backup/sto
 ```
 # 查看本地的消息池
 lotus mpoll pending --local
+lotus pool stat
+lotus mpool config
 
 # 替换消息
 ./lotus mpool pending --local --cids | xargs -L1 ./lotus mpool replace --auto
@@ -95,6 +97,12 @@ lotus mpoll pending --local
 - filecoin链状态
 
 `lotus state`
+
+- lotus 排错 查看日志
+
+`lotus pprof goroutines`
+
+`cat  $LOTUS_PATH/journal/* | jq -r 'select(.Event == "head_change" and .Data.ApplyCount > 1 and .Data.RevertCount > 0) | "\(.Timestamp), \(.Data.ApplyCount), \(.Data.RevertCount)"'`
 
 #### Lotus套件的软件说明
 
