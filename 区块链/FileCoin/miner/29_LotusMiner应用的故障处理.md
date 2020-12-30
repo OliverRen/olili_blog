@@ -26,3 +26,11 @@ tags:
 - Error: No space left on device
 
 如果看到这种情况，则意味着扇区承诺写入了太多的数据，$TMPDIR这些数据默认是根分区（这在Linux安装程序中很常见）。通常，您的根分区不会获得最大的存储分区，因此您需要将环境变量更改为其他变量。
+
+- 突然要修改 miner 的 config 文件,但不想重启 miner
+
+手工修改 config 文件后,可以使用 `lotus-miner sectors set-seal-delay` 来使进程重新加载
+
+- 紧急杀掉所有lotus进程
+
+`ps -ef | grep lotus | awk '{print $2}' | xargs -L 1 kill`
