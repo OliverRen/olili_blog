@@ -34,3 +34,30 @@ tags:
 - 紧急杀掉所有lotus进程
 
 `ps -ef | grep lotus | awk '{print $2}' | xargs -L 1 kill`
+
+- 自动备份lotus-miner文件
+
+1. 需要source本地lotus-miner的环境变量
+2. 需要在lotus-mienr_HOMEPATH/config中配置可以备份的路径前缀,如下面配置了 /data4/lotus-miner-metadata-backup
+
+`/usr/local/bin/lotus-miner backup /data4/lotus-miner-metadata-backup/$(date +%Y%m%d)`
+
+- 高级环境变量的设置,目前无法预估后果
+
+`FIL_PROOFS_SDR_PARENTS_CACHE_SIZE=1073741824` 缓存的证明父级数目
+
+`FIL_PROOFS_MAX_GPU_COLUMN_BATCH_SIZE=400000` 一次编译的列数,默认是40,0000.大了会耗尽GPU RAM,小了会降低性能.默认值是 2080TI的测试值
+
+`FIL_PROOFS_COLUMN_WRITE_BATCH_SIZE` 从GPU返回的数数据并行写入缓冲区的大小,默认值是 262144
+
+`FIL_PROOFS_MAX_GPU_TREE_BATCH_SIZE` 构建 tree_r_last,默认是70,0000个树节点
+
+- 临时限制进程
+
+```
+# 获取lotus-miner的PID(如下所示，PID为2333)
+$ ps -ef | grep lotus-miner
+root       2333 6666 88 Nov31 ?        1-02:50:00 lotus-miner run
+# 为lotus-miner设置ulimit
+sudo prlimit --nofile=1048576 --nproc=unlimited --stack=1048576 --rtprio=99 --nice=-19 --pid 2333\
+```
