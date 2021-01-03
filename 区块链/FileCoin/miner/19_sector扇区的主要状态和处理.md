@@ -58,10 +58,8 @@ tags:
 - PreCommitting
 
 ```
-	/////
-	// Now decide what to do next
-	//
-	/*
+/*
+
 				*   Empty <- incoming deals
 				|   |
 				|   v
@@ -71,6 +69,9 @@ tags:
 				*<- Packing <- incoming committed capacity
 				|   |
 				|   v
+				|   GetTicket
+				|   |   ^
+				|   v   |
 				*<- PreCommit1 <--> SealPreCommit1Failed
 				|   |       ^          ^^
 				|   |       *----------++----\
@@ -102,10 +103,30 @@ tags:
 				|
 				v
 				FailedUnrecoverable
+
 				UndefinedSectorState <- ¯\_(ツ)_/¯
 					|                     ^
 					*---------------------/
+
 	*/
+
+```
+
+```
+	Empty          SectorState = "Empty"
+	WaitDeals      SectorState = "WaitDeals"     // waiting for more pieces (deals) to be added to the sector
+	Packing        SectorState = "Packing"       // sector not in sealStore, and not on chain
+	GetTicket      SectorState = "GetTicket"     // generate ticket
+	PreCommit1     SectorState = "PreCommit1"    // do PreCommit1
+	PreCommit2     SectorState = "PreCommit2"    // do PreCommit2
+	PreCommitting  SectorState = "PreCommitting" // on chain pre-commit
+	PreCommitWait  SectorState = "PreCommitWait" // waiting for precommit to land on chain
+	WaitSeed       SectorState = "WaitSeed"      // waiting for seed
+	Committing     SectorState = "Committing"    // compute PoRep
+	SubmitCommit   SectorState = "SubmitCommit"  // send commit message to the chain
+	CommitWait     SectorState = "CommitWait"    // wait for the commit message to land on chain
+	FinalizeSector SectorState = "FinalizeSector"
+	Proving        SectorState = "Proving"
 ```
 
 **扇区封装流程说明**
