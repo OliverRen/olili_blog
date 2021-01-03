@@ -168,3 +168,5 @@ startCC begin
 
 `[Proving]`
 PoRep
+
+**扇区状态处理原则**
