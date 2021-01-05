@@ -175,4 +175,5 @@ PoRep
 - P2出错或卡住重新运行P2
 - PreCommitFailed查看 on-chain-info,确认完成P2的重新运行 PreCommitting
 - CommitFailed重新运行 Committing
+- FinalizeFailed 重新运行 FinalizeSector
 - 出现 "normal shutdown of state machine",等重启miner
