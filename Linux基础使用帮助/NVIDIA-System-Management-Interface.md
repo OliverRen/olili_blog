@@ -73,24 +73,24 @@ GPU进程统计信息以一行的滚动格式显示，此工具列出了GPU所�
 
 ```
 用逗号分隔GPU索引，PCI总线ID或UUID
-nvidia-smi pmon –i xxx
+nvidia-smi pmon -i xxx
 
 指定刷新时间（默认为1秒，最大为10秒）
-nvidia-smi pmon –d xxx
+nvidia-smi pmon -d xxx
 
 显示指定数目的统计信息并退出
-nvidia-smi pmon –c xxx
+nvidia-smi pmon -c xxx
 
 指定显示哪些监控指标（默认为u），其中：
 u：GPU使用率
 m：FB内存使用情况
-nvidia-smi pmon –s xxx
+nvidia-smi pmon -s xxx
 
 指定显示的时间格式D：YYYYMMDD，THH:MM:SS
-nvidia-smi pmon –o D/T
+nvidia-smi pmon -o D/T
 
 将查询的信息输出到具体的文件中，不在终端显示
-nvidia-smi pmon –f xxx
+nvidia-smi pmon -f xxx
 ```
 
 #### dmon 设备监控命令
@@ -101,13 +101,13 @@ GPU统计信息以一行的滚动格式显示，要监控的指标可以基于�
 
 ```
 用逗号分隔GPU索引，PCI总线ID或UUID
-nvidia-smi dmon –i xxx
+nvidia-smi dmon -i xxx
 
 指定刷新时间（默认为1秒）
-nvidia-smi dmon –d xxx
+nvidia-smi dmon -d xxx
 
 显示指定数目的统计信息并退出
-nvidia-smi dmon –c xxx
+nvidia-smi dmon -c xxx
 
 指定显示哪些监控指标（默认为puc），其中：
 p：电源使用情况和温度（pwr：功耗，temp：温度）
@@ -117,51 +117,51 @@ v：电源和热力异常
 m：FB内存和Bar1内存
 e：ECC错误和PCIe重显错误个数
 t：PCIe读写带宽
-nvidia-smi dmon –s xxx
+nvidia-smi dmon -s xxx
 
 指定显示的时间格式D：YYYYMMDD，THH:MM:SS
-nvidia-smi dmon –o D/T
+nvidia-smi dmon -o D/T
 
 将查询的信息输出到具体的文件中，不在终端显示
-nvidia-smi dmon –f xxx
+nvidia-smi dmon -f xxx
 ```
 
 #### 设备修改选项
 
 ```
 设置持久模式：0/DISABLED,1/ENABLED
-nvidia-smi –pm 0/1
+nvidia-smi -pm 0/1
 
 切换ECC支持：0/DISABLED, 1/ENABLED
-nvidia-smi –e 0/1
+nvidia-smi -e 0/1
 
 重置ECC错误计数：0/VOLATILE, 1/AGGREGATE
-nvidia-smi –p 0/1
+nvidia-smi -p 0/1
 
 设置计算应用模式：0/DEFAULT,1/EXCLUSIVE_PROCESS,2/PROHIBITED
-nvidia-smi –c
+nvidia-smi -c
 
 GPU复位
-nvidia-smi –r
+nvidia-smi -r
 
 设置GPU虚拟化模式
-nvidia-smi –vm
+nvidia-smi -vm
 
-设置GPU运行的工作频率。e.g. nvidia-smi –ac2000,800
-nvidia-smi –ac xxx,xxx
+设置GPU运行的工作频率。e.g. nvidia-smi -ac2000,800
+nvidia-smi -ac xxx,xxx
 
 将时钟频率重置为默认值
-nvidia-smi –rac
+nvidia-smi -rac
 
 切换-ac和-rac的权限要求，0/UNRESTRICTED, 1/RESTRICTED
-nvidia-smi –acp 0/1
+nvidia-smi -acp 0/1
 
 指定最大电源管理限制（瓦特）
-nvidia-smi –pl
+nvidia-smi -pl
 
 启用或禁用计数模式，0/DISABLED,1/ENABLED
-nvidia-smi –am 0/1
+nvidia-smi -am 0/1
 
 清除缓冲区中的所有已记录PID，0/DISABLED,1/ENABLED
-nvidia-smi –caa
+nvidia-smi -caa
 ```
