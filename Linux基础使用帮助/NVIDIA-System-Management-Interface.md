@@ -67,4 +67,54 @@ nvidia-smi dmon
 
 #### 设备修改选项
 
+```
+可以手动设置GPU卡设备的状态选项
 
+nvidia-smi –pm 0/1
+
+设置持久模式：0/DISABLED,1/ENABLED
+
+nvidia-smi –e 0/1
+
+切换ECC支持：0/DISABLED, 1/ENABLED
+
+nvidia-smi –p 0/1
+
+重置ECC错误计数：0/VOLATILE, 1/AGGREGATE
+
+nvidia-smi –c
+
+设置计算应用模式：0/DEFAULT,1/EXCLUSIVE_PROCESS,2/PROHIBITED
+
+nvidia-smi –r
+
+GPU复位
+
+nvidia-smi –vm
+
+设置GPU虚拟化模式
+
+nvidia-smi –ac xxx,xxx
+
+设置GPU运行的工作频率。e.g. nvidia-smi –ac2000,800
+
+nvidia-smi –rac
+
+将时钟频率重置为默认值
+
+nvidia-smi –acp 0/1
+
+切换-ac和-rac的权限要求，0/UNRESTRICTED, 1/RESTRICTED
+
+nvidia-smi –pl
+
+指定最大电源管理限制（瓦特）
+
+nvidia-smi –am 0/1
+
+启用或禁用计数模式，0/DISABLED,1/ENABLED
+
+nvidia-smi –caa
+
+清除缓冲区中的所有已记录PID，0/DISABLED,1/ENABLED
+```
