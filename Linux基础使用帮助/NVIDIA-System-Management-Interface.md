@@ -67,6 +67,31 @@ nvidia-smi dmon
 
 #### pmon 进程监控命令
 
+进程监控命令，以滚动条形式显示GPU进程状态信息。
+
+GPU进程统计信息以一行的滚动格式显示，此工具列出了GPU所有进程的统计信息。要监控的指标可以基于终端窗口的宽度进行调整。 监控最多4个GPU，如果没有指定任何GPU，则默认监控GPU0-GPU3（GPU索引从0开始）。
+
+```
+用逗号分隔GPU索引，PCI总线ID或UUID
+nvidia-smi pmon –i xxx
+
+指定刷新时间（默认为1秒，最大为10秒）
+nvidia-smi pmon –d xxx
+
+显示指定数目的统计信息并退出
+nvidia-smi pmon –c xxx
+
+指定显示哪些监控指标（默认为u），其中：
+u：GPU使用率
+m：FB内存使用情况
+nvidia-smi pmon –s xxx
+
+指定显示的时间格式D：YYYYMMDD，THH:MM:SS
+nvidia-smi pmon –o D/T
+
+将查询的信息输出到具体的文件中，不在终端显示
+nvidia-smi pmon –f xxx
+```
 
 #### dmon 设备监控命令
 
