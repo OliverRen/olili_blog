@@ -33,7 +33,7 @@ nvidia-smi pmon
 
 #监控设备
 nvidia-smi dmon
+```
 
 #此外还有一系列可以配置模式的属性，可以直接利用nvidia-smi配置
 #详情：http://developer.download.nvidia.com/compute/DCGM/docs/nvidia-smi-367.38.pdf
-```
