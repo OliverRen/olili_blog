@@ -40,81 +40,67 @@ Compute M.：     计算模式，0/DEFAULT,1/EXCLUSIVE_PROCESS,2/PROHIBITED
 详情：http://developer.download.nvidia.com/compute/DCGM/docs/nvidia-smi-367.38.pdf
 
 ```
-#帮助
+帮助
 nvidia-smi -h
 
-#持续监控gpu状态 （-lms 可实现毫秒级监控）
+持续监控gpu状态 （-lms 可实现毫秒级监控）
 nvidia-smi -l 3   #每三秒刷新一次状态，持续监控
 
-#列出所有GPU，大写L
+列出所有GPU，大写L
 nvidia-smi -L
 
-#查询所有信息
+查询所有信息
 nvidia-smi -q
 
-#查询特定卡的信息，0.1.2.为GPU编号
+查询特定卡的信息，0.1.2.为GPU编号
 nvidia-smi -i 0
 
-#显示特定的信息  MEMORY, UTILIZATION, ECC, TEMPERA-TURE, POWER, CLOCK, COMPUTE, PIDS, PERFORMANCE, SUPPORTED_CLOCKS, #PAGE_RETIREMENT, ACCOUNTING 配合-q使用
+显示特定的信息  MEMORY, UTILIZATION, ECC, TEMPERA-TURE, POWER, CLOCK, COMPUTE, PIDS, PERFORMANCE, SUPPORTED_CLOCKS, #PAGE_RETIREMENT, ACCOUNTING 配合-q使用
 nvidia-smi -q -d MEMORY
 
-#监控线程
+监控线程
 nvidia-smi pmon
 
-#监控设备
+监控设备
 nvidia-smi dmon
 ```
 
 #### 设备修改选项
 
 ```
-可以手动设置GPU卡设备的状态选项
-
+设置持久模式：0/DISABLED,1/ENABLED
 nvidia-smi –pm 0/1
 
-设置持久模式：0/DISABLED,1/ENABLED
-
+切换ECC支持：0/DISABLED, 1/ENABLED
 nvidia-smi –e 0/1
 
-切换ECC支持：0/DISABLED, 1/ENABLED
-
+重置ECC错误计数：0/VOLATILE, 1/AGGREGATE
 nvidia-smi –p 0/1
 
-重置ECC错误计数：0/VOLATILE, 1/AGGREGATE
-
+设置计算应用模式：0/DEFAULT,1/EXCLUSIVE_PROCESS,2/PROHIBITED
 nvidia-smi –c
 
-设置计算应用模式：0/DEFAULT,1/EXCLUSIVE_PROCESS,2/PROHIBITED
-
+GPU复位
 nvidia-smi –r
 
-GPU复位
-
+设置GPU虚拟化模式
 nvidia-smi –vm
 
-设置GPU虚拟化模式
-
+设置GPU运行的工作频率。e.g. nvidia-smi –ac2000,800
 nvidia-smi –ac xxx,xxx
 
-设置GPU运行的工作频率。e.g. nvidia-smi –ac2000,800
-
+将时钟频率重置为默认值
 nvidia-smi –rac
 
-将时钟频率重置为默认值
-
+切换-ac和-rac的权限要求，0/UNRESTRICTED, 1/RESTRICTED
 nvidia-smi –acp 0/1
 
-切换-ac和-rac的权限要求，0/UNRESTRICTED, 1/RESTRICTED
-
+指定最大电源管理限制（瓦特）
 nvidia-smi –pl
 
-指定最大电源管理限制（瓦特）
-
+启用或禁用计数模式，0/DISABLED,1/ENABLED
 nvidia-smi –am 0/1
 
-启用或禁用计数模式，0/DISABLED,1/ENABLED
-
-nvidia-smi –caa
-
 清除缓冲区中的所有已记录PID，0/DISABLED,1/ENABLED
+nvidia-smi –caa
 ```
