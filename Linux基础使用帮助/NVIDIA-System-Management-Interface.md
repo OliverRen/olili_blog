@@ -65,4 +65,6 @@ nvidia-smi pmon
 nvidia-smi dmon
 ```
 
+#### 设备修改选项
+
 
