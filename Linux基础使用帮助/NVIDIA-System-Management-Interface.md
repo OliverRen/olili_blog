@@ -5,9 +5,13 @@ tags:
 
 [toc]
 
-nvidia显卡驱动和cuda管理的管理命令 `nvidia-smi`,
+#### nvidia-smi 命令的输出含义
+
+nvidia显卡驱动和cuda管理的管理命令 `nvidia-smi`
 
 ![nvidia-smi](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/NVIDIA-System-Management-Interface/2021127/1611735815836.png)
+
+#### 基本用法
 
 ```
 #帮助
