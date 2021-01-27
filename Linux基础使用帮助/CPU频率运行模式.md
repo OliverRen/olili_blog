@@ -23,3 +23,5 @@ tags:
 	流畅度：根据设置而定
 8. Hotplug：类似于ondemand, 但是cpu会在关屏下尝试关掉一个cpu，并且带有deep sleep，比较省电。
 	流畅度：一般，流畅
+	
+#### 配置运行模式
