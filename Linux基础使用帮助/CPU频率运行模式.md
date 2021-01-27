@@ -48,10 +48,21 @@ done
 
 如果想要重启后自动生效,或者要使用软件来进行管理,那么可选项是比较多的,比如
 
+- sysfsutils
+- cpufrequtils
 - cpudynd
 - cpufreqd
-- cpufrequtils 我使用的
 - powernowd
 - powersaved
 - speedfreqd
 
+#### sysfsutils通过配置文件开机自动生效 cpu governor
+
+1. 安装sysfsutils
+2. 编辑/etc/sysfs.conf，增加如下语句 : `devices/system/cpu/cpu<core number>/cpufreq/scaling_governor=<governor>`
+
+<core number>	是CPU逻辑核心的编号，从0开始，有多少个逻辑核心就添加多少条该条数据。
+
+<governor>			是调节器类型，允许的值有performance powersave ondemand interactive conservative.
+
+- performance: 最大性能  powersave: 最高节能  ondemand: 快升快降  interactive: 快升慢降  conservative: 慢升快降
