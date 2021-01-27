@@ -65,6 +65,39 @@ nvidia-smi pmon
 nvidia-smi dmon
 ```
 
+#### dmon 设备监控命令
+
+设备监控命令，以滚动条形式显示GPU设备统计信息。
+
+GPU统计信息以一行的滚动格式显示，要监控的指标可以基于终端窗口的宽度进行调整。 监控最多4个GPU，如果没有指定任何GPU，则默认监控GPU0-GPU3（GPU索引从0开始）。
+
+```
+用逗号分隔GPU索引，PCI总线ID或UUID
+nvidia-smi dmon –i xxx
+
+指定刷新时间（默认为1秒）
+nvidia-smi dmon –d xxx
+
+显示指定数目的统计信息并退出
+nvidia-smi dmon –c xxx
+
+指定显示哪些监控指标（默认为puc），其中：
+p：电源使用情况和温度（pwr：功耗，temp：温度）
+u：GPU使用率（sm：流处理器，mem：显存，enc：编码资源，dec：解码资源）
+c：GPU处理器和GPU内存时钟频率（mclk：显存频率，pclk：处理器频率）
+v：电源和热力异常
+m：FB内存和Bar1内存
+e：ECC错误和PCIe重显错误个数
+t：PCIe读写带宽
+nvidia-smi dmon –s xxx
+
+指定显示的时间格式D：YYYYMMDD，THH:MM:SS
+nvidia-smi dmon –o D/T
+
+将查询的信息输出到具体的文件中，不在终端显示
+nvidia-smi dmon –f xxx
+```
+
 #### 设备修改选项
 
 ```
