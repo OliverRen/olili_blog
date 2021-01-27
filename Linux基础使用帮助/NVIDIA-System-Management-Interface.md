@@ -37,6 +37,8 @@ Compute M.：     计算模式，0/DEFAULT,1/EXCLUSIVE_PROCESS,2/PROHIBITED
 
 #### 基本用法
 
+详情：http://developer.download.nvidia.com/compute/DCGM/docs/nvidia-smi-367.38.pdf
+
 ```
 #帮助
 nvidia-smi -h
@@ -63,5 +65,4 @@ nvidia-smi pmon
 nvidia-smi dmon
 ```
 
-#此外还有一系列可以配置模式的属性，可以直接利用nvidia-smi配置
-#详情：http://developer.download.nvidia.com/compute/DCGM/docs/nvidia-smi-367.38.pdf
+
