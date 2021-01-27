@@ -11,6 +11,30 @@ nvidia显卡驱动和cuda管理的管理命令 `nvidia-smi`
 
 ![nvidia-smi](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/NVIDIA-System-Management-Interface/2021127/1611735815836.png)
 
+显示的表格中：
+
+Fan：                     风扇转速（0%--100%），N/A表示没有风扇
+
+Temp：                 GPU温度（GPU温度过高会导致GPU频率下降）
+
+Perf：                    性能状态，从P0（最大性能）到P12（最小性能）
+
+Pwr：                     GPU功耗
+
+Persistence-M：   持续模式的状态（持续模式耗能大，但在新的GPU应用启动时花费时间更少）
+
+Bus-Id：               GPU总线，domain:bus:device.function
+
+Disp.A：                Display Active，表示GPU的显示是否初始化
+
+Memory-Usage：显存使用率
+
+Volatile GPU-Util：GPU使用率
+
+ECC：                   是否开启错误检查和纠正技术，0/DISABLED, 1/ENABLED
+
+Compute M.：     计算模式，0/DEFAULT,1/EXCLUSIVE_PROCESS,2/PROHIBITED
+
 #### 基本用法
 
 ```
