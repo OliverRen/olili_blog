@@ -25,3 +25,19 @@ tags:
 	流畅度：一般，流畅
 	
 #### 配置运行模式
+
+系统中对CPU频率运行模式的调整一般都是采用 `governor` 来进行调整的,该文件的位置一般是在 `/sys/devices/system/cpu/cpu{num}/cpufreq/scaling_governor`
+
+多数Linux发行版都已经默认启用了这个功能，但是Debian 4.0和Archlinux还没有，需要经过简单的设置才行。辨别方式很简单只要看是否有上面路径中的 cpufreq 文件夹即可
+
+这样使用内核模块来管理CPU频率是最简单的,直接手动修改该文件中的内容就可以直接生效了
+
+如果想要重启后自动生效,或者要使用软件来进行管理,那么可选项是比较多的,比如
+
+- cpudynd
+- cpufreqd
+- cpufrequtils 我使用的
+- powernowd
+- powersaved
+- speedfreqd
+
