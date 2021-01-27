@@ -65,6 +65,9 @@ nvidia-smi pmon
 nvidia-smi dmon
 ```
 
+#### pmon 进程监控命令
+
+
 #### dmon 设备监控命令
 
 设备监控命令，以滚动条形式显示GPU设备统计信息。
