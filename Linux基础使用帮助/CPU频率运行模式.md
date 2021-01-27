@@ -64,3 +64,5 @@ done
 <core number>	是CPU逻辑核心的编号，从0开始，有多少个逻辑核心就添加多少条该条数据。
 
 <governor>			是调节器类型，允许的值有performance powersave ondemand interactive conservative.
+
+ps:该方法我并没有实验成功
