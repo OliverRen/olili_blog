@@ -65,4 +65,4 @@ done
 
 <governor>			是调节器类型，允许的值有performance powersave ondemand interactive conservative.
 
-ps:该方法我并没有实验成功
+ps:该方法我并没有实验成功,尽可能还是使用内核方法调节把.这样重启后还可以自动回复
