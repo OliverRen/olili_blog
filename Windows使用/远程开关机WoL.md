@@ -12,7 +12,7 @@ cmd 下 shutdown 命令就可以了
 - shutdown.exe -a　取消关机　　
 - shutdown.exe -s   马上关机　　
 - shutdown.exe -f　强行关闭应用程序　　
-- shutdown.exe -m \\计算机名　可以是计算机名,也可以是ip,远程关机　　
+- shutdown.exe -m \\IP or computer name　可以是计算机名,也可以是ip,远程关机　　
 - shutdown.exe -i　显示“远程关机”图形用户界面，但必须是Shutdown的第一个参数 　　　
 - shutdown.exe -l　注销当前用户　　
 - shutdown.exe -r　关机并重启　　
