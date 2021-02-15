@@ -39,4 +39,19 @@ BIOS打开WoL,窍门就是寻找Wake up、NIC、PME、PCI等等。
 1. 电源管理中的唤醒
 2. 网卡高级设置里的唤醒
 
+如果无法成功,检查这几个点:
+- 网卡是否支持网络唤醒
+- 网卡的远程唤醒功能是否开启，到设备管理器>网卡>属性>电源 查看
+- 主板是否开启网卡唤醒功能
+- 如果局域网有路由器，防火墙是否拦截
+
 #### 远程开机软件
+
+1. depicus 的 wolcmd [https://www.depicus.com/wake-on-lan/wake-on-lan-cmd](https://www.depicus.com/wake-on-lan/wake-on-lan-cmd)
+2. depicus 的 wol gui [https://www.depicus.com/wake-on-lan/wake-on-lan-gui](https://www.depicus.com/wake-on-lan/wake-on-lan-gui)
+
+很老了,可以结合 monitor 进行一下问题定位
+
+3. WakeMeOnLan 有中文版本 [https://www.nirsoft.net/utils/wake_on_lan.html](https://www.nirsoft.net/utils/wake_on_lan.html)
+
+推荐使用该版本
