@@ -43,3 +43,11 @@ tags:
 	```
 	
 需要注意的是在导入快照的时候,`lotus daemon`是会检测证明参数文件的,需要先通过环境变量指向.测试结果是`filecoin-proof-parameters`在环境变量设置的目录下有,`/var/tmp`下也有
+
+6. 校验导入的快照
+
+```
+echo "curl "$(curl -sI https://fil-chain-snapshots-fallback.s3.amazonaws.com/mainnet/minimal_finality_stateroots_latest.car | grep x-amz-website-redirect-location | awk '{print $2}' | sed 's/car/sha256sum/g')
+
+# 然后执行输出的 curl 命令 主要是 amazon 有一个内部对 lastest 的重定向
+```
