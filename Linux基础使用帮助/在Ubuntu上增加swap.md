@@ -28,7 +28,7 @@ swap即内存交换分区,当内存不够的时候也可以救急
 
 永久保留交换文件 
 需要在fstab中加入挂载 
-`echo '/swapfile none swap sw 0 0' | tee -a /etc/fstab` 
+`echo '/swapfile swap swap defaults 0 0' | tee -a /etc/fstab` 
 
 调整交换分区相关的参数swappiness,设置ram到交换空间的频率 0-100.服务器越低越好
 `cat /proc/sys/vm/swappiness`
