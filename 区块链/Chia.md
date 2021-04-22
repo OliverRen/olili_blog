@@ -122,3 +122,56 @@ tags:
 1. 购买设备主要看投资成本,这是第一要素,比如关于ssd的耐久度和每P出来1T的大致成本,wiki有详细的资料,不贴excel截图了,不过P3700,P3600不愧intel最后的荣光 Het Mlc 再次强势夺魁,我去年买的 S3710 1.2T成绩也不错.牙膏厂NB
 2. 功耗,噪音,散热,网络,不要考虑冗余,小手笔用nas存储即可,大手笔用JBOD扩列,单机几百个硬盘他不香吗
 3. 盘位永远比盘重要,有大的买大的盘
+4. P盘的SSD 3DWPD是最低要求
+
+#### 附录 linux 中对硬盘 smart monitor工具
+
+- NVMe
+
+	https://github.com/linux-nvme/nvme-cli
+
+	https://nvmexpress.org/open-source-nvme-management-utility-nvme-command-line-interface-nvme-cli/
+
+	Reading endurance with NVMe-CLI - this is the gas gauge that shows total endurance used
+
+	`sudo nvme smart-log /dev/nvme0 | grep percentage_used`
+
+	Reading amount of writes that the drive have actually done
+
+	`sudo nvme smart-log /dev/nvme0 | grep data_units_written`
+
+	Bytes written = output * 1000 * 512B
+
+	TBW = output * 1000 * 512B / (1000^4) or (1024^4)
+
+	To find out NAND writes, you will have use the vendor plugins for NVMe-CLI.
+
+	`sudo nvme <vendor name> help`
+
+	Example with an Intel SSD
+
+	`sudo nvme intel smart-log-add /dev/nvme0`
+
+- SATA
+
+	In SATA you can use the following commands
+
+	`sudo apt install smartmontools`
+
+	`sudo smartctl -x /dev/sda | grep Logical`
+
+	`sudo smartctl -a /dev/sda`
+
+	looking for Media_Wearout_Indicator
+
+	note this does also work for NVMe for basic SMART health info
+
+	`sudo smartctl -a /dev/nvme0`
+
+- SAS
+
+	`sg_logs /dev/sg1 --page=0x11`
+
+	look for
+
+	`Percentage used endurance indicator: 0%`
