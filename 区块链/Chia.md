@@ -37,6 +37,10 @@ tags:
 	
 	2个路径会有侵入 `C:\Users\[User]\.chia`,`C:\Users\[User]\AppData\Local\chia-blockchain` ,前者主要是配置,日志,后者为程序注意路径是默认提权的
 	
+	界面介绍看这里 [github](https://github.com/Chia-Network/chia-blockchain/wiki/Beginners-Guide)
+	
+	选择私钥少按,按了程序经常崩溃
+	
 - Chia(奇亚) 常见问题解答 https://www.kuangjiwan.com/news/news-2884.html
 
 	实力自吹版本2,国内本地化的CX团队实力不俗
