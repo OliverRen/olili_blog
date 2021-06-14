@@ -84,8 +84,19 @@ tags:
 	
 	- 初始化配置 , `nvidia-xconfig` 这会在 /etc/X11 下创建配置 xorg.conf
 	- 设置为多GPU模式,除非你只有一张卡, `nvidia-xconfig --enable-all-gpus` 这会修改配置文件
-	- 设置风扇,频率自定义 `nvidia-xconfig --cool-bits=4` 值4只开启风扇,值28可以自定义许多选项，包括超频，功耗和风扇转速
+	- 设置风扇,频率自定义 `nvidia-xconfig --cool-bits=4` 值4只开启风扇,值28可以自定义许多选项，包括超频，功耗和风扇转速,建议加上参数 `nvidia-xconfig -a --cool-bits=28 --allow-empty-initial-configuration`	
 	- reboot 重启,等待生效
-	 
-	
-	
+	- 如果有 xwindow ,那么很简单直接用 `nvidia-settings` 面板即可调整风扇转速,或者使用命令行
+		```
+		nvidia-settings -a "[gpu:0]/GPUFanControlState=1" 
+		nvidia-settings -a "[gpu:1]/GPUFanControlState=1" 
+		nvidia-settings -a "[gpu:2]/GPUFanControlState=1" 
+		nvidia-settings -a "[gpu:3]/GPUFanControlState=1" 
+		nvidia-settings -a "[fan:0]/GPUCurrentFanSpeed=80" 
+		nvidia-settings -a "[fan:1]/GPUCurrentFanSpeed=85" 
+		nvidia-settings -a "[fan:2]/GPUCurrentFanSpeed=86" 
+		nvidia-settings -a "[fan:3]/GPUCurrentFanSpeed=90" 
+		```
+	- 使用命令 `nvidia-smi` 即可看到结果
+
+	但是我用 linux 不就是为了不要 xwindow 么... 于是方案2,在reboot后安装这个组件 [coolgpus](https://github.com/andyljones/coolgpus)
