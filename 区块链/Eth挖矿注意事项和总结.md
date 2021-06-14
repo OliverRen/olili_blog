@@ -80,7 +80,12 @@ tags:
 
 	首先需要解决的是驱动问题,最新驱动并不一定是最好的,但最新驱动一般都可以正常工作,省事的话直接上最新驱动
 	
-	多GPU设置,驱动中的配置主要集中在 nvidia-xconfig , nvidia-settings , nvidia-smi 上
-	- 
+	多GPU设置,驱动中的配置主要集中在 nvidia-xconfig , nvidia-settings , nvidia-smi 上,配置路径在 /etc/X11 下,全部需要 root权限执行
+	
+	- 初始化配置 , `nvidia-xconfig` 这会在 /etc/X11 下创建配置 xorg.conf
+	- 设置为多GPU模式,除非你只有一张卡, `nvidia-xconfig --enable-all-gpus` 这会修改配置文件
+	- 设置风扇,频率自定义 `nvidia-xconfig --cool-bits=4` 值4只开启风扇,值28可以自定义许多选项，包括超频，功耗和风扇转速
+	- reboot 重启,等待生效
+	 
 	
 	
