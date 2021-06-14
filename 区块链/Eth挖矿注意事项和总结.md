@@ -113,6 +113,7 @@ tags:
 	- 归还风扇控制权,单独运行一次程序无参数,然后 ctrl+c 结束即可
 
 	降频降功率方式需要使用到 Nvidia 的 PowerMizer,编辑 `/etc/X11/xorg.conf` 在 Device 节中复制如下参数并需要重启
+	
 	```
 	Section “Device”
 	Identifier “Device0”
@@ -121,6 +122,12 @@ tags:
 	Option “Coolbits” “1”
 	Option “RegistryDwords” “PowerMizerEnable=0x1; PerfLevelSrc=0x2222; PowerMizerLevel=0x3; PowerMizerDefault=0x3; PowerMizerDefaultAC=0x3”
 	EndSection
-	```
+	```	
+	- PowerMizerEnable=0x1 为打开 PowerMizer
+	- PerfLevelSrc=0x2222 调节频率方式 0x2222为固定,0x3322为自适应
+	-  PowerMizerLevel=0x3 性能级别从 1(高) - 2 - 3(低)
+	-  PowerMizerDefault=0x3 默认性能级别从 1(高) - 2 - 3(低)
+	-  PowerMizerDefaultAC=0x3 接通AC电源性能级别从 1(高) - 2 - 3(低) (笔记本才有用)
+	
 	
 	
