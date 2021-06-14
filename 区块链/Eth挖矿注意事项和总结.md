@@ -67,6 +67,7 @@ tags:
 	- 散热 TDP 要求不高,用底座+下压式即可
 	- 显卡转接线(8x->16x)不能超过20cm,或者要带供电
 	- bios主要修改 64bit资源需要 above 4G Decoding enabled
-	- bios显示需要改为集显,如 VGA Priority
+	- bios显示需要改为集显,如 VGA Priority,一般叫做 IGFX 或 XXXX VGA 或 onboard
+	- bios有mining mode直接开即可
 	
 	
