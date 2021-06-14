@@ -80,7 +80,7 @@ tags:
 
 	首先需要解决的是驱动问题,最新驱动并不一定是最好的,但最新驱动一般都可以正常工作,省事的话直接上最新驱动
 	
-	多GPU设置:
-	
+	多GPU设置,驱动中的配置主要集中在 nvidia-xconfig , nvidia-settings , nvidia-smi 上
+	- 
 	
 	
