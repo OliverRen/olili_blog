@@ -111,3 +111,16 @@ tags:
 	- 使用很简单,暴力方案 `coolgpus --speed 99 99`
 	- 风扇曲线方案 `coolgpus --temp 20 40 60 75 --speed 5 35 70 99`
 	- 归还风扇控制权,单独运行一次程序无参数,然后 ctrl+c 结束即可
+
+	降频降功率方式需要使用到 Nvidia 的 PowerMizer,编辑 `/etc/X11/xorg.conf` 在 Device 节中复制如下参数并需要重启
+	```
+	Section “Device”
+	Identifier “Device0”
+	Driver “nvidia”
+	VendorName “NVIDIA Corporation”
+	Option “Coolbits” “1”
+	Option “RegistryDwords” “PowerMizerEnable=0x1; PerfLevelSrc=0x2222; PowerMizerLevel=0x3; PowerMizerDefault=0x3; PowerMizerDefaultAC=0x3”
+	EndSection
+	```
+	
+	
