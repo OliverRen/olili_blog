@@ -70,4 +70,14 @@ tags:
 	- bios显示需要改为集显,如 VGA Priority,一般叫做 IGFX 或 XXXX VGA 或 onboard
 	- bios有mining mode直接开即可
 	
+6. win10 OC
+
+	需要注意的是原版软件相应的参数是覆盖了小飞机中的设置参数的,但是小飞机最大的作用在于便利的观察
+	
+	小飞机设置中打开电压配置,可以使用曲线调整相应的频率
+	
+7. ubuntu OC
+
+	首先需要解决的是驱动问题
+	
 	
