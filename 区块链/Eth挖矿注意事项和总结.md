@@ -100,5 +100,14 @@ tags:
 	- 使用命令 `nvidia-smi` 即可看到结果
 
 	但是我用 linux 不就是为了不要 xwindow 么... 于是方案2,在reboot后安装这个组件 [coolgpus](https://github.com/andyljones/coolgpus)
-	- 首先安装pip,首先安装python3,看服务器情况.命令依次如下 
+	
+	coolgpus使用模拟 X服务器 的方式来控制风扇转速,所以你不能使用显卡连接了显示器,你不能使用X服务器
+	
+	- 软件基于python,首先安装pip,首先安装python3,看服务器情况.命令依次如下 
 	- `apt install python3`
+	- `apt install python3-pip`
+	- `pip3 install --upgrade pip`
+	- `pip install coolgpus`
+	- 使用很简单,暴力方案 `coolgpus --speed 99 99`
+	- 风扇曲线方案 `coolgpus --temp 20 40 60 75 --speed 5 35 70 99`
+	- 归还风扇控制权,单独运行一次程序无参数,然后 ctrl+c 结束即可
