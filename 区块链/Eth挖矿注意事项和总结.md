@@ -44,9 +44,11 @@ tags:
 	
 	用win10的话,由于 remote 管理的需求,有些人用 开源矿工,轻松矿工 但没必要,抽水过多.批处理写好timeout恢复,写好reboot和autostart,写好failover,除非断电有点麻烦其他没啥问题
 	
-	我这里用了 phoenixMiner 和 gminer ,对比了一下大差不大 ,费率上 gminer 稍好一点,但帮助文档,和做自动化的话,phoenixMiner 更丰富一点.个人建议单机用 gminer ,多于3台又要甩手掌柜的用 phoenix 更好.
+	我这里用了 phoenixMiner 和 gminer ,对比了一下大差不大 ,费率上 gminer 稍好一点,但帮助文档,和做自动化的话,phoenixMiner 更丰富一点.
 	
 	但是在linux上,gminer使用可以使用 `--lock_cclock` 参数强制锁频率
+	
+	所以在 linux 上可以简单的使用 gminer 控制功耗,而在 win 上建议使用phoenix 更好,本身 win平台降频很简单,用 phoenix 可以很好的写自动化
 
 4. 矿池选择
 
