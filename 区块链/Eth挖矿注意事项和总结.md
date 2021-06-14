@@ -122,7 +122,8 @@ tags:
 	Option “Coolbits” “1”
 	Option “RegistryDwords” “PowerMizerEnable=0x1; PerfLevelSrc=0x2222; PowerMizerLevel=0x3; PowerMizerDefault=0x3; PowerMizerDefaultAC=0x3”
 	EndSection
-	```	
+	```
+	
 	- PowerMizerEnable=0x1 为打开 PowerMizer
 	- PerfLevelSrc=0x2222 调节频率方式 0x2222为固定,0x3322为自适应
 	-  PowerMizerLevel=0x3 性能级别从 1(高) - 2 - 3(低)
