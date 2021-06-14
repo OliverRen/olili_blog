@@ -100,3 +100,5 @@ tags:
 	- 使用命令 `nvidia-smi` 即可看到结果
 
 	但是我用 linux 不就是为了不要 xwindow 么... 于是方案2,在reboot后安装这个组件 [coolgpus](https://github.com/andyljones/coolgpus)
+	- 首先安装pip,首先安装python3,看服务器情况.命令依次如下 
+	- `apt install python3`
