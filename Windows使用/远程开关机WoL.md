@@ -19,6 +19,18 @@ cmd 下 shutdown 命令就可以了
 - shutdown.exe -s -t 时间　设置关机倒计时　　
 - shutdown.exe -h 休眠
 
+远程关机在windows下拒绝访问的解决方案,这其实时windows的安全策略阻止了远程关机,但是shutdown.exe没有这个参数啊
+
+所以如果安全系数要求不高,局域网内的机器,直接添加everyone权限即可
+
+你可以使用
+
+- win+R 输入 secpol.msc
+- win+R 输入 gpedit.msc-计算机配置-安全设置-本地策略
+- 控制面板-管理工具-本地安全策略
+
+本地策略-用户权限分配-从远程系统强制关机,添加everyone即可
+
 #### 远程开机原理
 
 网络开机叫做Wake-on-LAN，缩写是WoL。过程很简单，即通过发送一组特殊格式的网络封包（Magic Packet）给某个MAC地址的电脑，让该电脑从睡眠模式甚至是关机模式苏醒，即从ACPI的Sx(S3，S4，S5)模式返回S0运行模式。
