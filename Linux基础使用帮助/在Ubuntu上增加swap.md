@@ -15,7 +15,7 @@ swap即内存交换分区,当内存不够的时候也可以救急
 
 创建交换分区 
 原来的写法是 `dd if=/dev/zero of=/swapfile bs=1024 count=1024` 
-但现在更推荐  `fallocate -l 1G /swapfile` 他直接操作文件对应的磁盘空间而不需要使用0来填充
+但现在更推荐  `fallocate -l 1G swapfile` 他直接操作文件对应的磁盘空间而不需要使用0来填充
 
 更改权限  
 `chmod 600 /swapfile` 
