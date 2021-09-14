@@ -6,8 +6,14 @@ tags:
 [toc]
 
 首先吐槽一下官方的 miner guide 真的是简陋,连个参数说明都不全,得一边看源码一边去 discord 问
+
 不做主观判断,不做横向比较,只做笔记
+
 使用系统 Ubuntu 20.04
+
+内存理论上 8G 就够,不过越多当然越好,由于randomX做pow,所以高频率低cl延迟的内存会更好,比如 DDR4 3600 CL14
+
+带宽不是关键因素,但是有公网固定IP,或者 ip nat 会更好更稳定
 
 #### 文件打开数设置
 
@@ -67,7 +73,7 @@ Arweave网络中的挖掘包含多个阶段:
 
 所以,简而言之,依然是一个 pow 的事情,算法变成 randomX,不能跟门罗一样啊,所以加一个本地数据进行hash,顺便把这个加进去的东西叫做 POH 搞得高大上一点,仅仅这一点点改变,造就了一个完全不同的应用,恰好适用.
 
-从流程可以看出,本身 pow 依然是一个 randomX 的算力比较,但是每一次hash后都需要读盘,所以磁盘io和iops都需要很强才行.目前是一个 cpu,ram,disk 之间均衡的一个游戏
+从流程可以看出,本身 pow 依然是一个 randomX 的算力比较,但是每一次hash后都需要读盘,所以磁盘io和iops都需要很强才行.**目前是一个 cpu,ram,disk 之间均衡的一个游戏**
 
 目前看来 HDD 单盘是肯定没戏唱的, HDD raid0, io也许能提升,但是 4k 和 iops 依然稀烂. 所以目前还是需要 nvme 协议的 SSD 才行.同时这个项目由于其特性永久存储,所以数据量不可能和 filecoin 做对比.目前的 10多T 是一个很容易全部包含的数量级
 
@@ -75,7 +81,7 @@ Arweave网络中的挖掘包含多个阶段:
 
 1. 服务器cpu能提供的 randomX hash,这个可以通过 benchmark,也可以直接查硬件,一般来说获得的数值都是根据CPU来设置线程的,但是在 AR 中并非设置所有线程来执行 randomX为最佳,他有step1,step2,还有io线程.所以整体上数值肯定会小于理论值.我下面提供了一个表可以查询一下常见的CPU,这个值作为 $1
 2. 磁盘带宽估算,以GiB/s 为单位 `hdparm -t /dev/sda` ,这个值作为 $2
-3. 本地存储了全网多少分之一的数据,本地数据可以查看 chunk 目录,全网么看一下区块链浏览器,这个值作为 $3
+3. 本地存储了全网多少分之一的数据,本地数据可以查看 chunk 目录(du -sh /path/to/data/dir/chunk_storage ,下面有可以看到准确数值 metrics方法),全网么看一下区块链浏览器,这个值作为 $3
 
 计算公式,通常来说,实际hash数是计算值的0.7-0.9之间
 
@@ -238,3 +244,125 @@ INTEL I7-3770 = 1.83 kh
 INTEL I7-2600 = 1.56 kh
 *INTEL I5-9600K = 2.31 kh
 ```
+
+#### 官方原生软件 arweave 的使用
+
+首先通过官方软件来理解一下挖矿过程中可以配置的东西,以及可能影响性能的一些参数,使用的软件版本为 arweave 2.4.4.0
+
+一般来说,对于功能或者特性的开关位是通过命令行参数来进行配置,而具体参数可以在命令行也可以在配置文件,我们以一个例子来看
+
+启动命令
+
+```
+./bin/start enable randomx_jit enable randomx_cache_qos enable randomx_large_pages enable randomx_hardware_aes config_file config.sys
+```
+
+配置文件 config.sys
+
+```
+{
+data_dir: "/data/arweave",	
+mine: true,
+sync_jobs: 4,	
+stage_one_hashing_threads: 10,	
+stage_two_hashing_threads: 5,	
+io_threads: 10,	
+randomx_bulk_hashing_iterations: 12,	
+max_connections: 300,	
+disk_space: 20,	
+max_disk_pool_buffer_mb: 5000,	
+max_disk_pool_data_root_buffer_mb: 1500,	
+mining_addr: "1p53qU4bUS4WyIILqnYtsuowdL6MsvEqN-HwIfyfi60",	
+peers: [
+188.166.200.45,
+188.166.192.169,
+163.47.11.64,
+139.59.51.59,
+138.197.232.192
+],	
+port: 1984	
+}
+```
+
+下面就来一个一个说明,参数意义和参数取值的方法
+
+1. enable randomx_jit 确切的不知道,在bench的时候大概知道是jit效率最高
+2. enable randomx_cache_qos 大概知道是randomx时可以配置 qos
+3. enable randomx_large_pages 开启大内存页提高效率,当然是需要先进行配置的,ubuntu默认应该都是没有的,而且你也要有更多的内存才行
+4. enable randomx_hardware_aes 新的CPU都支持 aes ,开启应该也是默认值
+5. data_dir 默认是在软件当前目录进行数据的下载,通过data_dir可以指定不同的目录
+
+	这里需要展开说一下,由于挖矿所需要的主要数据肯定要在SSD中,而且需要若干TB,一般来说可能是用 raid0 , mdadm ,lvm来组装若干的硬盘,性能肯定是 raid0>mdadm>lvm stripe ,灵活性正好反过来.对于挖矿锁需要的次要数据,其实也是相当的大,比如 wallet_list 也是全部都会保存在本地的,那么我们可以用 hdd+ssd 的方式来使用,通过 mount 或者 软连接的方式进行分磁盘存储,其中 `chunk_storage` 和 `rocksdb` 需要保存在高速SSD中,比如
+	
+	```
+	The output of df -h should look like:
+	/dev/hdd1    5720650792 344328088 5087947920 7%  /your/dir
+	/dev/nvme1n1 104857600  2097152   102760448  2%  /your/dir/chunk_storage
+	/dev/nvme1n2 104857600  2097152   102760448  2%  /your/dir/rocksdb
+	```
+	
+	ext4 是最稳定的 linux 文件系统,单只能包含 4M目录条目,肯定是不够的,所以需要通过使用tune2fs命令和e2fsck -D命令增加large_dir和dir_index来实现
+	
+	官方不推荐 xfs ,因为一旦异常关闭,文件有可能损坏,这个跟 filecoin 封装数据不同,损坏了就需要再下载,不过我们可以留一个备份.所以我依然用了 xfs
+	
+	**注意:不要使用引导根目录来存储weave，因为引导程序grub2不支持large_dir设置。如果您在引导分区上实现了large_dir，则系统将不再引导**	
+	
+6. mine 开启挖矿
+7. sync_jobs 从区块链中下载数据的任务数,在一开始本地没有数据的时候建议 关闭 mine,并把 sync_jobs改为 200 进行快速数据下载,当然更关键的是下面的peer链接质量
+8. stage_one_hashing_threads step1的 randomX 线程数
+9. stage_two_hashing_threads step2 的randomX 线程数
+10. io_threads 执行io读取的线程数,很多时候减少上面2个参数,提高 io 线程数最后的 spora率会更高
+
+	这里提一下线程数设置的简单方法,主要是通过日志来进行分析,因为本地数据同步会越来越多.一开始关掉 mine 也是尽可能先同步数据,在数据同步到一定量的时候,通过日志来分析.
+	recall bytes computed/s 应该大概等于 Miner spora rate 除以你保存数据的份额	
+	如果读取到的数量太少,考虑增加 io_threads 减少 stage_one_hashing_threads.所以一开始可以设置所有的 randomX 线程,然后慢慢降低
+	
+11. randomx_bulk_hashing_iterations 意义不确定,但是服务器越强,randomx_bulk_hashing_iterations 可以设置的越高需要进行测试,比如设置为128是一个比较大的数值了
+12. max_connections 连接数管理
+13. disk_space 同步数据本地磁盘占用控制 GB
+14. max_disk_pool_buffer_mb 和 max_disk_pool_data_root_buffer_mb 大概都是buffer类的把...
+15. mining_addr 挖出块后获得奖励的地址
+
+	创建一个地址最简单的方式是通过浏览器扩展,在线离线都是可以的,直接商店搜索 Arweave web archiver and wallet
+		
+16. peers 一个数组,或者在命令行可以多次指定的初始链接,例子中是官方推荐的 bootstrap 节点,但是国内链接很差,一半都会通过扫描来拿到低延迟的节点,比如 [virdpool's peers tool](https://explorer.ar.virdpool.com/#/peer_list)
+17. port 本地的端口,因为是erlang的,需要通过 empd 通讯 ,所以这里有一个坑,默认的 1984 可能是被占用的,要么直接改,要么设置环境变量 ERL_DIST_PORT
+
+#### 官方软件使用的坑和技巧点
+
+1. 连通性,即公网设置
+
+	由于存在 peer 链接,那么有固定公网IP或者 ip nat 肯定是最通畅的,但是我实在是没有找到 listen address的配置,难道这个这么只能,不需要libp2p那么显式的指定??
+	
+	对于动态 DHCP 如果拿到公网IP的 那就用 DDNS 来解决,如果有多台服务器,则需要每个都改端口,然后端口转发
+	
+2. 日志,监控
+
+	日志其实直接看 logs 下文件就可以了, 用 ./bin/logs -f 也可以,比较反人类,其中
+	
+	- 挖矿的spora算力的日志 `Miner spora rate: ... recall bytes computed/s: ... MiB/s read: ...`
+	- 出块的日志 `Produced candidate block`
+	- 等待20分钟后出块被确认的日志 `Your block ... was accepted by the network`
+	
+	监控的话,就走端口 1984 来看 up down 好了, localhost:1984 这可以通过 http 访问,比如
+	
+	localhost:1984/metrics, v2_index_data_size是你已经下载的数据的字节数，而weave_size是Weave的当前大小
+	
+3. 关闭挖矿
+
+	./bin/stop
+	
+	pkill arweave
+	
+	不要 kill -9 !!!
+	
+4. 一台机器同步了数据,快速复制到其他机器,虽然通过出块流程我们知道,全网如果数据很大,那么我们每台机器同步不同数据对效率来说会有提升,但是一方面现在的全网数据只有10多T,而且下载数据实在太慢了.所以,做拷贝是可以的,同样的一个冷备份也可以实现了
+
+	- 两台机器都停止挖矿
+	- 拷贝文件需要注意 chunk_storage 文件夹 保存了很多稀疏文件,如果要拷贝需要先 tar -Scf 打包,或者例如 cp --sparse=always
+	- 最少需要拷贝
+		data_sync_state 文件
+		chunk_storage_index 文件
+		rocksdb/ar_data_sync_db 文件夹
+		rocksdb/ar_data_sync_chunk_db 文件夹
+		chunk_storage 文件夹
