@@ -389,3 +389,24 @@ port: 1984
 	[Install]
 	WantedBy=multi-user.target
 	```
+	
+6. 最后的分析阶段	
+
+电脑主机主要配置:吃cpu，硬盘，内存。不吃网络，显卡。所以cpu和硬盘一定要好，高性能cpu+NVME固态。
+	
+#### hpool 矿池接入
+
+为什么用 HPOOL.矿池就那么几个,hpool蛮大的,而且实现,收费都大同小异,hpool在中国
+
+这个有点太简单了.注册,开通,获取 apikey,下载软件,都是可执行文件,配置随便改一改路径就行,没有那么多的设置项,想想就知道,很多调度的东西都通过proxy和矿池对接,本地不需要完整链,只是需要下载hpool自己提供的chunk数据,打包压缩过的,百度网盘下载这个比较尴尬
+
+所以问题反而变成了 **bypy-命令行下使用百度网盘**
+
+- `pip install bypy`
+- `bypy info` 获取一个地址进行 百度开放平台 oauth 授权,由于是作为应用接入,所以网盘中只有 /apps/bypy 下才可以读取到数据
+- `bypy syncup xxx/bypy upload xxx` 上传 , 我用不到
+- `bypy downfile xxx/bypy syncdown/bypy downdir` 下载,直接全部同步走起,给百度贡献了一个会员
+
+#### ankr 一键部署
+
+[Ankr](https://www.ankr.com/) 这个就更简单了,毕竟是收费的,订阅机制,信用卡和usdt都可以,一键!!!就不用写了把
