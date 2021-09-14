@@ -366,3 +366,26 @@ port: 1984
 		rocksdb/ar_data_sync_db 文件夹
 		rocksdb/ar_data_sync_chunk_db 文件夹
 		chunk_storage 文件夹
+		
+5. 使用 systemctl 来控制
+	
+	强烈不建议, 开 screen 直接 foreward 执行时最好的,当然如果运行的好也是可以的
+
+	```
+	[Unit]
+	Description=Arweave miner
+	After=network.target
+	StartLimitIntervalSec=0
+
+	[Service]
+	Type=simple
+	Restart=always
+	RestartSec=1
+	User=root
+	LimitNOFILE=1000000
+	ExecStart=home_path/bin/start  enable randomx_jit enable randomx_cache_qos enable randomx_large_pages enable randomx_hardware_aes config_file home_path/config.sys
+	ExecStop=home_path/bin/stop
+
+	[Install]
+	WantedBy=multi-user.target
+	```
