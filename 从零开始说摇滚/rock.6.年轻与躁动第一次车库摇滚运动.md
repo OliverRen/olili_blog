@@ -14,7 +14,7 @@ grammar_cjkRuby: true
 
 ---
 
-![The Kingsmen](http://qiniu.imolili.com/小书匠/1581523821624.jpg) 
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/rock.6.年轻与躁动第一次车库摇滚运动/1637384133607.png)
 
 > -> The Kingsmen : Louie Louie
 > ~[The Kingsmen : Louie Louie](https://music.163.com/song/media/outer/url?id=4337618.mp3) <-
@@ -23,7 +23,7 @@ grammar_cjkRuby: true
 这首歌曲，本是黑人歌手Richard Berry的作品，后来被无数车库乐队翻唱过。同年The Trashmen发行单曲《Surfin' Bird》。
 事实上，60年代的第一次车库摇滚运动并不能称为一种风格，他们之所以可以被归为一类主要是有以下几个共同点：乐队成员大都是在郊区排练的十几岁年轻少年，活力足，但缺乏创作能力与演奏能力，演唱时经常有喊叫，吉他摇滚（部分也有键盘），歌曲短小，经常使Fuzz失真效果器以得到更重的音色。在风格上其实民谣，迷幻，布鲁斯等都有。而其中不少乐队被后世追认为朋克的原型乐队。
 
-![The Premiers](http://qiniu.imolili.com/小书匠/1581523821647.jpg)   
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/rock.6.年轻与躁动第一次车库摇滚运动/1637384179719.png)
 
 > -> The Trashmen : Surfin' Bird
 > ~[The Trashmen : Surfin' Bird](https://music.163.com/song/media/outer/url?id=3605912.mp3) <-
@@ -33,7 +33,7 @@ grammar_cjkRuby: true
 
 ---
 
-![The Sonics《Here Are The Sonics》](http://qiniu.imolili.com/小书匠/1581523821625.jpg) 
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/rock.6.年轻与躁动第一次车库摇滚运动/1637384190241.png)
 
 > -> Sam the Sham and the Pharaohs : Wooly Bully
 > ~[Sam the Sham and the Pharaohs : Wooly Bully](https://music.163.com/song/media/outer/url?id=510564673.mp3) <-
@@ -41,26 +41,26 @@ grammar_cjkRuby: true
 1965年来自塔科马的The Sonics发行了著名专辑《Here Are The Sonics》，他们是第一次车库运动中最知名的乐队了，后世许多乐队包括Nirvana，The Fall等都承认该乐队为他们带来创作灵感。因为这张专辑，他们被后世追认为第一支Grunge（垃圾乐）乐队。
 同年，Sam the Sham and the Pharaohs发行著名单曲《Wooly Bully》；The13th Floor Elevators发行首单《You're Gonna Miss Me》该乐队亦为一支著名迷幻摇滚乐队，在之前的推文中有提到过；Sir Douglas Quintet发行著名单曲《She's About a Mover》；The Castaways发行他们唯一热卖单曲《Liar, Liar》。
 
-![The Monks](http://qiniu.imolili.com/小书匠/1581523821636.jpg) 
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/rock.6.年轻与躁动第一次车库摇滚运动/1637384199906.png)
 
 1966年是车库摇滚运动的巅峰时期。The Sonics1966年发行第二张专辑《Boom》，也是较出名的专辑。
 1966年由美国在德国的驻军中的年轻人们组建的乐队The Monks发行了唯一专辑《Black Monk Time》。成员们的形象很符合乐队名，个个都剃着修道士式的地中海发型。这张专辑当时的销量并不高（乐队第二年就解散了，也确实不好听），但被后世称为朋克摇滚发展史的里程碑之作之一。
 
-![The Seeds](http://qiniu.imolili.com/小书匠/1581523821648.jpg) 
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/rock.6.年轻与躁动第一次车库摇滚运动/1637384205217.png)
 
 > -> The Seeds : Can't Seem To Make You Mine
 > ~[The Seeds : Can't Seem To Make You Mine](https://music.163.com/song/media/outer/url?id=19347740.mp3) <-
 
 同年洛杉矶乐队The Seeds发行《The Seeds》与《A Web of Sound》两张专辑，其中单曲《Can't Seem To Make You Mine》被Ramones, Yo La Tengo , Garbage等乐队翻唱而知名。乐队主要创作人Sky Saxon也是很多后世朋克乐队的偶像。
 
-![The Standells](http://qiniu.imolili.com/小书匠/1581523821637.jpg) 
+![The Standells](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/rock.6.年轻与躁动第一次车库摇滚运动/1637384219094.png)
 
 > -> The Standells : Dirty Water
 > ~[The Standells : Dirty Water](https://music.163.com/song/media/outer/url?id=538606686.mp3) <-
 
 同年另一支洛杉矶乐队The Standells发行名曲《Dirty Water》，这也是车库摇滚名曲，摇滚名人堂定义摇滚500单曲之一。因为后世被Sex Pistols、 Ramones记念而闻名。他们也被称为原型朋克乐队。
 
-![Paul Revere & the Raiders](http://qiniu.imolili.com/小书匠/1581523821638.jpg) 
+![Paul Revere & the Raiders](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/rock.6.年轻与躁动第一次车库摇滚运动/1637384235134.png)
 
 > -> Paul Revere & the Raiders : Kicks
 > ~[Paul Revere & the Raiders : Kicks](https://music.163.com/song/media/outer/url?id=3246336.mp3) <-
@@ -87,7 +87,7 @@ grammar_cjkRuby: true
 
 ---
 
-![? and the Mysterians](http://qiniu.imolili.com/小书匠/1581523821639.jpg) 
+![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/rock.6.年轻与躁动第一次车库摇滚运动/1637384257498.png)
 
 1967年后值得关注的车库摇滚乐队作品已经不多了。The Seeds发行专辑《Future》，其中单曲《A Thousand Shadows》反响还不错；“? and the Mysterians”乐队发行第二张专辑《Action》，销量不高，专辑中单曲《Can't Get Enough of You Baby》也有一些后世翻唱作品；同年The Balloon Farm发行单曲《A Question of Temperature》；Unrelated Segments发行单曲《Where You Gonna Go》；旧金山乐队The Mojo Men发行翻唱作品《Sit Down, I Think I Love You》。
 1968年车库摇滚运动落下帷幕。当时最流行的是迷幻摇滚，没多久，前卫摇滚、硬摇滚都横空出世。虽然车库摇滚过时了，但它为原型朋克提供了年轻躁动的听众基础，也孕育了朋克的种子。
