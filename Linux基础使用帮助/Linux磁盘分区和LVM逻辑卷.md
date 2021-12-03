@@ -100,3 +100,91 @@ LV逻辑卷时支持在线扩展的,只要卷组中有空余的容量.
 
 `lvcreate -L 5G -n lv_backup -s -p r /dev/vg1/lv1` 即对 lv1 创建快照.这会创建一个新的 lv_backup 逻辑卷.
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+#### 常用操作
+
+```
+显示分区信息：
+[root@localhost /]# fdisk -l
+ 
+
+PV：
+物理硬盘格式化为物理卷(PV)：
+[root@localhost /]# pvcreate /dev/sdb /dev/sdc
+显示物理卷(PV)信息：
+[root@localhost /]# pvdisplay
+[root@localhost /]# pvs
+删除物理卷(PV):
+[root@localhost /]# pvremove /dev/sdb /dev/sdc
+ 
+
+VG：
+创建卷组(VG),并将物理卷(PV)加入到卷组中:
+[root@localhost /]# vgcreate xiaoluo /dev/sdb /dev/sdc
+将物理卷(PV)从指定卷组(VG)中移除(使用中PV不能移除)：
+[root@localhost /]# vgreduce xiaoluo /dev/sdc
+* 从卷组(VG)中移除缺失物理硬盘：
+[root@localhost /]# vgreduce --removemissing centos
+显示卷组(VG)信息：
+[root@localhost /]# vgdisplay
+[root@localhost /]# vgs
+增加卷组(VG)空间：
+[root@localhost mnt]# vgextend xiaoluo /dev/sdd
+删除卷组(VG):
+[root@localhost /]# vgremove xiaoluo
+ 
+
+LV:
+基于卷组(VG)创建逻辑卷(LV)
+[root@localhost /]# lvcreate -n mylv -L 2G xiaoluo
+显示逻辑卷(LV)信息：
+[root@localhost /]# lvdisplay
+[root@localhost /]# lvs
+格式化逻辑卷(LV):
+[root@localhost /]# mkfs.ext4 /dev/xiaoluo/mylv
+挂载逻辑卷(LV):
+[root@localhost /]# mount /dev/xiaoluo/mylv /mnt
+卸载逻辑卷(LV):
+[root@localhost /]# umount /mnt
+删除逻辑卷(LV):
+[root@localhost /]# lvremove /dev/xiaoluo/mylv
+* 激活修复后的逻辑卷(LV)：
+[root@localhost /]# lvchange -ay /dev/centos
+增加逻辑卷(LV)空间：
+[root@localhost mnt]# lvextend -L +3G /dev/xiaoluo/mylv
+更新逻辑卷(LV):
+[root@localhost mnt]# resize2fs /dev/xiaoluo/mylv
+检查逻辑卷(LV)文件系统：
+[root@localhost /]# e2fsck -f /dev/xiaoluo/mylv
+减少逻辑卷(LV)空间：
+[root@localhost /]# resize2fs /dev/xiaoluo/mylv 4G
+[root@localhost /]# lvreduce -L -1G /dev/xiaoluo/mylv
+ 
+
+增加新硬盘：
+[root@localhost /]# fdisk -l
+[root@localhost /]# pvcreate /dev/sdb
+[root@localhost /]# pvs
+[root@localhost /]# vgextend centos /dev/sdb
+[root@localhost /]# vgs
+[root@localhost /]# lvextend -L +15G /dev/centos/data
+[root@localhost /]# lvs
+[root@localhost /]# resize2fs /dev/centos/data
+[root@localhost /]# df -lh
+ 
+
+卸载硬盘：
+[root@localhost /]# df -lh
+[root@localhost /]# umount /data
+[root@localhost /]# e2fsck -f /dev/centos/data
+[root@localhost /]# resize2fs /dev/centos/data 37G
+[root@localhost /]# lvreduce -L -10G /dev/centos/data
+[root@localhost /]# mount /dev/centos/data /data
+[root@localhost /]# df -lh
+[root@localhost /]# ll /data
+[root@localhost /]# pvs
+[root@localhost /]# vgreduce centos /dev/sdb
+[root@localhost /]# pvremove /dev/sdb
+[root@localhost /]# fdisk -l
+```
