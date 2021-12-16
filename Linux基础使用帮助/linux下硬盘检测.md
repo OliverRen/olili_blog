@@ -32,4 +32,10 @@ smartctl -A /dev/sda
 
 测速
 
+参数
+
+-T 缓存读取速度
+-t 设备读取速度 
+-w 设备写 危险危险危险
+
 `hdparm -Tt /dev/sda`
