@@ -74,3 +74,7 @@ smartctl -A <device>
 `/dev/sda -a -m  admin@server.com,root@localhost`
 
 如果要对邮件进行测试,可以添加参数 `-M test` 即可
+
+不过我实际测试配置中 需要写到分区而不是磁盘,即需要写道 /dev/sda1 才行
+
+发送邮件找 mailutis mailx 发送邮件设置文档
