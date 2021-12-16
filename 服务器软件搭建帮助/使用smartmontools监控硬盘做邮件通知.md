@@ -52,3 +52,25 @@ smartctl -A <device>
 简单的查看需要登陆服务器敲命令,于是我们需要使用smartd来配置一个邮件告警
 
 `vim /etc/smartd.conf`
+
+参数说明：
+
+-H :  磁盘健康状况 ([ATA only] Check the SMART health status of the disk)
+
+-l selftest : 磁盘自检日志
+
+-l error : 磁盘错误日志
+
+-f  : 检测所有属性值，如果属性值大于阈值，则报警。
+
+-s :  定时执行  ,格式  T/MM/DD/d/HH  ；  （类型/月份/日期/星期几/小时）, 这里的S代表短检测，月份、日期、小时是两位，星期几是一位
+
+-m: 发送邮件
+
+记得要注释掉,直接自行添加 `DEVICESCAN -d removable -n standby -m root -M exec /usr/share/smartmontools/smartd-runner`
+
+上面的配置记住一个 `-a` 都包含了.所以配置很简单 
+
+`/dev/sda -a -m  admin@server.com,root@localhost`
+
+如果要对邮件进行测试,可以添加参数 `-M test` 即可
