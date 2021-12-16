@@ -11,6 +11,8 @@ title: 使用smartmontools监控硬盘做邮件通知
 - 简单的文件系统修复可以用fsck来尝试修复
 - 但是我们要防患于未然,尽可能先通过告警防止硬盘出现故障的时候数据不可修复
 
+环境 ubuntu 20.04,`apt install smartmontools`安装
+
 linux上smartctl的简单使用
 ``` shell
 # 检查该设备是否已经打开SMART技术
@@ -40,9 +42,13 @@ smartctl -l selftest <device>
 # 显示硬盘错误汇总
 smartctl -l error <device> 
 
+# 查看硬盘的smart
+smartctl -H <device>
 
-
-
-。其实就是利用硬盘SMART的自检程序。 。 。
-首先通过dmesg工具，确认一下硬盘的设备符号。例如一个IDE硬盘连接到Primary IDE 总线上的Slave位置，硬盘设备符号是/dev/hdb，hdb中的h代表IDE，如果显示为sdb，则代表SATA和SCSI，最后一个字幕b代表Primary总线，第二块硬盘即Slave位置，确认硬盘是否打开了SMART支持：
+# 查看硬盘详细信息
+smartctl -A <device>
 ```
+
+简单的查看需要登陆服务器敲命令,于是我们需要使用smartd来配置一个邮件告警
+
+`vim /etc/smartd.conf`
