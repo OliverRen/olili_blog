@@ -69,7 +69,7 @@ mount 10.1.53.87:/data H:
 1、在运行中输入regedit，打开注册表编辑器；
 2、进入HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default条目；
 3、选择新建----QWORD值，新建AnonymousUid，AnonymousGid两个值，值为0；
-4、重启电脑 注册表才会生效
+4、重启电脑 注册表才会生效,(实测不需要重启)
 ```
 
 linux机器需要安装并挂载
