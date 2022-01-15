@@ -42,7 +42,7 @@ Waqas在卢森堡KPMG担任审计和保证经理超过8年。 他的职责包括
 牛津布鲁克斯大学应用会计学位  
 
 CTO : Shailesh B Nair
-从github上来看,对多种开发语言均有涉及,提交比较频繁但大部分repo都是forked.没有常驻项目,其follow和star也很少
+从github上来看,对多种开发语言均有涉及,提交较少大部分repo都是forked.没有常驻项目,其follow和star也很少
 
 
 
@@ -54,10 +54,18 @@ CTO : Shailesh B Nair
 
 
 
-⼀：项⽬简述
-Glitter Finance的创建是为了解决DeFi⽬前的碎⽚化现状和跨链桥资本效率低下的问题。其⽀持
-Algorand、Solana、Terra、Cudos等⾮EVM链，以Polygon作为桥梁，打破这四条链与EVM之间的
-割裂局⾯。
+#### positive
+
+KlugDossier , token : Klug
+
+本质依然是一个语言机项目,通过cosmos做跨链,inkML和IDE结合做可编程性.意在支持最热门的polkadot,ethereum和solana.目前为testnet未完成状态.
+
+#### negative
+
+
+
+
+
 ⼆：融资情况
 官⽹显示有28家机构参投。值得注意的是，Algorand，Cudos，Polygon排位前三。这可能暗示
 Algorand、Cudos、Polygon有将Glitter作为⼀种可能的资⾦流⼊通道。
