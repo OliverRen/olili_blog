@@ -34,3 +34,13 @@ GoAgent分为两个部分即服务端和客户端,服务端需要部署到GAE服
 从2015年8月以后，GoAgent已停止维护，并被开发者删除。GoAgent作者 phuslu 于2015年3月开始开发另一个翻墙软件GoProxy，现已删除。
 
 Everything that has a beginning has an end .
+
+#### Shadowsocks 
+
+我使用 ss 的时间并不长,可能就是 goproxy 关掉后的几个月把.因为币圈ICO大兴后,GFW封的非常厉害,而 ss 当时虽然有各种混淆加密,流量还是被识别了.
+
+Shadowsocks是一种基于Socks5代理方式的加密传输协议，也可以指实现这个协议的各种开发包。各种语言各路大神开发了各种软件包.
+
+Shadowsocks也分为服务器端和客户端，在使用之前，需要先将服务器端程序部署到服务器上面，然后通过客户端连接并创建本地代理。
+
+另外由于 shadowsocks 被关键字屏蔽,网民会根据谐音将ShadowsocksR称为“酸酸乳” (SSR），将Shadowsocks称为“酸酸”（SS）。另外，因为Shadowsocks(R)的标志均为纸飞机，所以专门提供Shadowsocks(R)或类似服务（如V2Ray）的网站则就被称为了“机场”。
