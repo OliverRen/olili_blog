@@ -73,15 +73,17 @@ docker info # check info
 docker search xxxx	# 搜索镜像
 docker pull xxxx	# 下载镜像
 docker images 		# 列出所有安装过的镜像
-
-docker ps -a		# 查看容器
-docker ps -l		# 最后运行的容器
+docker rmi hello-world # 删除镜像
 
 docker run learn/tutorial apt-get install -y net-tools
 docker ps -l
 docker commit 0d1d learn/net-tools
 docker run learn/net-tools ifconfig
 # 修改镜像并保存，每一个命令行都会使镜像的layer增加一层，最多层数是有限制的，使用commit来提交，每次commit都是一个新的镜像
+# -m:提交的描述，-a:指定作者
+-----------------------
+docker ps -a		# 查看容器
+docker ps -l		# 最后运行的容器
 
 docker run -i -t ubuntu:15.10 /bin/bash		# 运行交互式容器
 docker run -d ubuntu:15.10 /bin/sh -c "while true; do echo hello world; sleep 1; done" 		# 后台启动容器
@@ -89,14 +91,15 @@ docker stop 2b1b7a428627	# 停止容器
 docker restart 2b1b7a428627	# 重启容器
 docker rm -f 2b1b7a428627	# 删除容器
 docker exec -i -t 243c32535da7 /bin/bash # 进入容器
-docker logs 2b1b7a428627	# 查看容器内标准输出
 
-docker export 2b1b7a428627	> ubuntu.tar 				# 导出容器
+docker export 2b1b7a428627 > ubuntu.tar 				# 导出容器
 cat docker/ubuntu.tar | docker import - test/ubuntu:v1	# 导入容器
 
-docker port
+docker port 2b1b7a428627	# 查看 -P 或 -p 等指定的端口映射情况
+docker logs 2b1b7a428627	# 查看容器内标准输出
 ```
 
+###### Dockerfile构建镜像
 
 
 ###### docker-compose
