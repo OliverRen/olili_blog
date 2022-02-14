@@ -4,143 +4,100 @@ title: docker使用
 
 [toc]
 
-* [docker文件](#docker%E6%96%87%E4%BB%B6)
-* [运行配置](#%E8%BF%90%E8%A1%8C%E9%85%8D%E7%BD%AE)
-* [网络代理](#%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86)
-* [Reference](#reference)
+###### 安装
 
-###### docker文件
+1. 使用官方安装脚本自动安装
+
+安装命令如下：
+
+`curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun`
+
+也可以使用国内 daocloud 一键安装命令：
+
+`curl -sSL https://get.daocloud.io/docker | sh`
+
+2. 手动卸载
+
+`apt remove docker docker-engine docker.io containerd runc`
+
+3. 启动
+
+```
+systemctl start docker #启动
+systemctl enable docker #配置开机自启
+```
+
+4. 配置镜像加速源
+
+对于 systemd管理服务的系统，通过daemon方式载入环境配置
+```
+/etc/docker/daemon.json
+{"registry-mirrors":["https://reg-mirror.qiniu.com/"]}
+
+sudo systemctl daemon-reload #重载配置
+sudo systemctl restart docker #重启docker
+
+docker info # check info
+```
+
+科大镜像：https://docker.mirrors.ustc.edu.cn/
+网易：https://hub-mirror.c.163.com/
+阿里云：https://<你的ID>.mirror.aliyuncs.com（打开此地址登录你的阿里云账号获取你的专属镜像源 https://cr.console.aliyun.com/#/accelerator）
+七牛云加速器：https://reg-mirror.qiniu.com
+
+5. docker运行文件
 
 服务端执行文件 也是docker.service的启动文件
 
-`$:/usr/bin/dockerd`
+`/usr/bin/dockerd`
 
 客户端执行文件 客户端控制服务端的命令执行文件
 
-`$:/usr/bin/docker`
+`/usr/bin/docker`
 
 运行文件的root docker runtime
 
-`$:cd /var/lib/docker/`
+`cd /var/lib/docker/`
 
 执行文件的root docker state files
 
-`$:cd /var/run/docker/`
+`cd /var/run/docker/`
 
 运行的pid文件
 
-`$:cat /var/run/docker.pid`
+`cat /var/run/docker.pid`
 
-###### 运行配置
-
-start,reload 等相关运行的环境命令
-
-`$:cat /usr/lib/systemd/system/docker.service`
-
-`$:cd /usr/lib/systemd/system/docker.service.d (mkdir -p /usr/lib/systemd/system/docker.service.d)`
-
-老版本的 centos 使用环境变量文件 不再推荐
-
-`$:cd /etc/sysconfig/docker`
-
-centos 7上推荐在这个目录下创建 \*.conf 文件来覆盖 docker.service 中的指定项
-
-https://docs.docker.com/engine/admin/#/configuring-docker-1
-
-可以指定的项可以参考该文件
-
-https://docs.docker.com/engine/reference/commandline/dockerd/
-
-`$:cd /etc/systemd/system/docker.service.d`
-
-也可以使用daemon.json文件来进行覆盖
-
-https://docs.docker.com/engine/reference/commandline/dockerd/#/linux-configuration-file
-
-确认docker是否使用了环境变量文件
-
-`$:systemctl show docker.service | grep EnvironmentFile eg.>EnvironmentFile=-/etc/sysconfig/docker (ignore_errors=yes)`
-
-找到运行docker的配置文件的位置
-
-`$:systemctl show --property=FragmentPath docker `
-
-`eg.>FragmentPath=/usr/lib/systemd/system/docker.service`
-
-如果重载或者配置，可以在 /usr/lib/systemd/system/ 下放文件
-
-###### 网络代理
-
-示例:使用配置文件覆盖的方式来实现 http proxy
+###### 常用命令
 
 ```
-$:mkdir /etc/systemd/system/docker.service.d
-$:vi /etc/systemd/system/docker.service.d/http-proxy.conf
-eg.
-[Service]
-Environment="HTTP_PROXY=http://proxy.example.com:80/" 
-eg.
-[Service]
-Environment="HTTP_PROXY=http://proxy.example.com:80" "NO_PROXY=localhost,127.0.0.1,docker-registery.somecorporation.com"
-$:systemctl daemon-reload #生效
-$:systemctl show docker | grep Enviroment
-$:systemctl restart docker #重启docker
+docker search xxxx	# 搜索镜像
+docker pull xxxx	# 下载镜像
+docker images 		# 列出所有安装过的镜像
+
+docker ps -a		# 查看容器
+docker ps -l		# 最后运行的容器
+
+docker run learn/tutorial apt-get install -y net-tools
+docker ps -l
+docker commit 0d1d learn/net-tools
+docker run learn/net-tools ifconfig
+# 修改镜像并保存，每一个命令行都会使镜像的layer增加一层，最多层数是有限制的，使用commit来提交，每次commit都是一个新的镜像
+
+docker run -i -t ubuntu:15.10 /bin/bash		# 运行交互式容器
+docker run -d ubuntu:15.10 /bin/sh -c "while true; do echo hello world; sleep 1; done" 		# 后台启动容器
+docker stop 2b1b7a428627	# 停止容器
+docker restart 2b1b7a428627	# 重启容器
+docker rm -f 2b1b7a428627	# 删除容器
+docker exec -i -t 243c32535da7 /bin/bash # 进入容器
+docker logs 2b1b7a428627	# 查看容器内标准输出
+
+docker export 2b1b7a428627	> ubuntu.tar 				# 导出容器
+cat docker/ubuntu.tar | docker import - test/ubuntu:v1	# 导入容器
+
+docker port
 ```
 
-###### Reference
 
-搜索镜像
 
-`$:docker search xxxx`
+###### docker-compose
 
-下载镜像
-
-`$:docker pull xxxx`
-
-查所有的容器列表
-
-`$:docker ps -a`
-
-查看最后运行的镜像
-
-`$:docker ps -l`
-
-检查运行中的镜像
-
-`$:docker inspect [id]`
-
-列出所有安装过的镜像
-
-`$:docker images `
-
-使用本地镜像执行命令
-
-`$:docker run learn/tutorial echo "hello world"`
-
-修改镜像 并保存
-
-`$:docker run learn/tutorial apt-get install -y net-tools`
-
-`$docker ps -l`
-
-只会返回当前操作的镜像
-```
-CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                     PORTS               NAMES
-0d1d09c846dd        learn/tutorial      "apt-get install -y n"   15 seconds ago      Exited (0) 8 seconds ago                       adoring_rosalind
-$:docker commit 0d1d learn/net-tools
-$:docker run learn/net-tools ifconfig
-```
-
-就可以看到ip配置的返回了
-
-每一个命令行都会使镜像的layer增加一层，最多层数是有限制的（好像是32？）
-
-解决这个问题，要么一行用多个命令连接起来，然后commit，每次commit都是一个新的镜像
-
-要么导出后丢掉历史，然后导入一个新的，重新开始
-
-使用dao cloud提速 docker 的image build/pull
-
-https://account.daocloud.io/signin 注册后,我使用github登陆
-
-docker push可以将镜像发布到官方网站 我的账号是 oliverren
