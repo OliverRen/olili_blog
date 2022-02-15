@@ -27,12 +27,21 @@ systemctl start docker #启动
 systemctl enable docker #配置开机自启
 ```
 
-4. 配置镜像加速源
+4. 配置镜像加速源和dns
 
 对于 systemd管理服务的系统，通过daemon方式载入环境配置
 ```
 /etc/docker/daemon.json
-{"registry-mirrors":["https://reg-mirror.qiniu.com/"]}
+{
+    "registry-mirrors": [
+        "https://reg-mirror.qiniu.com/",
+		......
+    ], 
+    "dns": [
+        "114.114.114.114", 
+        "8.8.8.8"
+    ]
+}
 
 sudo systemctl daemon-reload #重载配置
 sudo systemctl restart docker #重启docker
@@ -74,6 +83,7 @@ docker search xxxx	# 搜索镜像
 docker pull xxxx	# 下载镜像
 docker images 		# 列出所有安装过的镜像
 docker rmi hello-world # 删除镜像
+docker tag 2b1b7a428627	runoob/centos:dev # 给镜像添加tag
 
 docker run learn/tutorial apt-get install -y net-tools
 docker ps -l
@@ -97,10 +107,36 @@ cat docker/ubuntu.tar | docker import - test/ubuntu:v1	# 导入容器
 
 docker port 2b1b7a428627	# 查看 -P 或 -p 等指定的端口映射情况
 docker logs 2b1b7a428627	# 查看容器内标准输出
+-----------------------
+docker network create -d bridge test-net # 创建容器互联网络
+docker run -itd --name test1 --network test-net ubuntu /bin/bash # 创建容器并加入互联网络
 ```
 
 ###### Dockerfile构建镜像
 
+```
+cat Dockerfile 
+FROM    centos:6.7
+MAINTAINER      Fisher "fisher@sudops.com"
+
+RUN     /bin/echo 'root:123456' |chpasswd
+RUN     useradd runoob
+RUN     /bin/echo 'runoob:123456' |chpasswd
+RUN     /bin/echo -e "LANG=\"en_US.UTF-8\"" >/etc/default/local
+EXPOSE  22
+EXPOSE  80
+CMD     /usr/sbin/sshd -D
+
+docker build -t runoob/centos:6.7
+```
+
+每一个指令都会在镜像上创建一个新的层，每一个指令的前缀都必须是大写的。
+
+第一条FROM，指定使用哪个镜像源
+
+RUN 指令告诉docker 在镜像内执行命令，安装了什么。。。
+
+然后，我们使用 Dockerfile 文件，通过 docker build 命令来构建一个镜像。
 
 ###### docker-compose
 
