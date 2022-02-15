@@ -148,7 +148,7 @@ RUN 指令告诉docker 在镜像内执行命令，安装了什么。。。
 
 最后，执行 docker-compose up 命令来启动并运行整个应用程序。
 
-2. 依赖项，py-pip，python-dev，libffi-dev，openssl-dev，gcc，libc-dev，和 make
+2. 依赖项，py-pip,python-dev,libffi-dev,openssl-dev,gcc,libc-dev,make
 
 安装下载地址 https://github.com/docker/compose/releases , 直接下载二进制包
 
