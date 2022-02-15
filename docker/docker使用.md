@@ -293,7 +293,7 @@ endpoint_mode: dnsrr
 
 *   图解：下图中黄色的方块是 replicated 模式的运行情况，灰色方块是 global 模式的运行情况。
 
-    ![](https://www.runoob.com/wp-content/uploads/2019/11/docker-composex.png)
+    ![](https://raw.githubusercontent.com/OliverRen/olili_blog_img/master/docker使用/1644906624835.png)
 
 **replicas：mode** 为 replicated 时，需要使用此参数配置具体运行的节点数量。
 
