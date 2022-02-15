@@ -43,8 +43,8 @@ systemctl enable docker #配置开机自启
     ]
 }
 
-sudo systemctl daemon-reload #重载配置
-sudo systemctl restart docker #重启docker
+systemctl daemon-reload #重载配置
+systemctl restart docker #重启docker
 
 docker info # check info
 ```
