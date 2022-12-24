@@ -88,6 +88,7 @@ FileCoin概念 (concept)
 - [消息池mpool](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/28_消息池mpool.md)
 - [LotusMiner应用的故障处理](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/29_LotusMiner应用的故障处理.md)
 - [Lotus不同方案执行的大概时间](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/30_Lotus不同方案执行的大概时间.md)
+- [Lotus常用命令集合](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/31_Lotus常用命令集合.md)
 
 应用 IPFS 和 Filecoin (application)
 
