@@ -163,3 +163,18 @@ lotus-miner sectors snap-up <sector-id>
 # 2. 终止 snap-up 操作
 lotus-miner sectors abort-upgrade --really-do-it <sector-id>
 ```
+
+### 查看时空证明信息
+
+```
+# 查看时空证明信息
+lotus-miner proving info
+# 查看时空证明 deadline 信息
+lotus-miner proving deadlines
+# 查看某个具体的 deadline 信息（daedline,partitions,以及错误扇区）
+lotus-miner proving deadline <index>
+# 列出所有错误(faulty)扇区
+lotus-miner proving faults
+# 检查
+lotus-miner proving check --slow=true <index>
+```
