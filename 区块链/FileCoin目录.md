@@ -91,6 +91,7 @@ FileCoin概念 (concept)
 - [Lotus常用命令集合](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/31_Lotus常用命令集合.md)
 - [扇区过期和续期](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/32_扇区过期和续期.md)
 - [使用lotus-shed](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/33_使用lotus-shed.md)
+- [SplitStore](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/34_SplitStore.md)
 
 应用 IPFS 和 Filecoin (application)
 
