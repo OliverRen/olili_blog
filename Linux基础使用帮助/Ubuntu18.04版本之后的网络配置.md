@@ -69,7 +69,7 @@ network:
 #### 配置示例
 
 cat ifcfg-em1
-``` yml?linenums=n
+``` yml?linenums=no
 BOOTPROTO=none
 SLAVE=yes
 DEVICE=em1
@@ -80,7 +80,7 @@ NM_CONTROLLED=no
 ```
 
 cat ifcfg-em2
-```
+``` yml?linenums=no
 BOOTPROTO=none
 SLAVE=yes
 DEVICE=em2
