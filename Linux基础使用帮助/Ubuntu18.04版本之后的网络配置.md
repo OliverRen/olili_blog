@@ -68,20 +68,17 @@ network:
 
 #### 配置示例
 
-cat ifcfg-em1
-``` yml?linenums=no
-BOOTPROTO=none
+`cat ifcfg-em1`
+> BOOTPROTO=none
 SLAVE=yes
 DEVICE=em1
 MASTER=bond1
 USERCTL=no
 ONBOOT=yes
 NM_CONTROLLED=no
-```
 
-cat ifcfg-em2
-``` yml?linenums=no
-BOOTPROTO=none
+`cat ifcfg-em2`
+> BOOTPROTO=none
 SLAVE=yes
 DEVICE=em2
 MASTER=bond1
@@ -89,19 +86,19 @@ USERCTL=no
 NM_CONTROLLED=no
 ONBOOT=yes
 
-cat ifcfg-lo
-DEVICE=lo
+`cat ifcfg-lo`
+> DEVICE=lo
 IPADDR=127.0.0.1
 NETMASK=255.0.0.0
 NETWORK=127.0.0.0
-# If you're having problems with gated making 127.0.0.0/8 a martian,
-# you can change this to something else (255.255.255.255, for example)
+\# If you're having problems with gated making 127.0.0.0/8 a martian,
+\# you can change this to something else (255.255.255.255, for example)
 BROADCAST=127.255.255.255
 ONBOOT=yes
 NAME=loopback
 
-cat ifcfg-bond1
-BOOTPROTO=none
+`cat ifcfg-bond1`
+> BOOTPROTO=none
 DEVICE=bond1
 NETMASK=255.255.252.0
 IPADDR=10.1.55.241
@@ -112,8 +109,8 @@ BONDING_OPTS="mode=6 miimon=100"
 NM_CONTROLLED=no
 MTU=1500
 
-cat /etc/netplan/00-installer-config.yaml
-# This is the network config written by 'subiquity'
+`cat /etc/netplan/00-installer-config.yaml`
+> \# This is the network config written by 'subiquity'
 network:
   version: 2
   renderer: networkd
@@ -139,9 +136,8 @@ network:
           - "223.5.5.5"
           - "114.114.114.114"
 
-
-cat /etc/netplan/01-installer-config.yaml
-# This is the network config written by 'subiquity'
+`cat /etc/netplan/01-installer-config.yaml`
+> \# This is the network config written by 'subiquity'
 network:
   version: 2
   renderer: networkd
@@ -160,11 +156,9 @@ network:
         mii-monitor-interval: 100
       addresses:
         - "10.1.49.66/22"
-#      gateway4: "10.1.48.1"
+\#      gateway4: "10.1.48.1"
       nameservers:
         addresses:
           - "10.1.48.253"
           - "223.5.5.5"
           - "114.114.114.114"
-
-```
