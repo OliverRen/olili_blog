@@ -3,6 +3,8 @@ title: Ubuntu18.04版本之后的网络配置
 tags: 
 ---
 
+[toc]
+
 [Netplan](https://netplan.io/) —— **抽象网络配置生成器** ，是一个用于配置 `Linux` 网络的简单工具。 通过 `Netplan` ，你只需用一个 `YAML` 文件描述每个网络接口需要配置成啥样即可。 根据这个配置描述， `Netplan` 便可帮你生成所有需要的配置，不管你选用的底层管理工具是啥。
 
 #### 工作原理
@@ -61,3 +63,108 @@ network:
 本文主要内容来自
 作者：fasionchan
 链接：https://www.jianshu.com/p/174656635e74
+
+--------------------------------------------------------------
+
+#### 配置示例
+
+cat ifcfg-em1
+``` yml?linenums
+BOOTPROTO=none
+SLAVE=yes
+DEVICE=em1
+MASTER=bond1
+USERCTL=no
+ONBOOT=yes
+NM_CONTROLLED=no
+```
+
+cat ifcfg-em2
+```
+BOOTPROTO=none
+SLAVE=yes
+DEVICE=em2
+MASTER=bond1
+USERCTL=no
+NM_CONTROLLED=no
+ONBOOT=yes
+
+cat ifcfg-lo
+DEVICE=lo
+IPADDR=127.0.0.1
+NETMASK=255.0.0.0
+NETWORK=127.0.0.0
+# If you're having problems with gated making 127.0.0.0/8 a martian,
+# you can change this to something else (255.255.255.255, for example)
+BROADCAST=127.255.255.255
+ONBOOT=yes
+NAME=loopback
+
+cat ifcfg-bond1
+BOOTPROTO=none
+DEVICE=bond1
+NETMASK=255.255.252.0
+IPADDR=10.1.55.241
+GATEWAY=10.1.52.1
+USERCTL=no
+ONBOOT=yes
+BONDING_OPTS="mode=6 miimon=100"
+NM_CONTROLLED=no
+MTU=1500
+
+cat /etc/netplan/00-installer-config.yaml
+# This is the network config written by 'subiquity'
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    enp1s0f0:
+      dhcp4: no
+    enp1s0f1:
+      dhcp4: no
+  bonds:
+    bond0:
+      interfaces:
+        - enp1s0f0
+        - enp1s0f1
+      parameters:
+        mode: balance-alb
+        mii-monitor-interval: 100
+      addresses:
+        - "10.1.53.66/22"
+      gateway4: "10.1.52.1"
+      nameservers:
+        addresses:
+          - "10.1.48.253"
+          - "223.5.5.5"
+          - "114.114.114.114"
+
+
+cat /etc/netplan/01-installer-config.yaml
+# This is the network config written by 'subiquity'
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    ens8f0:
+      dhcp4: no
+    ens8f1:
+      dhcp4: no
+  bonds:
+    bond1:
+      interfaces:
+        - ens8f0
+        - ens8f1
+      parameters:
+        mode: balance-alb
+        mii-monitor-interval: 100
+      addresses:
+        - "10.1.49.66/22"
+#      gateway4: "10.1.48.1"
+      nameservers:
+        addresses:
+          - "10.1.48.253"
+          - "223.5.5.5"
+          - "114.114.114.114"
+
+```
