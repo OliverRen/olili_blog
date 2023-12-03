@@ -92,6 +92,7 @@ FileCoin概念 (concept)
 - [扇区过期和续期](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/32_扇区过期和续期.md)
 - [使用lotus-shed](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/33_使用lotus-shed.md)
 - [SplitStore](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/34_SplitStore.md)
+- [封装资源消耗](https://github.com/OliverRen/olili_blog/blob/master/区块链/FileCoin/miner/35_封装资源消耗.md)
 
 应用 IPFS 和 Filecoin (application)
 
